@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wavlon Lasers — Fiber Laser Cutting Machines</title>
+<meta name="description" content="Wavlon Lasers supplies high-performance fiber laser cutting machines for metal fabrication. Industrial-grade precision, Canadian-backed support." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+/* ─── RESET & BASE ───────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:#07101f;
+  color:#e8edf5;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+input,textarea,select{font-family:inherit}
+
+/* ─── CSS VARIABLES ──────────────────────────────────────── */
+:root{
+  --bg:#07101f;
+  --bg2:#0c1a2e;
+  --bg3:#112038;
+  --surface:#0f1e35;
+  --border:#1e3050;
+  --accent:#00c8ff;
+  --accent2:#0090cc;
+  --accent-glow:rgba(0,200,255,0.15);
+  --orange:#ff5a00;
+  --text:#e8edf5;
+  --text2:#8fa8c8;
+  --text3:#5c7a99;
+  --radius:10px;
+  --shadow:0 4px 24px rgba(0,0,0,0.4);
+  --nav-h:72px;
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────────── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+h1,h2,h3,h4{font-family:'Outfit',sans-serif;line-height:1.2}
+
+/* ─── NAV ────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;
+  background:rgba(7,16,31,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:background 0.3s;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:12px;
+}
+.nav-logo-mark{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;
+  color:#07101f;
+  box-shadow:0 0 16px rgba(0,200,255,0.4);
+}
+.nav-logo-text{
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:20px;
+  letter-spacing:-0.3px;
+}
+.nav-logo-text span{color:var(--accent)}
+.nav-links{
+  display:flex;align-items:center;gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:15px;font-weight:500;color:var(--text2);
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  background:var(--accent);color:#07101f;
+  padding:10px 22px;border-radius:7px;
+  font-weight:600;font-size:14px;
+  transition:background 0.2s,box-shadow 0.2s;
+  box-shadow:0 0 16px rgba(0,200,255,0.25);
+}
+.nav-cta:hover{background:#22d4ff;box-shadow:0 0 22px rgba(0,200,255,0.4)}
+.nav-mobile-btn{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
+.nav-mobile-btn span{width:22px;height:2px;background:var(--text2);border-radius:1px;transition:0.3s}
+
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:calc(var(--nav-h) + 60px) 40px 80px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,144,204,0.12) 0%, transparent 70%),
+             radial-gradient(ellipse 40% 40% at 80% 70%, rgba(255,90,0,0.06) 0%, transparent 60%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(30,48,80,0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,48,80,0.25) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+}
+.hero-content{max-width:660px;position:relative;z-index:1}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:100px;
+  border:1px solid rgba(0,200,255,0.3);
+  background:rgba(0,200,255,0.07);
+  font-size:13px;font-weight:500;color:var(--accent);
+  margin-bottom:28px;
+}
+.hero-badge::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{
+  font-size:clamp(42px,5vw,70px);
+  font-weight:800;
+  letter-spacing:-1.5px;
+  line-height:1.08;
+  margin-bottom:24px;
+}
+.hero h1 span{
+  background:linear-gradient(90deg, var(--accent), #66e8ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:18px;color:var(--text2);
+  max-width:520px;line-height:1.7;
+  margin-bottom:40px;
+}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:#07101f;
+  padding:14px 28px;border-radius:8px;
+  font-weight:700;font-size:15px;
+  box-shadow:0 0 24px rgba(0,200,255,0.3);
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s;
+}
+.btn-primary:hover{background:#22d4ff;transform:translateY(-1px);box-shadow:0 0 32px rgba(0,200,255,0.5)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--border);color:var(--text);
+  padding:14px 28px;border-radius:8px;
+  font-weight:600;font-size:15px;
+  transition:border-color 0.2s,background 0.2s;
+}
+.btn-secondary:hover{border-color:var(--accent);background:rgba(0,200,255,0.06)}
+.hero-stats{
+  display:flex;gap:48px;margin-top:56px;
+  padding-top:40px;border-top:1px solid var(--border);
+}
+.hero-stat-num{
+  font-family:'Outfit',sans-serif;
+  font-size:32px;font-weight:800;
+  color:var(--accent);
+}
+.hero-stat-label{font-size:13px;color:var(--text3);margin-top:2px}
+.hero-laser-viz{
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  width:48%;max-width:700px;
+  opacity:0.12;pointer-events:none;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ─── SECTION COMMONS ────────────────────────────────────── */
+section{padding:100px 40px}
+.section-tag{
+  display:inline-block;
+  font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+.section-title{
+  font-size:clamp(30px,3.5vw,46px);
+  font-weight:800;letter-spacing:-0.8px;
+  margin-bottom:16px;
+}
+.section-sub{
+  font-size:17px;color:var(--text2);max-width:560px;line-height:1.7;
+  margin-bottom:56px;
+}
+.container{max-width:1200px;margin:0 auto}
+
+/* ─── FEATURES STRIP ─────────────────────────────────────── */
+.features-strip{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:28px 40px;
+}
+.features-strip-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.strip-item{
+  display:flex;align-items:center;gap:12px;
+  padding:0 28px;
+}
+.strip-item:not(:last-child){border-right:1px solid var(--border)}
+.strip-icon{
+  width:38px;height:38px;border-radius:8px;
+  background:rgba(0,200,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.strip-label{font-size:14px;font-weight:600;color:var(--text)}
+.strip-desc{font-size:12px;color:var(--text3)}
+
+/* ─── MACHINES ───────────────────────────────────────────── */
+.machines-section{background:var(--bg)}
+.machines-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.machine-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;
+  cursor:pointer;
+}
+.machine-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(0,200,255,0.12);
+}
+.machine-card-img{
+  height:200px;
+  background:linear-gradient(135deg,var(--bg2),var(--bg3));
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.machine-card-img::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 60% at 50% 60%, rgba(0,200,255,0.08) 0%, transparent 70%);
+}
+.machine-laser-icon{font-size:64px;opacity:0.6;position:relative;z-index:1}
+.machine-badge{
+  position:absolute;top:12px;right:12px;
+  background:var(--accent);color:#07101f;
+  font-size:11px;font-weight:700;padding:4px 10px;
+  border-radius:4px;
+}
+.machine-card-body{padding:24px}
+.machine-card-model{
+  font-family:'Outfit',sans-serif;
+  font-size:20px;font-weight:700;
+  margin-bottom:4px;
+}
+.machine-card-power{
+  font-size:13px;color:var(--accent);font-weight:600;
+  margin-bottom:12px;
+}
+.machine-card-specs{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8px;margin-bottom:20px;
+}
+.spec-item{background:var(--bg2);border-radius:6px;padding:10px 12px}
+.spec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text3)}
+.spec-val{font-size:14px;font-weight:600;margin-top:2px}
+.machine-card-price{
+  font-family:'Outfit',sans-serif;
+  font-size:22px;font-weight:800;
+  margin-bottom:16px;
+}
+.machine-card-footer{
+  display:flex;gap:10px;
+}
+.btn-card-primary{
+  flex:1;background:var(--accent);color:#07101f;
+  padding:10px;border-radius:7px;
+  font-weight:700;font-size:14px;
+  transition:background 0.2s;
+  text-align:center;
+}
+.btn-card-primary:hover{background:#22d4ff}
+.btn-card-secondary{
+  padding:10px 14px;border-radius:7px;
+  border:1px solid var(--border);color:var(--text2);
+  font-size:14px;font-weight:500;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-card-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.machines-loading{
+  text-align:center;color:var(--text2);padding:80px 0;
+  font-size:16px;grid-column:1/-1;
+}
+.machines-empty{
+  text-align:center;color:var(--text2);padding:80px 0;
+  grid-column:1/-1;
+}
+
+/* ─── WHY WAVLON ─────────────────────────────────────────── */
+.why-section{background:var(--bg2)}
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.why-card{
+  padding:32px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  transition:border-color 0.25s;
+}
+.why-card:hover{border-color:rgba(0,200,255,0.4)}
+.why-icon{
+  width:52px;height:52px;border-radius:10px;
+  background:rgba(0,200,255,0.08);
+  border:1px solid rgba(0,200,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:20px;
+}
+.why-card h3{font-size:20px;font-weight:700;margin-bottom:10px}
+.why-card p{font-size:15px;color:var(--text2);line-height:1.65}
+
+/* ─── INDUSTRIES ─────────────────────────────────────────── */
+.industries-section{background:var(--bg)}
+.industries-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.industry-card{
+  padding:28px 24px;text-align:center;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  transition:border-color 0.25s,background 0.25s;
+}
+.industry-card:hover{
+  border-color:rgba(0,200,255,0.3);
+  background:rgba(0,200,255,0.04);
+}
+.industry-icon{font-size:36px;margin-bottom:14px}
+.industry-card h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.industry-card p{font-size:13px;color:var(--text3)}
+
+/* ─── QUOTE SECTION ──────────────────────────────────────── */
+.quote-section{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.quote-inner{
+  max-width:840px;margin:0 auto;
+}
+.quote-form-wrap{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:48px;
+}
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.form-group{display:flex;flex-direction:column;gap:7px}
+.form-group.full{grid-column:1/-1}
+.form-label{
+  font-size:13px;font-weight:600;
+  color:var(--text2);
+  text-transform:uppercase;letter-spacing:0.8px;
+}
+.form-input,
+.form-select,
+.form-textarea{
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:7px;
+  padding:12px 16px;
+  color:var(--text);
+  font-size:15px;
+  transition:border-color 0.2s,box-shadow 0.2s;
+  width:100%;
+  outline:none;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(0,200,255,0.1);
+}
+.form-select{appearance:none;cursor:pointer}
+.form-textarea{resize:vertical;min-height:110px}
+.form-submit{
+  margin-top:28px;
+  display:flex;justify-content:flex-end;
+}
+.btn-submit{
+  background:var(--accent);color:#07101f;
+  padding:14px 36px;border-radius:8px;
+  font-weight:700;font-size:15px;
+  box-shadow:0 0 20px rgba(0,200,255,0.25);
+  transition:background 0.2s,transform 0.15s;
+}
+.btn-submit:hover{background:#22d4ff;transform:translateY(-1px)}
+.btn-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.form-success{
+  text-align:center;padding:48px 0;
+  display:none;
+}
+.form-success-icon{font-size:56px;margin-bottom:16px}
+.form-success h3{font-size:24px;font-weight:700;margin-bottom:8px}
+.form-success p{color:var(--text2)}
+
+/* ─── CONTACT ────────────────────────────────────────────── */
+.contact-section{background:var(--bg)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1.4fr;
+  gap:48px;align-items:start;
+}
+.contact-info h3{font-size:26px;font-weight:700;margin-bottom:16px}
+.contact-info p{font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:32px}
+.contact-items{display:flex;flex-direction:column;gap:20px}
+.contact-item{
+  display:flex;align-items:flex-start;gap:14px;
+}
+.contact-item-icon{
+  width:40px;height:40px;border-radius:8px;
+  background:rgba(0,200,255,0.08);
+  border:1px solid rgba(0,200,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;margin-top:2px;
+}
+.contact-item-label{font-size:12px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.8px}
+.contact-item-val{font-size:15px;font-weight:500;margin-top:2px}
+.contact-form{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:40px;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+footer{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:60px 40px 32px;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;margin-bottom:48px;
+}
+.footer-brand p{font-size:14px;color:var(--text3);line-height:1.7;margin-top:16px;max-width:280px}
+.footer-col h5{
+  font-family:'Outfit',sans-serif;
+  font-size:14px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--text2);margin-bottom:16px;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col li a{font-size:14px;color:var(--text3);transition:color 0.2s}
+.footer-col li a:hover{color:var(--text)}
+.footer-bottom{
+  border-top:1px solid var(--border);
+  padding-top:28px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-copy{font-size:13px;color:var(--text3)}
+.footer-accent{color:var(--accent)}
+
+/* ─── MODAL ──────────────────────────────────────────────── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  max-width:700px;width:100%;
+  max-height:90vh;overflow-y:auto;
+  padding:40px;
+  position:relative;
+}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;border-radius:6px;
+  background:var(--bg2);border:1px solid var(--border);
+  color:var(--text2);font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:color 0.2s,border-color 0.2s;
+}
+.modal-close:hover{color:var(--text);border-color:var(--accent)}
+.modal-machine-header{margin-bottom:28px}
+.modal-machine-model{
+  font-family:'Outfit',sans-serif;
+  font-size:28px;font-weight:800;margin-bottom:4px;
+}
+.modal-machine-power{font-size:15px;color:var(--accent);font-weight:600;margin-bottom:8px}
+.modal-machine-desc{font-size:15px;color:var(--text2);line-height:1.7}
+.modal-specs-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;margin:24px 0;
+}
+.modal-spec{background:var(--bg2);border-radius:8px;padding:14px 16px}
+.modal-spec-label{font-size:11px;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.modal-spec-val{font-size:16px;font-weight:700;margin-top:4px}
+.modal-price{
+  font-family:'Outfit',sans-serif;
+  font-size:28px;font-weight:800;
+  color:var(--accent);margin-bottom:20px;
+}
+.modal-actions{display:flex;gap:12px}
+
+/* ─── TOAST ──────────────────────────────────────────────── */
+#toast{
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:14px 20px;
+  font-size:14px;font-weight:500;
+  box-shadow:var(--shadow);
+  transform:translateY(20px);opacity:0;
+  transition:transform 0.3s,opacity 0.3s;
+  pointer-events:none;max-width:320px;
+}
+#toast.show{transform:translateY(0);opacity:1}
+#toast.success{border-color:var(--accent);color:var(--accent)}
+#toast.error{border-color:#ff5555;color:#ff5555}
+
+/* ─── MOBILE ─────────────────────────────────────────────── */
+@media(max-width:1024px){
+  .machines-grid{grid-template-columns:repeat(2,1fr)}
+  .industries-grid{grid-template-columns:repeat(2,2fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .features-strip-inner{grid-template-columns:repeat(2,1fr);gap:16px}
+  .strip-item:not(:last-child){border-right:none}
+  .strip-item{padding:12px 0}
+}
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .nav-mobile-btn{display:flex}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:fixed;top:var(--nav-h);left:0;right:0;
+    background:var(--bg2);border-bottom:1px solid var(--border);
+    padding:20px;gap:16px;
+  }
+  .hero{padding:calc(var(--nav-h) + 40px) 20px 60px}
+  .hero h1{font-size:38px}
+  .hero-stats{flex-wrap:wrap;gap:28px}
+  section{padding:70px 20px}
+  .why-grid{grid-template-columns:1fr}
+  .machines-grid{grid-template-columns:1fr}
+  .industries-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .form-group.full{grid-column:1}
+  .quote-form-wrap{padding:28px 20px}
+  .contact-form{padding:28px 20px}
+  .modal{padding:24px 20px}
+  .modal-specs-grid{grid-template-columns:1fr 1fr}
+  footer{padding:48px 20px 24px}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .features-strip{padding:20px}
+  .features-strip-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .hero h1{font-size:32px}
+  .industries-grid{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column}
+  .btn-primary,.btn-secondary{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">W</div>
+    <div class="nav-logo-text">Wavlon<span> Lasers</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#machines">Machines</a></li>
+    <li><a href="#why">Why Wavlon</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#quote">Get a Quote</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#quote" class="nav-cta">Request Quote</a></li>
+  </ul>
+  <div class="nav-mobile-btn" id="mobileBtn" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Now Serving Canadian & US Markets</div>
+    <h1>Precision Fiber<br/><span>Laser Cutting</span><br/>Machines</h1>
+    <p class="hero-sub">Industrial-grade fiber laser cutting machines engineered for precision metal fabrication. From 1,000W to 30,000W — we have the right machine for your operation.</p>
+    <div class="hero-actions">
+      <a href="#machines" class="btn-primary">
+        <span>Browse Machines</span>
+        <span>→</span>
+      </a>
+      <a href="#quote" class="btn-secondary">
+        <span>Get a Quote</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">±0.03mm</div>
+        <div class="hero-stat-label">Cutting Accuracy</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">30kW</div>
+        <div class="hero-stat-label">Max Laser Power</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">24/7</div>
+        <div class="hero-stat-label">Technical Support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES STRIP ───────────────────────────────────── -->
+<div class="features-strip">
+  <div class="features-strip-inner">
+    <div class="strip-item">
+      <div class="strip-icon">⚡</div>
+      <div>
+        <div class="strip-label">High-Speed Cutting</div>
+        <div class="strip-desc">Up to 120m/min traverse speed</div>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🔧</div>
+      <div>
+        <div class="strip-label">Expert Installation</div>
+        <div class="strip-desc">On-site setup & commissioning</div>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">🛡️</div>
+      <div>
+        <div class="strip-label">2-Year Warranty</div>
+        <div class="strip-desc">Parts & labour covered</div>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">📞</div>
+      <div>
+        <div class="strip-label">Lifetime Support</div>
+        <div class="strip-desc">Dedicated technical team</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MACHINES ─────────────────────────────────────────── -->
+<section class="machines-section" id="machines">
+  <div class="container">
+    <div class="section-tag">Our Lineup</div>
+    <h2 class="section-title">Fiber Laser Machines</h2>
+    <p class="section-sub">Every machine is built for production reliability. Select your power class, bed size, and we'll configure the right system for your material and volume.</p>
+    <div class="machines-grid" id="machinesGrid">
+      <div class="machines-loading">Loading machines…</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY WAVLON ────────────────────────────────────────── -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-tag">Why Choose Us</div>
+    <h2 class="section-title">Built for Fabricators,<br/>Backed by Experts</h2>
+    <p class="section-sub">We don't just sell machines — we partner with your business to make sure your laser runs at peak performance from day one.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <h3>German Fiber Technology</h3>
+        <p>IPG and Raycus fiber laser sources with proven reliability and high wall-plug efficiency — cutting faster with less power consumption.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚙️</div>
+        <h3>Industrial-Grade Build</h3>
+        <p>Heavy-duty welded steel frames, precision linear guides, and servo drives engineered for three-shift production environments.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>±0.03mm Tolerance</h3>
+        <p>Closed-loop position control and auto-focus cutting heads maintain tight tolerances even on complex contour paths at high speed.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚀</div>
+        <h3>Fast Delivery</h3>
+        <p>In-stock machines ship within 2–4 weeks. Custom configurations within 8–12 weeks. Full installation and training included.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💼</div>
+        <h3>Financing Available</h3>
+        <p>Flexible lease-to-own, equipment financing, and deferred payment options to keep your capital working. Canadian & US lenders.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛠️</div>
+        <h3>Local Technical Support</h3>
+        <p>Canadian-based service technicians with same-day response. Remote diagnostics, preventive maintenance, and emergency field service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INDUSTRIES ────────────────────────────────────────── -->
+<section class="industries-section" id="industries">
+  <div class="container">
+    <div class="section-tag">Who We Serve</div>
+    <h2 class="section-title">Trusted Across Industries</h2>
+    <p class="section-sub">From automotive tooling to architectural metalwork — Wavlon machines run in the most demanding production environments.</p>
+    <div class="industries-grid">
+      <div class="industry-card">
+        <div class="industry-icon">🚗</div>
+        <h4>Automotive</h4>
+        <p>Chassis components, brackets, and stampings cut to spec</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon">🏗️</div>
+        <h4>Structural Steel</h4>
+        <p>Plate cutting, flanges, and structural profiles at volume</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon">✈️</div>
+        <h4>Aerospace</h4>
+        <p>Titanium, Inconel, and aluminium alloys with tight tolerances</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon">🏢</div>
+        <h4>Architecture</h4>
+        <p>Decorative panels, cladding, and custom facade elements</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon">⚡</div>
+        <h4>Electronics</h4>
+        <p>Enclosures, heat sinks, and precision sheet metal parts</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon">🔩</div>
+        <h4>General Fabrication</h4>
+        <p>Job shops and contract manufacturers serving all sectors</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon">🌊</div>
+        <h4>Marine</h4>
+        <p>Stainless steel, aluminium, and duplex marine components</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-icon">💡</div>
+        <h4>Signage & Décor</h4>
+        <p>Intricate letters, logos, and decorative metal art</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUOTE ─────────────────────────────────────────────── -->
+<section class="quote-section" id="quote">
+  <div class="container">
+    <div class="quote-inner">
+      <div class="section-tag" style="text-align:center">Get Started</div>
+      <h2 class="section-title" style="text-align:center">Request a Quote</h2>
+      <p class="section-sub" style="text-align:center;margin:0 auto 40px">Tell us about your application and we'll recommend the right machine and provide a detailed quotation within one business day.</p>
+      <div class="quote-form-wrap">
+        <div id="quoteFormContent">
+          <form id="quoteForm" class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input class="form-input" type="text" id="qName" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Company</label>
+              <input class="form-input" type="text" id="qCompany" placeholder="Acme Metal Works" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input class="form-input" type="email" id="qEmail" placeholder="jane@company.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input class="form-input" type="tel" id="qPhone" placeholder="+1 (416) 555-0100" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Machine of Interest</label>
+              <select class="form-select" id="qMachine">
+                <option value="">— Select a machine or power class —</option>
+                <option value="entry">Entry Series (1–2kW)</option>
+                <option value="mid">Mid Series (3–6kW)</option>
+                <option value="industrial">Industrial Series (8–15kW)</option>
+                <option value="heavy">Heavy Duty (20–30kW)</option>
+                <option value="unsure">Not Sure — Advise Me</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Primary Material</label>
+              <select class="form-select" id="qMaterial">
+                <option value="">— Select material —</option>
+                <option value="mild_steel">Mild Steel</option>
+                <option value="stainless">Stainless Steel</option>
+                <option value="aluminum">Aluminium</option>
+                <option value="brass">Brass / Copper</option>
+                <option value="titanium">Titanium / Exotic</option>
+                <option value="mixed">Multiple Materials</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Max Thickness (mm)</label>
+              <input class="form-input" type="text" id="qThickness" placeholder="e.g. 20mm mild steel" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Budget Range</label>
+              <select class="form-select" id="qBudget">
+                <option value="">— Select budget —</option>
+                <option value="under_50k">Under $50,000 CAD</option>
+                <option value="50_100k">$50,000 – $100,000 CAD</option>
+                <option value="100_250k">$100,000 – $250,000 CAD</option>
+                <option value="250k_plus">$250,000+ CAD</option>
+                <option value="financing">Financing — Flexible</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Additional Details</label>
+              <textarea class="form-textarea" id="qMessage" placeholder="Describe your application, production volume, current process, or any specific requirements…"></textarea>
+            </div>
+            <div class="form-submit full">
+              <button type="submit" class="btn-submit" id="quoteSubmitBtn">Send Quote Request</button>
+            </div>
+          </form>
+        </div>
+        <div class="form-success" id="quoteSuccess">
+          <div class="form-success-icon">✅</div>
+          <h3>Quote Request Received</h3>
+          <p>Thank you — our team will review your application and send you a detailed quote within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────────── -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-tag">Contact</div>
+        <h3>Let's Talk Lasers</h3>
+        <p>Whether you're evaluating your first machine or expanding a production line, our team is ready to help you find the right solution.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val">sales@wavlonlasers.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-val">+1 (416) 555-0190</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-val">Toronto, Ontario, Canada</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕒</div>
+            <div>
+              <div class="contact-item-label">Hours</div>
+              <div class="contact-item-val">Mon – Fri, 8am – 6pm EST</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h4 style="font-size:20px;font-weight:700;margin-bottom:24px">Send a Message</h4>
+        <div id="contactFormContent">
+          <form id="contactForm" class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Name *</label>
+              <input class="form-input" type="text" id="cName" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input class="form-input" type="email" id="cEmail" placeholder="you@company.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input class="form-input" type="tel" id="cPhone" placeholder="+1 (416) 555-0100" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <input class="form-input" type="text" id="cSubject" placeholder="Machine enquiry, service, etc." />
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Message *</label>
+              <textarea class="form-textarea" id="cMessage" placeholder="How can we help?" required></textarea>
+            </div>
+            <div class="form-submit full">
+              <button type="submit" class="btn-submit" id="contactSubmitBtn">Send Message</button>
+            </div>
+          </form>
+        </div>
+        <div class="form-success" id="contactSuccess">
+          <div class="form-success-icon">✅</div>
+          <h3>Message Sent</h3>
+          <p>We'll get back to you within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-mark">W</div>
+          <div class="nav-logo-text">Wavlon<span> Lasers</span></div>
+        </a>
+        <p>High-performance fiber laser cutting machines for modern metal fabrication. Canadian-backed sales and service.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Machines</h5>
+        <ul>
+          <li><a href="#machines">Entry Series</a></li>
+          <li><a href="#machines">Mid Series</a></li>
+          <li><a href="#machines">Industrial Series</a></li>
+          <li><a href="#machines">Heavy Duty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#why">Why Wavlon</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#quote">Get a Quote</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#contact">Technical Support</a></li>
+          <li><a href="#contact">Installation</a></li>
+          <li><a href="#contact">Financing</a></li>
+          <li><a href="#contact">Parts & Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 <span class="footer-accent">Wavlon Lasers</span> — All rights reserved.</div>
+      <div class="footer-copy">Toronto, Ontario, Canada</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── MACHINE DETAIL MODAL ──────────────────────────────── -->
+<div class="modal-overlay" id="machineModal">
+  <div class="modal" id="machineModalContent">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ─── TOAST ─────────────────────────────────────────────── -->
+<div id="toast"></div>
+
+<!-- ─── SCRIPTS ───────────────────────────────────────────── -->
+<script>
+// ── Supabase init ─────────────────────────────────────────────
+const SUPABASE_URL = 'SUPABASE_URL_PLACEHOLDER';
+const SUPABASE_KEY = 'SUPABASE_KEY_PLACEHOLDER';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// ── Toast ──────────────────────────────────────────────────────
+function showToast(msg, type='success') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'show ' + type;
+  setTimeout(() => { el.className = '' }, 3500);
+}
+
+// ── Mobile nav ────────────────────────────────────────────────
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ── Load machines ─────────────────────────────────────────────
+async function loadMachines() {
+  const grid = document.getElementById('machinesGrid');
+  try {
+    const { data, error } = await sb
+      .from('machines')
+      .select('*')
+      .eq('status', 'active')
+      .order('featured', { ascending: false })
+      .order('sort_order', { ascending: true });
+
+    if (error) throw error;
+
+    if (!data || data.length === 0) {
+      grid.innerHTML = `
+        <div class="machines-empty">
+          <p style="font-size:18px;font-weight:600;margin-bottom:8px">Machines Coming Soon</p>
+          <p style="color:var(--text3)">Our lineup is being configured. Contact us for a private quote.</p>
+          <a href="#quote" class="btn-primary" style="display:inline-flex;margin-top:20px">Request Quote</a>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = data.map(m => {
+      const specs = m.specs || {};
+      const badge = m.featured ? `<div class="machine-badge">Featured</div>` : '';
+      const price = m.price_display || (m.price ? 'CAD $' + Number(m.price).toLocaleString() : 'Contact for Pricing');
+      return `
+        <div class="machine-card" onclick="openMachine(${JSON.stringify(m).replace(/"/g,'&quot;')})">
+          <div class="machine-card-img">
+            <div class="machine-laser-icon">⚡</div>
+            ${badge}
+          </div>
+          <div class="machine-card-body">
+            <div class="machine-card-model">${escHtml(m.model)}</div>
+            <div class="machine-card-power">${escHtml(String(m.power_watts || ''))}W Fiber Laser</div>
+            <div class="machine-card-specs">
+              ${m.bed_length_mm ? `<div class="spec-item"><div class="spec-label">Bed Size</div><div class="spec-val">${m.bed_length_mm}×${m.bed_width_mm}mm</div></div>` : ''}
+              ${specs.max_mild_steel_mm ? `<div class="spec-item"><div class="spec-label">Max Steel</div><div class="spec-val">${specs.max_mild_steel_mm}mm</div></div>` : ''}
+              ${specs.cutting_speed_mmin ? `<div class="spec-item"><div class="spec-label">Cut Speed</div><div class="spec-val">${specs.cutting_speed_mmin}m/min</div></div>` : ''}
+              ${specs.accuracy_mm ? `<div class="spec-item"><div class="spec-label">Accuracy</div><div class="spec-val">±${specs.accuracy_mm}mm</div></div>` : ''}
+            </div>
+            <div class="machine-card-price">${escHtml(price)}</div>
+            <div class="machine-card-footer">
+              <div class="btn-card-primary">Get Quote</div>
+              <button class="btn-card-secondary" onclick="event.stopPropagation();openMachine(${JSON.stringify(m).replace(/"/g,'&quot;')})">Details</button>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+  } catch(e) {
+    grid.innerHTML = `<div class="machines-empty"><p>Could not load machines. <a href="#contact" style="color:var(--accent)">Contact us</a> directly.</p></div>`;
+  }
+}
+
+// ── Machine modal ─────────────────────────────────────────────
+function openMachine(m) {
+  const specs = m.specs || {};
+  const price = m.price_display || (m.price ? 'CAD $' + Number(m.price).toLocaleString() : 'Contact for Pricing');
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-machine-header">
+      <div class="modal-machine-model">${escHtml(m.model)}</div>
+      <div class="modal-machine-power">${escHtml(String(m.power_watts || ''))}W Fiber Laser</div>
+      ${m.description ? `<p class="modal-machine-desc">${escHtml(m.description)}</p>` : ''}
+    </div>
+    <div class="modal-specs-grid">
+      ${m.bed_length_mm ? `<div class="modal-spec"><div class="modal-spec-label">Bed Size</div><div class="modal-spec-val">${m.bed_length_mm}×${m.bed_width_mm}mm</div></div>` : ''}
+      ${specs.max_mild_steel_mm ? `<div class="modal-spec"><div class="modal-spec-label">Mild Steel</div><div class="modal-spec-val">up to ${specs.max_mild_steel_mm}mm</div></div>` : ''}
+      ${specs.max_stainless_mm ? `<div class="modal-spec"><div class="modal-spec-label">Stainless</div><div class="modal-spec-val">up to ${specs.max_stainless_mm}mm</div></div>` : ''}
+      ${specs.max_aluminum_mm ? `<div class="modal-spec"><div class="modal-spec-label">Aluminium</div><div class="modal-spec-val">up to ${specs.max_aluminum_mm}mm</div></div>` : ''}
+      ${specs.cutting_speed_mmin ? `<div class="modal-spec"><div class="modal-spec-label">Cutting Speed</div><div class="modal-spec-val">${specs.cutting_speed_mmin}m/min</div></div>` : ''}
+      ${specs.accuracy_mm ? `<div class="modal-spec"><div class="modal-spec-label">Accuracy</div><div class="modal-spec-val">±${specs.accuracy_mm}mm</div></div>` : ''}
+      ${specs.laser_source ? `<div class="modal-spec"><div class="modal-spec-label">Laser Source</div><div class="modal-spec-val">${escHtml(specs.laser_source)}</div></div>` : ''}
+      ${m.category ? `<div class="modal-spec"><div class="modal-spec-label">Series</div><div class="modal-spec-val">${escHtml(m.category)}</div></div>` : ''}
+    </div>
+    <div class="modal-price">${escHtml(price)}</div>
+    <div class="modal-actions">
+      <a href="#quote" class="btn-primary" onclick="closeModal()">Request Quote for This Machine</a>
+    </div>`;
+  document.getElementById('machineModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('machineModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('machineModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ── Quote form ────────────────────────────────────────────────
+document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('quoteSubmitBtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const { error } = await sb.from('quote_requests').insert([{
+      name: document.getElementById('qName').value.trim(),
+      email: document.getElementById('qEmail').value.trim(),
+      phone: document.getElementById('qPhone').value.trim(),
+      company: document.getElementById('qCompany').value.trim(),
+      machine_interest: document.getElementById('qMachine').value,
+      material: document.getElementById('qMaterial').value,
+      thickness: document.getElementById('qThickness').value.trim(),
+      budget: document.getElementById('qBudget').value,
+      message: document.getElementById('qMessage').value.trim(),
+      source: 'website'
+    }]);
+    if (error) throw error;
+    document.getElementById('quoteFormContent').style.display = 'none';
+    document.getElementById('quoteSuccess').style.display = 'block';
+    showToast('Quote request sent successfully!');
+  } catch(err) {
+    showToast('Something went wrong. Please try again.', 'error');
+    btn.disabled = false; btn.textContent = 'Send Quote Request';
+  }
+});
+
+// ── Contact form ──────────────────────────────────────────────
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contactSubmitBtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const { error } = await sb.from('contact_messages').insert([{
+      name: document.getElementById('cName').value.trim(),
+      email: document.getElementById('cEmail').value.trim(),
+      phone: document.getElementById('cPhone').value.trim(),
+      subject: document.getElementById('cSubject').value.trim(),
+      message: document.getElementById('cMessage').value.trim(),
+      source: 'website'
+    }]);
+    if (error) throw error;
+    document.getElementById('contactFormContent').style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+    showToast('Message sent!');
+  } catch(err) {
+    showToast('Something went wrong. Please try again.', 'error');
+    btn.disabled = false; btn.textContent = 'Send Message';
+  }
+});
+
+// ── Utilities ─────────────────────────────────────────────────
+function escHtml(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+// ── Init ──────────────────────────────────────────────────────
+loadMachines();
+</script>
+</body>
+</html>
