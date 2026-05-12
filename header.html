@@ -1,0 +1,88 @@
+<header id="site-header">
+<style>
+#site-header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:56px;
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;
+}
+.nav-logo img{
+  height:36px;width:auto;display:block;
+}
+.nav-links{
+  display:flex;align-items:center;gap:32px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:14px;font-weight:400;
+  color:#1d1d1f;
+  text-decoration:none;
+  letter-spacing:-0.1px;
+  transition:color 0.15s;
+}
+.nav-links a:hover{color:#0066cc}
+.nav-links .nav-cta{
+  background:#0066cc;color:#fff;
+  padding:8px 18px;border-radius:980px;
+  font-size:13px;font-weight:500;
+  transition:background 0.15s;
+}
+.nav-links .nav-cta:hover{background:#0077ed;color:#fff}
+.nav-hamburger{
+  display:none;flex-direction:column;gap:5px;
+  cursor:pointer;padding:4px;background:none;border:none;
+}
+.nav-hamburger span{
+  width:20px;height:1.5px;
+  background:#1d1d1f;display:block;border-radius:1px;
+  transition:0.25s;
+}
+/* Mobile nav */
+@media(max-width:768px){
+  .nav-inner{padding:0 22px}
+  .nav-links{
+    display:none;
+    position:fixed;top:56px;left:0;right:0;
+    background:rgba(255,255,255,0.97);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(0,0,0,0.08);
+    flex-direction:column;align-items:flex-start;
+    padding:20px 22px 24px;gap:0;
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%;border-bottom:1px solid rgba(0,0,0,0.06)}
+  .nav-links a{
+    display:block;padding:14px 0;
+    font-size:16px;
+  }
+  .nav-links .nav-cta{
+    border-radius:0;background:none;color:#0066cc;padding:14px 0;font-size:16px;
+  }
+  .nav-hamburger{display:flex}
+  .nav-logo img{height:30px}
+}
+</style>
+<div class="nav-inner">
+  <a href="/" class="nav-logo">
+    <img src="wavlon_lasers_full_logo_transparent.png" alt="Wavlon Lasers" />
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#machines">Machines</a></li>
+    <li><a href="/#why">Why Wavlon</a></li>
+    <li><a href="/#industries">Industries</a></li>
+    <li><a href="/#quote">Get a Quote</a></li>
+    <li><a href="/#contact">Contact</a></li>
+    <li><a href="/#quote" class="nav-cta">Request Quote</a></li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+</header>
