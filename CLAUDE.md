@@ -67,6 +67,7 @@ All internal references use `/` prefix: `/shared.css`, `/nav.js`, `/wavlon_laser
 /parts/                                     → parts/index.html (#order anchor)
 /about/                                     → about/index.html
 /contact/                                   → contact/index.html (#quote anchor)
+/machine-showcase/                          → machine-showcase/index.html (scroll-driven animated showcase)
 ```
 
 ## Database Schema
