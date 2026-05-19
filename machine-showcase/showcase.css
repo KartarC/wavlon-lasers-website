@@ -67,7 +67,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 120px 40px 80px;
+  padding: calc(var(--header-h) + 48px) 40px 80px;
   position: relative;
   overflow: hidden;
 }
@@ -185,8 +185,8 @@
 }
 .reel-inner {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
   overflow: hidden;
   display: flex;
   align-items: stretch;
@@ -323,10 +323,10 @@
   background: rgba(0,102,204,.4);
 }
 
-/* View count label */
+/* View count label — positions relative to reel-inner (sticky container) */
 .reel-view-count {
   position: absolute;
-  bottom: 32px;
+  bottom: 28px;
   left: 48px;
   z-index: 2;
   font-size: 10px;
@@ -505,8 +505,8 @@
 }
 .bochu-inner {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
   overflow: hidden;
   display: flex;
   flex-direction: column;

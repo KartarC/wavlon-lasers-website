@@ -4,6 +4,12 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Offset every "top top" ScrollTrigger by the fixed header height so pinned
+// sections snap flush with the bottom of the nav bar, not the raw viewport top.
+const HEADER_H   = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'), 10) || 100;
+const PIN_START  = 'top top+=' + HEADER_H;
+const PIN_END    = 'bottom bottom+=' + HEADER_H;
+
 /* ============================================
    HERO entrance
    ============================================ */
@@ -31,11 +37,11 @@ function setupReel() {
   const track = document.getElementById('reelTrack');
   if (!track) return;
   const frames = [...track.querySelectorAll('.reel-frame')];
-  const steps = [...track.querySelectorAll('.reel-progress .step')];
-  const idxEl = document.getElementById('reelIdx');
+  const steps  = [...track.querySelectorAll('.reel-progress .step')];
+  const idxEl  = document.getElementById('reelIdx');
   const titleEl = document.getElementById('reelTitle');
-  const subEl = document.getElementById('reelSub');
-  const numEl = document.getElementById('reelNum');
+  const subEl  = document.getElementById('reelSub');
+  const numEl  = document.getElementById('reelNum');
 
   let current = -1;
   function showFrame(i) {
@@ -46,37 +52,36 @@ function setupReel() {
       s.classList.toggle('is-active', idx === i);
       s.classList.toggle('is-done', idx < i);
     });
-    idxEl.textContent = String(i + 1).padStart(2, '0');
+    idxEl.textContent  = String(i + 1).padStart(2, '0');
     titleEl.textContent = REEL_VIEWS[i].title;
-    subEl.textContent = REEL_VIEWS[i].sub;
-    numEl.textContent = REEL_VIEWS[i].num;
+    subEl.textContent  = REEL_VIEWS[i].sub;
+    numEl.textContent  = REEL_VIEWS[i].num;
   }
 
-  // Pin the inner via ScrollTrigger
+  // Frame switcher — driven by scroll progress
   ScrollTrigger.create({
     trigger: track,
-    start: 'top top',
-    end: 'bottom bottom',
+    start: PIN_START,
+    end:   PIN_END,
     onUpdate: (self) => {
-      const p = self.progress;
-      // Map [0,1] -> 5 frames with a hold at start/end
-      const n = REEL_VIEWS.length;
-      const idx = Math.min(n - 1, Math.floor(p * n));
+      const n   = REEL_VIEWS.length;
+      const idx = Math.min(n - 1, Math.floor(self.progress * n));
       showFrame(idx);
     },
   });
 
-  // Subtle parallax / scale on the active image
+  // Subtle parallax scale on every image (only the visible .is-active frame shows)
   frames.forEach((f) => {
     const img = f.querySelector('img');
+    if (!img) return;
     gsap.fromTo(img, { scale: 1.06 }, {
       scale: 1.0,
       ease: 'none',
       scrollTrigger: {
         trigger: track,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 0.5,
+        start:   PIN_START,
+        end:     PIN_END,
+        scrub:   0.5,
       },
     });
   });
@@ -88,9 +93,9 @@ function setupReel() {
 function setupExchange() {
   const stage = document.getElementById('exchangeStage');
   if (!stage) return;
-  const top = stage.querySelector('.pallet-top');
-  const bot = stage.querySelector('.pallet-bottom');
-  const cycleNumEl = document.getElementById('cycleNum');
+  const top        = stage.querySelector('.pallet-top');
+  const bot        = stage.querySelector('.pallet-bottom');
+  const cycleNumEl  = document.getElementById('cycleNum');
   const cycleStateEl = document.getElementById('cycleState');
 
   let cycle = 1;
@@ -106,34 +111,28 @@ function setupExchange() {
       },
     });
     tl
-      // STATE: Loading
-      .call(() => { cycleStateEl.textContent = 'Loading'; }, [], 0)
+      .call(() => { cycleStateEl.textContent = 'Loading'; },  [], 0)
       .to({}, { duration: 0.6 }, 0)
-      // SWAP: top pallet slides down, bottom pallet slides up
       .call(() => { cycleStateEl.textContent = 'Swapping'; }, [], 0.6)
       .to(top, { yPercent: 50,  duration: 1.6 }, 0.6)
       .to(bot, { yPercent: -50, duration: 1.6 }, 0.6)
-      // STATE: Cutting (swapped position)
-      .call(() => { cycleStateEl.textContent = 'Cutting'; }, [], 2.2)
+      .call(() => { cycleStateEl.textContent = 'Cutting'; },  [], 2.2)
       .to({}, { duration: 1.6 }, 2.2)
-      // SWAP BACK
       .call(() => { cycleStateEl.textContent = 'Swapping'; }, [], 3.8)
       .to(top, { yPercent: 0, duration: 1.6 }, 3.8)
       .to(bot, { yPercent: 0, duration: 1.6 }, 3.8)
-      // STATE: Loaded
       .to({}, { duration: 0.6 }, 5.4);
     return tl;
   }
 
   let loop = null;
-  // Pause when out of view to save CPU
   ScrollTrigger.create({
     trigger: stage,
     start: 'top 90%',
-    end: 'bottom 10%',
-    onEnter: () => { if (!loop) loop = buildLoop(); loop.play(); },
+    end:   'bottom 10%',
+    onEnter:     () => { if (!loop) loop = buildLoop(); loop.play(); },
     onEnterBack: () => { loop && loop.play(); },
-    onLeave: () => { loop && loop.pause(); },
+    onLeave:     () => { loop && loop.pause(); },
     onLeaveBack: () => { loop && loop.pause(); },
   });
 }
@@ -144,9 +143,9 @@ function setupExchange() {
 function setupBochu() {
   const track = document.getElementById('bochuTrack');
   if (!track) return;
-  const frames = [...track.querySelectorAll('.bochu-frame')];
-  const texts = [...track.querySelectorAll('.bochu-text-frame')];
-  const pips = [...track.querySelectorAll('.bochu-stage-progress .pip')];
+  const frames    = [...track.querySelectorAll('.bochu-frame')];
+  const texts     = [...track.querySelectorAll('.bochu-text-frame')];
+  const pips      = [...track.querySelectorAll('.bochu-stage-progress .pip')];
   const stepLabelEl = document.getElementById('bochuStepLabel');
 
   let current = -1;
@@ -154,27 +153,26 @@ function setupBochu() {
     if (i === current) return;
     current = i;
     frames.forEach((f, idx) => f.classList.toggle('is-active', idx === i));
-    texts.forEach((t, idx) => t.classList.toggle('is-active', idx === i));
-    pips.forEach((p, idx) => {
+    texts.forEach((t,  idx) => t.classList.toggle('is-active', idx === i));
+    pips.forEach((p,   idx) => {
       p.classList.toggle('is-active', idx === i);
-      p.classList.toggle('is-done', idx < i);
+      p.classList.toggle('is-done',   idx < i);
     });
     stepLabelEl.textContent = `${String(i + 1).padStart(2, '0')} / 04`;
   }
 
   ScrollTrigger.create({
     trigger: track,
-    start: 'top top',
-    end: 'bottom bottom',
+    start:   PIN_START,
+    end:     PIN_END,
     onUpdate: (self) => {
-      const p = self.progress;
-      const n = frames.length;
-      const idx = Math.min(n - 1, Math.floor(p * n));
+      const n   = frames.length;
+      const idx = Math.min(n - 1, Math.floor(self.progress * n));
       showStep(idx);
     },
   });
 
-  // Subtle scale on the active image
+  // Subtle scale on each head image
   frames.forEach((f) => {
     const img = f.querySelector('img');
     if (!img) return;
@@ -183,9 +181,9 @@ function setupBochu() {
       ease: 'none',
       scrollTrigger: {
         trigger: track,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 0.6,
+        start:   PIN_START,
+        end:     PIN_END,
+        scrub:   0.6,
       },
     });
   });
@@ -196,47 +194,33 @@ function setupBochu() {
    ============================================ */
 function setupCypcut() {
   gsap.from('.cypcut-text > *', {
-    y: 40,
-    opacity: 0,
-    duration: 0.9,
-    stagger: 0.1,
-    ease: 'power3.out',
+    y: 40, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out',
     scrollTrigger: { trigger: '.cypcut', start: 'top 70%' },
   });
   gsap.from('.cypcut-stage', {
-    y: 60,
-    opacity: 0,
-    duration: 1.0,
-    ease: 'power3.out',
+    y: 60, opacity: 0, duration: 1.0, ease: 'power3.out',
     scrollTrigger: { trigger: '.cypcut', start: 'top 70%' },
   });
 }
 
 /* ============================================
-   EXCHANGE / BOCHU / CYPCUT entrance fades for heads
+   SECTION HEAD entrance fades
    ============================================ */
 function setupSectionHeads() {
-  document.querySelectorAll('.exchange-head > *, .bochu-head-block > *').forEach((el) => {
+  document.querySelectorAll('.exchange-head-block > *, .bochu-head-block > *').forEach((el) => {
     gsap.from(el, {
-      y: 40,
-      opacity: 0,
-      duration: 0.9,
-      ease: 'power3.out',
+      y: 40, opacity: 0, duration: 0.9, ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 80%' },
     });
   });
   gsap.from('.exchange-spec', {
-    y: 30,
-    opacity: 0,
-    duration: 0.7,
-    stagger: 0.08,
-    ease: 'power3.out',
+    y: 30, opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power3.out',
     scrollTrigger: { trigger: '.exchange-specs', start: 'top 85%' },
   });
 }
 
 /* ============================================
-   INIT (after loader done)
+   INIT (fired after loader wv:loader-done event)
    ============================================ */
 function init() {
   heroIntro();
@@ -254,12 +238,12 @@ function init() {
 }
 
 document.addEventListener('wv:loader-done', init, { once: true });
+document.addEventListener('wv:loader-done', () => { document.body.dataset.wvInited = '1'; }, { once: true });
 
-// Fallback — if loader event somehow doesn't fire within 6s, init anyway
+// Fallback — if loader event doesn't fire within 6s, init anyway
 setTimeout(() => {
   if (!document.body.dataset.wvInited) {
     document.body.dataset.wvInited = '1';
     init();
   }
 }, 6000);
-document.addEventListener('wv:loader-done', () => { document.body.dataset.wvInited = '1'; }, { once: true });
