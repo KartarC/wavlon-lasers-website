@@ -153,7 +153,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 /* ── Hero ───────────────────────────────────────────────────── */
 .hero { position: relative; min-height: 100vh; background: var(--bg-dark); padding-top: var(--header-h); color: #fff; overflow: hidden; display: flex; flex-direction: column; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.18; }
+.hero-bg img { position: absolute; width: 100%; height: 125%; top: -25%; left: 0; object-fit: cover; object-position: center 40%; opacity: 0.18; will-change: transform; }
 .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(170deg, rgba(10,11,12,0.72) 0%, rgba(10,11,12,0.55) 50%, rgba(10,11,12,0.88) 100%); }
 .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 40%, transparent 90%); pointer-events: none; z-index: 1; }
 .hero-inner { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; padding: clamp(40px, 6vh, 80px) var(--pad-x) clamp(56px, 8vh, 100px); max-width: 1440px; margin: 0 auto; width: 100%; gap: 0; }
@@ -1282,6 +1282,99 @@ function setupCypcut() {
   });
 }
 
+/* ── Parallax ───────────────────────────────────────────────── */
+function setupParallax() {
+  // 1. Hero background image drifts upward as user scrolls out of the hero.
+  //    yPercent: 0 → 20 creates a slow depth-layer separation.
+  gsap.fromTo('.hero-bg img',
+    { yPercent: 0 },
+    {
+      yPercent: 20,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    }
+  );
+
+  // 2. Hero grid overlay drifts slightly slower than the bg image
+  gsap.fromTo('.hero-grid',
+    { yPercent: 0 },
+    {
+      yPercent: 12,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    }
+  );
+
+  // 3. Reel frame images: subtle scale-out as the reel pin scrolls through.
+  //    Each image goes from scale 1.08 (start) → 1.0 (end) scrubbed to scroll.
+  var reelTrack = document.getElementById('reelTrack');
+  if (reelTrack) {
+    document.querySelectorAll('.reel-frame img').forEach(function(img) {
+      gsap.fromTo(img,
+        { scale: 1.08 },
+        {
+          scale: 1.0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: reelTrack,
+            start: PIN_START,
+            end: PIN_END,
+            scrub: 0.6
+          }
+        }
+      );
+    });
+  }
+
+  // 4. BOCHU frame images: matching subtle scale-out
+  var bochuTrack = document.getElementById('bochuTrack');
+  if (bochuTrack) {
+    document.querySelectorAll('.bochu-frame img').forEach(function(img) {
+      gsap.fromTo(img,
+        { scale: 1.06 },
+        {
+          scale: 1.0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: bochuTrack,
+            start: PIN_START,
+            end: PIN_END,
+            scrub: 0.6
+          }
+        }
+      );
+    });
+  }
+
+  // 5. Machine cards section: cards rise subtly as section enters viewport
+  var machinesGrid = document.querySelector('.hp-machines-grid');
+  if (machinesGrid) {
+    gsap.fromTo(machinesGrid,
+      { y: 30 },
+      {
+        y: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: machinesGrid,
+          start: 'top 90%',
+          end: 'top 30%',
+          scrub: true
+        }
+      }
+    );
+  }
+}
+
 /* ── Section heads ──────────────────────────────────────────── */
 function setupSectionHeads() {
   document.querySelectorAll('.hp-section-head, .exchange-head, .bochu-head-block, .cypcut-text').forEach(function(el) {
@@ -1372,6 +1465,7 @@ function init() {
   setupBochu();
   setupCypcut();
   setupSectionHeads();
+  setupParallax();
 
   // 2. Hero animation uses fromTo(), so its transforms only apply inside the
   //    first rAF tick — after ScrollTrigger already measured positions.
