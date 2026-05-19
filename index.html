@@ -1490,8 +1490,11 @@ function init() {
   }
 }
 
-document.addEventListener('wv:loader-done', init, { once: true });
-document.addEventListener('wv:loader-done', function() { document.body.dataset.wvInited = '1'; }, { once: true });
+document.addEventListener('wv:loader-done', function() {
+  if (document.body.dataset.wvInited) return; // guard against double-fire
+  document.body.dataset.wvInited = '1';
+  init();
+}, { once: true });
 setTimeout(function() {
   if (!document.body.dataset.wvInited) {
     document.body.dataset.wvInited = '1';
