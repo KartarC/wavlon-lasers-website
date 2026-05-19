@@ -151,26 +151,28 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 }
 
 /* ── Hero ───────────────────────────────────────────────────── */
-.hero { position: relative; padding: clamp(120px, 16vh, 200px) var(--pad-x) clamp(80px, 10vh, 140px); background: var(--bg-dark); padding-top: calc(var(--header-h) + clamp(60px, 8vh, 100px)); color: #fff; overflow: hidden; }
+.hero { position: relative; min-height: 100vh; background: var(--bg-dark); padding-top: var(--header-h); color: #fff; overflow: hidden; display: flex; flex-direction: column; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.22; }
-.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,11,12,0.85) 45%, rgba(10,11,12,0.45) 100%), linear-gradient(to bottom, rgba(10,11,12,0.4) 0%, rgba(10,11,12,0.0) 60%, rgba(10,11,12,0.7) 100%); }
-.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at center top, #000 30%, transparent 80%); pointer-events: none; z-index: 1; }
-.hero-inner { position: relative; z-index: 2; max-width: 1680px; margin: 0 auto; display: grid; gap: 64px; }
-.hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
-.hero-logo img { height: clamp(36px, 5vw, 56px); width: auto; filter: brightness(0) invert(1); }
-.hero-meta { display: flex; gap: 48px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
-.hero-meta div { display: flex; flex-direction: column; gap: 4px; }
-.hero-meta b { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; }
-.hero-headline h1 { font-size: clamp(4rem, 12vw, 13rem); line-height: 0.86; font-weight: 800; letter-spacing: -0.045em; color: #fff; }
-.hero-headline .small { display: block; font-size: 0.18em; font-family: var(--mono); letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 24px; font-weight: 500; }
-.hero-headline h1 .blue { color: var(--blue-light); }
-.hero-sub { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: end; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); }
-.hero-sub .body-copy { font-size: 18px; line-height: 1.5; max-width: 56ch; color: rgba(255,255,255,0.65); }
-.hero-sub-stats { display: flex; gap: 48px; flex-wrap: wrap; justify-content: flex-end; }
-.hero-sub-stats div { display: flex; flex-direction: column; gap: 6px; }
-.hero-sub-stats span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-.hero-sub-stats b { font-family: var(--display); font-size: 28px; font-weight: 700; letter-spacing: -0.03em; color: #fff; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.18; }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(170deg, rgba(10,11,12,0.72) 0%, rgba(10,11,12,0.55) 50%, rgba(10,11,12,0.88) 100%); }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 40%, transparent 90%); pointer-events: none; z-index: 1; }
+.hero-inner { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; padding: clamp(40px, 6vh, 80px) var(--pad-x) clamp(56px, 8vh, 100px); max-width: 1440px; margin: 0 auto; width: 100%; gap: 0; }
+/* Overline label */
+.hero-overline { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+.hero-overline::before { content: ""; width: 28px; height: 1px; background: rgba(255,255,255,0.25); flex-shrink: 0; }
+/* Big animated heading */
+.hero-h1 { font-family: var(--display); font-size: clamp(5rem, 13vw, 15rem); line-height: 0.88; font-weight: 800; letter-spacing: -0.045em; color: #fff; text-transform: uppercase; transform-origin: left top; will-change: transform; margin-bottom: clamp(36px, 5vh, 64px); }
+.hero-h1 .hw { display: block; will-change: opacity, transform; }
+.hero-h1 .blue { color: var(--blue-light); }
+/* Video + CTA block */
+.hero-body { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; will-change: opacity, transform; }
+.hero-video-wrap { position: relative; width: 100%; max-width: 900px; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.13); background: #000; box-shadow: 0 40px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(24,73,216,0.18); }
+.hero-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-cta .btn-primary { background: var(--blue); color: #fff; padding: 15px 34px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid var(--blue); transition: background 0.2s, border-color 0.2s; }
+.hero-cta .btn-primary:hover { background: var(--blue-2); border-color: var(--blue-2); }
+.hero-cta .btn-ghost { background: transparent; color: rgba(255,255,255,0.75); padding: 15px 34px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
+.hero-cta .btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
 
 /* ── Reel ───────────────────────────────────────────────────── */
 .reel { position: relative; background: var(--bg); border-top: 1px solid var(--line); }
@@ -327,8 +329,6 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .hero-sub { grid-template-columns: 1fr; gap: 32px; }
-  .hero-sub-stats { justify-content: flex-start; }
   .exchange-head { grid-template-columns: 1fr; gap: 32px; }
   .bochu-head-block { grid-template-columns: 1fr; gap: 32px; }
   .bochu-pin { grid-template-columns: 1fr; padding: 0 var(--pad-x); }
@@ -338,8 +338,10 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hp-machines-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
-  .hero-meta { display: none; }
-  .hero-sub-stats { gap: 32px; }
+  .hero-h1 { font-size: clamp(3.5rem, 15vw, 8rem); }
+  .hero-video-wrap { max-width: 100%; }
+  .hero-cta { flex-direction: column; }
+  .hero-cta a { text-align: center; }
   .exchange-specs { grid-template-columns: 1fr; }
   .exchange-spec { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; padding-bottom: 18px; }
   .cypcut-features { grid-template-columns: 1fr; }
@@ -739,26 +741,25 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   <div class="hero-bg"><img src="/assets/machine-floor.png" alt="" aria-hidden="true" /></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-top">
-      <div class="hero-logo">
-        <img src="/wavlon_lasers_full_logo_transparent.png" alt="Wavlon Lasers" />
+    <p class="hero-overline">Wavlon Lasers &middot; Industrial Fiber Laser Systems</p>
+    <h1 class="hero-h1" id="heroH1">
+      <span class="hw">Engineered</span>
+      <span class="hw">to <span class="blue">Cut.</span></span>
+    </h1>
+    <div class="hero-body" id="heroBody">
+      <!-- ★ Replace YOUR_VIDEO_ID with your YouTube video ID e.g. dQw4w9WgXcQ -->
+      <div class="hero-video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1&color=white&showinfo=0"
+          title="Wavlon Lasers — Fiber Laser Cutting Demonstration"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
       </div>
-      <div class="hero-meta">
-        <div><span>Model</span><b>WD-3015E</b></div>
-        <div><span>Source</span><b>Fiber · 12 kW</b></div>
-        <div><span>Build</span><b>2026 · ISO 9001</b></div>
-      </div>
-    </div>
-    <div class="hero-headline">
-      <span class="small">Wavlon Lasers / Fiber Cutting Systems</span>
-      <h1>Engineered<br/>to <span class="blue">cut.</span></h1>
-    </div>
-    <div class="hero-sub">
-      <p class="body-copy lg">The Wavlon WD-3015E is a closed-cabin fiber laser cutting system built around a welded-and-milled steel monocoque, a BOCI BLT310 cutting head, and a Cypcut Windows-native HMI. One machine. Six sides to look at. Scroll to inspect.</p>
-      <div class="hero-sub-stats">
-        <div><span>Bed</span><b>3015 mm</b></div>
-        <div><span>Power</span><b>12,000 W</b></div>
-        <div><span>Speed</span><b>180 m/min</b></div>
+      <div class="hero-cta">
+        <a href="/contact/#quote" class="btn-primary">Request a Quote &rarr;</a>
+        <a href="/machine-showcase/" class="btn-ghost">Machine Showcase</a>
+        <a href="/machines/" class="btn-ghost">View All Machines</a>
       </div>
     </div>
   </div>
@@ -1089,11 +1090,37 @@ var REEL_VIEWS = [
 
 /* ── Hero intro ─────────────────────────────────────────────── */
 function heroIntro() {
+  var h1      = document.getElementById('heroH1');
+  var body    = document.getElementById('heroBody');
+  var overline = document.querySelector('.hero-overline');
+  if (!h1) return;
+
+  var SCALE = 2.7;
+
+  // Calculate y-offset so the scaled h1 appears vertically centered on screen
+  var rect = h1.getBoundingClientRect();
+  var vh   = window.innerHeight;
+  // Visual center of scaled element (anchored at its top-left corner):
+  var scaledCenterY = rect.top + (rect.height * SCALE) / 2;
+  var targetCenterY = vh * 0.40;  // aim for 40% down the viewport
+  var yOffset = targetCenterY - scaledCenterY;
+
+  // Set initial states
+  gsap.set(h1,       { scale: SCALE, y: yOffset, transformOrigin: 'left top' });
+  gsap.set('.hw',    { opacity: 0, y: 30 });
+  gsap.set(body,     { opacity: 0, y: 36 });
+  if (overline) gsap.set(overline, { opacity: 0 });
+
   var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  tl.from('.hero-top', { opacity: 0, y: 20, duration: 0.8 }, 0.1)
-    .from('.hero-headline .small', { opacity: 0, y: 12, duration: 0.7 }, 0.3)
-    .from('.hero-headline h1', { opacity: 0, y: 40, duration: 1, ease: 'power4.out' }, 0.4)
-    .from('.hero-sub', { opacity: 0, y: 20, duration: 0.8 }, 0.7);
+
+  // 1. Words appear while h1 is still big and centered
+  tl.to('.hw', { opacity: 1, y: 0, stagger: 0.14, duration: 0.65 }, 0.05)
+  // 2. h1 shrinks and settles to natural top position
+    .to(h1, { scale: 1, y: 0, duration: 1.35, ease: 'power4.inOut' }, 0.55)
+  // 3. Overline fades in
+    .to(overline, { opacity: 1, duration: 0.55 }, 1.55)
+  // 4. Video + CTA slide up and fade in
+    .to(body, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' }, 1.65);
 }
 
 /* ── Reel ───────────────────────────────────────────────────── */
@@ -1257,34 +1284,70 @@ function setupSectionHeads() {
   });
 }
 
-/* ── Side TOC observer ──────────────────────────────────────── */
+/* ── Side TOC — scroll-position tracker ────────────────────── */
 (function() {
   var tocItems   = document.querySelectorAll('.page-toc-item');
   var sectionIds = ['hero', 'reel', 'machines', 'exchange', 'bochu-section', 'cypcut'];
 
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        tocItems.forEach(function(item) {
-          item.classList.toggle('is-active', item.dataset.section === e.target.id);
-        });
+  // Build a live reference array (looked up after DOM is ready)
+  var sections = [];
+  function buildSections() {
+    sections = sectionIds.map(function(id) {
+      return document.getElementById(id);
+    }).filter(Boolean);
+  }
+
+  // Update which TOC dot is active based on the scroll position.
+  // We treat the point 28% down from the top of the viewport as the "reading line".
+  // The section whose top-edge is closest above that line (and whose bottom is below it) wins.
+  var ticking = false;
+  function updateTOC() {
+    var readLine = window.scrollY + window.innerHeight * 0.28;
+    var activeId = sections.length ? sections[0].id : null;
+
+    for (var i = 0; i < sections.length; i++) {
+      var sec = sections[i];
+      var top = sec.offsetTop;
+      var bot = top + sec.offsetHeight;
+      if (readLine >= top && readLine < bot) {
+        activeId = sec.id;
+        break;
+      }
+      // If we scrolled past all sections, keep the last one active
+      if (readLine >= top) activeId = sec.id;
+    }
+
+    tocItems.forEach(function(item) {
+      var isActive = item.dataset.section === activeId;
+      if (isActive !== item.classList.contains('is-active')) {
+        item.classList.toggle('is-active', isActive);
       }
     });
-  }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' });
+    ticking = false;
+  }
 
-  sectionIds.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) io.observe(el);
-  });
+  window.addEventListener('scroll', function() {
+    if (!ticking) { requestAnimationFrame(updateTOC); ticking = true; }
+  }, { passive: true });
 
   // Smooth scroll on TOC click
   document.querySelectorAll('.page-toc-item a').forEach(function(a) {
     a.addEventListener('click', function(e) {
       e.preventDefault();
       var target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (target) {
+        var offset = target.getBoundingClientRect().top + window.scrollY
+                     - (parseInt(getComputedStyle(document.documentElement)
+                        .getPropertyValue('--header-h'), 10) || 100);
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
     });
   });
+
+  // Init after fonts + layout settle
+  buildSections();
+  window.addEventListener('load', function() { buildSections(); updateTOC(); });
+  setTimeout(updateTOC, 400); // fallback first paint
 })();
 
 /* ── Init ───────────────────────────────────────────────────── */
