@@ -257,10 +257,11 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .bochu-head-block h2 .blue { color: var(--blue); }
 .bochu-stage-track { height: 500vh; position: relative; }
 .bochu-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 480px 1fr; align-items: stretch; gap: 0; padding: 0 var(--pad-x); max-width: 1680px; margin: 0 auto; overflow: hidden; }
-.bochu-text { position: relative; padding-right: 40px; display: flex; align-items: center; overflow: hidden; }
-.bochu-text-frames-wrap { position: relative; width: 100%; min-height: 320px; }
-.bochu-text-frame { position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; justify-content: flex-start; gap: 20px; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-.bochu-text-frame.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; position: relative; }
+.bochu-text { position: relative; padding-right: 40px; display: flex; align-items: center; }
+.bochu-text-frames-wrap { position: relative; width: 100%; height: clamp(260px, 38vh, 420px); }
+/* All frames are always position:absolute — no layout thrash when switching */
+.bochu-text-frame { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 20px; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); overflow: hidden; }
+.bochu-text-frame.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .bochu-text-frame .step-num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); }
 .bochu-text-frame h3 { font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; }
 .bochu-text-frame h3 em { font-style: normal; color: transparent; -webkit-text-stroke: 1.2px currentColor; }
@@ -1090,37 +1091,51 @@ var REEL_VIEWS = [
 
 /* ── Hero intro ─────────────────────────────────────────────── */
 function heroIntro() {
-  var h1      = document.getElementById('heroH1');
-  var body    = document.getElementById('heroBody');
-  var overline = document.querySelector('.hero-overline');
-  if (!h1) return;
+  try {
+    var h1       = document.getElementById('heroH1');
+    var heroBody = document.getElementById('heroBody');
+    var overline = document.querySelector('.hero-overline');
+    if (!h1) return;
 
-  var SCALE = 2.7;
+    var SCALE = 2.7;
+    // Measure BEFORE any GSAP transforms are applied (elements are at natural CSS state)
+    var rect    = h1.getBoundingClientRect();
+    var vh      = window.innerHeight || document.documentElement.clientHeight || 800;
+    // Place visual centre of scaled h1 at 40% of viewport height
+    var yOffset = (vh * 0.40) - (rect.top + (rect.height * SCALE) / 2);
 
-  // Calculate y-offset so the scaled h1 appears vertically centered on screen
-  var rect = h1.getBoundingClientRect();
-  var vh   = window.innerHeight;
-  // Visual center of scaled element (anchored at its top-left corner):
-  var scaledCenterY = rect.top + (rect.height * SCALE) / 2;
-  var targetCenterY = vh * 0.40;  // aim for 40% down the viewport
-  var yOffset = targetCenterY - scaledCenterY;
+    /* Use fromTo() — transforms are applied only at the START of each tween
+       (async, inside requestAnimationFrame), so ScrollTrigger measurements
+       taken synchronously after heroIntro() see the unmodified DOM.       */
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  // Set initial states
-  gsap.set(h1,       { scale: SCALE, y: yOffset, transformOrigin: 'left top' });
-  gsap.set('.hw',    { opacity: 0, y: 30 });
-  gsap.set(body,     { opacity: 0, y: 36 });
-  if (overline) gsap.set(overline, { opacity: 0 });
+    // 1. Words appear while h1 is big and centred
+    tl.fromTo('.hw',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, stagger: 0.14, duration: 0.65 }, 0.05)
+    // 2. h1 shrinks and settles to its natural top-left position
+      .fromTo(h1,
+        { scale: SCALE, y: yOffset, transformOrigin: 'left top' },
+        { scale: 1, y: 0, duration: 1.35, ease: 'power4.inOut',
+          clearProps: 'transform,transformOrigin' }, 0.05)
+    // 3. Overline fades in
+      .fromTo(overline,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.55 }, 1.55)
+    // 4. Video + CTA slide up and fade in
+      .fromTo(heroBody,
+        { opacity: 0, y: 36 },
+        { opacity: 1, y: 0, duration: 0.85 }, 1.65);
 
-  var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-  // 1. Words appear while h1 is still big and centered
-  tl.to('.hw', { opacity: 1, y: 0, stagger: 0.14, duration: 0.65 }, 0.05)
-  // 2. h1 shrinks and settles to natural top position
-    .to(h1, { scale: 1, y: 0, duration: 1.35, ease: 'power4.inOut' }, 0.55)
-  // 3. Overline fades in
-    .to(overline, { opacity: 1, duration: 0.55 }, 1.55)
-  // 4. Video + CTA slide up and fade in
-    .to(body, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' }, 1.65);
+  } catch (err) {
+    // Failsafe: if animation throws, ensure all hero elements are visible
+    ['heroBody', 'heroH1'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
+    });
+    var ol = document.querySelector('.hero-overline');
+    if (ol) ol.style.opacity = '1';
+  }
 }
 
 /* ── Reel ───────────────────────────────────────────────────── */
@@ -1159,7 +1174,6 @@ function setupReel() {
     trigger: track,
     start: PIN_START,
     end: PIN_END,
-    scrub: true,
     onUpdate: function(self) {
       var idx = Math.min(total - 1, Math.floor(self.progress * total));
       goTo(idx);
@@ -1247,7 +1261,6 @@ function setupBochu() {
     trigger: track,
     start: PIN_START,
     end: PIN_END,
-    scrub: true,
     onUpdate: function(self) {
       var idx = Math.min(total - 1, Math.floor(self.progress * total));
       goTo(idx);
@@ -1352,16 +1365,35 @@ function setupSectionHeads() {
 
 /* ── Init ───────────────────────────────────────────────────── */
 function init() {
-  heroIntro();
+  // 1. Create all ScrollTriggers FIRST — at this point the DOM is unmodified,
+  //    so getBoundingClientRect / offsetTop measurements are accurate.
   setupReel();
   setupExchange();
   setupBochu();
   setupCypcut();
   setupSectionHeads();
+
+  // 2. Hero animation uses fromTo(), so its transforms only apply inside the
+  //    first rAF tick — after ScrollTrigger already measured positions.
+  heroIntro();
+
+  // 3. Refresh ScrollTrigger positions:
+  //    - immediately in the next rAF (catches any layout settle after init)
+  //    - after fonts resolve (variable fonts can shift element heights)
+  //    - after full page load (images change element dimensions)
+  requestAnimationFrame(function() { ScrollTrigger.refresh(); });
+
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(function() { ScrollTrigger.refresh(); });
   }
-  window.addEventListener('load', function() { ScrollTrigger.refresh(); });
+
+  if (document.readyState === 'complete') {
+    setTimeout(function() { ScrollTrigger.refresh(); }, 200);
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(function() { ScrollTrigger.refresh(); }, 100);
+    });
+  }
 }
 
 document.addEventListener('wv:loader-done', init, { once: true });
