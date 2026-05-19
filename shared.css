@@ -78,7 +78,7 @@ input, textarea, select { font-family: inherit; }
   display: flex; align-items: center; padding: 0 40px; gap: 0;
 }
 .header-logo { display: flex; align-items: center; margin-right: 32px; flex-shrink: 0; }
-.header-logo img { height: 38px; width: auto; }
+.header-logo img { height: 57px; width: auto; }
 
 /* Nav list */
 .main-nav { flex: 1; }

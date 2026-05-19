@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -11,6 +11,8 @@
 <meta property="og:description" content="High-performance fiber laser cutting machines from 1kW to 30kW+. Canadian-backed sales and lifetime support."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://wavlonlasers.com/"/>
+<link rel="preload" href="/wavlon_lasers_full_logo_transparent.png" as="image"/>
+<link rel="preload" href="/assets/machine-floor.png" as="image"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -22,7 +24,7 @@
   "name": "Wavlon Lasers",
   "url": "https://wavlonlasers.com",
   "logo": "https://wavlonlasers.com/wavlon_lasers_full_logo_transparent.png",
-  "contactPoint": {"@type": "ContactPoint", "telephone": "+1-416-555-0190", "contactType": "sales"},
+  "contactPoint": {"@type": "ContactPoint", "telephone": "+1-905-291-3469", "contactType": "sales"},
   "address": {"@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "Ontario", "addressCountry": "CA"}
 }
 </script>
@@ -107,7 +109,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center; gap: 32px;
 }
-#wv-loader .wv-loader-logo { height: 40px; width: auto; opacity: 0; transition: opacity 0.6s ease; }
+#wv-loader .wv-loader-logo { height: 48px; width: auto; opacity: 0; transition: opacity 0.6s ease; filter: brightness(0) invert(1); }
 #wv-loader .wv-loader-logo.visible { opacity: 1; }
 #wv-loader .wv-loader-wave {
   display: flex; gap: 5px; align-items: center;
@@ -149,23 +151,26 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 }
 
 /* ── Hero ───────────────────────────────────────────────────── */
-.hero { position: relative; padding: clamp(120px, 16vh, 200px) var(--pad-x) clamp(80px, 10vh, 140px); background: var(--bg); padding-top: calc(var(--header-h) + clamp(60px, 8vh, 100px)); }
-.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(10,11,12,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(10,11,12,0.03) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at center top, #000 30%, transparent 80%); pointer-events: none; }
-.hero-inner { position: relative; max-width: 1680px; margin: 0 auto; display: grid; gap: 64px; }
+.hero { position: relative; padding: clamp(120px, 16vh, 200px) var(--pad-x) clamp(80px, 10vh, 140px); background: var(--bg-dark); padding-top: calc(var(--header-h) + clamp(60px, 8vh, 100px)); color: #fff; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0.22; }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,11,12,0.85) 45%, rgba(10,11,12,0.45) 100%), linear-gradient(to bottom, rgba(10,11,12,0.4) 0%, rgba(10,11,12,0.0) 60%, rgba(10,11,12,0.7) 100%); }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse at center top, #000 30%, transparent 80%); pointer-events: none; z-index: 1; }
+.hero-inner { position: relative; z-index: 2; max-width: 1680px; margin: 0 auto; display: grid; gap: 64px; }
 .hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
-.hero-logo img { height: clamp(36px, 5vw, 56px); width: auto; filter: none; }
-.hero-meta { display: flex; gap: 48px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--ink-faint); text-transform: uppercase; }
+.hero-logo img { height: clamp(36px, 5vw, 56px); width: auto; filter: brightness(0) invert(1); }
+.hero-meta { display: flex; gap: 48px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
 .hero-meta div { display: flex; flex-direction: column; gap: 4px; }
-.hero-meta b { color: var(--ink); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; }
-.hero-headline h1 { font-size: clamp(4rem, 12vw, 13rem); line-height: 0.86; font-weight: 800; letter-spacing: -0.045em; }
-.hero-headline .small { display: block; font-size: 0.18em; font-family: var(--mono); letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 24px; font-weight: 500; }
-.hero-headline h1 .blue { color: var(--blue); }
-.hero-sub { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; padding-top: 32px; border-top: 1px solid var(--line); }
-.hero-sub .body-copy { font-size: 18px; line-height: 1.5; max-width: 56ch; }
-.hero-sub-stats { display: flex; gap: 56px; flex-wrap: wrap; }
+.hero-meta b { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; }
+.hero-headline h1 { font-size: clamp(4rem, 12vw, 13rem); line-height: 0.86; font-weight: 800; letter-spacing: -0.045em; color: #fff; }
+.hero-headline .small { display: block; font-size: 0.18em; font-family: var(--mono); letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 24px; font-weight: 500; }
+.hero-headline h1 .blue { color: var(--blue-light); }
+.hero-sub { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: end; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); }
+.hero-sub .body-copy { font-size: 18px; line-height: 1.5; max-width: 56ch; color: rgba(255,255,255,0.65); }
+.hero-sub-stats { display: flex; gap: 48px; flex-wrap: wrap; justify-content: flex-end; }
 .hero-sub-stats div { display: flex; flex-direction: column; gap: 6px; }
-.hero-sub-stats span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); }
-.hero-sub-stats b { font-family: var(--display); font-size: 28px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+.hero-sub-stats span { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.hero-sub-stats b { font-family: var(--display); font-size: 28px; font-weight: 700; letter-spacing: -0.03em; color: #fff; }
 
 /* ── Reel ───────────────────────────────────────────────────── */
 .reel { position: relative; background: var(--bg); border-top: 1px solid var(--line); }
@@ -201,8 +206,10 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .hp-section-head h2 { font-size: clamp(2.2rem, 5vw, 4.5rem); margin-bottom: 16px; }
 .hp-section-head p { font-family: var(--body); font-size: 17px; line-height: 1.6; color: var(--ink-dim); max-width: 56ch; }
 .hp-machines-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.hp-machine-card { background: var(--bg); border: 1px solid var(--line); padding: 36px 32px 32px; display: flex; flex-direction: column; gap: 16px; transition: border-color 0.2s, box-shadow 0.2s; text-decoration: none; color: var(--ink); }
+.hp-machine-card { background: var(--bg); border: 1px solid var(--line); padding: 28px 32px 32px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.2s, box-shadow 0.2s; text-decoration: none; color: var(--ink); }
 .hp-machine-card:hover { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+.hp-machine-card-img { width: 100%; aspect-ratio: 4/3; background: var(--bg-dark); border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 4px; }
+.hp-machine-card-img img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
 .hp-machine-card-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); }
 .hp-machine-card-name { font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; }
 .hp-machine-card-power { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.1em; }
@@ -222,7 +229,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .exchange-head .meta { display: flex; flex-direction: column; gap: 18px; }
 .exchange-stage { position: relative; background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; aspect-ratio: 16 / 9; isolation: isolate; }
 .exchange-stage .pallet-top, .exchange-stage .pallet-bottom { position: absolute; inset: 0; will-change: transform; }
-.exchange-stage .pallet-top img, .exchange-stage .pallet-bottom img { width: 100%; height: 100%; object-fit: cover; }
+.exchange-stage .pallet-top img, .exchange-stage .pallet-bottom img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
 .exchange-stage .pallet-top { clip-path: inset(0 0 50% 0); }
 .exchange-stage .pallet-bottom { clip-path: inset(50% 0 0 0); }
 .exchange-stage .seam { position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: rgba(24,73,216,0.15); z-index: 3; transform: translateY(-1px); }
@@ -247,19 +254,20 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .bochu-head-block h2 { font-size: clamp(2.8rem, 5.5vw, 5.5rem); line-height: 0.9; }
 .bochu-head-block h2 .blue { color: var(--blue); }
 .bochu-stage-track { height: 500vh; position: relative; }
-.bochu-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; gap: 0; padding: 0 var(--pad-x); max-width: 1680px; margin: 0 auto; overflow: hidden; }
-.bochu-text { position: relative; padding-right: 48px; height: 60vh; }
-.bochu-text-frame { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 24px; opacity: 0; transform: translateY(20px); pointer-events: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-.bochu-text-frame.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.bochu-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 480px 1fr; align-items: stretch; gap: 0; padding: 0 var(--pad-x); max-width: 1680px; margin: 0 auto; overflow: hidden; }
+.bochu-text { position: relative; padding-right: 40px; display: flex; align-items: center; overflow: hidden; }
+.bochu-text-frames-wrap { position: relative; width: 100%; min-height: 320px; }
+.bochu-text-frame { position: absolute; top: 0; left: 0; right: 0; display: flex; flex-direction: column; justify-content: flex-start; gap: 20px; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+.bochu-text-frame.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; position: relative; }
 .bochu-text-frame .step-num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); }
-.bochu-text-frame h3 { font-size: clamp(2.2rem, 4vw, 4rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; }
+.bochu-text-frame h3 { font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; }
 .bochu-text-frame h3 em { font-style: normal; color: transparent; -webkit-text-stroke: 1.2px currentColor; }
-.bochu-text-frame p { font-size: 16px; line-height: 1.55; color: var(--ink-dim); max-width: 42ch; }
-.bochu-text-frame ul { list-style: none; display: flex; flex-direction: column; gap: 0; margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--line); }
-.bochu-text-frame ul li { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+.bochu-text-frame p { font-size: 15px; line-height: 1.55; color: var(--ink-dim); max-width: 42ch; }
+.bochu-text-frame ul { list-style: none; display: flex; flex-direction: column; gap: 0; margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
+.bochu-text-frame ul li { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; padding: 7px 0; border-bottom: 1px dashed var(--line); }
 .bochu-text-frame ul li span { color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.16em; font-size: 10px; }
 .bochu-text-frame ul li b { color: var(--ink); font-weight: 500; }
-.bochu-stage { position: relative; height: calc(100vh - var(--header-h) - 48px); background: radial-gradient(80% 60% at 50% 50%, var(--bg-2), var(--bg) 70%); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; isolation: isolate; }
+.bochu-stage { position: relative; height: calc(100vh - var(--header-h) - 40px); margin: 20px 0; background: radial-gradient(80% 60% at 50% 50%, var(--bg-2), var(--bg) 70%); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; isolation: isolate; }
 .bochu-stage::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(10,11,12,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(10,11,12,0.04) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
 .bochu-frame { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transition: opacity 0.5s var(--ease); }
 .bochu-frame.is-active { opacity: 1; }
@@ -320,9 +328,10 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .hero-sub { grid-template-columns: 1fr; gap: 32px; }
+  .hero-sub-stats { justify-content: flex-start; }
   .exchange-head { grid-template-columns: 1fr; gap: 32px; }
   .bochu-head-block { grid-template-columns: 1fr; gap: 32px; }
-  .bochu-pin { grid-template-columns: 1fr; }
+  .bochu-pin { grid-template-columns: 1fr; padding: 0 var(--pad-x); }
   .bochu-text { display: none; }
   .cypcut-inner { grid-template-columns: 1fr; gap: 48px; }
   .exchange-specs { grid-template-columns: repeat(2, 1fr); }
@@ -349,7 +358,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   <div class="wv-loader-glow"></div>
   <div class="wv-loader-corners"></div>
   <div class="wv-loader-center">
-    <img class="wv-loader-logo" src="/assets/wavlon-logo.png" alt="Wavlon Lasers" id="loaderLogo"/>
+    <img class="wv-loader-logo" src="/wavlon_lasers_full_logo_transparent.png" alt="Wavlon Lasers" id="loaderLogo"/>
     <div class="wv-loader-wave">
       <span></span><span></span><span></span><span></span><span></span>
     </div>
@@ -411,7 +420,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
       <span>
         <a href="mailto:sales@wavlonlasers.com">sales@wavlonlasers.com</a>
         &nbsp;|&nbsp;
-        <a href="tel:+14165550190">+1 (416) 555-0190</a>
+        <a href="tel:+19052913469">+1 (905) 291-3469</a>
         &nbsp;|&nbsp; Mon–Fri 8am–6pm EST
       </span>
     </div>
@@ -727,6 +736,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 
 <!-- ── Hero ───────────────────────────────────────────────────── -->
 <section class="hero" id="hero">
+  <div class="hero-bg"><img src="/assets/machine-floor.png" alt="" aria-hidden="true" /></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
     <div class="hero-top">
@@ -800,6 +810,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
     </div>
     <div class="hp-machines-grid">
       <a class="hp-machine-card" href="/machines/fiber-laser-sheet-cutting/s-series/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-front.png" alt="S-Series Standard fiber laser" loading="lazy"/></div>
         <div class="hp-machine-card-badge">Sheet Cutting · S-Series</div>
         <div class="hp-machine-card-name">S-Series Standard</div>
         <div class="hp-machine-card-power">1 kW — 6 kW · Fiber</div>
@@ -807,6 +818,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
         <span class="hp-machine-card-link">Explore S-Series</span>
       </a>
       <a class="hp-machine-card" href="/machines/fiber-laser-sheet-cutting/p-series/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-right.png" alt="P-Series Pro fiber laser" loading="lazy"/></div>
         <div class="hp-machine-card-badge">Sheet Cutting · P-Series</div>
         <div class="hp-machine-card-name">P-Series Pro</div>
         <div class="hp-machine-card-power">6 kW — 20 kW · Fiber</div>
@@ -814,6 +826,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
         <span class="hp-machine-card-link">Explore P-Series</span>
       </a>
       <a class="hp-machine-card" href="/machines/fiber-laser-sheet-cutting/x-series/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-back.png" alt="X-Series Extreme fiber laser" loading="lazy"/></div>
         <div class="hp-machine-card-badge">Sheet Cutting · X-Series</div>
         <div class="hp-machine-card-name">X-Series Extreme</div>
         <div class="hp-machine-card-power">20 kW — 30 kW · Fiber</div>
@@ -821,6 +834,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
         <span class="hp-machine-card-link">Explore X-Series</span>
       </a>
       <a class="hp-machine-card" href="/machines/fiber-laser-tube-cutting/t-series/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-left.png" alt="T-Series tube laser" loading="lazy"/></div>
         <div class="hp-machine-card-badge">Tube Cutting · T-Series</div>
         <div class="hp-machine-card-name">T-Series Tube</div>
         <div class="hp-machine-card-power">2 kW — 12 kW · Fiber</div>
@@ -828,6 +842,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
         <span class="hp-machine-card-link">Explore T-Series</span>
       </a>
       <a class="hp-machine-card" href="/machines/fiber-laser-automation/tower-system/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-floor.png" alt="Tower automation system" loading="lazy"/></div>
         <div class="hp-machine-card-badge">Automation · Tower System</div>
         <div class="hp-machine-card-name">Tower Storage System</div>
         <div class="hp-machine-card-power">Automated Loading &amp; Sorting</div>
@@ -835,6 +850,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
         <span class="hp-machine-card-link">Explore Tower System</span>
       </a>
       <a class="hp-machine-card" href="/machines/fiber-laser-welding/air-cooled-series/">
+        <div class="hp-machine-card-img"><img src="/assets/bochu-head-1.png" alt="Air-Cooled W-Series welding laser" loading="lazy"/></div>
         <div class="hp-machine-card-badge">Welding · W-Series</div>
         <div class="hp-machine-card-name">Air-Cooled W-Series</div>
         <div class="hp-machine-card-power">1.5 kW — 3 kW · Fiber</div>
@@ -896,29 +912,31 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   <div class="bochu-stage-track" id="bochuTrack">
     <div class="bochu-pin">
       <div class="bochu-text">
-        <div class="bochu-text-frame is-active" data-text="0">
-          <div class="step-num">Step 01 / 04 · Whole assembly</div>
-          <h3>Compact, <em>sealed</em>, sensor-laden.</h3>
-          <p>The BLT310 ships as a sealed assembly: collimator on top, focus module in the middle, capacitive sensor ring at the nozzle. Standoff is monitored at 1 kHz; the head can hold ±50 µm even as 6 mm stainless warps under cut load.</p>
-          <ul><li><span>Power band</span><b>3 — 15 kW</b></li><li><span>Focus stroke</span><b>±25 mm</b></li><li><span>Standoff</span><b>±50 µm</b></li><li><span>Sensor rate</span><b>1 kHz</b></li></ul>
-        </div>
-        <div class="bochu-text-frame" data-text="1">
-          <div class="step-num">Step 02 / 04 · Mounting + Nozzle</div>
-          <h3>Tool-free <em>nozzle</em> swap.</h3>
-          <p>The mounting block carries the capacitive sensor, gas inlet, and the auto-positioning rails. Nozzles change in under five seconds via the quick-lock collar — no tools, no realignment, no test cuts.</p>
-          <ul><li><span>Nozzle change</span><b>&lt; 5 s</b></li><li><span>Gas inlets</span><b>N₂ · O₂ · Air</b></li><li><span>Max pressure</span><b>25 bar</b></li><li><span>Mount</span><b>Quick-lock</b></li></ul>
-        </div>
-        <div class="bochu-text-frame" data-text="2">
-          <div class="step-num">Step 03 / 04 · Exploded view</div>
-          <h3>Modular <em>service</em> internals.</h3>
-          <p>Open the head and every consumable lifts out as an indexed cassette: cover slide, focus lens, collimator, beam splitter. Each cassette has its own seals — the rest of the head never sees ambient air.</p>
-          <ul><li><span>Modules</span><b>4 cassettes</b></li><li><span>Seal class</span><b>IP55 / dry-N₂</b></li><li><span>Cover slide</span><b>Auto-replace</b></li><li><span>Service time</span><b>&lt; 10 min</b></li></ul>
-        </div>
-        <div class="bochu-text-frame" data-text="3">
-          <div class="step-num">Step 04 / 04 · Focus optics</div>
-          <h3>The lens is <em>everything.</em></h3>
-          <p>At the focus stage, a fused-silica plano-convex lens condenses the collimated beam to an 80-micron focal spot. The retainer is a precision-machined nickel-plated bezel that drops out of the cassette and re-seats to ±2 µm tilt accuracy.</p>
-          <ul><li><span>Lens material</span><b>Fused silica</b></li><li><span>Focal length</span><b>150 mm</b></li><li><span>Focal spot</span><b>Ø 80 µm</b></li><li><span>Re-seat tol.</span><b>±2 µm</b></li></ul>
+        <div class="bochu-text-frames-wrap">
+          <div class="bochu-text-frame is-active" data-text="0">
+            <div class="step-num">Step 01 / 04 · Whole assembly</div>
+            <h3>Compact, <em>sealed</em>, sensor-laden.</h3>
+            <p>The BLT310 ships as a sealed assembly: collimator on top, focus module in the middle, capacitive sensor ring at the nozzle. Standoff is monitored at 1 kHz; the head can hold ±50 µm even as 6 mm stainless warps under cut load.</p>
+            <ul><li><span>Power band</span><b>3 — 15 kW</b></li><li><span>Focus stroke</span><b>±25 mm</b></li><li><span>Standoff</span><b>±50 µm</b></li><li><span>Sensor rate</span><b>1 kHz</b></li></ul>
+          </div>
+          <div class="bochu-text-frame" data-text="1">
+            <div class="step-num">Step 02 / 04 · Mounting + Nozzle</div>
+            <h3>Tool-free <em>nozzle</em> swap.</h3>
+            <p>The mounting block carries the capacitive sensor, gas inlet, and the auto-positioning rails. Nozzles change in under five seconds via the quick-lock collar — no tools, no realignment, no test cuts.</p>
+            <ul><li><span>Nozzle change</span><b>&lt; 5 s</b></li><li><span>Gas inlets</span><b>N₂ · O₂ · Air</b></li><li><span>Max pressure</span><b>25 bar</b></li><li><span>Mount</span><b>Quick-lock</b></li></ul>
+          </div>
+          <div class="bochu-text-frame" data-text="2">
+            <div class="step-num">Step 03 / 04 · Exploded view</div>
+            <h3>Modular <em>service</em> internals.</h3>
+            <p>Open the head and every consumable lifts out as an indexed cassette: cover slide, focus lens, collimator, beam splitter. Each cassette has its own seals — the rest of the head never sees ambient air.</p>
+            <ul><li><span>Modules</span><b>4 cassettes</b></li><li><span>Seal class</span><b>IP55 / dry-N₂</b></li><li><span>Cover slide</span><b>Auto-replace</b></li><li><span>Service time</span><b>&lt; 10 min</b></li></ul>
+          </div>
+          <div class="bochu-text-frame" data-text="3">
+            <div class="step-num">Step 04 / 04 · Focus optics</div>
+            <h3>The lens is <em>everything.</em></h3>
+            <p>At the focus stage, a fused-silica plano-convex lens condenses the collimated beam to an 80-micron focal spot. The retainer is a precision-machined nickel-plated bezel that drops out of the cassette and re-seats to ±2 µm tilt accuracy.</p>
+            <ul><li><span>Lens material</span><b>Fused silica</b></li><li><span>Focal length</span><b>150 mm</b></li><li><span>Focal spot</span><b>Ø 80 µm</b></li><li><span>Re-seat tol.</span><b>±2 µm</b></li></ul>
+          </div>
         </div>
       </div>
       <div class="bochu-stage" id="bochuStage">
@@ -987,9 +1005,9 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             sales@wavlonlasers.com
           </a>
-          <a href="tel:+14165550190" class="footer-contact-item">
+          <a href="tel:+19052913469" class="footer-contact-item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
-            +1 (416) 555-0190
+            +1 (905) 291-3469
           </a>
           <span class="footer-contact-item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1132,29 +1150,40 @@ function setupExchange() {
   var cycleNumEl   = document.getElementById('cycleNum');
   var cycleStateEl = document.getElementById('cycleState');
   var cycle = 1;
-  var states = ['Loading', 'Cutting', 'Swapping', 'Unloading'];
 
+  // 6.4-second repeating swap loop
+  function buildLoop() {
+    var tl = gsap.timeline({
+      repeat: -1,
+      defaults: { ease: 'power2.inOut' },
+      onRepeat: function() {
+        cycle += 1;
+        cycleNumEl.textContent = String(cycle).padStart(3, '0');
+      }
+    });
+    tl.call(function() { cycleStateEl.textContent = 'Loading'; },  [], 0)
+      .to({}, { duration: 0.6 }, 0)
+      .call(function() { cycleStateEl.textContent = 'Swapping'; }, [], 0.6)
+      .to(palletTop,    { yPercent: 50,  duration: 1.6 }, 0.6)
+      .to(palletBottom, { yPercent: -50, duration: 1.6 }, 0.6)
+      .call(function() { cycleStateEl.textContent = 'Cutting'; },  [], 2.2)
+      .to({}, { duration: 1.6 }, 2.2)
+      .call(function() { cycleStateEl.textContent = 'Swapping'; }, [], 3.8)
+      .to(palletTop,    { yPercent: 0, duration: 1.6 }, 3.8)
+      .to(palletBottom, { yPercent: 0, duration: 1.6 }, 3.8)
+      .to({}, { duration: 0.6 }, 5.4);
+    return tl;
+  }
+
+  var loop = null;
   ScrollTrigger.create({
     trigger: stage,
-    start: 'top 80%',
-    end: 'bottom 20%',
-    scrub: true,
-    onUpdate: function(self) {
-      var p = self.progress;
-      // Animate pallets shifting based on scroll progress
-      var topShift    = p * -8;
-      var bottomShift = p * 8;
-      gsap.set(palletTop,    { y: topShift + '%' });
-      gsap.set(palletBottom, { y: bottomShift + '%' });
-
-      // Cycle counter
-      var newCycle = Math.floor(p * 12) + 1;
-      if (newCycle !== cycle) {
-        cycle = newCycle;
-        cycleNumEl.textContent   = String(cycle).padStart(3, '0');
-        cycleStateEl.textContent = states[cycle % states.length];
-      }
-    }
+    start: 'top 90%',
+    end:   'bottom 10%',
+    onEnter:     function() { if (!loop) loop = buildLoop(); loop.play(); },
+    onEnterBack: function() { if (loop) loop.play(); },
+    onLeave:     function() { if (loop) loop.pause(); },
+    onLeaveBack: function() { if (loop) loop.pause(); }
   });
 }
 
