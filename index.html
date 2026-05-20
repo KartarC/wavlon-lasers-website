@@ -219,11 +219,11 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .bochu-head-block h2 { font-size: clamp(2.8rem, 5.5vw, 5.5rem); line-height: 0.9; }
 .bochu-head-block h2 .blue { color: var(--blue); }
 .bochu-stage-track { position: relative; }
-.bochu-pin { height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 480px 1fr; align-items: stretch; gap: 0; padding: 0 var(--pad-x); max-width: 1680px; margin: 0 auto; overflow: hidden; }
-.bochu-text { position: relative; padding-right: 40px; display: flex; align-items: center; }
-.bochu-text-frames-wrap { position: relative; width: 100%; height: clamp(260px, 38vh, 420px); }
+.bochu-pin { height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 480px 1fr; align-items: stretch; gap: 0; padding: 0 var(--pad-x); max-width: 1680px; margin: 0 auto; overflow-x: hidden; }
+.bochu-text { position: relative; padding-right: 40px; display: flex; align-items: center; overflow: hidden; }
+.bochu-text-frames-wrap { position: relative; width: 100%; height: clamp(480px, 72vh, 640px); }
 /* All frames are always position:absolute — no layout thrash when switching */
-.bochu-text-frame { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 20px; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); overflow: hidden; }
+.bochu-text-frame { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 20px; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); overflow: visible; }
 .bochu-text-frame.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .bochu-text-frame .step-num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); }
 .bochu-text-frame h3 { font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; }
@@ -683,10 +683,10 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
       <a href="#machines"><span class="page-toc-label">Our Machines</span><span class="page-toc-dot"></span></a>
     </div>
     <div class="page-toc-item" data-section="bochu-section">
-      <a href="#bochu-section"><span class="page-toc-label">BOCHU Head</span><span class="page-toc-dot"></span></a>
+      <a href="#bochu-section"><span class="page-toc-label">Laser Head</span><span class="page-toc-dot"></span></a>
     </div>
     <div class="page-toc-item" data-section="components">
-      <a href="#components"><span class="page-toc-label">Components</span><span class="page-toc-dot"></span></a>
+      <a href="#components"><span class="page-toc-label">Optional Components</span><span class="page-toc-dot"></span></a>
     </div>
     <div class="page-toc-item" data-section="cypcut">
       <a href="#cypcut"><span class="page-toc-label">Control System</span><span class="page-toc-dot"></span></a>
