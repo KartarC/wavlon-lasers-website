@@ -208,6 +208,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 
 /* ── Components section (same styling as hp-machines) ──────── */
 .hp-components { background: var(--bg); border-top: 1px solid var(--line); padding: clamp(80px, 12vh, 140px) var(--pad-x); }
+.hp-components-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
 
 /* ── BOCHU ──────────────────────────────────────────────────── */
 .bochu { background: var(--bg); border-top: 1px solid var(--line); }
@@ -217,8 +218,8 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .bochu-mark .by { display: block; font-size: 0.22em; font-family: var(--mono); font-weight: 500; letter-spacing: 0.24em; color: var(--ink-faint); margin-top: 12px; }
 .bochu-head-block h2 { font-size: clamp(2.8rem, 5.5vw, 5.5rem); line-height: 0.9; }
 .bochu-head-block h2 .blue { color: var(--blue); }
-.bochu-stage-track { height: 500vh; position: relative; }
-.bochu-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 480px 1fr; align-items: stretch; gap: 0; padding: 0 var(--pad-x); max-width: 1680px; margin: 0 auto; overflow: hidden; }
+.bochu-stage-track { position: relative; }
+.bochu-pin { height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 480px 1fr; align-items: stretch; gap: 0; padding: 0 var(--pad-x); max-width: 1680px; margin: 0 auto; overflow: hidden; }
 .bochu-text { position: relative; padding-right: 40px; display: flex; align-items: center; }
 .bochu-text-frames-wrap { position: relative; width: 100%; height: clamp(260px, 38vh, 420px); }
 /* All frames are always position:absolute — no layout thrash when switching */
@@ -297,6 +298,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .bochu-text { display: none; }
   .cypcut-inner { grid-template-columns: 1fr; gap: 48px; }
   .hp-machines-grid { grid-template-columns: repeat(2, 1fr); }
+  .hp-components-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
   .hero-h1 { font-size: clamp(3.5rem, 15vw, 8rem); }
@@ -305,6 +307,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hero-cta a { text-align: center; }
   .cypcut-features { grid-template-columns: 1fr; }
   .hp-machines-grid { grid-template-columns: 1fr; }
+  .hp-components-grid { grid-template-columns: 1fr; }
   .hp-cta-btns { flex-direction: column; width: 100%; }
   .hp-cta-btns a { text-align: center; }
 }
@@ -679,11 +682,11 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
     <div class="page-toc-item" data-section="machines">
       <a href="#machines"><span class="page-toc-label">Our Machines</span><span class="page-toc-dot"></span></a>
     </div>
-    <li class="page-toc-item" data-section="components">
-      <a href="#components"><span class="page-toc-dot"></span><span class="page-toc-label">Components</span></a>
-    </li>
     <div class="page-toc-item" data-section="bochu-section">
       <a href="#bochu-section"><span class="page-toc-label">BOCHU Head</span><span class="page-toc-dot"></span></a>
+    </div>
+    <div class="page-toc-item" data-section="components">
+      <a href="#components"><span class="page-toc-label">Components</span><span class="page-toc-dot"></span></a>
     </div>
     <div class="page-toc-item" data-section="cypcut">
       <a href="#cypcut"><span class="page-toc-label">Control System</span><span class="page-toc-dot"></span></a>
@@ -784,54 +787,6 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   </div>
 </section>
 
-<!-- ── Components & Accessories ──────────────────────────────── -->
-<section class="hp-components" id="components">
-  <div class="hp-machines-inner">
-    <div class="hp-section-head">
-      <div class="tag">Components &amp; Accessories</div>
-      <h2>Precision Parts,<br/>Trusted <span style="color:var(--blue)">Suppliers.</span></h2>
-      <p>Every Wavlon machine is built with industry-standard components from leading suppliers — giving you confidence in serviceability, spares, and long-term support.</p>
-    </div>
-    <div class="hp-machines-grid">
-      <a class="hp-machine-card" href="/parts/">
-        <div class="hp-machine-card-img"><img src="/assets/bochu-head-1.png" alt="Precitec laser cutting head" loading="lazy"/></div>
-        <div class="hp-machine-card-badge">Optional Upgrade · Cutting Heads</div>
-        <div class="hp-machine-card-name">Precitec Heads</div>
-        <div class="hp-machine-card-power">ProCutter 2.0 · YW52 Series</div>
-        <p class="hp-machine-card-desc">Precitec ProCutter and YW52 auto-focus heads are available as factory-fit upgrades on all Wavlon sheet cutting machines — offering enhanced focus range, integrated collision protection, and a global service network.</p>
-        <span class="hp-machine-card-link">Enquire</span>
-      </a>
-      <a class="hp-machine-card" href="/parts/">
-        <div class="hp-machine-card-img"><img src="/assets/machine-front.png" alt="Schneider Electric components" loading="lazy"/></div>
-        <div class="hp-machine-card-badge">Electrical · Drive Components</div>
-        <div class="hp-machine-card-name">Schneider Components</div>
-        <div class="hp-machine-card-power">Inverters · PLCs · Contactors</div>
-        <p class="hp-machine-card-desc">Wavlon machines use Schneider Electric throughout the electrical cabinet — inverters, PLCs, circuit breakers, and contactors. Genuine Schneider spares are available through Wavlon Parts for next-business-day supply across Canada.</p>
-        <span class="hp-machine-card-link">Order Parts</span>
-      </a>
-      <a class="hp-machine-card" href="/parts/">
-        <div class="hp-machine-card-img"><img src="/assets/machine-right.png" alt="Servo motor system" loading="lazy"/></div>
-        <div class="hp-machine-card-badge">Motion Control · Axis Drives</div>
-        <div class="hp-machine-card-name">Servo Motors</div>
-        <div class="hp-machine-card-power">X · Y · Z Axis Systems</div>
-        <p class="hp-machine-card-desc">High-torque servo motors and matched drives power every linear axis on Wavlon sheet and tube machines. Direct replacements are stocked in our Toronto warehouse — same-day dispatch on most models.</p>
-        <span class="hp-machine-card-link">Order Parts</span>
-      </a>
-      <a class="hp-machine-card" href="/parts/">
-        <div class="hp-machine-card-img"><img src="/assets/machine-back.png" alt="Techmech structural components" loading="lazy"/></div>
-        <div class="hp-machine-card-badge">Structural · Mechanical</div>
-        <div class="hp-machine-card-name">Techmech Components</div>
-        <div class="hp-machine-card-power">Rails · Pinions · Guideways</div>
-        <p class="hp-machine-card-desc">Linear guideways, precision rack-and-pinion drives, and structural machined parts from Techmech — the OEM supplier for Wavlon's gantry and exchange table systems. Genuine replacements stocked for all active series.</p>
-        <span class="hp-machine-card-link">Order Parts</span>
-      </a>
-    </div>
-    <div class="hp-machines-cta">
-      <a href="/parts/">View All Parts &amp; Components</a>
-    </div>
-  </div>
-</section>
-
 <!-- ── BOCHU Head ─────────────────────────────────────────────── -->
 <section class="bochu" id="bochu-section">
   <div class="bochu-head-block">
@@ -888,6 +843,54 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
         <div class="bochu-frame" data-bframe="2"><img src="/assets/bochu-head-3-exploded.webp" alt="BOCI BLT310 — exploded optics" /></div>
         <div class="bochu-frame" data-bframe="3"><img src="/assets/bochu-head-4-lens.webp" alt="BOCI BLT310 — focus lens" /></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Components & Accessories ──────────────────────────────── -->
+<section class="hp-components" id="components">
+  <div class="hp-machines-inner">
+    <div class="hp-section-head">
+      <div class="tag">Components &amp; Accessories</div>
+      <h2>Precision Parts,<br/>Trusted <span style="color:var(--blue)">Suppliers.</span></h2>
+      <p>Every Wavlon machine is built with industry-standard components from leading suppliers — giving you confidence in serviceability, spares, and long-term support.</p>
+    </div>
+    <div class="hp-components-grid">
+      <a class="hp-machine-card" href="/parts/">
+        <div class="hp-machine-card-img"><img src="/assets/bochu-head-1.png" alt="Precitec laser cutting head" loading="lazy"/></div>
+        <div class="hp-machine-card-badge">Optional Upgrade · Cutting Heads</div>
+        <div class="hp-machine-card-name">Precitec Heads</div>
+        <div class="hp-machine-card-power">ProCutter 2.0 · YW52 Series</div>
+        <p class="hp-machine-card-desc">Precitec ProCutter and YW52 auto-focus heads are available as factory-fit upgrades on all Wavlon sheet cutting machines — offering enhanced focus range, integrated collision protection, and a global service network.</p>
+        <span class="hp-machine-card-link">Enquire</span>
+      </a>
+      <a class="hp-machine-card" href="/parts/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-front.png" alt="Schneider Electric components" loading="lazy"/></div>
+        <div class="hp-machine-card-badge">Electrical · Drive Components</div>
+        <div class="hp-machine-card-name">Schneider Components</div>
+        <div class="hp-machine-card-power">Inverters · PLCs · Contactors</div>
+        <p class="hp-machine-card-desc">Wavlon machines use Schneider Electric throughout the electrical cabinet — inverters, PLCs, circuit breakers, and contactors. Genuine Schneider spares are available through Wavlon Parts for next-business-day supply across Canada.</p>
+        <span class="hp-machine-card-link">Order Parts</span>
+      </a>
+      <a class="hp-machine-card" href="/parts/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-right.png" alt="Servo motor system" loading="lazy"/></div>
+        <div class="hp-machine-card-badge">Motion Control · Axis Drives</div>
+        <div class="hp-machine-card-name">Servo Motors</div>
+        <div class="hp-machine-card-power">X · Y · Z Axis Systems</div>
+        <p class="hp-machine-card-desc">High-torque servo motors and matched drives power every linear axis on Wavlon sheet and tube machines. Direct replacements are stocked in our Toronto warehouse — same-day dispatch on most models.</p>
+        <span class="hp-machine-card-link">Order Parts</span>
+      </a>
+      <a class="hp-machine-card" href="/parts/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-back.png" alt="Techmech structural components" loading="lazy"/></div>
+        <div class="hp-machine-card-badge">Structural · Mechanical</div>
+        <div class="hp-machine-card-name">Techmech Components</div>
+        <div class="hp-machine-card-power">Rails · Pinions · Guideways</div>
+        <p class="hp-machine-card-desc">Linear guideways, precision rack-and-pinion drives, and structural machined parts from Techmech — the OEM supplier for Wavlon's gantry and exchange table systems. Genuine replacements stocked for all active series.</p>
+        <span class="hp-machine-card-link">Order Parts</span>
+      </a>
+    </div>
+    <div class="hp-machines-cta">
+      <a href="/parts/">View All Parts &amp; Components</a>
     </div>
   </div>
 </section>
@@ -1065,7 +1068,7 @@ function heroIntro() {
 
 /* ── BOCHU ──────────────────────────────────────────────────── */
 function setupBochu() {
-  var track      = document.getElementById('bochuTrack');
+  var bochuPin   = document.querySelector('.bochu-pin');
   var textFrames = document.querySelectorAll('.bochu-text-frame');
   var bFrames    = document.querySelectorAll('.bochu-frame');
   var pips       = document.querySelectorAll('.bochu-stage-progress .pip');
@@ -1073,7 +1076,7 @@ function setupBochu() {
   var total      = bFrames.length;
   var current    = 0;
 
-  if (!track || !bFrames.length) return;
+  if (!bochuPin || !bFrames.length) return;
 
   function goTo(idx) {
     if (idx === current) return;
@@ -1092,10 +1095,13 @@ function setupBochu() {
     if (stepLabel) stepLabel.textContent = String(idx + 1).padStart(2, '0') + ' / 04';
   }
 
+  // GSAP pin — adds exact scroll space; no trailing white space after unpin
   ScrollTrigger.create({
-    trigger: track,
-    start: PIN_START,
-    end: PIN_END,
+    trigger: bochuPin,
+    pin: true,
+    anticipatePin: 1,
+    start: 'top top+=' + HEADER_H,
+    end: '+=' + (window.innerHeight * 4),
     onUpdate: function(self) {
       var idx = Math.min(total - 1, Math.floor(self.progress * total));
       goTo(idx);
@@ -1150,9 +1156,9 @@ function setupParallax() {
     }
   );
 
-  // 3. BOCHU frame images: matching subtle scale-out
-  var bochuTrack = document.getElementById('bochuTrack');
-  if (bochuTrack) {
+  // 3. BOCHU frame images: subtle scale-out scrubbed to the GSAP-pinned element
+  var bochuPin = document.querySelector('.bochu-pin');
+  if (bochuPin) {
     document.querySelectorAll('.bochu-frame img').forEach(function(img) {
       gsap.fromTo(img,
         { scale: 1.06 },
@@ -1160,9 +1166,9 @@ function setupParallax() {
           scale: 1.0,
           ease: 'none',
           scrollTrigger: {
-            trigger: bochuTrack,
-            start: PIN_START,
-            end: PIN_END,
+            trigger: bochuPin,
+            start: 'top top+=' + HEADER_H,
+            end: '+=' + (window.innerHeight * 4),
             scrub: 0.6
           }
         }
@@ -1180,17 +1186,23 @@ function setupSectionHeads() {
       opacity: 0, y: 20, stagger: 0.08, duration: 0.7, ease: 'power3.out'
     });
   });
-  // Machine cards
-  gsap.from('.hp-machine-card', {
+  // Machine cards (Our Machines grid only)
+  gsap.from('.hp-machines-grid .hp-machine-card', {
     scrollTrigger: { trigger: '.hp-machines-grid', start: 'top 80%', toggleActions: 'play none none none' },
     opacity: 0, y: 24, stagger: 0.06, duration: 0.6, ease: 'power3.out'
+  });
+
+  // Component cards — slide in from the right, staggered
+  gsap.from('.hp-components-grid .hp-machine-card', {
+    scrollTrigger: { trigger: '.hp-components-grid', start: 'top 82%', toggleActions: 'play none none none' },
+    opacity: 0, x: 48, stagger: 0.1, duration: 0.75, ease: 'power3.out'
   });
 }
 
 /* ── Side TOC — scroll-position tracker ────────────────────── */
 (function() {
   var tocItems   = document.querySelectorAll('.page-toc-item');
-  var sectionIds = ['hero', 'machines', 'components', 'bochu-section', 'cypcut'];
+  var sectionIds = ['hero', 'machines', 'bochu-section', 'components', 'cypcut'];
 
   // Build a live reference array (looked up after DOM is ready)
   var sections = [];
