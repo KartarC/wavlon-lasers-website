@@ -84,8 +84,18 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
+#wv-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/machine-floor.png');
+  background-size: cover;
+  background-position: center 40%;
+  opacity: 0.12;
+  z-index: 0;
+}
 #wv-loader .wv-loader-grain {
-  position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.04; z-index: 1;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat; background-size: 128px 128px;
 }
@@ -109,7 +119,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center; gap: 32px;
 }
-#wv-loader .wv-loader-logo { height: 48px; width: auto; opacity: 0; transition: opacity 0.6s ease; filter: brightness(0) invert(1); }
+#wv-loader .wv-loader-logo { height: 80px; width: auto; opacity: 0; transition: opacity 0.6s ease; filter: brightness(0) invert(1); }
 #wv-loader .wv-loader-logo.visible { opacity: 1; }
 #wv-loader .wv-loader-wave {
   display: flex; gap: 5px; align-items: center;
@@ -174,32 +184,6 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .hero-cta .btn-ghost { background: transparent; color: rgba(255,255,255,0.75); padding: 15px 34px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
 .hero-cta .btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
 
-/* ── Reel ───────────────────────────────────────────────────── */
-.reel { position: relative; background: var(--bg); border-top: 1px solid var(--line); }
-.reel-track { height: 550vh; position: relative; }
-.reel-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 1fr; align-items: stretch; overflow: hidden; }
-.reel-stage { position: relative; margin: clamp(12px, 1.5vw, 24px); border-radius: 8px; background: linear-gradient(180deg, #0a0b0c 0%, #14161a 100%); overflow: hidden; display: grid; grid-template-columns: 1fr; isolation: isolate; border: 1px solid var(--line-dark); }
-.reel-stage::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 50% at 50% 60%, rgba(74,139,255,0.15), transparent 70%), linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: auto, 48px 48px, 48px 48px; pointer-events: none; z-index: 0; }
-.reel-stage::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 100% at 50% 100%, rgba(74,139,255,0.10), transparent 70%); pointer-events: none; z-index: 1; }
-.reel-frame { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; z-index: 2; transition: opacity 0.5s var(--ease); }
-.reel-frame.is-active { opacity: 1; }
-.reel-frame img { width: 92%; max-height: 78%; object-fit: contain; filter: drop-shadow(0 60px 80px rgba(0,0,0,0.6)); will-change: transform, opacity; }
-.reel-overlay { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: #fff; }
-.reel-overlay-top { position: absolute; top: 28px; left: 28px; right: 28px; display: flex; justify-content: space-between; align-items: flex-start; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-.reel-overlay-top .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-light); box-shadow: 0 0 10px var(--blue-light); margin-right: 10px; vertical-align: middle; animation: pulse 1.6s ease-in-out infinite; }
-.reel-overlay-top b { color: #fff; font-weight: 500; }
-@keyframes pulse { 50% { opacity: 0.4; transform: scale(0.85); } }
-.reel-overlay-bottom { position: absolute; bottom: 32px; left: 32px; right: 32px; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
-.reel-view-name { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; font-size: clamp(2rem, 4vw, 4rem); line-height: 0.95; color: #fff; }
-.reel-view-name .sub { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; color: rgba(255,255,255,0.5); margin-top: 12px; font-weight: 500; }
-.reel-view-name .num { display: inline-block; font-family: var(--mono); font-size: 13px; color: var(--blue-light); letter-spacing: 0.2em; margin-right: 14px; vertical-align: top; margin-top: 8px; }
-.reel-progress { display: flex; gap: 12px; align-items: center; }
-.reel-progress .step { width: 36px; height: 1px; background: rgba(255,255,255,0.2); position: relative; overflow: hidden; }
-.reel-progress .step.is-done::after, .reel-progress .step.is-active::after { content: ""; position: absolute; inset: 0; background: var(--blue-light); box-shadow: 0 0 6px var(--blue-light); }
-.reel-progress .step.is-active::after { animation: stepFill 1.2s ease forwards; }
-@keyframes stepFill { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); } }
-.reel-progress .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: rgba(255,255,255,0.5); margin-left: 12px; }
-
 /* ── Our Machines ───────────────────────────────────────────── */
 .hp-machines { background: var(--bg-2); border-top: 1px solid var(--line); padding: clamp(80px, 12vh, 140px) var(--pad-x); }
 .hp-machines-inner { max-width: 1680px; margin: 0 auto; }
@@ -222,30 +206,8 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .hp-machines-cta a { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--line-2); padding: 14px 28px; transition: border-color 0.2s, color 0.2s; }
 .hp-machines-cta a:hover { border-color: var(--blue); color: var(--blue); }
 
-/* ── Exchange ───────────────────────────────────────────────── */
-.section-pad { padding: clamp(100px, 14vh, 180px) var(--pad-x); max-width: 1680px; margin: 0 auto; }
-.exchange { background: var(--bg); border-top: 1px solid var(--line); }
-.exchange-head { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; margin-bottom: 80px; align-items: end; }
-.exchange-head h2 { font-size: clamp(3rem, 7vw, 7rem); line-height: 0.9; }
-.exchange-head h2 .blue { color: var(--blue); }
-.exchange-head .meta { display: flex; flex-direction: column; gap: 18px; }
-.exchange-stage { position: relative; background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; aspect-ratio: 16 / 9; isolation: isolate; }
-.exchange-stage .pallet-top, .exchange-stage .pallet-bottom { position: absolute; inset: 0; will-change: transform; }
-.exchange-stage .pallet-top img, .exchange-stage .pallet-bottom img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
-.exchange-stage .pallet-top { clip-path: inset(0 0 50% 0); }
-.exchange-stage .pallet-bottom { clip-path: inset(50% 0 0 0); }
-.exchange-stage .seam { position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: rgba(24,73,216,0.15); z-index: 3; transform: translateY(-1px); }
-.exchange-cycle { position: absolute; top: 24px; left: 24px; z-index: 4; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim); display: flex; gap: 14px; align-items: center; background: rgba(255,255,255,0.9); backdrop-filter: blur(6px); padding: 10px 16px; border: 1px solid var(--line); }
-.exchange-cycle .live { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 8px var(--blue); animation: pulse 1.4s ease-in-out infinite; }
-.exchange-cycle b { color: var(--ink); font-weight: 500; }
-.exchange-time { position: absolute; top: 24px; right: 24px; z-index: 4; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim); background: rgba(255,255,255,0.9); padding: 10px 16px; border: 1px solid var(--line); }
-.exchange-time b { color: var(--ink); font-weight: 500; }
-.exchange-specs { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-.exchange-spec { border-right: 1px solid var(--line); padding: 28px 24px 24px 0; display: flex; flex-direction: column; gap: 12px; }
-.exchange-spec:last-child { border-right: 0; padding-right: 0; }
-.exchange-spec span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
-.exchange-spec b { font-family: var(--display); font-size: 28px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
-.exchange-spec b sup { font-size: 13px; color: var(--ink-dim); font-weight: 400; margin-left: 2px; }
+/* ── Components section (same styling as hp-machines) ──────── */
+.hp-components { background: var(--bg); border-top: 1px solid var(--line); padding: clamp(80px, 12vh, 140px) var(--pad-x); }
 
 /* ── BOCHU ──────────────────────────────────────────────────── */
 .bochu { background: var(--bg); border-top: 1px solid var(--line); }
@@ -330,12 +292,10 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .exchange-head { grid-template-columns: 1fr; gap: 32px; }
   .bochu-head-block { grid-template-columns: 1fr; gap: 32px; }
   .bochu-pin { grid-template-columns: 1fr; padding: 0 var(--pad-x); }
   .bochu-text { display: none; }
   .cypcut-inner { grid-template-columns: 1fr; gap: 48px; }
-  .exchange-specs { grid-template-columns: repeat(2, 1fr); }
   .hp-machines-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
@@ -343,10 +303,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hero-video-wrap { max-width: 100%; }
   .hero-cta { flex-direction: column; }
   .hero-cta a { text-align: center; }
-  .exchange-specs { grid-template-columns: 1fr; }
-  .exchange-spec { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; padding-bottom: 18px; }
   .cypcut-features { grid-template-columns: 1fr; }
-  .reel-overlay-bottom { flex-direction: column; align-items: flex-start; gap: 18px; }
   .hp-machines-grid { grid-template-columns: 1fr; }
   .hp-cta-btns { flex-direction: column; width: 100%; }
   .hp-cta-btns a { text-align: center; }
@@ -719,15 +676,12 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
     <div class="page-toc-item is-active" data-section="hero">
       <a href="#hero"><span class="page-toc-label">Hero</span><span class="page-toc-dot"></span></a>
     </div>
-    <div class="page-toc-item" data-section="reel">
-      <a href="#reel"><span class="page-toc-label">Machine Reel</span><span class="page-toc-dot"></span></a>
-    </div>
     <div class="page-toc-item" data-section="machines">
       <a href="#machines"><span class="page-toc-label">Our Machines</span><span class="page-toc-dot"></span></a>
     </div>
-    <div class="page-toc-item" data-section="exchange">
-      <a href="#exchange"><span class="page-toc-label">Exchange Table</span><span class="page-toc-dot"></span></a>
-    </div>
+    <li class="page-toc-item" data-section="components">
+      <a href="#components"><span class="page-toc-dot"></span><span class="page-toc-label">Components</span></a>
+    </li>
     <div class="page-toc-item" data-section="bochu-section">
       <a href="#bochu-section"><span class="page-toc-label">BOCHU Head</span><span class="page-toc-dot"></span></a>
     </div>
@@ -761,42 +715,6 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
         <a href="/contact/#quote" class="btn-primary">Request a Quote &rarr;</a>
         <a href="/machine-showcase/" class="btn-ghost">Machine Showcase</a>
         <a href="/machines/" class="btn-ghost">View All Machines</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Machine Reel ───────────────────────────────────────────── -->
-<section class="reel" id="reel">
-  <div class="reel-track" id="reelTrack">
-    <div class="reel-pin">
-      <div class="reel-stage" id="reelStage">
-        <div class="reel-frame is-active" data-frame="0"><img src="/assets/machine-front.png" alt="WD-3015E front view" /></div>
-        <div class="reel-frame" data-frame="1"><img src="/assets/machine-right.png" alt="WD-3015E right ¾ view" /></div>
-        <div class="reel-frame" data-frame="2"><img src="/assets/machine-back.png" alt="WD-3015E back view" /></div>
-        <div class="reel-frame" data-frame="3"><img src="/assets/machine-left.png" alt="WD-3015E left ¾ view" /></div>
-        <div class="reel-frame" data-frame="4"><img src="/assets/machine-floor.png" alt="WD-3015E on the shop floor" /></div>
-        <div class="reel-overlay">
-          <div class="reel-overlay-top">
-            <span><span class="dot"></span> <b>WD-3015E</b> · FIBER CUTTING SYSTEM</span>
-            <span><b id="reelIdx">01</b> / 05</span>
-          </div>
-          <div class="reel-overlay-bottom">
-            <div class="reel-view-name">
-              <span class="num" id="reelNum">FIG·01</span>
-              <span id="reelTitle">Front Elevation</span>
-              <span class="sub" id="reelSub">Closed cabin · operator door</span>
-            </div>
-            <div class="reel-progress" id="reelProgress">
-              <span class="step is-active" data-step="0"></span>
-              <span class="step" data-step="1"></span>
-              <span class="step" data-step="2"></span>
-              <span class="step" data-step="3"></span>
-              <span class="step" data-step="4"></span>
-              <span class="label">Rotate</span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -866,35 +784,50 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   </div>
 </section>
 
-<!-- ── Exchange Table ─────────────────────────────────────────── -->
-<section class="exchange" id="exchange">
-  <div class="section-pad">
-    <div class="exchange-head">
-      <div>
-        <div class="tag">Section 03 · Dual Exchange Table</div>
-        <h2 style="margin-top:24px;">Swap a sheet<br/>in <span class="blue">35&nbsp;seconds.</span></h2>
-      </div>
-      <div class="meta">
-        <p class="body-copy">The WD-3015E ships with a vertically-stacked dual exchange table. While one pallet is in the cabin under the laser, the other is outside loading the next blank. When the cycle completes, the pallets swap top-to-bottom — the cut sheet drops, the loaded one rises, and cutting resumes with no operator intervention.</p>
-      </div>
+<!-- ── Components & Accessories ──────────────────────────────── -->
+<section class="hp-components" id="components">
+  <div class="hp-machines-inner">
+    <div class="hp-section-head">
+      <div class="tag">Components &amp; Accessories</div>
+      <h2>Precision Parts,<br/>Trusted <span style="color:var(--blue)">Suppliers.</span></h2>
+      <p>Every Wavlon machine is built with industry-standard components from leading suppliers — giving you confidence in serviceability, spares, and long-term support.</p>
     </div>
-    <div class="exchange-stage" id="exchangeStage">
-      <div class="exchange-cycle">
-        <span class="live"></span>
-        <span>Cycle <b id="cycleNum">001</b></span>
-        <span style="color:var(--ink-faint);">/</span>
-        <span><b id="cycleState">Loading</b></span>
-      </div>
-      <div class="exchange-time">Swap time: <b>35.0 s</b></div>
-      <div class="pallet-top"><img src="/assets/exchange-table.png" alt="exchange table top pallet" /></div>
-      <div class="pallet-bottom"><img src="/assets/exchange-table.png" alt="exchange table bottom pallet" /></div>
-      <div class="seam"></div>
+    <div class="hp-machines-grid">
+      <a class="hp-machine-card" href="/parts/">
+        <div class="hp-machine-card-img"><img src="/assets/bochu-head-1.png" alt="Precitec laser cutting head" loading="lazy"/></div>
+        <div class="hp-machine-card-badge">Optional Upgrade · Cutting Heads</div>
+        <div class="hp-machine-card-name">Precitec Heads</div>
+        <div class="hp-machine-card-power">ProCutter 2.0 · YW52 Series</div>
+        <p class="hp-machine-card-desc">Precitec ProCutter and YW52 auto-focus heads are available as factory-fit upgrades on all Wavlon sheet cutting machines — offering enhanced focus range, integrated collision protection, and a global service network.</p>
+        <span class="hp-machine-card-link">Enquire</span>
+      </a>
+      <a class="hp-machine-card" href="/parts/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-front.png" alt="Schneider Electric components" loading="lazy"/></div>
+        <div class="hp-machine-card-badge">Electrical · Drive Components</div>
+        <div class="hp-machine-card-name">Schneider Components</div>
+        <div class="hp-machine-card-power">Inverters · PLCs · Contactors</div>
+        <p class="hp-machine-card-desc">Wavlon machines use Schneider Electric throughout the electrical cabinet — inverters, PLCs, circuit breakers, and contactors. Genuine Schneider spares are available through Wavlon Parts for next-business-day supply across Canada.</p>
+        <span class="hp-machine-card-link">Order Parts</span>
+      </a>
+      <a class="hp-machine-card" href="/parts/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-right.png" alt="Servo motor system" loading="lazy"/></div>
+        <div class="hp-machine-card-badge">Motion Control · Axis Drives</div>
+        <div class="hp-machine-card-name">Servo Motors</div>
+        <div class="hp-machine-card-power">X · Y · Z Axis Systems</div>
+        <p class="hp-machine-card-desc">High-torque servo motors and matched drives power every linear axis on Wavlon sheet and tube machines. Direct replacements are stocked in our Toronto warehouse — same-day dispatch on most models.</p>
+        <span class="hp-machine-card-link">Order Parts</span>
+      </a>
+      <a class="hp-machine-card" href="/parts/">
+        <div class="hp-machine-card-img"><img src="/assets/machine-back.png" alt="Techmech structural components" loading="lazy"/></div>
+        <div class="hp-machine-card-badge">Structural · Mechanical</div>
+        <div class="hp-machine-card-name">Techmech Components</div>
+        <div class="hp-machine-card-power">Rails · Pinions · Guideways</div>
+        <p class="hp-machine-card-desc">Linear guideways, precision rack-and-pinion drives, and structural machined parts from Techmech — the OEM supplier for Wavlon's gantry and exchange table systems. Genuine replacements stocked for all active series.</p>
+        <span class="hp-machine-card-link">Order Parts</span>
+      </a>
     </div>
-    <div class="exchange-specs">
-      <div class="exchange-spec"><span>Swap time</span><b>35<sup>s</sup></b></div>
-      <div class="exchange-spec"><span>Pallet load</span><b>900<sup>kg</sup></b></div>
-      <div class="exchange-spec"><span>Pallet size</span><b>3000 × 1500<sup>mm</sup></b></div>
-      <div class="exchange-spec"><span>Drive</span><b>Servo + rack</b></div>
+    <div class="hp-machines-cta">
+      <a href="/parts/">View All Parts &amp; Components</a>
     </div>
   </div>
 </section>
@@ -1081,14 +1014,6 @@ var HEADER_H = parseInt(getComputedStyle(document.documentElement).getPropertyVa
 var PIN_START = 'top top+=' + HEADER_H;
 var PIN_END   = 'bottom bottom+=' + HEADER_H;
 
-var REEL_VIEWS = [
-  { num: 'FIG·01', title: 'Front Elevation',     sub: 'Closed cabin · operator door · cooler' },
-  { num: 'FIG·02', title: 'Right Three-Quarter', sub: 'HMI side · electrical cabinet' },
-  { num: 'FIG·03', title: 'Rear Elevation',      sub: 'Exchange table extended · safety fence' },
-  { num: 'FIG·04', title: 'Left Three-Quarter',  sub: 'Service side · feed-out · branding' },
-  { num: 'FIG·05', title: 'On the Shop Floor',   sub: 'Scale reference · installed environment' },
-];
-
 /* ── Hero intro ─────────────────────────────────────────────── */
 function heroIntro() {
   try {
@@ -1136,96 +1061,6 @@ function heroIntro() {
     var ol = document.querySelector('.hero-overline');
     if (ol) ol.style.opacity = '1';
   }
-}
-
-/* ── Reel ───────────────────────────────────────────────────── */
-function setupReel() {
-  var track   = document.getElementById('reelTrack');
-  var frames  = document.querySelectorAll('.reel-frame');
-  var steps   = document.querySelectorAll('.reel-progress .step');
-  var idxEl   = document.getElementById('reelIdx');
-  var numEl   = document.getElementById('reelNum');
-  var titleEl = document.getElementById('reelTitle');
-  var subEl   = document.getElementById('reelSub');
-  var total   = REEL_VIEWS.length;
-  var current = 0;
-
-  if (!track || !frames.length) return;
-
-  function goTo(idx) {
-    if (idx === current) return;
-    frames[current].classList.remove('is-active');
-    steps[current].classList.remove('is-active');
-    steps[current].classList.add('is-done');
-    current = idx;
-    frames[current].classList.add('is-active');
-    steps.forEach(function(s, i) {
-      s.classList.toggle('is-active', i === current);
-      s.classList.toggle('is-done', i < current);
-    });
-    var v = REEL_VIEWS[current];
-    idxEl.textContent   = String(current + 1).padStart(2, '0');
-    numEl.textContent   = v.num;
-    titleEl.textContent = v.title;
-    subEl.textContent   = v.sub;
-  }
-
-  ScrollTrigger.create({
-    trigger: track,
-    start: PIN_START,
-    end: PIN_END,
-    onUpdate: function(self) {
-      var idx = Math.min(total - 1, Math.floor(self.progress * total));
-      goTo(idx);
-    }
-  });
-}
-
-/* ── Exchange ───────────────────────────────────────────────── */
-function setupExchange() {
-  var stage = document.getElementById('exchangeStage');
-  if (!stage) return;
-
-  var palletTop    = stage.querySelector('.pallet-top');
-  var palletBottom = stage.querySelector('.pallet-bottom');
-  var cycleNumEl   = document.getElementById('cycleNum');
-  var cycleStateEl = document.getElementById('cycleState');
-  var cycle = 1;
-
-  // 6.4-second repeating swap loop
-  function buildLoop() {
-    var tl = gsap.timeline({
-      repeat: -1,
-      defaults: { ease: 'power2.inOut' },
-      onRepeat: function() {
-        cycle += 1;
-        cycleNumEl.textContent = String(cycle).padStart(3, '0');
-      }
-    });
-    tl.call(function() { cycleStateEl.textContent = 'Loading'; },  [], 0)
-      .to({}, { duration: 0.6 }, 0)
-      .call(function() { cycleStateEl.textContent = 'Swapping'; }, [], 0.6)
-      .to(palletTop,    { yPercent: 50,  duration: 1.6 }, 0.6)
-      .to(palletBottom, { yPercent: -50, duration: 1.6 }, 0.6)
-      .call(function() { cycleStateEl.textContent = 'Cutting'; },  [], 2.2)
-      .to({}, { duration: 1.6 }, 2.2)
-      .call(function() { cycleStateEl.textContent = 'Swapping'; }, [], 3.8)
-      .to(palletTop,    { yPercent: 0, duration: 1.6 }, 3.8)
-      .to(palletBottom, { yPercent: 0, duration: 1.6 }, 3.8)
-      .to({}, { duration: 0.6 }, 5.4);
-    return tl;
-  }
-
-  var loop = null;
-  ScrollTrigger.create({
-    trigger: stage,
-    start: 'top 90%',
-    end:   'bottom 10%',
-    onEnter:     function() { if (!loop) loop = buildLoop(); loop.play(); },
-    onEnterBack: function() { if (loop) loop.play(); },
-    onLeave:     function() { if (loop) loop.pause(); },
-    onLeaveBack: function() { if (loop) loop.pause(); }
-  });
 }
 
 /* ── BOCHU ──────────────────────────────────────────────────── */
@@ -1315,28 +1150,7 @@ function setupParallax() {
     }
   );
 
-  // 3. Reel frame images: subtle scale-out as the reel pin scrolls through.
-  //    Each image goes from scale 1.08 (start) → 1.0 (end) scrubbed to scroll.
-  var reelTrack = document.getElementById('reelTrack');
-  if (reelTrack) {
-    document.querySelectorAll('.reel-frame img').forEach(function(img) {
-      gsap.fromTo(img,
-        { scale: 1.08 },
-        {
-          scale: 1.0,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: reelTrack,
-            start: PIN_START,
-            end: PIN_END,
-            scrub: 0.6
-          }
-        }
-      );
-    });
-  }
-
-  // 4. BOCHU frame images: matching subtle scale-out
+  // 3. BOCHU frame images: matching subtle scale-out
   var bochuTrack = document.getElementById('bochuTrack');
   if (bochuTrack) {
     document.querySelectorAll('.bochu-frame img').forEach(function(img) {
@@ -1356,28 +1170,11 @@ function setupParallax() {
     });
   }
 
-  // 5. Machine cards section: cards rise subtly as section enters viewport
-  var machinesGrid = document.querySelector('.hp-machines-grid');
-  if (machinesGrid) {
-    gsap.fromTo(machinesGrid,
-      { y: 30 },
-      {
-        y: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: machinesGrid,
-          start: 'top 90%',
-          end: 'top 30%',
-          scrub: true
-        }
-      }
-    );
-  }
 }
 
 /* ── Section heads ──────────────────────────────────────────── */
 function setupSectionHeads() {
-  document.querySelectorAll('.hp-section-head, .exchange-head, .bochu-head-block, .cypcut-text').forEach(function(el) {
+  document.querySelectorAll('.hp-section-head, .bochu-head-block, .cypcut-text').forEach(function(el) {
     gsap.from(el.children, {
       scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
       opacity: 0, y: 20, stagger: 0.08, duration: 0.7, ease: 'power3.out'
@@ -1393,7 +1190,7 @@ function setupSectionHeads() {
 /* ── Side TOC — scroll-position tracker ────────────────────── */
 (function() {
   var tocItems   = document.querySelectorAll('.page-toc-item');
-  var sectionIds = ['hero', 'reel', 'machines', 'exchange', 'bochu-section', 'cypcut'];
+  var sectionIds = ['hero', 'machines', 'components', 'bochu-section', 'cypcut'];
 
   // Build a live reference array (looked up after DOM is ready)
   var sections = [];
@@ -1460,8 +1257,6 @@ function setupSectionHeads() {
 function init() {
   // 1. Create all ScrollTriggers FIRST — at this point the DOM is unmodified,
   //    so getBoundingClientRect / offsetTop measurements are accurate.
-  setupReel();
-  setupExchange();
   setupBochu();
   setupCypcut();
   setupSectionHeads();

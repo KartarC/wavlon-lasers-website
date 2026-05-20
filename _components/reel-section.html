@@ -1,0 +1,120 @@
+<!-- REEL SECTION COMPONENT
+     Sheet-laser focused machine reel. Extracted from homepage for future reuse.
+     Dependencies: GSAP 3.12.5 + ScrollTrigger, --header-h CSS variable, PIN_START/PIN_END constants
+-->
+
+<!-- ── Machine Reel ───────────────────────────────────────────── -->
+<section class="reel" id="reel">
+  <div class="reel-track" id="reelTrack">
+    <div class="reel-pin">
+      <div class="reel-stage" id="reelStage">
+        <div class="reel-frame is-active" data-frame="0"><img src="/assets/machine-front.png" alt="WD-3015E front view" /></div>
+        <div class="reel-frame" data-frame="1"><img src="/assets/machine-right.png" alt="WD-3015E right ¾ view" /></div>
+        <div class="reel-frame" data-frame="2"><img src="/assets/machine-back.png" alt="WD-3015E back view" /></div>
+        <div class="reel-frame" data-frame="3"><img src="/assets/machine-left.png" alt="WD-3015E left ¾ view" /></div>
+        <div class="reel-frame" data-frame="4"><img src="/assets/machine-floor.png" alt="WD-3015E on the shop floor" /></div>
+        <div class="reel-overlay">
+          <div class="reel-overlay-top">
+            <span><span class="dot"></span> <b>WD-3015E</b> · FIBER CUTTING SYSTEM</span>
+            <span><b id="reelIdx">01</b> / 05</span>
+          </div>
+          <div class="reel-overlay-bottom">
+            <div class="reel-view-name">
+              <span class="num" id="reelNum">FIG·01</span>
+              <span id="reelTitle">Front Elevation</span>
+              <span class="sub" id="reelSub">Closed cabin · operator door</span>
+            </div>
+            <div class="reel-progress" id="reelProgress">
+              <span class="step is-active" data-step="0"></span>
+              <span class="step" data-step="1"></span>
+              <span class="step" data-step="2"></span>
+              <span class="step" data-step="3"></span>
+              <span class="step" data-step="4"></span>
+              <span class="label">Rotate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ── Reel ───────────────────────────────────────────────────── */
+.reel { position: relative; background: var(--bg); border-top: 1px solid var(--line); }
+.reel-track { height: 550vh; position: relative; }
+.reel-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 1fr; align-items: stretch; overflow: hidden; }
+.reel-stage { position: relative; margin: clamp(12px, 1.5vw, 24px); border-radius: 8px; background: linear-gradient(180deg, #0a0b0c 0%, #14161a 100%); overflow: hidden; display: grid; grid-template-columns: 1fr; isolation: isolate; border: 1px solid var(--line-dark); }
+.reel-stage::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 50% at 50% 60%, rgba(74,139,255,0.15), transparent 70%), linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: auto, 48px 48px, 48px 48px; pointer-events: none; z-index: 0; }
+.reel-stage::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 100% at 50% 100%, rgba(74,139,255,0.10), transparent 70%); pointer-events: none; z-index: 1; }
+.reel-frame { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; z-index: 2; transition: opacity 0.5s var(--ease); }
+.reel-frame.is-active { opacity: 1; }
+.reel-frame img { width: 92%; max-height: 78%; object-fit: contain; filter: drop-shadow(0 60px 80px rgba(0,0,0,0.6)); will-change: transform, opacity; }
+.reel-overlay { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: #fff; }
+.reel-overlay-top { position: absolute; top: 28px; left: 28px; right: 28px; display: flex; justify-content: space-between; align-items: flex-start; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.reel-overlay-top .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue-light); box-shadow: 0 0 10px var(--blue-light); margin-right: 10px; vertical-align: middle; animation: pulse 1.6s ease-in-out infinite; }
+.reel-overlay-top b { color: #fff; font-weight: 500; }
+@keyframes pulse { 50% { opacity: 0.4; transform: scale(0.85); } }
+.reel-overlay-bottom { position: absolute; bottom: 32px; left: 32px; right: 32px; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+.reel-view-name { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; font-size: clamp(2rem, 4vw, 4rem); line-height: 0.95; color: #fff; }
+.reel-view-name .sub { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; color: rgba(255,255,255,0.5); margin-top: 12px; font-weight: 500; }
+.reel-view-name .num { display: inline-block; font-family: var(--mono); font-size: 13px; color: var(--blue-light); letter-spacing: 0.2em; margin-right: 14px; vertical-align: top; margin-top: 8px; }
+.reel-progress { display: flex; gap: 12px; align-items: center; }
+.reel-progress .step { width: 36px; height: 1px; background: rgba(255,255,255,0.2); position: relative; overflow: hidden; }
+.reel-progress .step.is-done::after, .reel-progress .step.is-active::after { content: ""; position: absolute; inset: 0; background: var(--blue-light); box-shadow: 0 0 6px var(--blue-light); }
+.reel-progress .step.is-active::after { animation: stepFill 1.2s ease forwards; }
+@keyframes stepFill { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); } }
+.reel-progress .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: rgba(255,255,255,0.5); margin-left: 12px; }
+</style>
+
+<script>
+var REEL_VIEWS = [
+  { num: 'FIG·01', title: 'Front Elevation',     sub: 'Closed cabin · operator door · cooler' },
+  { num: 'FIG·02', title: 'Right Three-Quarter', sub: 'HMI side · electrical cabinet' },
+  { num: 'FIG·03', title: 'Rear Elevation',      sub: 'Exchange table extended · safety fence' },
+  { num: 'FIG·04', title: 'Left Three-Quarter',  sub: 'Service side · feed-out · branding' },
+  { num: 'FIG·05', title: 'On the Shop Floor',   sub: 'Scale reference · installed environment' },
+];
+
+function setupReel() {
+  var track   = document.getElementById('reelTrack');
+  var frames  = document.querySelectorAll('.reel-frame');
+  var steps   = document.querySelectorAll('.reel-progress .step');
+  var idxEl   = document.getElementById('reelIdx');
+  var numEl   = document.getElementById('reelNum');
+  var titleEl = document.getElementById('reelTitle');
+  var subEl   = document.getElementById('reelSub');
+  var total   = REEL_VIEWS.length;
+  var current = 0;
+
+  if (!track || !frames.length) return;
+
+  function goTo(idx) {
+    if (idx === current) return;
+    frames[current].classList.remove('is-active');
+    steps[current].classList.remove('is-active');
+    steps[current].classList.add('is-done');
+    current = idx;
+    frames[current].classList.add('is-active');
+    steps.forEach(function(s, i) {
+      s.classList.toggle('is-active', i === current);
+      s.classList.toggle('is-done', i < current);
+    });
+    var v = REEL_VIEWS[current];
+    idxEl.textContent   = String(current + 1).padStart(2, '0');
+    numEl.textContent   = v.num;
+    titleEl.textContent = v.title;
+    subEl.textContent   = v.sub;
+  }
+
+  ScrollTrigger.create({
+    trigger: track,
+    start: PIN_START,
+    end: PIN_END,
+    onUpdate: function(self) {
+      var idx = Math.min(total - 1, Math.floor(self.progress * total));
+      goTo(idx);
+    }
+  });
+}
+</script>
