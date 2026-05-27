@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
@@ -22,17 +22,17 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/s-series/</loc>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/pro-cut-series/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/p-series/</loc>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/power-cut-series/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/x-series/</loc>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/ultra-cut-series/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
