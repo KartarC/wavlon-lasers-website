@@ -37,6 +37,13 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Laser Head -->
+  <url>
+    <loc>https://wavlonlasers.com/machines/laser-head/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- Tube Cutting -->
   <url>
     <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/</loc>
