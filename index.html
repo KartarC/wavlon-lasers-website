@@ -16,17 +16,98 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="shortcut icon" href="/favicon.ico"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/><link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png"/><link rel="apple-touch-icon" sizes="512x512" href="/assets/favicon-512.png"/><link rel="stylesheet" href="/shared.css"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/><link rel="icon" type="image/x-icon" href="/favicon.ico"/><link rel="apple-touch-icon" sizes="512x512" href="/assets/favicon-512.png"/><meta property="og:image" content="https://wavlonlasers.com/assets/favicon-192.png"/><link rel="stylesheet" href="/shared.css"/>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Wavlon Lasers",
-  "url": "https://wavlonlasers.com",
-  "logo": "https://wavlonlasers.com/wavlon_lasers_full_logo_transparent.png",
-  "contactPoint": {"@type": "ContactPoint", "telephone": "+1-905-291-3469", "contactType": "sales"},
-  "address": {"@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "Ontario", "addressCountry": "CA"}
-}
+[
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "Organization"],
+    "@id": "https://wavlonlasers.com/#organization",
+    "name": "Wavlon Lasers",
+    "alternateName": "Wavlon Lasers Inc.",
+    "description": "Toronto-based supplier of industrial fiber laser cutting machines. Wavlon serves Canadian job shops and metal fabricators with fiber laser sheet cutters (3–20 kW), tube cutters, tower automation, and welding systems. Canadian installation, parts, and support. Financing available.",
+    "url": "https://wavlonlasers.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wavlonlasers.com/assets/favicon-192.png",
+      "width": 192,
+      "height": 192
+    },
+    "image": "https://wavlonlasers.com/assets/ultracut-shop-floor.jpg",
+    "telephone": "+18882776144",
+    "email": "sales@wavlonlasers.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5250 Solar Dr #32",
+      "addressLocality": "Mississauga",
+      "addressRegion": "Ontario",
+      "postalCode": "L4W 0G4",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.6426,
+      "longitude": -79.6477
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+18882776144",
+        "contactType": "sales",
+        "areaServed": "CA",
+        "availableLanguage": "English"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "sales@wavlonlasers.com",
+        "contactType": "customer support",
+        "areaServed": "CA"
+      }
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Canada"
+    },
+    "sameAs": [
+      "https://wavlonlasers.com"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Fiber Laser Cutting Machines",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "ProCut Series Fiber Laser (3–12 kW)", "url": "https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/pro-cut-series/"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "PowerCut Series Fiber Laser (3–12 kW)", "url": "https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/power-cut-series/"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "UltraCut Series Fiber Laser (3–20 kW)", "url": "https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/ultra-cut-series/"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "T-Series Fiber Laser Tube Cutter", "url": "https://wavlonlasers.com/machines/fiber-laser-tube-cutting/t-series/"}}
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://wavlonlasers.com/#website",
+    "url": "https://wavlonlasers.com",
+    "name": "Wavlon Lasers",
+    "description": "Industrial fiber laser cutting machines — Canadian sales, installation, and support.",
+    "publisher": {"@id": "https://wavlonlasers.com/#organization"},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://wavlonlasers.com/machines/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+]
 </script>
 <style>
 /* ── Design tokens ──────────────────────────────────────────── */
