@@ -220,5 +220,32 @@ document.getElementById('partsForm').addEventListener('submit',async function(e)
   catch(err){btn.textContent='Submit Parts Request';btn.disabled=false;alert('Error. Please email sales@wavlonlasers.com');}
 });
 </script>
+<script>
+(function(d,t){
+  var v=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  v.onload=function(){
+    window.voiceflow.chat.load({
+      verify:{projectID:'6a19c8e297d14467b5d249ed'},
+      url:'https://general-runtime.voiceflow.com',
+      versionID:'production',
+      assistant:{
+        name:'Wavlon Assistant',
+        description:'Ask me anything about our fiber laser machines',
+        color:'#0066cc',
+        image:'https://wavlonlasers.com/assets/favicon-192.png'
+      },
+      chat:{
+        title:'Wavlon Lasers',
+        description:'Instant answers on machines, specs, pricing & more',
+        placeholder:'Ask about machines, specs, lead times...',
+        watermark:false
+      }
+    });
+  };
+  v.src='https://cdn.voiceflow.com/widget/bundle.mjs';
+  v.type='text/javascript';
+  s.parentNode.insertBefore(v,s);
+})(document,'script');
+</script>
 </body>
 </html>

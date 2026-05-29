@@ -132,5 +132,32 @@
 const SB_URL='SUPABASE_URL_PLACEHOLDER',SB_KEY='SUPABASE_KEY_PLACEHOLDER';
 document.getElementById('cqForm').addEventListener('submit',async function(e){e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;try{await fetch(SB_URL+'/rest/v1/contact_messages',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('cq_name').value,email:document.getElementById('cq_email').value,phone:document.getElementById('cq_phone').value,company:document.getElementById('cq_company').value,subject:document.getElementById('cq_subject').value,message:document.getElementById('cq_message').value,source:'contact-page'})});document.getElementById('cqFormWrap').style.display='none';document.getElementById('cqSuccess').style.display='block';}catch(err){btn.textContent='Send Message';btn.disabled=false;alert('Error sending. Please email sales@wavlonlasers.com directly.');}});
 </script>
+<script>
+(function(d,t){
+  var v=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  v.onload=function(){
+    window.voiceflow.chat.load({
+      verify:{projectID:'6a19c8e297d14467b5d249ed'},
+      url:'https://general-runtime.voiceflow.com',
+      versionID:'production',
+      assistant:{
+        name:'Wavlon Assistant',
+        description:'Ask me anything about our fiber laser machines',
+        color:'#0066cc',
+        image:'https://wavlonlasers.com/assets/favicon-192.png'
+      },
+      chat:{
+        title:'Wavlon Lasers',
+        description:'Instant answers on machines, specs, pricing & more',
+        placeholder:'Ask about machines, specs, lead times...',
+        watermark:false
+      }
+    });
+  };
+  v.src='https://cdn.voiceflow.com/widget/bundle.mjs';
+  v.type='text/javascript';
+  s.parentNode.insertBefore(v,s);
+})(document,'script');
+</script>
 </body>
 </html>
