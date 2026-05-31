@@ -1,0 +1,85 @@
+{
+  "name": "BLT PDF Extractor — Wavlon Assets",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-manual",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://d.fscut.com/wordpress-fscut/2024/03/BLT-Intelligent-Laser-Cutting-Head-Selection-Guide.pdf",
+        "options": { "response": { "response": { "responseFormat": "file" } } }
+      },
+      "id": "download-pdf",
+      "name": "Download BLT PDF",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $env.WAVLON_ASSETS_PATH }}/blt-selection-guide.pdf",
+        "options": {}
+      },
+      "id": "save-pdf",
+      "name": "Save PDF to Assets",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "command": "node -e \"\nconst PDFParser = require('pdf2json');\nconst fs = require('fs');\nconst parser = new PDFParser(null, 1);\nconst out = [];\nparser.on('pdfParser_dataError', e => { console.error(JSON.stringify({error:e.parserError})); process.exit(1); });\nparser.on('pdfParser_dataReady', data => {\n  for (const [i, page] of (data.Pages||[]).entries()) {\n    const txt = (page.Texts||[]).map(t=>(t.R||[]).map(r=>{ try{return decodeURIComponent(r.T);}catch{return r.T;} }).join('')).filter(s=>s.trim()).join(' ').replace(/\\\\s+/g,' ').trim();\n    out.push({page:i+1,text:txt});\n  }\n  fs.writeFileSync(process.env.WAVLON_ASSETS_PATH+'/blt-guide-data.json', JSON.stringify({title:'BLT Intelligent Laser Cutting Head Selection Guide',source:'https://d.fscut.com/wordpress-fscut/2024/03/BLT-Intelligent-Laser-Cutting-Head-Selection-Guide.pdf',extractedAt:new Date().toISOString(),totalPages:data.Pages?.length,pages:out},null,2));\n  console.log(JSON.stringify({success:true,pages:out.length}));\n});\nparser.loadPDF(process.env.WAVLON_ASSETS_PATH+'/blt-selection-guide.pdf');\n\""
+      },
+      "id": "extract-text",
+      "name": "Extract Text via pdf2json",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [900, 200]
+    },
+    {
+      "parameters": {
+        "command": "node -e \"\nconst { createCanvas } = require('canvas');\nconst fs = require('fs');\nconst pdfjsLib = require('pdfjs-dist/legacy/build/pdf.cjs');\nconst assetsPath = process.env.WAVLON_ASSETS_PATH;\nconst outDir = assetsPath+'/blt-guide';\nif(!fs.existsSync(outDir)) fs.mkdirSync(outDir,{recursive:true});\nconst pdfData = new Uint8Array(fs.readFileSync(assetsPath+'/blt-selection-guide.pdf'));\npdfjsLib.getDocument({data:pdfData,useWorkerFetch:false,isEvalSupported:false}).promise.then(async pdf=>{\n  let count=0;\n  for(let p=1;p<=pdf.numPages;p++){\n    const page = await pdf.getPage(p);\n    const ops = await page.getOperatorList();\n    for(let i=0;i<ops.fnArray.length;i++){\n      if(ops.fnArray[i]===pdfjsLib.OPS.paintImageXObject||ops.fnArray[i]===pdfjsLib.OPS.paintInlineImageXObject){\n        try{\n          const name=ops.argsArray[i][0];\n          const imgData = await new Promise((res,rej)=>{ page.objs.get(name,d=>d?res(d):rej()); setTimeout(()=>rej(),2000); }).catch(()=>null);\n          if(!imgData||!imgData.data||imgData.width<50) continue;\n          count++;\n          const {width,height,kind,data}=imgData;\n          const canvas=createCanvas(width,height);\n          const ctx=canvas.getContext('2d');\n          const id=ctx.createImageData(width,height);\n          if(kind===3){for(let j=0;j<Math.min(data.length,id.data.length);j++) id.data[j]=data[j];}\n          else if(kind===2){for(let j=0,k=0;j<width*height;j++,k+=3){id.data[j*4]=data[k];id.data[j*4+1]=data[k+1];id.data[j*4+2]=data[k+2];id.data[j*4+3]=255;}}\n          ctx.putImageData(id,0,0);\n          const fname='blt-guide-p'+String(p).padStart(2,'0')+'-img'+String(count).padStart(2,'0')+'.png';\n          fs.writeFileSync(outDir+'/'+fname,canvas.toBuffer('image/png'));\n        }catch(e){}\n      }\n    }\n  }\n  console.log(JSON.stringify({success:true,imagesExtracted:count}));\n});\n\""
+      },
+      "id": "extract-images",
+      "name": "Extract Images from PDF",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [900, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "const textResult = JSON.parse($('Extract Text via pdf2json').item.json.stdout || '{}');\nconst imgResult = JSON.parse($('Extract Images from PDF').item.json.stdout || '{}');\n\nreturn [{\n  json: {\n    status: 'complete',\n    pdfSaved: true,\n    textExtracted: textResult.success || false,\n    pagesProcessed: textResult.pages || 0,\n    imagesExtracted: imgResult.imagesExtracted || 0,\n    assetsPath: $env.WAVLON_ASSETS_PATH + '/blt-guide/',\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "summarize",
+      "name": "Summarize Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": { "main": [[{"node": "Download BLT PDF", "type": "main", "index": 0}]] },
+    "Download BLT PDF": { "main": [[{"node": "Save PDF to Assets", "type": "main", "index": 0}]] },
+    "Save PDF to Assets": {
+      "main": [[
+        {"node": "Extract Text via pdf2json", "type": "main", "index": 0},
+        {"node": "Extract Images from PDF", "type": "main", "index": 0}
+      ]]
+    },
+    "Extract Text via pdf2json": { "main": [[{"node": "Summarize Results", "type": "main", "index": 0}]] },
+    "Extract Images from PDF": { "main": [[{"node": "Summarize Results", "type": "main", "index": 1}]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "description": "Downloads the BLT laser head selection guide PDF, extracts all text per page (saved as JSON), and extracts all embedded images as PNG files. Set WAVLON_ASSETS_PATH environment variable to the absolute path of your wavlon-lasers-website/assets folder.",
+    "envVarsRequired": ["WAVLON_ASSETS_PATH"],
+    "usage": "1. Import this workflow into n8n. 2. Set WAVLON_ASSETS_PATH env var to your assets folder path. 3. Install canvas and pdf2json npm packages in your n8n environment. 4. Click Execute Workflow."
+  }
+}
