@@ -308,7 +308,7 @@
 
 <script src="/nav.js"></script>
 <script>
-const SB_URL='https://tpxadsuaaxoqvhptkltt.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRweGFkc3VhYXhvcXZocHRrbHR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjg2ODksImV4cCI6MjA2Mjc0NDY4OX0.0haesLYxVj6AVr75ud0omppBbrSbHKThUASqNzjSx8c';
+// Supabase credentials handled server-side via /api/submit-form
 document.getElementById('tsqForm').addEventListener('submit',async function(e){
   e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;
   try{await fetch(SB_URL+'/rest/v1/"Wavlon_Quote_Requests"',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('tsq_name').value,email:document.getElementById('tsq_email').value,phone:document.getElementById('tsq_phone').value,company:document.getElementById('tsq_company').value,machine_interest:'Tower System — '+document.getElementById('tsq_towers').value,message:'Current machine: '+document.getElementById('tsq_machine').value+'. '+document.getElementById('tsq_message').value,source:'tower-system-page'})});

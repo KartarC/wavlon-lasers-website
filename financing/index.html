@@ -144,7 +144,7 @@
 </div></div><div class="footer-bottom"><div class="footer-bottom-inner"><p class="footer-copy">&copy; 2026 Wavlon Lasers Inc. All rights reserved.</p><p class="footer-copy">Toronto, Ontario, Canada</p></div></div></footer>
 <script src="/nav.js"></script>
 <script>
-const SB_URL='https://tpxadsuaaxoqvhptkltt.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRweGFkc3VhYXhvcXZocHRrbHR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjg2ODksImV4cCI6MjA2Mjc0NDY4OX0.0haesLYxVj6AVr75ud0omppBbrSbHKThUASqNzjSx8c';
+// Supabase credentials handled server-side via /api/submit-form
 document.getElementById('finForm').addEventListener('submit',async function(e){e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;try{await fetch(SB_URL+'/rest/v1/"Wavlon_Leads"',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('fin_name').value,email:document.getElementById('fin_email').value,phone:document.getElementById('fin_phone').value,company:document.getElementById('fin_company').value,machine_interest:document.getElementById('fin_machine').value,message:document.getElementById('fin_message').value,source:'financing-page'})});document.getElementById('finFormWrap').style.display='none';document.getElementById('finSuccess').style.display='block';}catch(err){btn.textContent='Submit Financing Inquiry';btn.disabled=false;}});
 </script>
 <script>

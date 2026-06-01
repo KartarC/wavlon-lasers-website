@@ -366,7 +366,7 @@
 
 <script src="/nav.js"></script>
 <script>
-const SB_URL='https://tpxadsuaaxoqvhptkltt.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRweGFkc3VhYXhvcXZocHRrbHR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjg2ODksImV4cCI6MjA2Mjc0NDY4OX0.0haesLYxVj6AVr75ud0omppBbrSbHKThUASqNzjSx8c';
+// Supabase credentials handled server-side via /api/submit-form
 document.getElementById('wqForm').addEventListener('submit',async function(e){
   e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;
   try{await fetch(SB_URL+'/rest/v1/"Wavlon_Quote_Requests"',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('wq_name').value,email:document.getElementById('wq_email').value,phone:document.getElementById('wq_phone').value,company:document.getElementById('wq_company').value,machine_interest:'W-Series Welding — '+document.getElementById('wq_power').value,material:document.getElementById('wq_material').value,message:document.getElementById('wq_message').value,source:'w-series-page'})});
