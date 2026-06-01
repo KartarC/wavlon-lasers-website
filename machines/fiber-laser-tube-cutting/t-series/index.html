@@ -134,33 +134,6 @@
 // Supabase credentials handled server-side via /api/submit-form
 document.getElementById('tqForm').addEventListener('submit',async function(e){e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;try{await fetch(SB_URL+'/rest/v1/"Wavlon_Quote_Requests"',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('tq_name').value,email:document.getElementById('tq_email').value,phone:document.getElementById('tq_phone').value,company:document.getElementById('tq_company').value,machine_interest:'T-Series Tube — '+document.getElementById('tq_power').value,material:document.getElementById('tq_material').value,message:document.getElementById('tq_message').value,source:'t-series-page'})});document.getElementById('tqFormWrap').style.display='none';document.getElementById('tqSuccess').style.display='block';}catch(err){btn.textContent='Send Quote Request';btn.disabled=false;}});
 </script>
-<script>
-(function(d,t){
-  var v=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  v.onload=function(){
-    window.voiceflow.chat.load({
-      verify:{projectID:'6a19c8e297d14467b5d249ed'},
-      url:'https://general-runtime.voiceflow.com',
-      versionID:'production',
-      assistant:{
-        name:'Wavlon Assistant',
-        description:'Ask me anything about our fiber laser machines',
-        color:'#0066cc',
-        image:'https://wavlonlasers.com/assets/favicon-192.png'
-      },
-      chat:{
-        title:'Wavlon Lasers',
-        description:'Instant answers on machines, specs, pricing & more',
-        placeholder:'Ask about machines, specs, lead times...',
-        watermark:false
-      },
-      stylesheet:'.vf-widget__footer,.vf-widget-watermark,[class*="watermark"],[class*="Watermark"],[class*="powered-by"],[class*="poweredBy"]{display:none!important;}'
-    });
-  };
-  v.src='https://cdn.voiceflow.com/widget/bundle.mjs';
-  v.type='text/javascript';
-  s.parentNode.insertBefore(v,s);
-})(document,'script');
-</script>
+<script src="/assets/wavlon-chat.js" defer></script>
 </body>
 </html>
