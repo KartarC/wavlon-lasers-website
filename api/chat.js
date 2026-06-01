@@ -1,14 +1,13 @@
 // Wavlon Lasers — AI Chat API
-// 1. Routes question to correct handler (greeting / contact / pricing / KB)
-// 2. Logs every exchange to Wavlon_Chat_Logs in Supabase
+// Routes to Voiceflow KB · handles greetings/contact/pricing · logs to Supabase
 
 const GREETING_TRIGGERS = ['hello','hi','hey','good morning','good afternoon','good evening','howdy','greetings','sup','yo'];
 const CONTACT_TRIGGERS  = ['contact me','call me','reach me','sales agent','agent contact','speak to someone','talk to someone','human','representative','sales rep','callback'];
-const QUOTE_TRIGGERS    = ['get a quote','request quote','how much','cost','quote'];
+const QUOTE_TRIGGERS    = ['how much','cost','quote','get a quote','request quote'];
 
-// ── Logging helper ────────────────────────────────────────────────────
+// ── Log to Supabase (fire-and-forget) ────────────────────────────────
 async function logChat({ sessionId, question, answer, matchType, kbScore, pageUrl, supabaseUrl, serviceKey }) {
-  if (!supabaseUrl || !serviceKey) return; // silently skip if not configured
+  if (!supabaseUrl || !serviceKey) return;
   try {
     await fetch(`${supabaseUrl}/rest/v1/${encodeURIComponent('Wavlon_Chat_Logs')}`, {
       method: 'POST',
@@ -23,8 +22,8 @@ async function logChat({ sessionId, question, answer, matchType, kbScore, pageUr
         question,
         answer,
         match_type: matchType,
-        kb_score:   kbScore   || null,
-        page_url:   pageUrl   || null,
+        kb_score:   kbScore || null,
+        page_url:   pageUrl || null,
         source:     'wavlon-chat'
       })
     });
@@ -52,33 +51,32 @@ module.exports = async function handler(req, res) {
   const supabaseUrl = process.env.SUPABASE_URL;
   const serviceKey  = process.env.SUPABASE_SERVICE_KEY;
   const vfKey       = process.env.VOICEFLOW_API_KEY;
-
-  const logCtx = { sessionId, question: q, pageUrl, supabaseUrl, serviceKey };
+  const logCtx      = { sessionId, question: q, pageUrl, supabaseUrl, serviceKey };
 
   // ── Greeting ──────────────────────────────────────────────────────
   if (GREETING_TRIGGERS.some(t => qLo === t || qLo.startsWith(t + ' ') || qLo.startsWith(t + '!'))) {
-    const answer = "Hi there! 👋 I'm Wavlon's AI sales assistant. I can help you with:\n\n• Machine specs and comparisons\n• Cutting capabilities by material & thickness\n• Pricing and financing options\n• Lead times and delivery\n• Parts and support\n\nWhat would you like to know about our fiber laser machines?";
+    const answer = "Hi there! I'm Wavlon's AI assistant.\n\nI can help you with:\n- Machine specs and comparisons\n- Cutting capabilities by material and thickness\n- Pricing and financing options\n- Lead times and delivery\n- Parts and support\n\nWhat would you like to know about our fiber laser machines?";
     await logChat({ ...logCtx, answer, matchType: 'greeting' });
     return res.status(200).json({ answer });
   }
 
-  // ── Contact / callback request ────────────────────────────────────
+  // ── Contact / callback ────────────────────────────────────────────
   if (CONTACT_TRIGGERS.some(t => qLo.includes(t))) {
-    const answer = "Absolutely! Our sales team would love to connect with you.\n\n📞 **Call us:** (888) 277-6144 — Mon–Fri 8am–6pm EST\n✉️ **Email:** sales@wavlonlasers.com\n📋 **Request a quote:** Fill out the form on any machine page and we'll respond within 24 business hours.\n\nIs there anything specific about our machines I can answer for you in the meantime?";
+    const answer = "Our sales team would love to connect with you!\n\nCall us: (888) 277-6144 — Mon–Fri 8am–6pm EST\nEmail: sales@wavlonlasers.com\nOr fill out the quote form on any machine page and we will respond within 24 business hours.\n\nIs there anything specific about our machines I can answer for you in the meantime?";
     await logChat({ ...logCtx, answer, matchType: 'contact' });
     return res.status(200).json({ answer });
   }
 
   // ── Pricing / quote ───────────────────────────────────────────────
-  if (QUOTE_TRIGGERS.some(t => qLo.includes(t)) && !qLo.includes('what') && !qLo.includes('which')) {
-    const answer = "We don't publish prices publicly since each machine is configured for the customer's specific application — power level, frame size, and options all affect the final price.\n\nTo get accurate pricing:\n📋 Fill out a quote request on any machine page\n✉️ Email sales@wavlonlasers.com\n📞 Call (888) 277-6144\n\nWe also offer **equipment financing** with most approvals within 48 hours. Can I help you figure out which machine best fits your needs?";
+  if (QUOTE_TRIGGERS.some(t => qLo.includes(t)) && !qLo.includes('what') && !qLo.includes('which') && !qLo.includes('spec')) {
+    const answer = "We configure each machine to your specific application, so pricing depends on power level, frame size, and options selected.\n\nTo get accurate pricing:\n- Fill out a quote request on any machine page\n- Email sales@wavlonlasers.com\n- Call (888) 277-6144\n\nWe also offer equipment financing with most approvals within 48 hours.\n\nWould you like help figuring out which machine fits your needs?";
     await logChat({ ...logCtx, answer, matchType: 'pricing' });
     return res.status(200).json({ answer });
   }
 
-  // ── Voiceflow KB query ────────────────────────────────────────────
+  // ── Voiceflow Knowledge Base query ────────────────────────────────
   if (!vfKey) {
-    const answer = "I'm having trouble connecting to my knowledge base right now. For immediate help, please email sales@wavlonlasers.com or call (888) 277-6144 — Mon–Fri 8am–6pm EST.";
+    const answer = "I'm having trouble connecting right now. Please email sales@wavlonlasers.com or call (888) 277-6144 — Mon–Fri 8am–6pm EST.";
     await logChat({ ...logCtx, answer, matchType: 'error' });
     return res.status(200).json({ answer });
   }
@@ -90,18 +88,11 @@ module.exports = async function handler(req, res) {
         'Authorization': vfKey,
         'Content-Type':  'application/json'
       },
-      body: JSON.stringify({
-        question: q,
-        synthesis: true,
-        settings: {
-          model: 'claude-3-5-sonnet',
-          temperature: 0.2,
-          systemPrompt: `You are Wavlon's AI sales assistant for wavlonlasers.com — a Toronto-based company selling industrial fiber laser cutting machines to Canadian manufacturers. Answer questions helpfully and conversationally using the provided knowledge base. Be specific with numbers and specs. If you don't have the exact answer, direct customers to sales@wavlonlasers.com or (888) 277-6144. Keep responses concise and use line breaks for readability.`
-        }
-      })
+      // Plain query — no settings object (settings broke the KB query)
+      body: JSON.stringify({ question: q, synthesis: true })
     });
 
-    const data = await vfRes.json();
+    const data     = await vfRes.json();
     const topScore = data.chunks && data.chunks.length > 0 ? data.chunks[0].score : null;
 
     if (data.output && data.output.trim().length > 0) {
@@ -109,14 +100,14 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({ answer: data.output });
     }
 
-    // No KB match
-    const answer = "That's a great question! I don't have specific details on that in my knowledge base right now.\n\n📞 **(888) 277-6144** — Mon–Fri 8am–6pm EST\n✉️ **sales@wavlonlasers.com**\n\nOur team will get back to you quickly. Is there anything else about our fiber laser machines I can help with?";
+    // No KB match — friendly fallback
+    const answer = "I don't have specific details on that right now. Our team can help:\n\nCall: (888) 277-6144 — Mon–Fri 8am–6pm EST\nEmail: sales@wavlonlasers.com\n\nIs there anything else about our fiber laser machines I can help with?";
     await logChat({ ...logCtx, answer, matchType: 'fallback', kbScore: topScore });
     return res.status(200).json({ answer });
 
   } catch (err) {
     console.error('Chat API error:', err.message);
-    const answer = "I'm having a technical issue right now. Please reach out directly:\n\n📞 (888) 277-6144\n✉️ sales@wavlonlasers.com\n\nSorry for the inconvenience!";
+    const answer = "I'm having a technical issue. Please contact us:\nCall: (888) 277-6144\nEmail: sales@wavlonlasers.com";
     await logChat({ ...logCtx, answer, matchType: 'error' });
     return res.status(200).json({ answer });
   }

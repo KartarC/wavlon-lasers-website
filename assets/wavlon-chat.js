@@ -183,11 +183,18 @@
   }
 
   function formatText(text) {
+    // Escape HTML first (safety)
+    var escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
     // Convert **bold** → <strong>
-    text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    escaped = escaped.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    // Convert bullet lines (- item) → styled list items
+    escaped = escaped.replace(/^- (.+)$/gm, '<span style="display:block;padding-left:12px;position:relative;"><span style="position:absolute;left:0;">•</span>$1</span>');
     // Convert newlines → <br>
-    text = text.replace(/\n/g, '<br>');
-    return text;
+    escaped = escaped.replace(/\n/g, '<br>');
+    return escaped;
   }
 
   function appendMsg(text, role) {
