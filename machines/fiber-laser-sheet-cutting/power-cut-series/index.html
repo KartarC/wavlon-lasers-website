@@ -356,10 +356,10 @@
 
 <script src="/nav.js"></script>
 <script>
-const SB_URL='SUPABASE_URL_PLACEHOLDER',SB_KEY='SUPABASE_KEY_PLACEHOLDER';
+const SB_URL='https://tpxadsuaaxoqvhptkltt.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRweGFkc3VhYXhvcXZocHRrbHR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjg2ODksImV4cCI6MjA2Mjc0NDY4OX0.0haesLYxVj6AVr75ud0omppBbrSbHKThUASqNzjSx8c';
 document.getElementById('pqForm').addEventListener('submit',async function(e){
   e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;
-  try{await fetch(SB_URL+'/rest/v1/quote_requests',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('pq_name').value,email:document.getElementById('pq_email').value,phone:document.getElementById('pq_phone').value,company:document.getElementById('pq_company').value,machine_interest:'PowerCut — '+document.getElementById('pq_power').value,material:document.getElementById('pq_material').value,message:document.getElementById('pq_message').value,source:'power-cut-series-page'})});
+  try{await fetch(SB_URL+'/rest/v1/"Wavlon_Quote_Requests"',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('pq_name').value,email:document.getElementById('pq_email').value,phone:document.getElementById('pq_phone').value,company:document.getElementById('pq_company').value,machine_interest:'PowerCut — '+document.getElementById('pq_power').value,material:document.getElementById('pq_material').value,message:document.getElementById('pq_message').value,source:'power-cut-series-page'})});
   document.getElementById('pqFormWrap').style.display='none';document.getElementById('pqSuccess').style.display='block';}
   catch(err){btn.textContent='Send Quote Request';btn.disabled=false;alert('Error. Please email sales@wavlonlasers.com');}
 });

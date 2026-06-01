@@ -607,8 +607,8 @@
 
 <script src="/nav.js"></script>
 <script>
-const SUPABASE_URL = 'SUPABASE_URL_PLACEHOLDER';
-const SUPABASE_KEY = 'SUPABASE_KEY_PLACEHOLDER';
+const SUPABASE_URL = 'https://tpxadsuaaxoqvhptkltt.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRweGFkc3VhYXhvcXZocHRrbHR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjg2ODksImV4cCI6MjA2Mjc0NDY4OX0.0haesLYxVj6AVr75ud0omppBbrSbHKThUASqNzjSx8c';
 
 async function postToSupabase(table, data) {
   const res = await fetch(SUPABASE_URL + '/rest/v1/' + table, {
@@ -625,7 +625,7 @@ document.getElementById('sqForm').addEventListener('submit', async function(e) {
   const btn = this.querySelector('.form-submit');
   btn.textContent = 'Sending…'; btn.disabled = true;
   try {
-    await postToSupabase('quote_requests', {
+    await postToSupabase('"Wavlon_Quote_Requests"', {
       name: document.getElementById('sq_name').value,
       email: document.getElementById('sq_email').value,
       phone: document.getElementById('sq_phone').value,
@@ -649,7 +649,7 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
   const btn = this.querySelector('button');
   btn.textContent = 'Sending…'; btn.disabled = true;
   try {
-    await postToSupabase('leads', {
+    await postToSupabase('"Wavlon_Leads"', {
       email: document.getElementById('brochure_email').value,
       machine_interest: 'ProCut Series',
       source: 's-series-brochure',

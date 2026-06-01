@@ -102,6 +102,46 @@
   </div>
 </section>
 
+<!-- Machinist's Vault Online Store -->
+<section style="background:#0d1b2a;padding:48px 0;border-bottom:1px solid rgba(0,102,204,.2);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#0066cc;margin-bottom:10px;">Shop Online 24/7</div>
+        <h2 style="font-size:clamp(20px,2.5vw,30px);font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:10px;">Fiber laser parts available now at Machinist's Vault</h2>
+        <p style="font-size:14px;color:#8899aa;line-height:1.65;max-width:600px;">Browse and order fiber laser cutting consumables — protective lenses, nozzles, nozzle holders, ceramic rings, and BLT cutting head components — directly through our online store. No quote needed for standard consumables. Ships fast across Canada and the US.</p>
+        <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap;">
+          <span style="font-size:12px;color:#526070;display:flex;align-items:center;gap:6px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Protective windows &amp; lenses
+          </span>
+          <span style="font-size:12px;color:#526070;display:flex;align-items:center;gap:6px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Ceramic nozzle holders
+          </span>
+          <span style="font-size:12px;color:#526070;display:flex;align-items:center;gap:6px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            BLT cutting head components
+          </span>
+          <span style="font-size:12px;color:#526070;display:flex;align-items:center;gap:6px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Cutting nozzles — single &amp; double
+          </span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;min-width:200px;">
+        <a href="https://machinistsvault.com/collections/fiber-laser-parts"
+           style="display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;background:#0066cc;color:#fff;border-radius:8px;font-size:15px;font-weight:700;white-space:nowrap;text-decoration:none;transition:background .15s;"
+           onmouseover="this.style.background='#0055b3'" onmouseout="this.style.background='#0066cc'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.96-1.66L23 6H6"/></svg>
+          Shop Fiber Laser Parts
+        </a>
+        <p style="font-size:11px;color:#526070;text-align:center;margin:0;">Powered by Machinist's Vault</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Shipping SLA -->
 <section class="section-alt">
   <div class="container">
@@ -117,7 +157,7 @@
 <!-- Parts Catalogue -->
 <section class="section">
   <div class="container">
-    <div class="section-head"><span class="eyebrow">Consumables Catalogue</span><h2>Common Wear Parts We Stock</h2><p>All parts are genuine OEM-compatible. Contact us with your model number for exact part numbers.</p></div>
+    <div class="section-head"><span class="eyebrow">Consumables Catalogue</span><h2>Common Wear Parts We Stock</h2><p>All parts are genuine OEM-compatible. For standard consumables, <a href="https://machinistsvault.com/collections/fiber-laser-parts" style="color:#0066cc;font-weight:600;">order directly from our fiber laser parts store at Machinist's Vault</a>. Contact us with your model number for specialty or unlisted parts.</p></div>
     <div class="parts-grid">
       <div class="part-card">
         <div class="part-cat">Cutting Head</div>
@@ -212,10 +252,10 @@
 
 <script src="/nav.js"></script>
 <script>
-const SB_URL='SUPABASE_URL_PLACEHOLDER',SB_KEY='SUPABASE_KEY_PLACEHOLDER';
+const SB_URL='https://tpxadsuaaxoqvhptkltt.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRweGFkc3VhYXhvcXZocHRrbHR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNjg2ODksImV4cCI6MjA2Mjc0NDY4OX0.0haesLYxVj6AVr75ud0omppBbrSbHKThUASqNzjSx8c';
 document.getElementById('partsForm').addEventListener('submit',async function(e){
   e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;
-  try{await fetch(SB_URL+'/rest/v1/leads',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('pt_name').value,email:document.getElementById('pt_email').value,phone:document.getElementById('pt_phone').value,company:document.getElementById('pt_company').value,machine_interest:document.getElementById('pt_machine').value,message:'Parts needed: '+document.getElementById('pt_parts').value+'. Province: '+document.getElementById('pt_province').value,source:'parts-page'})});
+  try{await fetch(SB_URL+'/rest/v1/"Wavlon_Leads"',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('pt_name').value,email:document.getElementById('pt_email').value,phone:document.getElementById('pt_phone').value,company:document.getElementById('pt_company').value,machine_interest:document.getElementById('pt_machine').value,message:'Parts needed: '+document.getElementById('pt_parts').value+'. Province: '+document.getElementById('pt_province').value,source:'parts-page'})});
   document.getElementById('partsFormWrap').style.display='none';document.getElementById('partsSuccess').style.display='block';}
   catch(err){btn.textContent='Submit Parts Request';btn.disabled=false;alert('Error. Please email sales@wavlonlasers.com');}
 });
