@@ -172,6 +172,9 @@
   var isOpen     = false;
   var isLoading  = false;
 
+  // Generate a unique session ID for this browser session (groups conversation logs)
+  var sessionId = 'wl-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
+
   function togglePanel() {
     isOpen = !isOpen;
     bubble.classList.toggle('open', isOpen);
@@ -229,7 +232,7 @@
       var res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q })
+        body: JSON.stringify({ question: q, sessionId: sessionId, pageUrl: window.location.href })
       });
       var data = await res.json();
       hideTyping();
