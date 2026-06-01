@@ -179,10 +179,22 @@
     if (isOpen) inputEl.focus();
   }
 
+  function formatText(text) {
+    // Convert **bold** → <strong>
+    text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    // Convert newlines → <br>
+    text = text.replace(/\n/g, '<br>');
+    return text;
+  }
+
   function appendMsg(text, role) {
     var msg = document.createElement('div');
     msg.className = 'wlc-msg ' + role;
-    msg.textContent = text;
+    if (role === 'bot') {
+      msg.innerHTML = formatText(text);
+    } else {
+      msg.textContent = text;
+    }
     messagesEl.appendChild(msg);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return msg;
@@ -221,7 +233,7 @@
       });
       var data = await res.json();
       hideTyping();
-      appendMsg(data.answer || "Sorry, I couldn't find an answer. Please contact sales@wavlonlasers.com.", 'bot');
+      appendMsg(data.answer || "I don't have that information right now. Please contact our team at sales@wavlonlasers.com or call (888) 277-6144.", 'bot');
     } catch (e) {
       hideTyping();
       appendMsg("Connection error. Please try again or email sales@wavlonlasers.com.", 'bot');
