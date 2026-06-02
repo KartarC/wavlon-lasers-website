@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>2D Sheet Cutting Controllers — FSCUT4000E, 6000, 8000, 8000REVO | Wavlon Lasers</title>
+<meta name="description" content="Bochu FSCUT 2D sheet cutting controllers — FSCUT4000E (CypCutE), FSCUT6000 (CypCutPro), FSCUT8000 (HypCut), FSCUT8000REVO (HypCutRevo). From mid-power 1.5kW to ultra-high-power 60kW with machine vision."/>
+<link rel="canonical" href="https://wavlonlasers.com/technologies/laser-heads/controllers/2d/"/>
+<meta property="og:title" content="2D Sheet Cutting Controllers — FSCUT Series | Wavlon Lasers"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://wavlonlasers.com/assets/cypcut-control-console.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png"/>
+<link rel="apple-touch-icon" sizes="512x512" href="/assets/favicon-512.png"/>
+<link rel="stylesheet" href="/shared.css"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://wavlonlasers.com/"},
+  {"@type":"ListItem","position":2,"name":"Technologies","item":"https://wavlonlasers.com/technologies/"},
+  {"@type":"ListItem","position":3,"name":"Laser Heads","item":"https://wavlonlasers.com/technologies/laser-heads/"},
+  {"@type":"ListItem","position":4,"name":"Controllers","item":"https://wavlonlasers.com/technologies/laser-heads/controllers/"},
+  {"@type":"ListItem","position":5,"name":"2D Sheet Controllers","item":"https://wavlonlasers.com/technologies/laser-heads/controllers/2d/"}
+]}
+</script>
+<style>
+.lh-hero{position:relative;min-height:580px;display:flex;align-items:center;overflow:hidden;background:#0d1b2a;padding:120px 0 72px;}
+.lh-hero-bg{position:absolute;inset:0;background-image:url('/assets/fscut4000e-banner.png');background-size:cover;background-position:center;opacity:.55;z-index:0;}
+.lh-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,16,31,.95) 40%,rgba(7,16,31,.45) 75%,rgba(7,16,31,.15) 100%);z-index:1;}
+.lh-hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 40px;width:100%;}
+.lh-hero-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.lh-hero-image{display:flex;justify-content:center;align-items:center;}
+.lh-hero-image img{max-height:340px;width:100%;object-fit:contain;filter:drop-shadow(0 16px 40px rgba(0,0,0,.5));}
+@media(max-width:1024px){.lh-hero-split{grid-template-columns:1fr;}.lh-hero-image{display:none;}}
+.lh-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,102,204,.18);border:1px solid rgba(0,102,204,.35);color:#66aaff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:5px 16px;border-radius:100px;margin-bottom:24px;}
+.lh-hero h1{font-size:clamp(28px,3.5vw,50px);font-weight:800;color:#fff;letter-spacing:-2px;line-height:1.05;margin-bottom:16px;}
+.lh-hero h1 em{color:#0066cc;font-style:normal;}
+.lh-hero-sub{font-size:15px;color:#8899aa;line-height:1.65;max-width:560px;}
+.series-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;}
+.series-nav a{padding:9px 20px;border:1.5px solid var(--border2);border-radius:100px;font-size:13px;font-weight:600;color:var(--text2);text-decoration:none;transition:all .15s;}
+.series-nav a:hover,.series-nav a.active{border-color:#0066cc;color:#0066cc;background:rgba(0,102,204,.06);}
+.ctrl-section{padding:72px 0;}
+.ctrl-section-alt{padding:72px 0;background:#f8f9fa;}
+.ctrl-badge{display:inline-flex;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap;margin-bottom:10px;}
+.ctrl-badge-blue{background:rgba(0,102,204,.1);color:#0066cc;}
+.ctrl-badge-green{background:rgba(0,140,60,.1);color:#007a33;}
+.ctrl-badge-orange{background:rgba(220,100,0,.1);color:#b85000;}
+.ctrl-badge-purple{background:rgba(100,0,200,.1);color:#5500bb;}
+.spec-row-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.spec-box{background:#f8f9fa;border:1px solid #e9ecef;border-radius:12px;padding:20px 24px;}
+.spec-box p.label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#868e96;margin-bottom:14px;}
+.spec-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.spec-item .key{font-size:11px;color:#868e96;display:block;margin-bottom:2px;}
+.spec-item .val{font-size:14px;font-weight:700;color:#1a1a2e;}
+.func-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.func-tag{padding:5px 12px;background:rgba(0,102,204,.06);border:1px solid rgba(0,102,204,.15);border-radius:6px;font-size:12px;font-weight:600;color:#0066cc;}
+.feat-check-list{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.feat-check-item{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#495057;line-height:1.55;}
+.feat-check-item::before{content:'';flex-shrink:0;margin-top:4px;width:16px;height:16px;border-radius:50%;background:#0066cc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8l3.5 3.5L13 4.5' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/cover;}
+.diff-box{margin-top:20px;padding:14px 18px;border-radius:8px;font-size:13px;color:#495057;}
+.diff-box.blue{background:rgba(0,102,204,.05);border:1px solid rgba(0,102,204,.12);}
+.diff-box strong{color:#0066cc;}
+.comp-table-wrap{overflow-x:auto;margin-top:32px;}
+.comp-table{width:100%;border-collapse:collapse;font-size:13px;min-width:700px;}
+.comp-table thead th{text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:12px 10px;border-bottom:2px solid #e9ecef;background:#f8f9fa;}
+.comp-table thead th:first-child{text-align:left;color:#526070;}
+.comp-table tbody td{padding:11px 10px;border-bottom:1px solid #e9ecef;text-align:center;font-size:13px;}
+.comp-table tbody td:first-child{text-align:left;color:#526070;font-size:12px;}
+.check-y{color:#0066cc;font-weight:700;}
+.check-n{color:#adb5bd;}
+@media(max-width:1024px){.spec-row-grid{grid-template-columns:1fr;}.spec-grid-2{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.lh-hero{padding:96px 0 56px;min-height:unset;}.lh-hero-inner{padding:0 20px;}}
+</style>
+</head>
+<body>
+<!-- HEADER — inline copy -->
+<header id="site-header">
+  <div class="header-topbar"><div class="header-topbar-inner">
+    <span>Industrial Fiber Laser Cutting Machines &mdash; Canadian Sales &amp; Support</span>
+    <span><a href="mailto:sales@wavlonlasers.com">sales@wavlonlasers.com</a> &nbsp;|&nbsp; <a href="tel:+18882776144">(888) 277-6144</a> &nbsp;|&nbsp; Mon–Fri 8am–6pm EST</span>
+  </div></div>
+  <div class="header-nav" id="headerNav"><div class="header-nav-inner">
+    <a href="/" class="header-logo"><img src="/wavlon_lasers_full_logo_transparent.png" alt="Wavlon Lasers"/></a>
+    <nav class="main-nav"><ul class="nav-list">
+      <li class="nav-item has-mega" id="navProducts"><button class="nav-link nav-link-btn" id="productsBtn" aria-expanded="false">Machines<svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="mega-menu" id="megaMenu"><div class="mega-inner">
+          <div class="mega-sidebar"><p class="mega-sidebar-title">Product Categories</p><ul class="mega-cats">
+            <li><button class="mega-cat-btn active" data-panel="sheet"><span class="mega-cat-icon">&#9632;</span>Fiber Laser Sheet Cutting<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+            <li><button class="mega-cat-btn" data-panel="tube"><span class="mega-cat-icon">&#9632;</span>Fiber Laser Tube Cutting<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+            <li><button class="mega-cat-btn" data-panel="auto"><span class="mega-cat-icon">&#9632;</span>Automation Systems<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+            <li><button class="mega-cat-btn" data-panel="weld"><span class="mega-cat-icon">&#9632;</span>Fiber Laser Welding<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+          <li><button class="mega-cat-btn" data-panel="head"><span class="mega-cat-icon">&#9830;</span>Laser Heads<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li></ul><a href="/machines/" class="mega-view-all">View All Machines &rarr;</a></div>
+          <div class="mega-panels">
+            <div class="mega-panel active" id="panel-sheet"><p class="mega-panel-label">Fiber Laser Sheet Cutting</p><div class="mega-products-grid">
+              <a href="/machines/fiber-laser-sheet-cutting/pro-cut-series/" class="mega-prod-card"><div class="mega-prod-img mega-prod-img--entry"><div class="machine-svg-wrap"><svg viewBox="0 0 120 80" fill="none"><rect x="10" y="30" width="100" height="40" rx="4" fill="#dee2e6"/></svg></div></div><div class="mega-prod-info"><div class="mega-prod-name">ProCut Series</div><div class="mega-prod-spec">3–12kW &middot; Gantry</div></div></a>
+              <a href="/machines/fiber-laser-sheet-cutting/power-cut-series/" class="mega-prod-card"><div class="mega-prod-img" style="background:transparent;padding:0;overflow:hidden;"><img src="/assets/wlf-front.png" alt="PowerCut" style="width:100%;height:100%;object-fit:contain;"></div><div class="mega-prod-info"><div class="mega-prod-name">PowerCut Series</div><div class="mega-prod-spec">3–12kW &middot; Enclosed</div></div></a>
+              <a href="/machines/fiber-laser-sheet-cutting/ultra-cut-series/" class="mega-prod-card"><div class="mega-prod-img" style="background:transparent;padding:0;overflow:hidden;"><img src="/assets/UltraCut%20Serie%20_%20Transparent.png" alt="UltraCut" style="width:100%;height:100%;object-fit:contain;"></div><div class="mega-prod-info"><div class="mega-prod-name">UltraCut Series</div><div class="mega-prod-spec">3–20kW &middot; Dual Exchange</div></div></a>
+            </div></div>
+            <div class="mega-panel" id="panel-tube"><p class="mega-panel-label">Tube Cutting</p><div class="mega-products-grid"><a href="/machines/fiber-laser-tube-cutting/t-series/" class="mega-prod-card"><div class="mega-prod-img mega-prod-img--tube"><div class="machine-svg-wrap"><svg viewBox="0 0 120 80" fill="none"><rect x="8" y="34" width="104" height="20" rx="10" fill="#dee2e6"/></svg></div></div><div class="mega-prod-info"><div class="mega-prod-name">T-Series Tube</div><div class="mega-prod-spec">2–12kW</div></div></a></div></div>
+            <div class="mega-panel" id="panel-auto"><p class="mega-panel-label">Automation</p><div class="mega-products-grid"><a href="/machines/fiber-laser-automation/tower-system/" class="mega-prod-card"><div class="mega-prod-img mega-prod-img--auto"><div class="machine-svg-wrap"><svg viewBox="0 0 120 80" fill="none"><rect x="40" y="8" width="40" height="60" rx="4" fill="#dee2e6"/></svg></div></div><div class="mega-prod-info"><div class="mega-prod-name">Tower System</div><div class="mega-prod-spec">Automation</div></div></a></div></div>
+            <div class="mega-panel" id="panel-weld"><p class="mega-panel-label">Welding</p><div class="mega-products-grid"><a href="/machines/fiber-laser-welding/air-cooled-series/" class="mega-prod-card"><div class="mega-prod-img mega-prod-img--weld"><div class="machine-svg-wrap"><svg viewBox="0 0 120 80" fill="none"><rect x="30" y="20" width="60" height="45" rx="5" fill="#dee2e6"/><circle cx="60" cy="40" r="8" fill="none" stroke="#ff8c00" stroke-width="2"/></svg></div></div><div class="mega-prod-info"><div class="mega-prod-name">Air-Cooled W-Series</div><div class="mega-prod-spec">1.5–3kW</div></div></a></div></div>
+          <div class="mega-panel" id="panel-head"><p class="mega-panel-label">Laser Heads</p><div class="mega-products-grid"><a href="/technologies/laser-heads/" class="mega-prod-card"><div class="mega-prod-img" style="background:#f0f2f5;padding:8px;overflow:hidden;"><img src="/assets/blt4-thumb.png" alt="BOCI BLT Laser Head" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">BLT Laser Heads</div><div class="mega-prod-spec">BLT-310 / 421S / 442 / 462</div></div></a><a href="/technologies/laser-heads/selection-guide/" class="mega-prod-card"><div class="mega-prod-img" style="background:#f0f2f5;padding:8px;overflow:hidden;"><img src="/assets/blt9-thumb.png" alt="BLT Selection Guide" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Selection Guide</div><div class="mega-prod-spec">Find the right BLT head</div></div></a></div></div>
+          </div>
+        </div></div>
+      </li>
+      <li class="nav-item"><a href="/industries/" class="nav-link">Industries</a></li>
+      <li class="nav-item"><a href="/applications/" class="nav-link">Applications</a></li>
+      <li class="nav-item"><a href="/financing/" class="nav-link">Financing</a></li>
+      <li class="nav-item"><a href="/service/" class="nav-link">Service &amp; Support</a></li>
+      <li class="nav-item"><a href="/parts/" class="nav-link">Parts</a></li>
+      <li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+    </ul></nav>
+    <div class="header-actions"><a href="/contact/" class="btn-inquiry">Get a Quote</a></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div></div>
+  <div class="mobile-drawer" id="mobileDrawer"><ul class="mobile-nav-list">
+    <li><button class="mobile-nav-btn">Machines <span>+</span></button><ul class="mobile-sub">
+      <li><a href="/technologies/laser-heads/">Laser Heads &amp; Controllers</a></li>
+      <li><a href="/technologies/laser-heads/controllers/">Controller Hub</a></li>
+    </ul></li>
+    <li><a href="/contact/" class="mobile-nav-link">Contact</a></li>
+    <li><a href="/contact/" class="mobile-nav-cta">Get a Quote &rarr;</a></li>
+  </ul></div>
+</header>
+
+<main>
+
+<!-- ── Hero ── -->
+<section class="lh-hero">
+  <div class="lh-hero-bg"></div>
+  <div class="lh-hero-overlay"></div>
+  <div class="lh-hero-inner">
+    <nav class="breadcrumbs" style="margin-bottom:20px;">
+      <a href="/" style="color:#526070;">Home</a><span style="color:#2a3a4a;margin:0 6px;">/</span>
+      <a href="/technologies/laser-heads/" style="color:#526070;">Laser Heads</a><span style="color:#2a3a4a;margin:0 6px;">/</span>
+      <a href="/technologies/laser-heads/controllers/" style="color:#526070;">Controllers</a><span style="color:#2a3a4a;margin:0 6px;">/</span>
+      <span style="color:#8899aa;">2D Sheet Cutting</span>
+    </nav>
+    <div class="lh-hero-split">
+      <div>
+        <div class="lh-eyebrow">CypCut &middot; HypCut &middot; HypCutRevo</div>
+        <h1>2D Sheet Cutting <em>Controllers</em><br>— FSCUT Series</h1>
+        <p class="lh-hero-sub">From mid-power 1.5kW job shop work to ultra-high-power 60kW production — four FSCUT controllers covering the full 2D sheet cutting spectrum.</p>
+      </div>
+      <div class="lh-hero-image">
+        <img src="/assets/fscut4000e.png" alt="FSCUT4000E controller hardware" loading="eager"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Series Nav -->
+<section style="background:#fff;padding:40px 0 0;border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="series-nav">
+      <a href="#fscut4000e">FSCUT4000E</a>
+      <a href="#fscut6000" class="active">FSCUT6000</a>
+      <a href="#fscut8000">FSCUT8000</a>
+      <a href="#fscut8000revo">FSCUT8000REVO</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FSCUT4000E ── -->
+<section class="ctrl-section" id="fscut4000e">
+  <div class="container">
+    <span class="ctrl-badge ctrl-badge-blue">Mid Power &middot; 1.5–8kW</span>
+    <h2 style="font-size:clamp(24px,2.5vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:10px;">FSCUT4000E</h2>
+    <!-- FSCUT4000E Banner -->
+    <div style="border-radius:12px;overflow:hidden;margin-bottom:24px;max-height:240px;">
+      <img src="/assets/fscut4000e-banner.png" alt="FSCUT4000E controller banner" loading="lazy" style="width:100%;max-height:240px;object-fit:cover;display:block;"/>
+    </div>
+    <div class="spec-row-grid">
+      <div>
+        <div class="spec-box" style="margin-bottom:20px;">
+          <p class="label">Hardware</p>
+          <div class="spec-grid-2">
+            <div class="spec-item"><span class="key">Control Board</span><span class="val">BMC228B</span></div>
+            <div class="spec-item"><span class="key">Drive Unit</span><span class="val">BCL4568E</span></div>
+            <div class="spec-item"><span class="key">Console</span><span class="val">WKB-V6</span></div>
+            <div class="spec-item"><span class="key">Software</span><span class="val">CypCutE</span></div>
+            <div class="spec-item"><span class="key">Power Range</span><span class="val">1.5–8kW</span></div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Smart Functions</h3>
+        <div class="func-tags">
+          <span class="func-tag">Ultra Dynamic Cutting</span>
+          <span class="func-tag">Smooth MicroJoint</span>
+          <span class="func-tag">Circle Center</span>
+          <span class="func-tag">One-Path FlyCut</span>
+          <span class="func-tag">Scan In (QR Import)</span>
+          <span class="func-tag">Frame Border Contour</span>
+        </div>
+        <div class="feat-check-list">
+          <div class="feat-check-item">Ultra Dynamic Cutting — accelerates thin plate cycle times with dynamic motion optimization</div>
+          <div class="feat-check-item">Smooth MicroJoint — clean MicroJoint finish for batch part unloading without snapping</div>
+          <div class="feat-check-item">Circle Center — auto-detects and cuts precisely to circle center for hole patterns</div>
+          <div class="feat-check-item">One-Path FlyCut — single-path cutting of scattered small parts without lifting</div>
+          <div class="feat-check-item">Scan In — import cutting programs via QR code scan from any mobile device</div>
+        </div>
+        <div class="diff-box blue">
+          <strong>Best For:</strong> Sheet metal fabrication, kitchenware, light fixtures, and general job shop 2D cutting at 1.5–8kW.
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="border-radius:12px;overflow:hidden;border:1px solid #e9ecef;">
+            <img src="/assets/fscut4000e.png" alt="FSCUT4000E hardware unit" style="width:100%;height:180px;object-fit:contain;background:#f8f9fa;display:block;" loading="lazy"/>
+            <div style="padding:8px 12px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">FSCUT4000E Hardware</div>
+          </div>
+          <div style="border-radius:12px;overflow:hidden;border:1px solid #e9ecef;">
+            <img src="/assets/cypcute-software.png" alt="CypCutE software interface" style="width:100%;height:160px;object-fit:cover;display:block;" loading="lazy"/>
+            <div style="padding:8px 12px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">
+              <img src="/assets/cypcute-logo.png" alt="CypCutE" style="height:20px;vertical-align:middle;margin-right:8px;" loading="lazy"/>CypCutE Software
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FSCUT6000 ── -->
+<section class="ctrl-section-alt" id="fscut6000">
+  <div class="container">
+    <!-- FSCUT6000 Section Banner -->
+    <div style="width:100%;margin:0 0 28px;border-radius:12px;overflow:hidden;max-height:240px;">
+      <img src="/assets/fscut6000-banner.png" alt="FSCUT6000 controller banner" style="width:100%;height:240px;object-fit:cover;display:block;" loading="lazy"/>
+    </div>
+    <span class="ctrl-badge ctrl-badge-green">High Power &middot; 6kW+</span>
+    <h2 style="font-size:clamp(24px,2.5vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:10px;">FSCUT6000</h2>
+    <div class="spec-row-grid">
+      <div>
+        <div class="spec-box" style="margin-bottom:20px;">
+          <p class="label">Hardware</p>
+          <div class="spec-grid-2">
+            <div class="spec-item"><span class="key">Control Board</span><span class="val">BMC228B</span></div>
+            <div class="spec-item"><span class="key">Drive Unit</span><span class="val">BCL4568E</span></div>
+            <div class="spec-item"><span class="key">Console</span><span class="val">WKB</span></div>
+            <div class="spec-item"><span class="key">Software</span><span class="val">CypCutPro</span></div>
+            <div class="spec-item"><span class="key">Power Range</span><span class="val">6kW+</span></div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Smart Functions</h3>
+        <div class="func-tags">
+          <span class="func-tag">Smooth Piercing</span>
+          <span class="func-tag">Flash Piercing</span>
+          <span class="func-tag">Deslag Piercing</span>
+          <span class="func-tag">Smooth MicroJoint</span>
+          <span class="func-tag">Circle Center</span>
+          <span class="func-tag">Self-Adjust Vibration Suppression</span>
+        </div>
+        <div class="feat-check-list">
+          <div class="feat-check-item">Smooth Piercing — gradual power ramp for clean pierce holes on medium–thick plate</div>
+          <div class="feat-check-item">Flash Piercing — frequency conversion piercing for faster breakthrough on thick plate</div>
+          <div class="feat-check-item">Deslag Piercing — removes slag from pierce holes before cutting begins — cleaner path start</div>
+          <div class="feat-check-item">Self-Adjust Vibration Suppression — auto-compensates for high-speed motion vibration</div>
+        </div>
+        <div class="diff-box blue">
+          <strong>Differentiation vs 4000E:</strong> The FSCUT6000 adds advanced piercing modes for medium to thick plate (6–25mm). Deslag Piercing alone significantly reduces rework on thick structural steel.
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="border-radius:12px;overflow:hidden;border:1px solid #e9ecef;">
+          <img src="/assets/bmc228-card.png" alt="BMC228 control card" loading="lazy" style="width:100%;height:160px;object-fit:contain;background:#f8f9fa;display:block;"/>
+          <div style="padding:8px 12px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">BMC228 Control Card</div>
+        </div>
+        <div style="border-radius:12px;overflow:hidden;border:1px solid #e9ecef;">
+          <img src="/assets/cypcutpro-software.png" alt="CypCutPro software interface" loading="lazy" style="width:100%;height:160px;object-fit:cover;display:block;"/>
+          <div style="padding:8px 12px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">CypCutPro Software</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FSCUT8000 ── -->
+<section class="ctrl-section" id="fscut8000">
+  <div class="container">
+    <span class="ctrl-badge ctrl-badge-orange">High Power &middot; 8kW+ Intelligent</span>
+    <h2 style="font-size:clamp(24px,2.5vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:10px;">FSCUT8000</h2>
+    <!-- FSCUT8000 Banner -->
+    <div style="border-radius:12px;overflow:hidden;margin-bottom:24px;max-height:240px;">
+      <img src="/assets/fscut8000-banner.png" alt="FSCUT8000 controller banner" loading="lazy" style="width:100%;max-height:240px;object-fit:cover;display:block;"/>
+    </div>
+    <div class="spec-row-grid">
+      <div>
+        <div class="spec-box" style="margin-bottom:20px;">
+          <p class="label">Hardware Variants</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:13px;color:#1a1a2e;"><strong style="color:#0066cc;">FSCUT8000APLUS+</strong> — All-in-one integrated unit</div>
+            <div style="font-size:13px;color:#1a1a2e;"><strong style="color:#0066cc;">FSCUT8000B</strong> — EtherCAT with HypTronic3</div>
+            <div style="font-size:13px;color:#1a1a2e;"><strong style="color:#0066cc;">FSCUT8000C</strong> — BMC228B board variant</div>
+            <div style="font-size:13px;color:#0066cc;font-weight:600;margin-top:4px;">Software: HypCut</div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Smart Functions</h3>
+        <div class="func-tags">
+          <span class="func-tag">Intelligent Remnant Reuse</span>
+          <span class="func-tag">Stage-9 Piercing</span>
+          <span class="func-tag">Smart LaserOff</span>
+          <span class="func-tag">Smooth MicroJoin</span>
+          <span class="func-tag">Auto Recut</span>
+          <span class="func-tag">Smart Piercing</span>
+        </div>
+        <div class="feat-check-list">
+          <div class="feat-check-item">Intelligent Remnant Reuse — auto-maps remaining sheet material for follow-on nest programs</div>
+          <div class="feat-check-item">Stage-9 Piercing — 9-stage power ramp for ultra-thick plate &gt;30mm — eliminates spatter and blow-outs</div>
+          <div class="feat-check-item">Smart LaserOff — optimized laser power at start/end of each contour for clean cuts</div>
+          <div class="feat-check-item">Auto Recut — automatically reruns failed cuts without operator intervention</div>
+          <div class="feat-check-item">Smart Piercing — real-time pierce monitoring, auto-adjusts based on feedback</div>
+        </div>
+        <div class="diff-box blue">
+          <strong>Differentiation vs 6000:</strong> The FSCUT8000 adds the full intelligence suite — remnant reuse, Stage-9 piercing for 30mm+, and Auto Recut. Designed for high-volume production on heavy structural plate.
+        </div>
+      </div>
+      <div style="background:#f0f2f5;border-radius:14px;padding:28px 24px;">
+        <!-- FSCUT8000 Hardware Images -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;">
+            <img src="/assets/fscut8000-unit.png" alt="FSCUT8000 hardware unit" loading="lazy" style="width:100%;height:120px;object-fit:contain;background:#fff;display:block;"/>
+            <div style="padding:6px 8px;font-size:11px;font-weight:600;color:#1a1a2e;background:#fff;border-top:1px solid #e9ecef;">FSCUT8000 Unit</div>
+          </div>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;">
+            <img src="/assets/hypcut-software.png" alt="HypCut software interface" loading="lazy" style="width:100%;height:120px;object-fit:cover;display:block;"/>
+            <div style="padding:6px 8px;font-size:11px;font-weight:600;color:#1a1a2e;background:#fff;border-top:1px solid #e9ecef;">
+              <img src="/assets/hypcut-logo.png" alt="HypCut" style="height:16px;vertical-align:middle;margin-right:6px;" loading="lazy"/>HypCut
+            </div>
+          </div>
+        </div>
+        <h4 style="font-size:15px;font-weight:700;margin-bottom:16px;">HypCut Software Highlights</h4>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:14px 16px;">
+            <div style="font-size:12px;font-weight:700;color:#0066cc;margin-bottom:4px;">Remnant Intelligence</div>
+            <div style="font-size:13px;color:#495057;">Auto-identifies and programs usable remnants — reduces material waste on high-cost plates.</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:14px 16px;">
+            <div style="font-size:12px;font-weight:700;color:#0066cc;margin-bottom:4px;">Stage-9 Piercing</div>
+            <div style="font-size:13px;color:#495057;">9-stage power ramp — proven on 40–60mm carbon and stainless without blowout.</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e9ecef;border-radius:8px;padding:14px 16px;">
+            <div style="font-size:12px;font-weight:700;color:#0066cc;margin-bottom:4px;">Auto Recut</div>
+            <div style="font-size:13px;color:#495057;">Failed cuts trigger automatic re-run — no operator needed for cut failures.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FSCUT8000REVO ── -->
+<section class="ctrl-section-alt" id="fscut8000revo">
+  <div class="container">
+    <!-- FSCUT8000REVO Section Banner -->
+    <div style="width:100%;margin:0 0 28px;border-radius:12px;overflow:hidden;max-height:240px;">
+      <img src="/assets/fscut8000revo-banner.png" alt="FSCUT8000REVO controller banner" style="width:100%;height:240px;object-fit:cover;display:block;" loading="lazy"/>
+    </div>
+    <span class="ctrl-badge ctrl-badge-purple">High Power &middot; Vision-Enabled</span>
+    <h2 style="font-size:clamp(24px,2.5vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:10px;">FSCUT8000REVO</h2>
+    <div class="spec-row-grid">
+      <div>
+        <div class="spec-box" style="margin-bottom:20px;">
+          <p class="label">Hardware</p>
+          <div class="spec-grid-2">
+            <div class="spec-item"><span class="key">Console</span><span class="val">HyPanel2_IAC2822W3</span></div>
+            <div class="spec-item"><span class="key">Keypad</span><span class="val">WKB-V8</span></div>
+            <div class="spec-item"><span class="key">Software</span><span class="val">HypCutRevo</span></div>
+            <div class="spec-item"><span class="key">Vision</span><span class="val">Integrated Camera</span></div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:10px;">Smart Functions</h3>
+        <div class="func-tags">
+          <span class="func-tag">Smart Vision</span>
+          <span class="func-tag">Auto Nozzle Change</span>
+          <span class="func-tag">Smart Piercing</span>
+          <span class="func-tag">Auto Recut</span>
+          <span class="func-tag">Smart Frame</span>
+        </div>
+        <div class="feat-check-list">
+          <div class="feat-check-item">Smart Vision — overhead camera automatically identifies sheet position and remnant outlines without manual setup</div>
+          <div class="feat-check-item">Auto Nozzle Change — robotic nozzle magazine swaps nozzles automatically for different materials/thicknesses</div>
+          <div class="feat-check-item">Smart Frame — auto-detects sheet/remnant boundary with the BLT6 head sensor</div>
+          <div class="feat-check-item">All FSCUT8000 functions: Stage-9 Piercing, Auto Recut, Smart Piercing, Remnant Reuse</div>
+        </div>
+        <div class="diff-box blue">
+          <strong>Differentiation vs 8000:</strong> The REVO adds machine vision for fully automated sheet recognition and robotic auto nozzle change — reducing operator intervention to near zero on unmanned cutting cells.
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;">
+            <img src="/assets/fscut8000revo-unit.png" alt="FSCUT8000REVO hardware unit" loading="lazy" style="width:100%;height:130px;object-fit:contain;background:#f8f9fa;display:block;"/>
+            <div style="padding:6px 8px;font-size:11px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">REVO Hardware</div>
+          </div>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;">
+            <img src="/assets/fscut8000revo-screen.png" alt="FSCUT8000REVO software screen" loading="lazy" style="width:100%;height:130px;object-fit:cover;display:block;"/>
+            <div style="padding:6px 8px;font-size:11px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">HypCutRevo Screen</div>
+          </div>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;">
+          <img src="/assets/fscut8000revo-automation.png" alt="FSCUT8000REVO automation scene" loading="lazy" style="width:100%;height:180px;object-fit:cover;display:block;"/>
+          <div style="padding:8px 10px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">Automation Scene</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Comparison Table ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Full Comparison</span>
+      <h2>FSCUT Controllers Side by Side</h2>
+    </div>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="text-align:left;">Feature</th>
+            <th>FSCUT4000E</th>
+            <th>FSCUT6000</th>
+            <th>FSCUT8000</th>
+            <th>FSCUT8000REVO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Software</td><td>CypCutE</td><td>CypCutPro</td><td>HypCut</td><td>HypCutRevo</td></tr>
+          <tr><td>Power Range</td><td>1.5–8kW</td><td>6kW+</td><td>8kW+</td><td>8kW+</td></tr>
+          <tr><td>Ultra Dynamic Cutting</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Smooth MicroJoint</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Circle Center</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Advanced Piercing Modes</td><td class="check-n">—</td><td class="check-y">&#10003; (3 modes)</td><td class="check-y">&#10003; (Stage-9)</td><td class="check-y">&#10003; (Stage-9)</td></tr>
+          <tr><td>Vibration Suppression</td><td class="check-n">—</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Intelligent Remnant Reuse</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Auto Recut</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Smart LaserOff</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-y">&#10003;</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Smart Vision Camera</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Auto Nozzle Change</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-y">&#10003;</td></tr>
+          <tr><td>Smart Frame (Edge Sensing)</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-n">—</td><td class="check-y">&#10003;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="section-alt" style="text-align:center;">
+  <div class="container-narrow">
+    <span class="eyebrow" style="display:inline-block;margin-bottom:16px;">Expert Guidance</span>
+    <h2 style="font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;">Which Controller Is Right for Your Machine?</h2>
+    <p style="font-size:16px;color:#495057;line-height:1.7;max-width:520px;margin:0 auto 32px;">Our team will match the right FSCUT controller to your power level, material thickness, and automation requirements.</p>
+    <a href="/contact/" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#0066cc;color:#fff;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">Talk to Our Team &rarr;</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER — inline copy -->
+<footer id="site-footer"><div class="footer-top"><div class="footer-inner">
+  <div class="footer-brand"><a href="/"><img src="/wavlon_lasers_full_logo_transparent.png" alt="Wavlon Lasers" class="footer-logo"/></a><p>Industrial-grade fiber laser cutting machines. Canadian-backed sales, installation, and lifetime support.</p><div class="footer-contact-items"><a href="mailto:sales@wavlonlasers.com" class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>sales@wavlonlasers.com</a><a href="tel:+18882776144" class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>(888) 277-6144</a><span class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Toronto, Ontario, Canada</span></div></div>
+  <div class="footer-col"><h5>Machines</h5><ul><li><a href="/machines/fiber-laser-sheet-cutting/pro-cut-series/">ProCut Series (3–12kW)</a></li><li><a href="/machines/fiber-laser-sheet-cutting/power-cut-series/">PowerCut Series (3–12kW)</a></li><li><a href="/machines/fiber-laser-sheet-cutting/ultra-cut-series/">UltraCut Series (3–20kW+)</a></li><li><a href="/machines/fiber-laser-tube-cutting/t-series/">T-Series Tube Cutting</a></li><li><a href="/machines/fiber-laser-automation/tower-system/">Tower Automation System</a></li><li><a href="/machines/fiber-laser-welding/air-cooled-series/">Air-Cooled W-Series</a></li></ul></div>
+  <div class="footer-col"><h5>Company</h5><ul><li><a href="/about/">About Wavlon</a></li><li><a href="/industries/">Industries</a></li><li><a href="/financing/">Financing</a></li><li><a href="/service/">Service &amp; Support</a></li><li><a href="/parts/">Spare Parts</a></li></ul></div>
+  <div class="footer-col"><h5>Support</h5><ul><li><a href="/contact/">Contact Us</a></li><li><a href="/contact/#quote">Get a Quote</a></li><li><a href="/service/#installation">Installation</a></li><li><a href="/service/#warranty">Warranty</a></li></ul></div>
+</div></div><div class="footer-bottom"><div class="footer-bottom-inner"><p class="footer-copy">&copy; 2026 Wavlon Lasers Inc. All rights reserved.</p><p class="footer-copy">Toronto, Ontario, Canada</p></div></div></footer>
+
+<script src="/nav.js"></script>
+<script src="/assets/wavlon-chat.js" defer></script>
+</body>
+</html>
