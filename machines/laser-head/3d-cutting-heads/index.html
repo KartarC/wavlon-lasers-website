@@ -26,10 +26,14 @@
 ]}
 </script>
 <style>
-.lh-hero{position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;background:#0d1b2a;padding:120px 0 72px;}
-.lh-hero-bg{position:absolute;inset:0;background-image:url('/assets/fscut9100-banner.png');background-size:cover;background-position:center;opacity:.22;}
-.lh-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,16,31,.96) 50%,rgba(7,16,31,.4) 100%);}
-.lh-hero-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 40px;width:100%;}
+.lh-hero{position:relative;min-height:580px;display:flex;align-items:center;overflow:hidden;background:#0d1b2a;padding:120px 0 72px;}
+.lh-hero-bg{position:absolute;inset:0;background-image:url('/assets/plane-bevel-banner.png');background-size:cover;background-position:center;opacity:.55;z-index:0;}
+.lh-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,16,31,.95) 40%,rgba(7,16,31,.45) 75%,rgba(7,16,31,.15) 100%);z-index:1;}
+.lh-hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 40px;width:100%;}
+.lh-hero-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.lh-hero-image{display:flex;justify-content:center;align-items:center;}
+.lh-hero-image img{max-height:340px;width:100%;object-fit:contain;filter:drop-shadow(0 16px 40px rgba(0,0,0,.5));}
+@media(max-width:1024px){.lh-hero-split{grid-template-columns:1fr;}.lh-hero-image{display:none;}}
 .lh-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,102,204,.18);border:1px solid rgba(0,102,204,.35);color:#66aaff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:5px 16px;border-radius:100px;margin-bottom:24px;}
 .lh-hero h1{font-size:clamp(30px,4vw,54px);font-weight:800;color:#fff;letter-spacing:-2px;line-height:1.05;margin-bottom:16px;}
 .lh-hero h1 em{color:#0066cc;font-style:normal;}
@@ -117,12 +121,19 @@
       <a href="/machines/laser-head/" style="color:#526070;">Laser Heads</a><span style="color:#2a3a4a;margin:0 6px;">/</span>
       <span style="color:#8899aa;">3D Cutting Heads</span>
     </nav>
-    <div class="lh-eyebrow">BOCI BLT &mdash; 3D Bevel &amp; Structural Steel</div>
-    <h1>3D Laser <em>Cutting Heads</em><br>— Bevel &amp; Structural</h1>
-    <p class="lh-hero-sub">Plane bevel cutting for weld-prep sheet work, and structural steel cutting for H-beam, I-beam, channel steel, and angle iron — BCW profiler standard on structural heads.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
-      <a href="#plane-bevel" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#0066cc;color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">Plane Bevel Head &darr;</a>
-      <a href="#structural" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:1.5px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;">Structural Steel Head &darr;</a>
+    <div class="lh-hero-split">
+      <div>
+        <div class="lh-eyebrow">BOCI BLT &mdash; 3D Bevel &amp; Structural Steel</div>
+        <h1>3D Laser <em>Cutting Heads</em><br>— Bevel &amp; Structural</h1>
+        <p class="lh-hero-sub">Plane bevel cutting for weld-prep sheet work, and structural steel cutting for H-beam, I-beam, channel steel, and angle iron — BCW profiler standard on structural heads.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
+          <a href="#plane-bevel" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:#0066cc;color:#fff;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">Plane Bevel Head &darr;</a>
+          <a href="#structural" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:1.5px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;">Structural Steel Head &darr;</a>
+        </div>
+      </div>
+      <div class="lh-hero-image">
+        <img src="/assets/blt4-bevel-combo.png" alt="BLT4 bevel cutting head combo" loading="eager"/>
+      </div>
     </div>
   </div>
 </section>
@@ -130,6 +141,10 @@
 <!-- ── Plane Bevel ── -->
 <section style="padding:80px 0;background:#fff;" id="plane-bevel">
   <div class="container">
+    <!-- Plane Bevel Section Banner -->
+    <div style="width:100%;margin:0 0 40px;border-radius:12px;overflow:hidden;max-height:300px;">
+      <img src="/assets/plane-bevel-banner.png" alt="Plane bevel cutting head banner" style="width:100%;height:300px;object-fit:cover;display:block;" loading="lazy"/>
+    </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
       <div>
         <span style="display:inline-flex;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;background:rgba(0,102,204,.1);color:#0066cc;margin-bottom:14px;">Plane Bevel Cutting</span>
@@ -155,6 +170,17 @@
         </div>
       </div>
       <div>
+        <!-- Bevel Head Product Photos -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;">
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;background:#f0f2f5;">
+            <img src="/assets/blt4-bevel-head.png" alt="BLT4 bevel cutting head" loading="lazy" style="width:100%;height:150px;object-fit:contain;display:block;"/>
+            <div style="padding:8px 10px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">Bevel Cutting Head</div>
+          </div>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;background:#f0f2f5;">
+            <img src="/assets/blt4-bevel-combo.png" alt="BLT4 bevel cutting combo system" loading="lazy" style="width:100%;height:150px;object-fit:contain;display:block;"/>
+            <div style="padding:8px 10px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">Bevel Cutting System</div>
+          </div>
+        </div>
         <h3 style="font-size:17px;font-weight:700;margin-bottom:16px;">Supported Bevel Types</h3>
         <div class="bevel-types">
           <div class="bevel-card">
@@ -194,6 +220,10 @@
 <!-- ── Structural Steel ── -->
 <section style="padding:80px 0;background:#f8f9fa;" id="structural">
   <div class="container">
+    <!-- Structural Steel Section Banner -->
+    <div style="width:100%;margin:0 0 40px;border-radius:12px;overflow:hidden;max-height:300px;">
+      <img src="/assets/structural-steel-banner.png" alt="Structural steel laser cutting banner" style="width:100%;height:300px;object-fit:cover;display:block;" loading="lazy"/>
+    </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
       <div>
         <span style="display:inline-flex;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:700;text-transform:uppercase;background:rgba(0,102,204,.1);color:#0066cc;margin-bottom:14px;">Structural Steel Cutting</span>
@@ -238,6 +268,21 @@
         <div style="margin-top:24px;background:#fff;border:1px solid #e9ecef;border-radius:12px;padding:20px 24px;">
           <h4 style="font-size:14px;font-weight:700;margin-bottom:10px;">BCW600B Laser Profiler</h4>
           <p style="font-size:13px;color:#495057;line-height:1.6;margin:0;">The BCW600B scans the actual profile of the structural section in real time — compensating for bow, camber, and twist. Cuts remain precise even when the material deviates from its nominal dimensions.</p>
+        </div>
+        <!-- Structural Steel Product Photos -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;">
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;">
+            <img src="/assets/structural-steel-hbeam.png" alt="H-beam structural steel cutting in action" loading="lazy" style="width:100%;height:140px;object-fit:cover;display:block;"/>
+            <div style="padding:8px 10px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">H-Beam Cutting</div>
+          </div>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;">
+            <img src="/assets/fscut9200-3in1.png" alt="FSCUT9200 3-in-1 structural steel system" loading="lazy" style="width:100%;height:140px;object-fit:cover;display:block;"/>
+            <div style="padding:8px 10px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">3-in-1 System</div>
+          </div>
+          <div style="border-radius:10px;overflow:hidden;border:1px solid #e9ecef;grid-column:span 2;">
+            <img src="/assets/fscut9200-combo.png" alt="FSCUT9200 combo structural steel system" loading="lazy" style="width:100%;height:140px;object-fit:cover;display:block;"/>
+            <div style="padding:8px 10px;font-size:12px;font-weight:600;color:#1a1a2e;background:#f8f9fa;border-top:1px solid #e9ecef;">FSCUT9200 Structural Steel System</div>
+          </div>
         </div>
       </div>
     </div>
