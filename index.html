@@ -383,7 +383,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hp-components-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
-  .hero-h1 { font-size: clamp(3.5rem, 15vw, 8rem); }
+  .hero-h1 { font-size: clamp(2.4rem, 10.5vw, 8rem); }
   .hero-video-wrap { max-width: 100%; }
   .hero-cta { flex-direction: column; }
   .hero-cta a { text-align: center; }
@@ -392,6 +392,9 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hp-components-grid { grid-template-columns: 1fr; }
   .hp-cta-btns { flex-direction: column; width: 100%; }
   .hp-cta-btns a { text-align: center; }
+}
+@media (max-width: 400px) {
+  .hero-h1 { font-size: clamp(2rem, 9.5vw, 2.4rem); }
 }
 </style>
 </head>
