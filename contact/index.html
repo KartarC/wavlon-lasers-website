@@ -129,8 +129,32 @@
 
 <script src="/nav.js"></script>
 <script>
-// Supabase credentials handled server-side via /api/submit-form
-document.getElementById('cqForm').addEventListener('submit',async function(e){e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;try{await fetch(SB_URL+'/rest/v1/"Wavlon_Contact_Messages"',{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY},body:JSON.stringify({name:document.getElementById('cq_name').value,email:document.getElementById('cq_email').value,phone:document.getElementById('cq_phone').value,company:document.getElementById('cq_company').value,subject:document.getElementById('cq_subject').value,message:document.getElementById('cq_message').value,source:'contact-page'})});document.getElementById('cqFormWrap').style.display='none';document.getElementById('cqSuccess').style.display='block';}catch(err){btn.textContent='Send Message';btn.disabled=false;alert('Error sending. Please email sales@wavlonlasers.com directly.');}});
+document.getElementById('cqForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.form-submit');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  try {
+    const res = await fetch('/api/submit-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:    document.getElementById('cq_name').value,
+        email:   document.getElementById('cq_email').value,
+        phone:   document.getElementById('cq_phone').value,
+        company: document.getElementById('cq_company').value,
+        subject: document.getElementById('cq_subject').value,
+        message: document.getElementById('cq_message').value,
+        source:  'contact-page'
+      })
+    });
+    if (!res.ok) throw new Error('Server error');
+    document.getElementById('cqFormWrap').style.display = 'none';
+    document.getElementById('cqSuccess').style.display = 'block';
+  } catch(err) {
+    btn.textContent = 'Send Message'; btn.disabled = false;
+    alert('Error sending. Please email sales@wavlonlasers.com directly.');
+  }
+});
 </script>
 <script src="/assets/wavlon-chat.js" defer></script>
 </body>
