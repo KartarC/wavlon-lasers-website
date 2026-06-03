@@ -116,6 +116,7 @@ input, textarea, select { font-family: inherit; }
   max-width: 1440px; margin: 0 auto;
   display: grid; grid-template-columns: 260px 1fr;
   min-height: 360px;
+  padding-left: 40px;
 }
 .mega-sidebar {
   padding: 28px 0;
@@ -607,6 +608,7 @@ a.footer-contact-item:hover { color: #fff; }
 @media (max-width: 1024px) {
   .header-topbar-inner { padding: 0 24px; }
   .header-nav-inner { padding: 0 24px; }
+  .mega-inner { padding-left: 24px; }
   .mega-products-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; padding: 0 24px; }
   .container, .container-wide, .container-narrow { padding: 0 24px; }
