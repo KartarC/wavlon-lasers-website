@@ -135,6 +135,7 @@ input, textarea, select { font-family: inherit; }
   font-size: 13.5px; font-weight: 500; color: var(--text2);
   text-align: left; width: 100%; gap: 8px;
   transition: background .15s, color .15s;
+  text-decoration: none; cursor: pointer;
 }
 .mega-cat-btn:hover, .mega-cat-btn.active {
   background: #f0f6ff; color: var(--blue);
