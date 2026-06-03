@@ -136,8 +136,38 @@ const GREETING = ['hello','hi','hey','good morning','good afternoon','good eveni
 const CONTACT  = ['contact me','call me','reach me','sales agent','agent contact','speak to someone','talk to someone','human','representative','sales rep','callback'];
 const PRICING  = ['how much','cost','price','get a quote','request quote'];
 
+// ── IP Geolocation (ipapi.co — free tier, no key needed) ─────────────
+async function getLocation(ip) {
+  if (!ip || ip === '127.0.0.1' || ip === '::1' || ip.startsWith('192.168') || ip.startsWith('10.')) {
+    return {}; // skip private/local IPs
+  }
+  try {
+    const resp = await fetch(`https://ipapi.co/${ip}/json/`, {
+      headers: { 'User-Agent': 'WavlonLasers/1.0 (sales@wavlonlasers.com)' }
+    });
+    if (!resp.ok) return {};
+    const d = await resp.json();
+    return {
+      city:    d.city    || null,
+      region:  d.region  || null,
+      country: d.country_name || null
+    };
+  } catch (e) {
+    return {};
+  }
+}
+
+// ── Extract real IP from Vercel request ──────────────────────────────
+function getClientIp(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  if (forwarded) return forwarded.split(',')[0].trim();
+  return req.socket?.remoteAddress || null;
+}
+
 // ── Supabase logger (fire-and-forget) ────────────────────────────────
-async function logChat({ sessionId, question, answer, matchType, kbScore, pageUrl, supabaseUrl, serviceKey }) {
+async function logChat({ sessionId, question, answer, matchType, kbScore, pageUrl,
+                         userInfo, userIp, userCity, userRegion, userCountry,
+                         supabaseUrl, serviceKey }) {
   if (!supabaseUrl || !serviceKey) return;
   try {
     await fetch(`${supabaseUrl}/rest/v1/${encodeURIComponent('Wavlon_Chat_Logs')}`, {
@@ -149,13 +179,23 @@ async function logChat({ sessionId, question, answer, matchType, kbScore, pageUr
         'Prefer':        'return=minimal'
       },
       body: JSON.stringify({
-        session_id: sessionId || null,
+        session_id:   sessionId  || null,
         question,
         answer,
-        match_type: matchType,
-        kb_score:   kbScore || null,
-        page_url:   pageUrl || null,
-        source:     'wavlon-chat'
+        match_type:   matchType,
+        kb_score:     kbScore    || null,
+        page_url:     pageUrl    || null,
+        source:       'wavlon-chat',
+        // Lead info
+        user_name:    userInfo?.name    || null,
+        user_email:   userInfo?.email   || null,
+        user_company: userInfo?.company || null,
+        user_phone:   userInfo?.phone   || null,
+        // Geolocation
+        user_ip:      userIp      || null,
+        user_city:    userCity    || null,
+        user_region:  userRegion  || null,
+        user_country: userCountry || null
       })
     });
   } catch (e) {
@@ -216,7 +256,7 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST')   return res.status(405).json({ error: 'Method not allowed' });
 
-  const { question, sessionId, pageUrl } = req.body || {};
+  const { question, sessionId, pageUrl, userInfo } = req.body || {};
   if (!question || !question.trim()) return res.status(400).json({ error: 'Missing question' });
 
   const q   = question.trim();
@@ -224,26 +264,43 @@ module.exports = async function handler(req, res) {
 
   const supabaseUrl = process.env.SUPABASE_URL;
   const serviceKey  = process.env.SUPABASE_SERVICE_KEY;
-  const logCtx      = { sessionId, question: q, pageUrl, supabaseUrl, serviceKey };
+
+  // IP geolocation — run in parallel with processing (fire-and-forget on error)
+  const userIp = getClientIp(req);
+  const locPromise = getLocation(userIp);
+
+  const logCtx = async (extra) => {
+    const loc = await locPromise;
+    return {
+      sessionId, question: q, pageUrl,
+      userInfo: userInfo || {},
+      userIp,
+      userCity:    loc.city    || null,
+      userRegion:  loc.region  || null,
+      userCountry: loc.country || null,
+      supabaseUrl, serviceKey,
+      ...extra
+    };
+  };
 
   // ── 1. Greeting ───────────────────────────────────────────────────
   if (GREETING.some(t => qLo === t || qLo.startsWith(t + ' ') || qLo.startsWith(t + '!'))) {
     const answer = "Hi there! I'm Wavlon's AI assistant.\n\nI can help you with:\n- Machine specs and comparisons\n- Cutting capabilities by material and thickness\n- Pricing and financing\n- Lead times and delivery\n- Parts and technical support\n\nWhat would you like to know about our fiber laser machines?";
-    await logChat({ ...logCtx, answer, matchType: 'greeting' });
+    await logChat(await logCtx({ answer, matchType: 'greeting' }));
     return res.status(200).json({ answer });
   }
 
   // ── 2. Contact / callback ─────────────────────────────────────────
   if (CONTACT.some(t => qLo.includes(t))) {
     const answer = "Our sales team would love to connect with you!\n\nCall: (888) 277-6144 — Mon–Fri 8am–6pm EST\nEmail: sales@wavlonlasers.com\nOr fill out the quote form on any machine page — we respond within 24 business hours.\n\nIs there anything specific about our machines I can answer right now?";
-    await logChat({ ...logCtx, answer, matchType: 'contact' });
+    await logChat(await logCtx({ answer, matchType: 'contact' }));
     return res.status(200).json({ answer });
   }
 
   // ── 3. Pricing (without product specifics) ────────────────────────
   if (PRICING.some(t => qLo.includes(t)) && !qLo.includes('what') && !qLo.includes('which') && !qLo.includes('spec') && !qLo.includes('kw')) {
     const answer = "We configure every machine to the customer's application, so pricing depends on power level, frame size, and options.\n\nTo get accurate pricing:\n- Fill out the quote form on any machine page\n- Email sales@wavlonlasers.com\n- Call (888) 277-6144\n\nWe also offer equipment financing — most Canadian businesses are approved within 48 hours. Want me to help figure out which machine fits your needs first?";
-    await logChat({ ...logCtx, answer, matchType: 'pricing' });
+    await logChat(await logCtx({ answer, matchType: 'pricing' }));
     return res.status(200).json({ answer });
   }
 
@@ -252,7 +309,7 @@ module.exports = async function handler(req, res) {
     const { output, topScore } = await queryKB(q);
     // Use KB answer if confidence is good
     if (output && topScore && topScore >= 0.55) {
-      await logChat({ ...logCtx, answer: output, matchType: 'kb', kbScore: topScore });
+      await logChat(await logCtx({ answer: output, matchType: 'kb', kbScore: topScore }));
       return res.status(200).json({ answer: output });
     }
   } catch (e) {
@@ -262,12 +319,12 @@ module.exports = async function handler(req, res) {
   // ── 5. Claude Haiku — answers anything ───────────────────────────
   try {
     const answer = await askClaude(q);
-    await logChat({ ...logCtx, answer, matchType: 'claude' });
+    await logChat(await logCtx({ answer, matchType: 'claude' }));
     return res.status(200).json({ answer });
   } catch (e) {
     console.error('Claude error:', e.message);
     const answer = "I'm having a technical issue right now. Please contact our team directly:\n\nCall: (888) 277-6144 — Mon–Fri 8am–6pm EST\nEmail: sales@wavlonlasers.com";
-    await logChat({ ...logCtx, answer, matchType: 'error' });
+    await logChat(await logCtx({ answer, matchType: 'error' }));
     return res.status(200).json({ answer });
   }
 };

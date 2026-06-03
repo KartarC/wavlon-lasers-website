@@ -25,8 +25,9 @@ module.exports = async function handler(req, res) {
     table = 'Wavlon_Contact_Messages';
   } else if (
     source.includes('financing') ||
-    source.includes('parts') ||
-    source.includes('brochure')
+    source.includes('parts')     ||
+    source.includes('brochure')  ||
+    source.includes('chat')
   ) {
     table = 'Wavlon_Leads';
   } else {

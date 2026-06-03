@@ -1,4 +1,5 @@
 /* Wavlon Lasers — Custom AI Chat Widget
+   Pre-chat lead form → AI chat
    Calls /api/chat → Voiceflow KB → answers from wavlon-faq, wavlon-specs, wavlon-materials
    No third-party watermark. Full Wavlon branding. */
 (function () {
@@ -37,7 +38,7 @@
 
     .wlc-header {
       background: #0066cc; padding: 16px 18px; display: flex;
-      align-items: center; gap: 12px;
+      align-items: center; gap: 12px; flex-shrink: 0;
     }
     .wlc-header-avatar {
       width: 36px; height: 36px; border-radius: 50%;
@@ -52,6 +53,56 @@
       font-size: 11px; color: rgba(255,255,255,.75); margin: 2px 0 0;
     }
 
+    /* ── Pre-chat form ── */
+    #wlc-prechat {
+      flex: 1; overflow-y: auto; padding: 20px 18px 16px;
+      background: #f8f9fa; display: flex; flex-direction: column; gap: 0;
+    }
+    .wlc-prechat-intro {
+      font-size: 13px; color: #495057; line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .wlc-prechat-intro strong { color: #1a1a2e; }
+    .wlc-field {
+      display: flex; flex-direction: column; gap: 4px; margin-bottom: 11px;
+    }
+    .wlc-field label {
+      font-size: 11px; font-weight: 600; color: #495057;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+    .wlc-field input {
+      border: 1.5px solid #dee2e6; border-radius: 8px;
+      padding: 9px 12px; font-size: 13px; color: #1a1a2e;
+      font-family: inherit; outline: none; background: #fff;
+      transition: border-color .15s;
+    }
+    .wlc-field input:focus { border-color: #0066cc; }
+    .wlc-field input::placeholder { color: #adb5bd; }
+    .wlc-field .wlc-required { color: #dc3545; margin-left: 2px; }
+    .wlc-prechat-submit {
+      width: 100%; padding: 11px; margin-top: 6px;
+      background: #0066cc; color: #fff; border: none;
+      border-radius: 8px; font-size: 14px; font-weight: 600;
+      cursor: pointer; font-family: inherit;
+      transition: background .15s; display: flex;
+      align-items: center; justify-content: center; gap: 8px;
+    }
+    .wlc-prechat-submit:hover { background: #0055b3; }
+    .wlc-prechat-submit:disabled { background: #ced4da; cursor: default; }
+    .wlc-prechat-submit svg { width: 16px; height: 16px; fill: #fff; }
+    .wlc-skip-link {
+      text-align: center; margin-top: 10px;
+      font-size: 11px; color: #adb5bd;
+    }
+    .wlc-skip-link a {
+      color: #adb5bd; text-decoration: underline; cursor: pointer;
+    }
+    .wlc-skip-link a:hover { color: #868e96; }
+    .wlc-field-error {
+      font-size: 11px; color: #dc3545; margin-top: 2px; display: none;
+    }
+
+    /* ── Chat view ── */
     .wlc-messages {
       flex: 1; overflow-y: auto; padding: 16px;
       display: flex; flex-direction: column; gap: 12px;
@@ -90,7 +141,7 @@
     .wlc-footer {
       padding: 12px 14px; background: #fff;
       border-top: 1px solid #e9ecef;
-      display: flex; gap: 8px; align-items: center;
+      display: flex; gap: 8px; align-items: center; flex-shrink: 0;
     }
     .wlc-input {
       flex: 1; border: 1.5px solid #dee2e6; border-radius: 8px;
@@ -112,7 +163,7 @@
 
     .wlc-branding {
       text-align: center; padding: 6px;
-      font-size: 10px; color: #adb5bd; background: #fff;
+      font-size: 10px; color: #adb5bd; background: #fff; flex-shrink: 0;
     }
 
     @media (max-width: 400px) {
@@ -150,49 +201,195 @@
         <p>Ask about machines, specs, pricing &amp; more</p>
       </div>
     </div>
-    <div class="wlc-messages" id="wlc-messages">
-      <div class="wlc-msg bot">Hi! I'm Wavlon's AI assistant. Ask me anything about our fiber laser machines — specs, cutting capabilities, pricing, or financing.</div>
+
+    <!-- Pre-chat lead capture form -->
+    <div id="wlc-prechat">
+      <p class="wlc-prechat-intro">
+        <strong>Before we chat —</strong> let us know who you are so our team can follow up if needed.
+      </p>
+      <div class="wlc-field">
+        <label>Your Name <span class="wlc-required">*</span></label>
+        <input id="wlc-f-name" type="text" placeholder="e.g. John Smith" autocomplete="name" maxlength="80"/>
+        <span class="wlc-field-error" id="wlc-err-name">Please enter your name.</span>
+      </div>
+      <div class="wlc-field">
+        <label>Company Name</label>
+        <input id="wlc-f-company" type="text" placeholder="e.g. Acme Fabrication" autocomplete="organization" maxlength="100"/>
+      </div>
+      <div class="wlc-field">
+        <label>Email Address <span class="wlc-required">*</span></label>
+        <input id="wlc-f-email" type="email" placeholder="you@company.com" autocomplete="email" maxlength="120"/>
+        <span class="wlc-field-error" id="wlc-err-email">Please enter a valid email.</span>
+      </div>
+      <div class="wlc-field">
+        <label>Phone Number</label>
+        <input id="wlc-f-phone" type="tel" placeholder="(555) 000-0000" autocomplete="tel" maxlength="30"/>
+      </div>
+      <button class="wlc-prechat-submit" id="wlc-prechat-submit">
+        Start Chatting
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+      <p class="wlc-skip-link"><a id="wlc-skip">Skip and chat anonymously</a></p>
     </div>
-    <div class="wlc-footer">
+
+    <!-- Chat view (hidden until form submitted) -->
+    <div class="wlc-messages" id="wlc-messages" style="display:none;"></div>
+    <div class="wlc-footer" id="wlc-chat-footer" style="display:none;">
       <input class="wlc-input" id="wlc-input" type="text" placeholder="Ask about machines, specs, lead times..." maxlength="300" autocomplete="off"/>
       <button class="wlc-send" id="wlc-send" aria-label="Send">
         <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
       </button>
     </div>
-    <div class="wlc-branding">Powered by Wavlon Lasers AI</div>
+    <div class="wlc-branding" id="wlc-branding">Powered by Wavlon Lasers AI</div>
   `;
 
   document.body.appendChild(bubble);
   document.body.appendChild(panel);
 
-  // ── Logic ─────────────────────────────────────────────────────────────
-  var messagesEl = document.getElementById('wlc-messages');
-  var inputEl    = document.getElementById('wlc-input');
-  var sendBtn    = document.getElementById('wlc-send');
-  var isOpen     = false;
-  var isLoading  = false;
+  // ── State ─────────────────────────────────────────────────────────────
+  var messagesEl   = document.getElementById('wlc-messages');
+  var chatFooter   = document.getElementById('wlc-chat-footer');
+  var inputEl      = document.getElementById('wlc-input');
+  var sendBtn      = document.getElementById('wlc-send');
+  var prechatEl    = document.getElementById('wlc-prechat');
+  var submitBtn    = document.getElementById('wlc-prechat-submit');
+  var skipLink     = document.getElementById('wlc-skip');
+  var isOpen       = false;
+  var isLoading    = false;
 
-  // Generate a unique session ID for this browser session (groups conversation logs)
+  // Generate a unique session ID for this browser session
   var sessionId = 'wl-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
 
+  // User info — load from localStorage if already captured
+  var userInfo = null;
+  try {
+    var stored = localStorage.getItem('wlc_user');
+    if (stored) userInfo = JSON.parse(stored);
+  } catch(e) {}
+
+  // ── Panel toggle ──────────────────────────────────────────────────────
   function togglePanel() {
     isOpen = !isOpen;
     bubble.classList.toggle('open', isOpen);
     panel.classList.toggle('open', isOpen);
-    if (isOpen) inputEl.focus();
+    if (isOpen) {
+      if (userInfo) {
+        // Already captured — go straight to chat
+        showChat();
+        inputEl.focus();
+      } else {
+        document.getElementById('wlc-f-name').focus();
+      }
+    }
   }
 
+  // ── Show chat (hide form) ─────────────────────────────────────────────
+  function showChat() {
+    prechatEl.style.display = 'none';
+    messagesEl.style.display = 'flex';
+    chatFooter.style.display = 'flex';
+
+    // Only show welcome once per session
+    if (!messagesEl.hasChildNodes()) {
+      var firstName = (userInfo && userInfo.name) ? userInfo.name.split(' ')[0] : null;
+      var greeting  = firstName
+        ? 'Hi ' + firstName + '! I\'m Wavlon\'s AI assistant.\n\nAsk me anything about our fiber laser machines — specs, cutting capabilities, pricing, or financing.'
+        : 'Hi! I\'m Wavlon\'s AI assistant. Ask me anything about our fiber laser machines — specs, cutting capabilities, pricing, or financing.';
+      appendMsg(greeting, 'bot');
+    }
+  }
+
+  // ── Pre-chat form validation & submit ────────────────────────────────
+  function validateEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  function clearErrors() {
+    document.getElementById('wlc-err-name').style.display  = 'none';
+    document.getElementById('wlc-err-email').style.display = 'none';
+    document.getElementById('wlc-f-name').style.borderColor  = '';
+    document.getElementById('wlc-f-email').style.borderColor = '';
+  }
+
+  async function submitPrechat() {
+    clearErrors();
+    var name    = document.getElementById('wlc-f-name').value.trim();
+    var company = document.getElementById('wlc-f-company').value.trim();
+    var email   = document.getElementById('wlc-f-email').value.trim();
+    var phone   = document.getElementById('wlc-f-phone').value.trim();
+
+    var valid = true;
+    if (!name) {
+      document.getElementById('wlc-err-name').style.display   = 'block';
+      document.getElementById('wlc-f-name').style.borderColor = '#dc3545';
+      valid = false;
+    }
+    if (!email || !validateEmail(email)) {
+      document.getElementById('wlc-err-email').style.display   = 'block';
+      document.getElementById('wlc-f-email').style.borderColor = '#dc3545';
+      valid = false;
+    }
+    if (!valid) return;
+
+    // Disable button while saving
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Starting…';
+
+    userInfo = { name: name, company: company, email: email, phone: phone };
+
+    // Save to localStorage
+    try { localStorage.setItem('wlc_user', JSON.stringify(userInfo)); } catch(e) {}
+
+    // Fire-and-forget lead save to Supabase via submit-form proxy
+    fetch('/api/submit-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:    name,
+        company: company,
+        email:   email,
+        phone:   phone,
+        source:  'chat-widget',
+        status:  'new'
+      })
+    }).catch(function(){});
+
+    showChat();
+    inputEl.focus();
+  }
+
+  submitBtn.addEventListener('click', submitPrechat);
+
+  skipLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    userInfo = {};
+    try { localStorage.setItem('wlc_user', JSON.stringify(userInfo)); } catch(e) {}
+    showChat();
+    inputEl.focus();
+  });
+
+  // Allow Enter key in form fields to advance or submit
+  ['wlc-f-name','wlc-f-company','wlc-f-email','wlc-f-phone'].forEach(function(id, i, arr) {
+    document.getElementById(id).addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (i < arr.length - 1) {
+          document.getElementById(arr[i + 1]).focus();
+        } else {
+          submitPrechat();
+        }
+      }
+    });
+  });
+
+  // ── Chat helpers ──────────────────────────────────────────────────────
   function formatText(text) {
-    // Escape HTML first (safety)
     var escaped = text
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
-    // Convert **bold** → <strong>
     escaped = escaped.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-    // Convert bullet lines (- item) → styled list items
     escaped = escaped.replace(/^- (.+)$/gm, '<span style="display:block;padding-left:12px;position:relative;"><span style="position:absolute;left:0;">•</span>$1</span>');
-    // Convert newlines → <br>
     escaped = escaped.replace(/\n/g, '<br>');
     return escaped;
   }
@@ -239,7 +436,12 @@
       var res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: q, sessionId: sessionId, pageUrl: window.location.href })
+        body: JSON.stringify({
+          question:  q,
+          sessionId: sessionId,
+          pageUrl:   window.location.href,
+          userInfo:  userInfo || {}
+        })
       });
       var data = await res.json();
       hideTyping();
@@ -255,7 +457,6 @@
   }
 
   bubble.addEventListener('click', togglePanel);
-
   sendBtn.addEventListener('click', sendMessage);
 
   inputEl.addEventListener('keydown', function (e) {
