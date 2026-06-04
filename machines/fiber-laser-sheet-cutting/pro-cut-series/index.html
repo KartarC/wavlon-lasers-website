@@ -156,15 +156,62 @@
   background: rgba(0,102,204,.05);
 }
 
+/* ── Series Tabs ──────────────────────────────────────────── */
+.procut-tab-bar-wrap {
+  max-width: 1280px; margin: 0 auto; padding: 0 40px;
+  position: relative; z-index: 2;
+}
+.procut-tab-bar {
+  display: flex; gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  margin-bottom: 48px;
+}
+.procut-tab {
+  flex: 1; max-width: 320px;
+  padding: 14px 24px 16px;
+  background: transparent; border: none; cursor: pointer;
+  text-align: left; border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  transition: border-color .2s, background .2s;
+  border-radius: 4px 4px 0 0;
+}
+.procut-tab:hover { background: rgba(255,255,255,.04); }
+.procut-tab.active { border-bottom-color: var(--blue); background: rgba(0,102,204,.06); }
+.procut-tab-title {
+  font-size: 15px; font-weight: 700; color: #fff;
+  margin-bottom: 3px; white-space: nowrap;
+}
+.procut-tab.active .procut-tab-title { color: #66aaff; }
+.procut-tab-sub {
+  font-size: 11px; color: #526070; line-height: 1.4;
+  font-weight: 500;
+}
+.procut-tab.active .procut-tab-sub { color: #7090aa; }
+
+/* ── Slides ───────────────────────────────────────────────── */
+.procut-slides-wrap { overflow: hidden; }
+.procut-slides {
+  display: flex;
+  transition: transform .42s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+.procut-slide {
+  min-width: 100%; flex-shrink: 0;
+}
+
 @media (max-width: 1024px) {
   .machine-hero-inner { grid-template-columns: 1fr; }
   .machine-hero-visual { display: none; }
   .power-grid { grid-template-columns: 1fr 1fr; }
+  .procut-tab-bar-wrap { padding: 0 24px; }
+  .procut-tab { padding: 12px 16px 14px; max-width: 100%; }
+  .procut-tab-title { font-size: 13px; }
 }
 @media (max-width: 640px) {
   .power-grid { grid-template-columns: 1fr 1fr; }
   .machine-hero { padding: 56px 0 48px; }
   .machine-hero-inner { padding: 0 20px; }
+  .procut-tab-sub { display: none; }
 }
 </style>
 </head>
@@ -246,53 +293,149 @@
 <!-- ── Machine Hero ──────────────────────────────────────────── -->
 <section class="machine-hero" id="hero">
   <div class="machine-hero-grid"></div>
-  <div class="machine-hero-inner">
-    <div>
-      <nav class="breadcrumbs" style="margin-bottom:20px;">
-        <a href="/" style="color:#526070;">Home</a><span class="sep" style="color:#2a3a4a;">/</span>
-        <a href="/machines/" style="color:#526070;">Machines</a><span class="sep" style="color:#2a3a4a;">/</span>
-        <a href="/machines/fiber-laser-sheet-cutting/" style="color:#526070;">Sheet Cutting</a><span class="sep" style="color:#2a3a4a;">/</span>
-        <span style="color:#8899aa;">ProCut Series</span>
-      </nav>
-      <div class="mh-eyebrow">Fiber Laser Sheet Cutting</div>
-      <h1>ProCut <em>Series</em></h1>
-      <div class="mh-subtitle">3 kW – 12 kW &middot; Gantry Fiber Laser Cutter</div>
-      <p class="mh-desc">The ProCut Series is Wavlon's entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.</p>
-      <div class="mh-stats">
-        <div class="mh-stat"><div class="mh-stat-val">12<span>kW</span></div><div class="mh-stat-label">Max Power</div></div>
-        <div class="mh-stat"><div class="mh-stat-val">±0.03<span>mm</span></div><div class="mh-stat-label">Accuracy</div></div>
-        <div class="mh-stat"><div class="mh-stat-val">100<span>m/min</span></div><div class="mh-stat-label">Max Speed</div></div>
-        <div class="mh-stat"><div class="mh-stat-val">35<span>mm</span></div><div class="mh-stat-label">Max Steel</div></div>
-      </div>
-      <div class="mh-actions">
-        <a href="#quote" class="btn-mh-primary">Request a Quote &rarr;</a>
-        <a href="#specs" class="btn-mh-secondary">View Full Specs</a>
-      </div>
-    </div>
-    <div class="machine-hero-visual">
-      <div class="machine-hero-svg">
-        <svg viewBox="0 0 380 285" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="90" width="340" height="165" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
-          <rect x="20" y="90" width="340" height="30" rx="12" fill="rgba(255,255,255,.08)"/>
-          <rect x="20" y="108" width="340" height="12" fill="rgba(255,255,255,.04)"/>
-          <rect x="155" y="36" width="28" height="56" rx="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-          <rect x="161" y="118" width="16" height="8" rx="3" fill="#0066cc"/>
-          <ellipse cx="169" cy="122" rx="4" ry="2" fill="#66aaff" opacity=".6"/>
-          <line x1="169" y1="126" x2="169" y2="254" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="6 4" opacity=".5"/>
-          <circle cx="169" cy="254" r="5" fill="#0066cc" opacity=".3"/>
-          <rect x="40" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
-          <rect x="276" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
-          <text x="169" y="275" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="10" font-family="Inter,sans-serif" letter-spacing="3">WPC — PROCUT SERIES</text>
-        </svg>
-      </div>
-      <div class="mh-spec-pills">
-        <div class="mh-spec-pill"><div class="mh-spec-pill-label">Power</div><div class="mh-spec-pill-val">3–12 kW</div></div>
-        <div class="mh-spec-pill"><div class="mh-spec-pill-label">Frames</div><div class="mh-spec-pill-val">3015 / 4020</div></div>
-        <div class="mh-spec-pill"><div class="mh-spec-pill-label">Speed</div><div class="mh-spec-pill-val">100m/min</div></div>
-      </div>
+
+  <!-- Breadcrumbs above tabs -->
+  <div class="procut-tab-bar-wrap" style="margin-bottom:0;padding-bottom:0;">
+    <nav class="breadcrumbs" style="margin-bottom:20px;position:relative;z-index:2;">
+      <a href="/" style="color:#526070;">Home</a><span class="sep" style="color:#2a3a4a;">/</span>
+      <a href="/machines/" style="color:#526070;">Machines</a><span class="sep" style="color:#2a3a4a;">/</span>
+      <a href="/machines/fiber-laser-sheet-cutting/" style="color:#526070;">Sheet Cutting</a><span class="sep" style="color:#2a3a4a;">/</span>
+      <span style="color:#8899aa;">ProCut Series</span>
+    </nav>
+  </div>
+
+  <!-- Series tab bar -->
+  <div class="procut-tab-bar-wrap">
+    <div class="procut-tab-bar" role="tablist">
+      <button class="procut-tab active" data-tab="0" role="tab" aria-selected="true" aria-controls="slide-0">
+        <div class="procut-tab-title">ProCut Series</div>
+        <div class="procut-tab-sub">Gantry Protected Open Table</div>
+      </button>
+      <button class="procut-tab" data-tab="1" role="tab" aria-selected="false" aria-controls="slide-1">
+        <div class="procut-tab-title">ProCut UL Series</div>
+        <div class="procut-tab-sub">Gantry Protected Ultra Large Format Open Table</div>
+      </button>
     </div>
   </div>
+
+  <!-- Sliding panels -->
+  <div class="procut-slides-wrap">
+    <div class="procut-slides" id="procutSlides">
+
+      <!-- ── Slide 0: ProCut Series ── -->
+      <div class="procut-slide" id="slide-0" role="tabpanel">
+        <div class="machine-hero-inner">
+          <div>
+            <div class="mh-eyebrow">Fiber Laser Sheet Cutting</div>
+            <h1>ProCut <em>Series</em></h1>
+            <div class="mh-subtitle">3 kW – 12 kW &middot; Gantry Fiber Laser Cutter</div>
+            <p class="mh-desc">The ProCut Series is Wavlon's entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.</p>
+            <div class="mh-stats">
+              <div class="mh-stat"><div class="mh-stat-val">12<span>kW</span></div><div class="mh-stat-label">Max Power</div></div>
+              <div class="mh-stat"><div class="mh-stat-val">±0.03<span>mm</span></div><div class="mh-stat-label">Accuracy</div></div>
+              <div class="mh-stat"><div class="mh-stat-val">100<span>m/min</span></div><div class="mh-stat-label">Max Speed</div></div>
+              <div class="mh-stat"><div class="mh-stat-val">35<span>mm</span></div><div class="mh-stat-label">Max Steel</div></div>
+            </div>
+            <div class="mh-actions">
+              <a href="#quote" class="btn-mh-primary">Request a Quote &rarr;</a>
+              <a href="#specs" class="btn-mh-secondary">View Full Specs</a>
+            </div>
+          </div>
+          <div class="machine-hero-visual">
+            <div class="machine-hero-svg">
+              <svg viewBox="0 0 380 285" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="90" width="340" height="165" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+                <rect x="20" y="90" width="340" height="30" rx="12" fill="rgba(255,255,255,.08)"/>
+                <rect x="20" y="108" width="340" height="12" fill="rgba(255,255,255,.04)"/>
+                <rect x="155" y="36" width="28" height="56" rx="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+                <rect x="161" y="118" width="16" height="8" rx="3" fill="#0066cc"/>
+                <ellipse cx="169" cy="122" rx="4" ry="2" fill="#66aaff" opacity=".6"/>
+                <line x1="169" y1="126" x2="169" y2="254" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="6 4" opacity=".5"/>
+                <circle cx="169" cy="254" r="5" fill="#0066cc" opacity=".3"/>
+                <rect x="40" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
+                <rect x="276" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
+                <text x="169" y="275" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="10" font-family="Inter,sans-serif" letter-spacing="3">WPC — PROCUT SERIES</text>
+              </svg>
+            </div>
+            <div class="mh-spec-pills">
+              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Power</div><div class="mh-spec-pill-val">3–12 kW</div></div>
+              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Frames</div><div class="mh-spec-pill-val">3015 / 4020</div></div>
+              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Speed</div><div class="mh-spec-pill-val">100m/min</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Slide 1: ProCut UL Series ── -->
+      <div class="procut-slide" id="slide-1" role="tabpanel">
+        <div class="machine-hero-inner">
+          <div>
+            <div class="mh-eyebrow">Fiber Laser Sheet Cutting</div>
+            <h1>ProCut <em>UL Series</em></h1>
+            <div class="mh-subtitle">3 kW – 20 kW &middot; Ultra Large Format Gantry Cutter</div>
+            <p class="mh-desc">The ProCut UL Series extends Wavlon's open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.</p>
+            <div class="mh-stats">
+              <div class="mh-stat"><div class="mh-stat-val">20<span>kW</span></div><div class="mh-stat-label">Max Power</div></div>
+              <div class="mh-stat"><div class="mh-stat-val">±0.03<span>mm</span></div><div class="mh-stat-label">Accuracy</div></div>
+              <div class="mh-stat"><div class="mh-stat-val">120<span>m/min</span></div><div class="mh-stat-label">Max Speed</div></div>
+              <div class="mh-stat"><div class="mh-stat-val">40<span>mm</span></div><div class="mh-stat-label">Max Steel</div></div>
+            </div>
+            <div class="mh-actions">
+              <a href="#quote" class="btn-mh-primary">Request a Quote &rarr;</a>
+              <a href="#specs" class="btn-mh-secondary">View Full Specs</a>
+            </div>
+          </div>
+          <div class="machine-hero-visual">
+            <div class="machine-hero-svg">
+              <svg viewBox="0 0 380 285" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Wider bed — UL format -->
+                <rect x="10" y="95" width="360" height="160" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+                <rect x="10" y="95" width="360" height="30" rx="12" fill="rgba(255,255,255,.08)"/>
+                <rect x="10" y="113" width="360" height="12" fill="rgba(255,255,255,.04)"/>
+                <!-- Gantry beam — wider span -->
+                <rect x="148" y="30" width="32" height="68" rx="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+                <rect x="154" y="120" width="20" height="10" rx="3" fill="#0066cc"/>
+                <ellipse cx="164" cy="125" rx="5" ry="2.5" fill="#66aaff" opacity=".6"/>
+                <line x1="164" y1="130" x2="164" y2="252" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="6 4" opacity=".5"/>
+                <circle cx="164" cy="252" r="5" fill="#0066cc" opacity=".3"/>
+                <!-- Wider table feet -->
+                <rect x="20" y="226" width="72" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
+                <rect x="288" y="226" width="72" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
+                <text x="185" y="278" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="10" font-family="Inter,sans-serif" letter-spacing="3">WPC-UL — ULTRA LARGE FORMAT</text>
+              </svg>
+            </div>
+            <div class="mh-spec-pills">
+              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Power</div><div class="mh-spec-pill-val">3–20 kW</div></div>
+              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Frames</div><div class="mh-spec-pill-val">4020 / 6025</div></div>
+              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Speed</div><div class="mh-spec-pill-val">120m/min</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /procut-slides -->
+  </div><!-- /procut-slides-wrap -->
+
 </section>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.procut-tab');
+  var slides = document.getElementById('procutSlides');
+  var current = 0;
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){
+      if(i === current) return;
+      tabs[current].classList.remove('active');
+      tabs[current].setAttribute('aria-selected','false');
+      current = i;
+      tabs[current].classList.add('active');
+      tabs[current].setAttribute('aria-selected','true');
+      slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+    });
+  });
+})();
+</script>
 
 <!-- ── Power Options ─────────────────────────────────────────── -->
 <section class="section-alt">
