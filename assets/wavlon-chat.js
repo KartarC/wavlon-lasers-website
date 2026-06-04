@@ -341,16 +341,18 @@
     try { localStorage.setItem('wlc_user', JSON.stringify(userInfo)); } catch(e) {}
 
     // Fire-and-forget lead save to Supabase via submit-form proxy
+    // session_id links this lead to all chat messages in Wavlon_Chat_Logs
     fetch('/api/submit-form', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name:    name,
-        company: company,
-        email:   email,
-        phone:   phone,
-        source:  'chat-widget',
-        status:  'new'
+        name:       name,
+        company:    company,
+        email:      email,
+        phone:      phone,
+        source:     'chat-widget',
+        status:     'new',
+        session_id: sessionId
       })
     }).catch(function(){});
 
