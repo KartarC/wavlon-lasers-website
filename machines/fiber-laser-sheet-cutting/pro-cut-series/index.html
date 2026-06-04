@@ -156,46 +156,44 @@
   background: rgba(0,102,204,.05);
 }
 
-/* ── Series Tabs ──────────────────────────────────────────── */
-.procut-tab-bar-wrap {
+/* ── Series tab switcher (below hero) ────────────────────── */
+.procut-series-switcher {
+  background: #fff;
+  border-bottom: 2px solid var(--border);
+  position: sticky; top: var(--header-h); z-index: 90;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.procut-series-switcher-inner {
   max-width: 1280px; margin: 0 auto; padding: 0 40px;
-  position: relative; z-index: 2;
-}
-.procut-tab-bar {
   display: flex; gap: 0;
-  border-bottom: 1px solid rgba(255,255,255,.12);
-  margin-bottom: 48px;
 }
-.procut-tab {
-  flex: 1; max-width: 320px;
-  padding: 14px 24px 16px;
+.procut-series-tab {
+  padding: 18px 32px 16px;
   background: transparent; border: none; cursor: pointer;
   text-align: left; border-bottom: 3px solid transparent;
-  margin-bottom: -1px;
-  transition: border-color .2s, background .2s;
-  border-radius: 4px 4px 0 0;
+  margin-bottom: -2px;
+  transition: border-color .2s, background .15s;
+  display: flex; flex-direction: column; gap: 3px;
 }
-.procut-tab:hover { background: rgba(255,255,255,.04); }
-.procut-tab.active { border-bottom-color: var(--blue); background: rgba(0,102,204,.06); }
-.procut-tab-title {
-  font-size: 15px; font-weight: 700; color: #fff;
-  margin-bottom: 3px; white-space: nowrap;
+.procut-series-tab:hover { background: rgba(0,102,204,.04); }
+.procut-series-tab.active { border-bottom-color: var(--blue); }
+.pst-title {
+  font-size: 14px; font-weight: 700; color: var(--text2);
+  white-space: nowrap;
 }
-.procut-tab.active .procut-tab-title { color: #66aaff; }
-.procut-tab-sub {
-  font-size: 11px; color: #526070; line-height: 1.4;
-  font-weight: 500;
+.procut-series-tab.active .pst-title { color: var(--blue); }
+.pst-sub {
+  font-size: 11px; color: var(--text3); line-height: 1.35; font-weight: 500;
 }
-.procut-tab.active .procut-tab-sub { color: #7090aa; }
 
-/* ── Slides ───────────────────────────────────────────────── */
-.procut-slides-wrap { overflow: hidden; }
-.procut-slides {
+/* ── Body slides ──────────────────────────────────────────── */
+.procut-body-wrap { overflow: hidden; }
+.procut-body-track {
   display: flex;
-  transition: transform .42s cubic-bezier(.4,0,.2,1);
+  transition: transform .44s cubic-bezier(.4,0,.2,1);
   will-change: transform;
 }
-.procut-slide {
+.procut-body-slide {
   min-width: 100%; flex-shrink: 0;
 }
 
@@ -203,15 +201,15 @@
   .machine-hero-inner { grid-template-columns: 1fr; }
   .machine-hero-visual { display: none; }
   .power-grid { grid-template-columns: 1fr 1fr; }
-  .procut-tab-bar-wrap { padding: 0 24px; }
-  .procut-tab { padding: 12px 16px 14px; max-width: 100%; }
-  .procut-tab-title { font-size: 13px; }
+  .procut-series-switcher-inner { padding: 0 24px; }
+  .procut-series-tab { padding: 14px 20px 12px; }
 }
 @media (max-width: 640px) {
   .power-grid { grid-template-columns: 1fr 1fr; }
   .machine-hero { padding: 56px 0 48px; }
   .machine-hero-inner { padding: 0 20px; }
-  .procut-tab-sub { display: none; }
+  .pst-sub { display: none; }
+  .procut-series-tab { padding: 14px 16px 12px; }
 }
 </style>
 </head>
@@ -293,149 +291,74 @@
 <!-- ── Machine Hero ──────────────────────────────────────────── -->
 <section class="machine-hero" id="hero">
   <div class="machine-hero-grid"></div>
-
-  <!-- Breadcrumbs above tabs -->
-  <div class="procut-tab-bar-wrap" style="margin-bottom:0;padding-bottom:0;">
-    <nav class="breadcrumbs" style="margin-bottom:20px;position:relative;z-index:2;">
-      <a href="/" style="color:#526070;">Home</a><span class="sep" style="color:#2a3a4a;">/</span>
-      <a href="/machines/" style="color:#526070;">Machines</a><span class="sep" style="color:#2a3a4a;">/</span>
-      <a href="/machines/fiber-laser-sheet-cutting/" style="color:#526070;">Sheet Cutting</a><span class="sep" style="color:#2a3a4a;">/</span>
-      <span style="color:#8899aa;">ProCut Series</span>
-    </nav>
-  </div>
-
-  <!-- Series tab bar -->
-  <div class="procut-tab-bar-wrap">
-    <div class="procut-tab-bar" role="tablist">
-      <button class="procut-tab active" data-tab="0" role="tab" aria-selected="true" aria-controls="slide-0">
-        <div class="procut-tab-title">ProCut Series</div>
-        <div class="procut-tab-sub">Gantry Protected Open Table</div>
-      </button>
-      <button class="procut-tab" data-tab="1" role="tab" aria-selected="false" aria-controls="slide-1">
-        <div class="procut-tab-title">ProCut UL Series</div>
-        <div class="procut-tab-sub">Gantry Protected Ultra Large Format Open Table</div>
-      </button>
+  <div class="machine-hero-inner">
+    <div>
+      <nav class="breadcrumbs" style="margin-bottom:20px;">
+        <a href="/" style="color:#526070;">Home</a><span class="sep" style="color:#2a3a4a;">/</span>
+        <a href="/machines/" style="color:#526070;">Machines</a><span class="sep" style="color:#2a3a4a;">/</span>
+        <a href="/machines/fiber-laser-sheet-cutting/" style="color:#526070;">Sheet Cutting</a><span class="sep" style="color:#2a3a4a;">/</span>
+        <span style="color:#8899aa;" id="heroSeriesName">ProCut Series</span>
+      </nav>
+      <div class="mh-eyebrow">Fiber Laser Sheet Cutting</div>
+      <h1 id="heroH1">ProCut <em>Series</em></h1>
+      <div class="mh-subtitle" id="heroSubtitle">3 kW – 12 kW &middot; Gantry Fiber Laser Cutter</div>
+      <p class="mh-desc" id="heroDesc">The ProCut Series is Wavlon's entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.</p>
+      <div class="mh-stats">
+        <div class="mh-stat"><div class="mh-stat-val" id="heroStatPower">12<span>kW</span></div><div class="mh-stat-label">Max Power</div></div>
+        <div class="mh-stat"><div class="mh-stat-val">±0.03<span>mm</span></div><div class="mh-stat-label">Accuracy</div></div>
+        <div class="mh-stat"><div class="mh-stat-val" id="heroStatSpeed">100<span>m/min</span></div><div class="mh-stat-label">Max Speed</div></div>
+        <div class="mh-stat"><div class="mh-stat-val" id="heroStatSteel">35<span>mm</span></div><div class="mh-stat-label">Max Steel</div></div>
+      </div>
+      <div class="mh-actions">
+        <a href="#quote" class="btn-mh-primary">Request a Quote &rarr;</a>
+        <a href="#specs" class="btn-mh-secondary">View Full Specs</a>
+      </div>
+    </div>
+    <div class="machine-hero-visual">
+      <div class="machine-hero-svg">
+        <svg viewBox="0 0 380 285" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="90" width="340" height="165" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+          <rect x="20" y="90" width="340" height="30" rx="12" fill="rgba(255,255,255,.08)"/>
+          <rect x="20" y="108" width="340" height="12" fill="rgba(255,255,255,.04)"/>
+          <rect x="155" y="36" width="28" height="56" rx="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+          <rect x="161" y="118" width="16" height="8" rx="3" fill="#0066cc"/>
+          <ellipse cx="169" cy="122" rx="4" ry="2" fill="#66aaff" opacity=".6"/>
+          <line x1="169" y1="126" x2="169" y2="254" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="6 4" opacity=".5"/>
+          <circle cx="169" cy="254" r="5" fill="#0066cc" opacity=".3"/>
+          <rect x="40" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
+          <rect x="276" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
+          <text x="169" y="275" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="10" font-family="Inter,sans-serif" letter-spacing="3">WPC — PROCUT SERIES</text>
+        </svg>
+      </div>
+      <div class="mh-spec-pills">
+        <div class="mh-spec-pill"><div class="mh-spec-pill-label">Power</div><div class="mh-spec-pill-val" id="pillPower">3–12 kW</div></div>
+        <div class="mh-spec-pill"><div class="mh-spec-pill-label">Frames</div><div class="mh-spec-pill-val" id="pillFrames">3015 / 4020</div></div>
+        <div class="mh-spec-pill"><div class="mh-spec-pill-label">Speed</div><div class="mh-spec-pill-val" id="pillSpeed">100m/min</div></div>
+      </div>
     </div>
   </div>
-
-  <!-- Sliding panels -->
-  <div class="procut-slides-wrap">
-    <div class="procut-slides" id="procutSlides">
-
-      <!-- ── Slide 0: ProCut Series ── -->
-      <div class="procut-slide" id="slide-0" role="tabpanel">
-        <div class="machine-hero-inner">
-          <div>
-            <div class="mh-eyebrow">Fiber Laser Sheet Cutting</div>
-            <h1>ProCut <em>Series</em></h1>
-            <div class="mh-subtitle">3 kW – 12 kW &middot; Gantry Fiber Laser Cutter</div>
-            <p class="mh-desc">The ProCut Series is Wavlon's entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.</p>
-            <div class="mh-stats">
-              <div class="mh-stat"><div class="mh-stat-val">12<span>kW</span></div><div class="mh-stat-label">Max Power</div></div>
-              <div class="mh-stat"><div class="mh-stat-val">±0.03<span>mm</span></div><div class="mh-stat-label">Accuracy</div></div>
-              <div class="mh-stat"><div class="mh-stat-val">100<span>m/min</span></div><div class="mh-stat-label">Max Speed</div></div>
-              <div class="mh-stat"><div class="mh-stat-val">35<span>mm</span></div><div class="mh-stat-label">Max Steel</div></div>
-            </div>
-            <div class="mh-actions">
-              <a href="#quote" class="btn-mh-primary">Request a Quote &rarr;</a>
-              <a href="#specs" class="btn-mh-secondary">View Full Specs</a>
-            </div>
-          </div>
-          <div class="machine-hero-visual">
-            <div class="machine-hero-svg">
-              <svg viewBox="0 0 380 285" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="20" y="90" width="340" height="165" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
-                <rect x="20" y="90" width="340" height="30" rx="12" fill="rgba(255,255,255,.08)"/>
-                <rect x="20" y="108" width="340" height="12" fill="rgba(255,255,255,.04)"/>
-                <rect x="155" y="36" width="28" height="56" rx="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-                <rect x="161" y="118" width="16" height="8" rx="3" fill="#0066cc"/>
-                <ellipse cx="169" cy="122" rx="4" ry="2" fill="#66aaff" opacity=".6"/>
-                <line x1="169" y1="126" x2="169" y2="254" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="6 4" opacity=".5"/>
-                <circle cx="169" cy="254" r="5" fill="#0066cc" opacity=".3"/>
-                <rect x="40" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
-                <rect x="276" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
-                <text x="169" y="275" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="10" font-family="Inter,sans-serif" letter-spacing="3">WPC — PROCUT SERIES</text>
-              </svg>
-            </div>
-            <div class="mh-spec-pills">
-              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Power</div><div class="mh-spec-pill-val">3–12 kW</div></div>
-              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Frames</div><div class="mh-spec-pill-val">3015 / 4020</div></div>
-              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Speed</div><div class="mh-spec-pill-val">100m/min</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── Slide 1: ProCut UL Series ── -->
-      <div class="procut-slide" id="slide-1" role="tabpanel">
-        <div class="machine-hero-inner">
-          <div>
-            <div class="mh-eyebrow">Fiber Laser Sheet Cutting</div>
-            <h1>ProCut <em>UL Series</em></h1>
-            <div class="mh-subtitle">3 kW – 20 kW &middot; Ultra Large Format Gantry Cutter</div>
-            <p class="mh-desc">The ProCut UL Series extends Wavlon's open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.</p>
-            <div class="mh-stats">
-              <div class="mh-stat"><div class="mh-stat-val">20<span>kW</span></div><div class="mh-stat-label">Max Power</div></div>
-              <div class="mh-stat"><div class="mh-stat-val">±0.03<span>mm</span></div><div class="mh-stat-label">Accuracy</div></div>
-              <div class="mh-stat"><div class="mh-stat-val">120<span>m/min</span></div><div class="mh-stat-label">Max Speed</div></div>
-              <div class="mh-stat"><div class="mh-stat-val">40<span>mm</span></div><div class="mh-stat-label">Max Steel</div></div>
-            </div>
-            <div class="mh-actions">
-              <a href="#quote" class="btn-mh-primary">Request a Quote &rarr;</a>
-              <a href="#specs" class="btn-mh-secondary">View Full Specs</a>
-            </div>
-          </div>
-          <div class="machine-hero-visual">
-            <div class="machine-hero-svg">
-              <svg viewBox="0 0 380 285" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Wider bed — UL format -->
-                <rect x="10" y="95" width="360" height="160" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
-                <rect x="10" y="95" width="360" height="30" rx="12" fill="rgba(255,255,255,.08)"/>
-                <rect x="10" y="113" width="360" height="12" fill="rgba(255,255,255,.04)"/>
-                <!-- Gantry beam — wider span -->
-                <rect x="148" y="30" width="32" height="68" rx="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-                <rect x="154" y="120" width="20" height="10" rx="3" fill="#0066cc"/>
-                <ellipse cx="164" cy="125" rx="5" ry="2.5" fill="#66aaff" opacity=".6"/>
-                <line x1="164" y1="130" x2="164" y2="252" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="6 4" opacity=".5"/>
-                <circle cx="164" cy="252" r="5" fill="#0066cc" opacity=".3"/>
-                <!-- Wider table feet -->
-                <rect x="20" y="226" width="72" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
-                <rect x="288" y="226" width="72" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
-                <text x="185" y="278" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="10" font-family="Inter,sans-serif" letter-spacing="3">WPC-UL — ULTRA LARGE FORMAT</text>
-              </svg>
-            </div>
-            <div class="mh-spec-pills">
-              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Power</div><div class="mh-spec-pill-val">3–20 kW</div></div>
-              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Frames</div><div class="mh-spec-pill-val">4020 / 6025</div></div>
-              <div class="mh-spec-pill"><div class="mh-spec-pill-label">Speed</div><div class="mh-spec-pill-val">120m/min</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /procut-slides -->
-  </div><!-- /procut-slides-wrap -->
-
 </section>
 
-<script>
-(function(){
-  var tabs = document.querySelectorAll('.procut-tab');
-  var slides = document.getElementById('procutSlides');
-  var current = 0;
-  tabs.forEach(function(tab, i){
-    tab.addEventListener('click', function(){
-      if(i === current) return;
-      tabs[current].classList.remove('active');
-      tabs[current].setAttribute('aria-selected','false');
-      current = i;
-      tabs[current].classList.add('active');
-      tabs[current].setAttribute('aria-selected','true');
-      slides.style.transform = 'translateX(-' + (current * 100) + '%)';
-    });
-  });
-})();
-</script>
+<!-- ── Series Tabs (below hero) ──────────────────────────────── -->
+<div class="procut-series-switcher" role="tablist" aria-label="ProCut series selection">
+  <div class="procut-series-switcher-inner">
+    <button class="procut-series-tab active" data-series="0" role="tab" aria-selected="true">
+      <span class="pst-title">ProCut Series</span>
+      <span class="pst-sub">Gantry Protected Open Table</span>
+    </button>
+    <button class="procut-series-tab" data-series="1" role="tab" aria-selected="false">
+      <span class="pst-title">ProCut UL Series</span>
+      <span class="pst-sub">Gantry Protected Ultra Large Format Open Table</span>
+    </button>
+  </div>
+</div>
+
+<!-- ── Body slides ────────────────────────────────────────────── -->
+<div class="procut-body-wrap">
+  <div class="procut-body-track" id="procutBodyTrack">
+
+    <!-- ── Slide 0: ProCut Series ── -->
+    <div class="procut-body-slide">
 
 <!-- ── Power Options ─────────────────────────────────────────── -->
 <section class="section-alt">
@@ -736,6 +659,222 @@
   </div>
 </section>
 
+    </div><!-- /procut-body-slide 0 -->
+
+    <!-- ── Slide 1: ProCut UL Series ─────────────────────────── -->
+    <div class="procut-body-slide">
+
+      <!-- UL Power Options -->
+      <section class="section-alt">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Power Options</span>
+            <h2>Choose Your UL Model</h2>
+            <p>The ProCut UL Series is available in 3 kW, 6 kW, 12 kW, and 20 kW configurations on 4020 and 6025 frame sizes — built for oversized plate and structural applications.</p>
+          </div>
+          <div class="power-grid" style="grid-template-columns:repeat(4,1fr);">
+            <div class="power-card">
+              <div class="power-kw">3<span>kW</span></div>
+              <div class="power-label">Entry UL</div>
+              <div class="power-model">WPC-UL-4020-3K / WPC-UL-6025-3K</div>
+              <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 0.5–16 mm</div>
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-310</div>
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT2000E</div>
+                <div style="padding:6px 0;">Speed: 100 m/min · 1.0 G</div>
+              </div>
+            </div>
+            <div class="power-card">
+              <div class="power-kw">6<span>kW</span></div>
+              <div class="power-label">Standard UL</div>
+              <div class="power-model">WPC-UL-4020-6K / WPC-UL-6025-6K</div>
+              <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 0.5–22 mm</div>
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-421S</div>
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT4000E</div>
+                <div style="padding:6px 0;">Speed: 120 m/min · 1.0 G</div>
+              </div>
+            </div>
+            <div class="power-card active">
+              <div class="power-kw">12<span>kW</span></div>
+              <div class="power-label">Most Popular</div>
+              <div class="power-model">WPC-UL-4020-12K / WPC-UL-6025-12K</div>
+              <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 2–35 mm</div>
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-442</div>
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT8000</div>
+                <div style="padding:6px 0;">Speed: 120 m/min · 1.0 G</div>
+              </div>
+            </div>
+            <div class="power-card">
+              <div class="power-kw">20<span>kW</span></div>
+              <div class="power-label">Heavy Duty</div>
+              <div class="power-model">WPC-UL-4020-20K / WPC-UL-6025-20K</div>
+              <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 5–40 mm</div>
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-860H</div>
+                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT8000</div>
+                <div style="padding:6px 0;">Speed: 120 m/min · 1.2 G</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UL Specs -->
+      <section class="section" id="specs-ul">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Technical Specifications</span>
+            <h2>ProCut UL Specification Sheet</h2>
+            <p>All UL models across 4020 and 6025 frame sizes — 3 kW, 6 kW, 12 kW, and 20 kW.</p>
+          </div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border);">4020 Frame Models (Working Area: 4000 &times; 2000 mm)</h3>
+          <div style="overflow-x:auto;margin-bottom:36px;">
+            <table class="spec-table" style="min-width:700px;">
+              <thead><tr><th>Specification</th><th>WPC-UL-4020-3K</th><th>WPC-UL-4020-6K</th><th>WPC-UL-4020-12K</th><th>WPC-UL-4020-20K</th></tr></thead>
+              <tbody>
+                <tr><td>Laser Power</td><td>3 kW</td><td>6 kW</td><td>12 kW</td><td>20 kW</td></tr>
+                <tr><td>Working Area</td><td colspan="4">4000 &times; 2000 mm</td></tr>
+                <tr><td>Steel Range</td><td>0.5–16 mm</td><td>0.5–22 mm</td><td>2–35 mm</td><td>5–40 mm</td></tr>
+                <tr><td>Laser Head</td><td>BLT-310</td><td>BLT-421S</td><td>BLT-442</td><td>BLT-860H</td></tr>
+                <tr><td>Control System</td><td>FSCUT2000E</td><td>FSCUT4000E</td><td>FSCUT8000</td><td>FSCUT8000</td></tr>
+                <tr><td>Max Speed</td><td>100 m/min</td><td>120 m/min</td><td>120 m/min</td><td>120 m/min</td></tr>
+                <tr><td>Max Acceleration</td><td>1.0 G</td><td>1.0 G</td><td>1.0 G</td><td>1.2 G</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border);">6025 Frame Models (Working Area: 6000 &times; 2500 mm)</h3>
+          <div style="overflow-x:auto;margin-bottom:36px;">
+            <table class="spec-table" style="min-width:700px;">
+              <thead><tr><th>Specification</th><th>WPC-UL-6025-3K</th><th>WPC-UL-6025-6K</th><th>WPC-UL-6025-12K</th><th>WPC-UL-6025-20K</th></tr></thead>
+              <tbody>
+                <tr><td>Laser Power</td><td>3 kW</td><td>6 kW</td><td>12 kW</td><td>20 kW</td></tr>
+                <tr><td>Working Area</td><td colspan="4">6000 &times; 2500 mm</td></tr>
+                <tr><td>Steel Range</td><td>0.5–16 mm</td><td>0.5–22 mm</td><td>2–35 mm</td><td>5–40 mm</td></tr>
+                <tr><td>Laser Head</td><td>BLT-310</td><td>BLT-421S</td><td>BLT-442</td><td>BLT-860H</td></tr>
+                <tr><td>Control System</td><td>FSCUT2000E</td><td>FSCUT4000E</td><td>FSCUT8000</td><td>FSCUT8000</td></tr>
+                <tr><td>Max Speed</td><td>100 m/min</td><td>120 m/min</td><td>120 m/min</td><td>120 m/min</td></tr>
+                <tr><td>Max Acceleration</td><td>1.0 G</td><td>1.0 G</td><td>1.0 G</td><td>1.2 G</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border);">Common Specifications (All ProCut UL Models)</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+            <div><table class="spec-table">
+              <tr><td>Laser Source</td><td>MAX / IPG</td></tr>
+              <tr><td>Servo Motor</td><td>Yaskawa (Japan)</td></tr>
+              <tr><td>Linear Guide Rail</td><td>ROUST (Germany)</td></tr>
+              <tr><td>Electrical Components</td><td>Schneider &amp; ABB (France)</td></tr>
+              <tr><td>Water Chiller</td><td>S&amp;A</td></tr>
+              <tr><td>Calibration</td><td>Automatic</td></tr>
+            </table></div>
+            <div><table class="spec-table">
+              <tr><td>Enclosure</td><td>Gantry beam, open machine bed</td></tr>
+              <tr><td>Operating Voltage</td><td>380V / 3-phase / 60Hz</td></tr>
+              <tr><td>Software</td><td>Cypcut / Hypcut</td></tr>
+              <tr><td>Positioning Precision</td><td>&plusmn;0.03 mm / 1000 mm</td></tr>
+              <tr><td>Repeat Precision</td><td>&plusmn;0.02 mm / 1000 mm</td></tr>
+              <tr><td>Certification</td><td>FDA &amp; CE / CSA components</td></tr>
+            </table></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UL Key Features -->
+      <section class="section-alt">
+        <div class="container">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+            <div>
+              <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Key Features</span>
+              <h2 style="font-size:clamp(26px,2.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:24px;line-height:1.15;">Built for Oversized Production</h2>
+              <div class="feature-check-list">
+                <div class="feature-check-item"><strong>Ultra Large Format Bed</strong> — 4020 and 6025 frame sizes handle structural steel, wide plate, and formats standard machines cannot accommodate.</div>
+                <div class="feature-check-item"><strong>Up to 20 kW</strong> — BLT-860H cutting head delivers confident cutting up to 40mm carbon steel in a single pass.</div>
+                <div class="feature-check-item"><strong>Yaskawa Servo Motors</strong> — Precision servo drives across all axes maintain repeatability on long-travel gantry systems.</div>
+                <div class="feature-check-item"><strong>Reinforced Gantry Beam</strong> — Heavier-duty steel beam construction engineered for the longer spans of UL format beds.</div>
+                <div class="feature-check-item"><strong>Open Table Loading</strong> — Unrestricted crane or fork loading from any direction — critical for handling oversized or heavy plate.</div>
+                <div class="feature-check-item"><strong>Cypcut / Hypcut Software</strong> — Full DXF/DWG import, technology tables, nesting, and live monitoring on a 27-inch console.</div>
+              </div>
+            </div>
+            <div>
+              <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Why ProCut UL</span>
+              <h2 style="font-size:clamp(26px,2.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:24px;line-height:1.15;">When Standard Format Isn't Enough</h2>
+              <div style="display:flex;flex-direction:column;gap:20px;">
+                <div style="padding:20px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+                  <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">6m × 2.5m Cutting Bed</div>
+                  <p style="font-size:14px;color:var(--text2);line-height:1.6;">The 6025 frame accepts full-length structural stock, wide plate, and oversized blanks without pre-cutting to fit.</p>
+                </div>
+                <div style="padding:20px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+                  <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">Same Open-Table Advantage</div>
+                  <p style="font-size:14px;color:var(--text2);line-height:1.6;">Maintains the unrestricted loading access of the ProCut gantry design — no enclosure cycle time, no shuttle wait.</p>
+                </div>
+                <div style="padding:20px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+                  <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">Canadian-Stocked Parts</div>
+                  <p style="font-size:14px;color:var(--text2);line-height:1.6;">All UL consumables (nozzles, lenses, windows) available from Canadian stock for fast next-day delivery.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UL Quote Form -->
+      <section class="section-alt" id="quote-ul">
+        <div class="container">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+            <div>
+              <span style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Request a Quote</span>
+              <h2 style="font-size:clamp(24px,2.5vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;">Get ProCut UL Pricing</h2>
+              <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:24px;">Tell us your bed size and power requirements. Our team will respond within 24 business hours with Canadian pricing, lead time, and financing options.</p>
+              <div style="display:flex;flex-direction:column;gap:16px;">
+                <div style="padding:16px;background:#fff;border:1px solid var(--border);border-radius:10px;"><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;">Canadian Pricing in CAD</div><div style="font-size:13px;color:var(--text2);">All quotes in Canadian dollars with duties and shipping included.</div></div>
+                <div style="padding:16px;background:#fff;border:1px solid var(--border);border-radius:10px;"><div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;">Financing Available</div><div style="font-size:13px;color:var(--text2);">Equipment financing available with approved credit. <a href="/financing/" style="color:var(--blue);">Learn more</a>.</div></div>
+              </div>
+            </div>
+            <div class="quote-form-card">
+              <div id="sqULFormWrap">
+                <div class="quote-form-head"><h3>ProCut UL Quote Request</h3><p>Response within 24 business hours.</p></div>
+                <form id="sqULForm" novalidate>
+                  <div class="quote-form-grid">
+                    <div class="form-group"><label for="squl_name">Full Name *</label><input type="text" id="squl_name" required placeholder="Jane Smith"/></div>
+                    <div class="form-group"><label for="squl_company">Company</label><input type="text" id="squl_company" placeholder="ABC Fabrication"/></div>
+                    <div class="form-group"><label for="squl_email">Email *</label><input type="email" id="squl_email" required placeholder="jane@company.com"/></div>
+                    <div class="form-group"><label for="squl_phone">Phone</label><input type="tel" id="squl_phone" placeholder="+1 (416) 000-0000"/></div>
+                    <div class="form-group"><label for="squl_power">Model</label>
+                      <select id="squl_power">
+                        <option value="">— Select model —</option>
+                        <option>WPC-UL-4020-3K</option>
+                        <option>WPC-UL-4020-6K</option>
+                        <option>WPC-UL-4020-12K</option>
+                        <option>WPC-UL-4020-20K</option>
+                        <option>WPC-UL-6025-3K</option>
+                        <option>WPC-UL-6025-6K</option>
+                        <option>WPC-UL-6025-12K</option>
+                        <option>WPC-UL-6025-20K</option>
+                        <option>Not sure — need recommendation</option>
+                      </select>
+                    </div>
+                    <div class="form-group"><label for="squl_material">Material &amp; Thickness</label><input type="text" id="squl_material" placeholder="e.g. Mild steel 25mm, SS 12mm"/></div>
+                    <div class="form-group span-2"><label for="squl_message">Additional Details</label><textarea id="squl_message" rows="3" placeholder="Bed size requirement, production volume, timeline…"></textarea></div>
+                  </div>
+                  <button type="submit" class="form-submit">Send Quote Request</button>
+                </form>
+              </div>
+              <div class="form-success" id="sqULSuccess" style="display:none;">
+                <h4>&#10003; Quote Request Sent!</h4>
+                <p>Our team will contact you within 24 business hours with ProCut UL pricing and options.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /procut-body-slide 1 -->
+
+  </div><!-- /procut-body-track -->
+</div><!-- /procut-body-wrap -->
+
 </main>
 
 <!-- Sticky CTA bar -->
@@ -818,5 +957,88 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
 });
 </script>
 <script src="/assets/wavlon-chat.js" defer></script>
+<script>
+/* ── ProCut / ProCut UL series tab switcher ── */
+(function(){
+  var tabs   = document.querySelectorAll('.procut-series-tab');
+  var track  = document.getElementById('procutBodyTrack');
+  var current = 0;
+
+  /* Hero content per series */
+  var seriesData = [
+    {
+      name: 'ProCut Series',
+      h1: 'ProCut <em>Series</em>',
+      subtitle: '3 kW – 12 kW · Gantry Fiber Laser Cutter',
+      desc: "The ProCut Series is Wavlon’s entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.",
+      power: '12', speed: '100', steel: '35',
+      pillPower: '3–12 kW', pillFrames: '3015 / 4020', pillSpeed: '100m/min'
+    },
+    {
+      name: 'ProCut UL Series',
+      h1: 'ProCut <em>UL Series</em>',
+      subtitle: '3 kW – 20 kW · Ultra Large Format Gantry Cutter',
+      desc: "The ProCut UL Series extends Wavlon’s open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.",
+      power: '20', speed: '120', steel: '40',
+      pillPower: '3–20 kW', pillFrames: '4020 / 6025', pillSpeed: '120m/min'
+    }
+  ];
+
+  function switchTo(i) {
+    if (i === current) return;
+    tabs[current].classList.remove('active');
+    tabs[current].setAttribute('aria-selected','false');
+    current = i;
+    tabs[current].classList.add('active');
+    tabs[current].setAttribute('aria-selected','true');
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+    /* Update hero content */
+    var d = seriesData[current];
+    document.getElementById('heroSeriesName').textContent = d.name;
+    document.getElementById('heroH1').innerHTML = d.h1;
+    document.getElementById('heroSubtitle').textContent = d.subtitle;
+    document.getElementById('heroDesc').textContent = d.desc;
+    document.getElementById('heroStatPower').innerHTML = d.power + '<span>kW</span>';
+    document.getElementById('heroStatSpeed').innerHTML = d.speed + '<span>m/min</span>';
+    document.getElementById('heroStatSteel').innerHTML = d.steel + '<span>mm</span>';
+    document.getElementById('pillPower').textContent = d.pillPower;
+    document.getElementById('pillFrames').textContent = d.pillFrames;
+    document.getElementById('pillSpeed').textContent = d.pillSpeed;
+  }
+
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){ switchTo(i); });
+  });
+})();
+
+/* UL Quote form */
+document.getElementById('sqULForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  var btn = this.querySelector('.form-submit');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  try {
+    await fetch('/api/submit-form', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        name: document.getElementById('squl_name').value,
+        email: document.getElementById('squl_email').value,
+        phone: document.getElementById('squl_phone').value,
+        company: document.getElementById('squl_company').value,
+        machine_interest: 'ProCut UL — ' + document.getElementById('squl_power').value,
+        material: document.getElementById('squl_material').value,
+        message: document.getElementById('squl_message').value,
+        source: 'procut-ul-page'
+      })
+    });
+    document.getElementById('sqULFormWrap').style.display = 'none';
+    document.getElementById('sqULSuccess').style.display = 'block';
+  } catch(err) {
+    btn.textContent = 'Send Quote Request'; btn.disabled = false;
+    alert('Error sending. Please email sales@wavlonlasers.com directly.');
+  }
+});
+</script>
 </body>
 </html>
