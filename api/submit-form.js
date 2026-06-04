@@ -1,10 +1,8 @@
 // Wavlon Lasers — Form Submission API
 // Vercel serverless function — keeps Supabase service_role key server-side
-// Forms POST to /api/submit-form with JSON body including a `source` field
-// Routes to correct Wavlon_ table based on source value
+// All Wavlon website forms POST here. Routes to correct Rise Tek Supabase table.
 
 module.exports = async function handler(req, res) {
-  // CORS headers — allow from wavlonlasers.com only in prod
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -19,7 +17,10 @@ module.exports = async function handler(req, res) {
 
   const source = (data.source || '').toLowerCase();
 
-  // Route to correct Wavlon table based on form source
+  // ── Route to correct Wavlon table ────────────────────────────
+  // Wavlon_Contact_Messages  → contact page enquiries
+  // Wavlon_Leads             → financing, parts, brochure, chat widget leads
+  // Wavlon_Quote_Requests    → all machine quote forms
   let table;
   if (source === 'contact-page') {
     table = 'Wavlon_Contact_Messages';
@@ -31,16 +32,32 @@ module.exports = async function handler(req, res) {
   ) {
     table = 'Wavlon_Leads';
   } else {
+    // Catches: homepage, pro-cut-series, procut-ul, power-cut-series,
+    //          ultra-cut-series, t-series, tower-system, w-series, and any future pages
     table = 'Wavlon_Quote_Requests';
   }
 
-  const supabaseUrl  = process.env.SUPABASE_URL;
-  const serviceKey   = process.env.SUPABASE_SERVICE_KEY;
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const serviceKey  = process.env.SUPABASE_SERVICE_KEY;
 
   if (!supabaseUrl || !serviceKey) {
     console.error('Missing SUPABASE_URL or SUPABASE_SERVICE_KEY env vars');
     return res.status(500).json({ error: 'Server misconfigured' });
   }
+
+  // Build payload — strip undefined/empty values, never send extra keys Supabase rejects
+  const payload = {
+    status: data.status || 'new'
+  };
+  const allowedFields = [
+    'name','email','phone','company','machine_interest','machine_id',
+    'material','thickness','budget','message','source',
+    'subject',          // contact form
+    'session_id',       // chat widget
+  ];
+  allowedFields.forEach(k => {
+    if (data[k] !== undefined && data[k] !== null) payload[k] = data[k];
+  });
 
   try {
     const response = await fetch(
@@ -53,10 +70,7 @@ module.exports = async function handler(req, res) {
           'Authorization': `Bearer ${serviceKey}`,
           'Prefer':        'return=minimal'
         },
-        body: JSON.stringify({
-          ...data,
-          status: data.status || 'new'
-        })
+        body: JSON.stringify(payload)
       }
     );
 
@@ -65,7 +79,7 @@ module.exports = async function handler(req, res) {
     }
 
     const errText = await response.text();
-    console.error(`Supabase error (${table}):`, errText);
+    console.error(`Supabase insert failed (${table}) [source: ${source}]:`, errText);
     return res.status(500).json({ error: 'Database insert failed' });
 
   } catch (err) {
