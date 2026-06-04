@@ -59,9 +59,10 @@ module.exports = async function handler(req, res) {
     if (data[k] !== undefined && data[k] !== null) payload[k] = data[k];
   });
 
-  try {
-    const response = await fetch(
-      `${supabaseUrl}/rest/v1/${encodeURIComponent(table)}`,
+  // Helper — single Supabase insert
+  async function insertRow(targetTable, row) {
+    const r = await fetch(
+      `${supabaseUrl}/rest/v1/${encodeURIComponent(targetTable)}`,
       {
         method: 'POST',
         headers: {
@@ -70,20 +71,43 @@ module.exports = async function handler(req, res) {
           'Authorization': `Bearer ${serviceKey}`,
           'Prefer':        'return=minimal'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(row)
       }
     );
+    if (!r.ok) {
+      const err = await r.text();
+      throw new Error(`${targetTable}: ${err}`);
+    }
+  }
 
-    if (response.ok) {
-      return res.status(200).json({ success: true, table });
+  try {
+    // ── Primary insert ────────────────────────────────────────
+    await insertRow(table, payload);
+
+    // ── Chat widget: also log to Wavlon_Chat_Logs so both
+    //    the lead table AND the chat table have the contact ──
+    if (source.includes('chat')) {
+      const chatLogPayload = {
+        session_id:   data.session_id  || null,
+        question:     '[Pre-chat lead form submitted]',
+        answer:       null,
+        match_type:   'lead_capture',
+        source:       'wavlon-chat',
+        user_name:    data.name        || null,
+        user_email:   data.email       || null,
+        user_company: data.company     || null,
+        user_phone:   data.phone       || null,
+      };
+      // fire-and-forget — don't fail the whole request if this fails
+      insertRow('Wavlon_Chat_Logs', chatLogPayload).catch(e =>
+        console.error('Chat log secondary insert error:', e.message)
+      );
     }
 
-    const errText = await response.text();
-    console.error(`Supabase insert failed (${table}) [source: ${source}]:`, errText);
-    return res.status(500).json({ error: 'Database insert failed' });
+    return res.status(200).json({ success: true, table });
 
   } catch (err) {
-    console.error('Submit handler error:', err.message);
-    return res.status(500).json({ error: 'Server error' });
+    console.error(`Submit handler error [source: ${source}]:`, err.message);
+    return res.status(500).json({ error: 'Database insert failed' });
   }
 };
