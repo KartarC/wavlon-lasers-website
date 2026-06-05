@@ -256,17 +256,6 @@
   font-size: 11px; color: var(--text3); line-height: 1.35; font-weight: 500;
 }
 
-/* ── Body slides ──────────────────────────────────────────── */
-.procut-body-wrap { overflow: hidden; }
-.procut-body-track {
-  display: flex;
-  transition: transform .44s cubic-bezier(.4,0,.2,1);
-  will-change: transform;
-}
-.procut-body-slide {
-  min-width: 100%; flex-shrink: 0;
-}
-
 @media (max-width: 1024px) {
   .machine-hero-inner { grid-template-columns: 1fr; }
   .machine-hero-visual { display: none; }
@@ -274,12 +263,49 @@
   .procut-series-switcher-inner { padding: 0 24px; }
   .procut-series-tab { padding: 14px 20px 12px; }
 }
+
+/* ── Mobile hero: machine photo visible, text pinned to top ── */
+@media (max-width: 768px) {
+  .machine-hero {
+    padding: 0;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .machine-hero-grid {
+    background-image: url('/assets/procut-hero-bg.png');
+    background-position: center 60%;
+    background-size: cover;
+    opacity: 1;
+  }
+  /* Gradient: strong at top for text legibility, fades out revealing the machine */
+  .machine-hero::after {
+    background: linear-gradient(180deg,
+      rgba(232,234,236,1.00) 0%,
+      rgba(232,234,236,.96) 22%,
+      rgba(232,234,236,.80) 42%,
+      rgba(232,234,236,.30) 65%,
+      transparent 100%);
+  }
+  .machine-hero-inner {
+    padding: 32px 20px 0;
+    max-width: 100%;
+  }
+  .machine-hero h1 { font-size: clamp(28px, 8vw, 40px); letter-spacing: -1px; }
+  .mh-desc { font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
+  .mh-stats { gap: 16px; padding: 14px 0; margin-bottom: 20px; }
+  .mh-stat-val { font-size: 20px; }
+  .mh-actions { gap: 10px; }
+  .btn-mh-primary, .btn-mh-secondary { padding: 11px 20px; font-size: 13px; }
+}
+
 @media (max-width: 640px) {
   .power-grid { grid-template-columns: 1fr 1fr; }
-  .machine-hero { padding: 56px 0 48px; }
-  .machine-hero-inner { padding: 0 20px; }
+  .machine-hero-inner { padding: 28px 20px 0; }
   .pst-sub { display: none; }
   .procut-series-tab { padding: 14px 16px 12px; }
+  .procut-series-switcher-inner { padding: 0 16px; }
 }
 </style>
 </head>
@@ -423,8 +449,8 @@
   <div class="product-gallery-inner">
     <div class="gallery-main-wrap" id="pcGallery">
       <img id="pcMainImg" src="/assets/procut-front-clean.png" alt="Wavlon ProCut Series"/>
-      <button class="gallery-arrow prev" onclick="galleryNav('pc',-1)">&#8592;</button>
-      <button class="gallery-arrow next" onclick="galleryNav('pc',1)">&#8594;</button>
+      <button class="gallery-arrow prev" data-gallery="pc" data-dir="-1" aria-label="Previous image">&#8592;</button>
+      <button class="gallery-arrow next" data-gallery="pc" data-dir="1" aria-label="Next image">&#8594;</button>
       <div class="gallery-dots" id="pcDots"></div>
     </div>
     <div class="gallery-thumbs" id="pcThumbs">
@@ -788,8 +814,8 @@
   <div class="product-gallery-inner">
     <div class="gallery-main-wrap" id="ulGallery">
       <img id="ulMainImg" src="/assets/procut-ul-front.png" alt="Wavlon ProCut UL Series"/>
-      <button class="gallery-arrow prev" onclick="galleryNav('ul',-1)">&#8592;</button>
-      <button class="gallery-arrow next" onclick="galleryNav('ul',1)">&#8594;</button>
+      <button class="gallery-arrow prev" data-gallery="ul" data-dir="-1" aria-label="Previous image">&#8592;</button>
+      <button class="gallery-arrow next" data-gallery="ul" data-dir="1" aria-label="Next image">&#8594;</button>
       <div class="gallery-dots" id="ulDots"></div>
     </div>
     <div class="gallery-thumbs" id="ulThumbs">
@@ -1108,54 +1134,6 @@ function initGallery(id, mainImgId, thumbsId, dotsId) {
   var idx = 0;
   var timer = null;
 
-  // Build dots
-  images.forEach(function(_, i){
-    var d = document.createElement('button');
-    d.className = 'gallery-dot' + (i===0?' active':'');
-    d.onclick = function(){ go(i); resetTimer(); };
-    dotsEl.appendChild(d);
-  });
-
-  function go(n) {
-    idx = (n + images.length) % images.length;
-    mainImg.style.opacity = '0';
-    setTimeout(function(){
-      mainImg.src = images[idx];
-      mainImg.style.opacity = '1';
-    }, 150);
-    thumbs.forEach(function(t,i){ t.classList.toggle('active', i===idx); });
-    dotsEl.querySelectorAll('.gallery-dot').forEach(function(d,i){ d.classList.toggle('active', i===idx); });
-  }
-
-  function resetTimer() {
-    clearInterval(timer);
-    timer = setInterval(function(){ go(idx+1); }, 4000);
-  }
-
-  // Wire thumbs
-  thumbs.forEach(function(t, i){
-    t.onclick = function(){ go(i); resetTimer(); };
-  });
-
-  // Start autoplay
-  resetTimer();
-  galleries[id] = { go: go, reset: resetTimer };
-}
-
-function galleryNav(id, dir) {
-  if (galleries[id]) { galleries[id].go(galleries[id].idx + dir); galleries[id].reset(); }
-}
-
-// Patch galleryNav to track idx
-function initGallery(id, mainImgId, thumbsId, dotsId) {
-  var thumbs = document.querySelectorAll('#' + thumbsId + ' .gallery-thumb');
-  var dotsEl = document.getElementById(dotsId);
-  var mainImg = document.getElementById(mainImgId);
-  var images = [];
-  thumbs.forEach(function(t){ images.push(t.dataset.src); });
-  var idx = 0;
-  var timer = null;
-
   images.forEach(function(_, i){
     var d = document.createElement('button');
     d.className = 'gallery-dot' + (i===0?' active':'');
@@ -1201,6 +1179,14 @@ function galleryNav(id, dir) {
 document.addEventListener('DOMContentLoaded', function(){
   initGallery('pc', 'pcMainImg', 'pcThumbs', 'pcDots');
   initGallery('ul', 'ulMainImg', 'ulThumbs', 'ulDots');
+  /* Wire gallery arrow buttons via JS (reliable cross-browser) */
+  document.querySelectorAll('.gallery-arrow[data-gallery]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id  = btn.dataset.gallery;
+      var dir = parseInt(btn.dataset.dir, 10);
+      galleryNav(id, dir);
+    });
+  });
 });
 
 /* ── ProCut / ProCut UL series tab switcher ── */
