@@ -165,14 +165,28 @@
 .feat-photo-grid.reverse > * { direction: ltr; }
 .feat-photo-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 16px 60px rgba(0,0,0,.12); }
 .feat-photo-frame img { width: 100%; height: 340px; object-fit: cover; display: block; }
-/* ── Body slides ─────────────────────────────────────────── */
-.procut-body-wrap { overflow: hidden; position: relative; width: 100%; }
-.procut-body-track {
-  display: flex;
-  transition: transform .44s cubic-bezier(.4,0,.2,1);
-  will-change: transform;
+/* ── Body slides — show/hide with directional animation ─────── */
+.procut-body-wrap { position: relative; overflow: hidden; }
+.procut-body-track { position: relative; }
+.procut-body-slide { display: none; width: 100%; }
+.procut-body-slide.active { display: block; }
+
+@keyframes wl-slide-in-r {
+  from { opacity: 0; transform: translateX(64px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
-.procut-body-slide { flex-shrink: 0; overflow-x: hidden; }
+@keyframes wl-slide-in-l {
+  from { opacity: 0; transform: translateX(-64px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.procut-body-slide.entering-r {
+  display: block;
+  animation: wl-slide-in-r .42s cubic-bezier(.4,0,.2,1) both;
+}
+.procut-body-slide.entering-l {
+  display: block;
+  animation: wl-slide-in-l .42s cubic-bezier(.4,0,.2,1) both;
+}
 
 @media (max-width: 1024px) {
   .product-gallery-inner { padding: 0 24px; }
@@ -442,7 +456,7 @@
   <div class="procut-body-track" id="procutBodyTrack">
 
     <!-- ── Slide 0: ProCut Series ── -->
-    <div class="procut-body-slide">
+    <div class="procut-body-slide active">
 
 <!-- ── ProCut Product Gallery ────────────────────────────── -->
 <div class="product-gallery">
@@ -1192,34 +1206,9 @@ document.addEventListener('DOMContentLoaded', function(){
 /* ── ProCut / ProCut UL series tab switcher ── */
 (function(){
   var tabs    = document.querySelectorAll(‘.procut-series-tab’);
-  var track   = document.getElementById(‘procutBodyTrack’);
-  var wrap    = track.parentElement;            /* .procut-body-wrap */
-  var slides  = track.querySelectorAll(‘.procut-body-slide’);
+  var slides  = document.querySelectorAll(‘.procut-body-slide’);
   var current = 0;
 
-  /* ── Measure the wrap (scrollbar-safe) and size slides ── */
-  function sliderW() { return wrap.offsetWidth; }
-
-  function setSlideWidths() {
-    var w = sliderW();
-    [].forEach.call(slides, function(s){ s.style.width = w + ‘px’; });
-  }
-
-  function applyTransform(animate) {
-    if (!animate) {
-      track.style.transition = ‘none’;
-      track.style.transform  = ‘translateX(-’ + (current * sliderW()) + ‘px)’;
-      requestAnimationFrame(function(){ track.style.transition = ‘’; });
-    } else {
-      track.style.transform = ‘translateX(-’ + (current * sliderW()) + ‘px)’;
-    }
-  }
-
-  /* Run once on load — must happen before any tab click */
-  setSlideWidths();
-  applyTransform(false);
-
-  /* Hero content per series */
   var seriesData = [
     {
       name: ‘ProCut Series’,
@@ -1227,8 +1216,7 @@ document.addEventListener('DOMContentLoaded', function(){
       subtitle: ‘3 kW – 12 kW · Gantry Fiber Laser Cutter’,
       desc: "The ProCut Series is Wavlon’s entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.",
       power: ‘12’, speed: ‘100’, steel: ‘35’,
-      pillPower: ‘3–12 kW’, pillFrames: ‘3015 / 4020’, pillSpeed: ‘100m/min’,
-      heroImg: ‘/assets/procut-front-clean.png’, heroImgAlt: ‘Wavlon ProCut Series Fiber Laser Cutting Machine’
+      pillPower: ‘3–12 kW’, pillFrames: ‘3015 / 4020’, pillSpeed: ‘100m/min’
     },
     {
       name: ‘ProCut UL Series’,
@@ -1236,21 +1224,35 @@ document.addEventListener('DOMContentLoaded', function(){
       subtitle: ‘3 kW – 20 kW · Ultra Large Format Gantry Cutter’,
       desc: "The ProCut UL Series extends Wavlon’s open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.",
       power: ‘20’, speed: ‘120’, steel: ‘40’,
-      pillPower: ‘3–20 kW’, pillFrames: ‘4020 / 6025’, pillSpeed: ‘120m/min’,
-      heroImg: ‘/assets/procut-ul-front.png’, heroImgAlt: ‘Wavlon ProCut UL Series Ultra Large Format Fiber Laser’
+      pillPower: ‘3–20 kW’, pillFrames: ‘4020 / 6025’, pillSpeed: ‘120m/min’
     }
   ];
 
   function switchTo(i) {
     if (i === current) return;
-    tabs[current].classList.remove(‘active’);
-    tabs[current].setAttribute(‘aria-selected’,’false’);
-    current = i;
-    tabs[current].classList.add(‘active’);
-    tabs[current].setAttribute(‘aria-selected’,’true’);
-    applyTransform(true);   /* animated */
+    var dir = i > current ? ‘r’ : ‘l’;
 
-    /* Update hero content */
+    /* Hide old slide */
+    slides[current].classList.remove(‘active’);
+    tabs[current].classList.remove(‘active’);
+    tabs[current].setAttribute(‘aria-selected’, ‘false’);
+
+    current = i;
+
+    /* Animate new slide in */
+    var newSlide = slides[current];
+    newSlide.classList.add(‘entering-’ + dir);
+    tabs[current].classList.add(‘active’);
+    tabs[current].setAttribute(‘aria-selected’, ‘true’);
+
+    /* Swap animation class for active once animation ends */
+    newSlide.addEventListener(‘animationend’, function handler() {
+      newSlide.classList.remove(‘entering-r’, ‘entering-l’);
+      newSlide.classList.add(‘active’);
+      newSlide.removeEventListener(‘animationend’, handler);
+    });
+
+    /* Update hero */
     var d = seriesData[current];
     document.getElementById(‘heroSeriesName’).textContent = d.name;
     document.getElementById(‘heroH1’).innerHTML = d.h1;
@@ -1262,18 +1264,10 @@ document.addEventListener('DOMContentLoaded', function(){
     document.getElementById(‘pillPower’).textContent = d.pillPower;
     document.getElementById(‘pillFrames’).textContent = d.pillFrames;
     document.getElementById(‘pillSpeed’).textContent = d.pillSpeed;
-    var heroImg = document.querySelector(‘.machine-hero-svg img’);
-    if (heroImg && d.heroImg) { heroImg.src = d.heroImg; heroImg.alt = d.heroImgAlt; }
   }
 
-  tabs.forEach(function(tab, i){
-    tab.addEventListener(‘click’, function(){ switchTo(i); });
-  });
-
-  /* Recalculate on resize — no animation */
-  window.addEventListener(‘resize’, function(){
-    setSlideWidths();
-    applyTransform(false);
+  tabs.forEach(function(tab, i) {
+    tab.addEventListener(‘click’, function() { switchTo(i); });
   });
 })();
 
