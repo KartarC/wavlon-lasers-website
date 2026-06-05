@@ -166,13 +166,13 @@
 .feat-photo-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 16px 60px rgba(0,0,0,.12); }
 .feat-photo-frame img { width: 100%; height: 340px; object-fit: cover; display: block; }
 /* ── Body slides ─────────────────────────────────────────── */
-.procut-body-wrap { overflow: hidden; position: relative; }
+.procut-body-wrap { overflow: hidden; position: relative; width: 100%; }
 .procut-body-track {
   display: flex;
   transition: transform .44s cubic-bezier(.4,0,.2,1);
   will-change: transform;
 }
-.procut-body-slide { width: 100vw; min-width: 100vw; flex-shrink: 0; overflow-x: hidden; }
+.procut-body-slide { flex-shrink: 0; overflow-x: hidden; }
 
 @media (max-width: 1024px) {
   .product-gallery-inner { padding: 0 24px; }
@@ -1191,9 +1191,33 @@ document.addEventListener('DOMContentLoaded', function(){
 
 /* ── ProCut / ProCut UL series tab switcher ── */
 (function(){
-  var tabs   = document.querySelectorAll('.procut-series-tab');
-  var track  = document.getElementById('procutBodyTrack');
+  var tabs    = document.querySelectorAll(‘.procut-series-tab’);
+  var track   = document.getElementById(‘procutBodyTrack’);
+  var wrap    = track.parentElement;            /* .procut-body-wrap */
+  var slides  = track.querySelectorAll(‘.procut-body-slide’);
   var current = 0;
+
+  /* ── Measure the wrap (scrollbar-safe) and size slides ── */
+  function sliderW() { return wrap.offsetWidth; }
+
+  function setSlideWidths() {
+    var w = sliderW();
+    [].forEach.call(slides, function(s){ s.style.width = w + ‘px’; });
+  }
+
+  function applyTransform(animate) {
+    if (!animate) {
+      track.style.transition = ‘none’;
+      track.style.transform  = ‘translateX(-’ + (current * sliderW()) + ‘px)’;
+      requestAnimationFrame(function(){ track.style.transition = ‘’; });
+    } else {
+      track.style.transform = ‘translateX(-’ + (current * sliderW()) + ‘px)’;
+    }
+  }
+
+  /* Run once on load — must happen before any tab click */
+  setSlideWidths();
+  applyTransform(false);
 
   /* Hero content per series */
   var seriesData = [
@@ -1219,40 +1243,37 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function switchTo(i) {
     if (i === current) return;
-    tabs[current].classList.remove('active');
-    tabs[current].setAttribute('aria-selected','false');
+    tabs[current].classList.remove(‘active’);
+    tabs[current].setAttribute(‘aria-selected’,’false’);
     current = i;
-    tabs[current].classList.add('active');
-    tabs[current].setAttribute('aria-selected','true');
-    /* Each slide is 100vw — use window.innerWidth for exact offset */
-    track.style.transform = 'translateX(-' + (current * window.innerWidth) + 'px)';
+    tabs[current].classList.add(‘active’);
+    tabs[current].setAttribute(‘aria-selected’,’true’);
+    applyTransform(true);   /* animated */
 
     /* Update hero content */
     var d = seriesData[current];
-    document.getElementById('heroSeriesName').textContent = d.name;
-    document.getElementById('heroH1').innerHTML = d.h1;
-    document.getElementById('heroSubtitle').textContent = d.subtitle;
-    document.getElementById('heroDesc').textContent = d.desc;
-    document.getElementById('heroStatPower').innerHTML = d.power + '<span>kW</span>';
-    document.getElementById('heroStatSpeed').innerHTML = d.speed + '<span>m/min</span>';
-    document.getElementById('heroStatSteel').innerHTML = d.steel + '<span>mm</span>';
-    document.getElementById('pillPower').textContent = d.pillPower;
-    document.getElementById('pillFrames').textContent = d.pillFrames;
-    document.getElementById('pillSpeed').textContent = d.pillSpeed;
-    /* Swap hero photo */
-    var heroImg = document.querySelector('.machine-hero-svg img');
+    document.getElementById(‘heroSeriesName’).textContent = d.name;
+    document.getElementById(‘heroH1’).innerHTML = d.h1;
+    document.getElementById(‘heroSubtitle’).textContent = d.subtitle;
+    document.getElementById(‘heroDesc’).textContent = d.desc;
+    document.getElementById(‘heroStatPower’).innerHTML = d.power + ‘<span>kW</span>’;
+    document.getElementById(‘heroStatSpeed’).innerHTML = d.speed + ‘<span>m/min</span>’;
+    document.getElementById(‘heroStatSteel’).innerHTML = d.steel + ‘<span>mm</span>’;
+    document.getElementById(‘pillPower’).textContent = d.pillPower;
+    document.getElementById(‘pillFrames’).textContent = d.pillFrames;
+    document.getElementById(‘pillSpeed’).textContent = d.pillSpeed;
+    var heroImg = document.querySelector(‘.machine-hero-svg img’);
     if (heroImg && d.heroImg) { heroImg.src = d.heroImg; heroImg.alt = d.heroImgAlt; }
   }
 
   tabs.forEach(function(tab, i){
-    tab.addEventListener('click', function(){ switchTo(i); });
+    tab.addEventListener(‘click’, function(){ switchTo(i); });
   });
 
-  /* Recalculate on resize */
-  window.addEventListener('resize', function(){
-    track.style.transition = 'none';
-    track.style.transform = 'translateX(-' + (current * window.innerWidth) + 'px)';
-    requestAnimationFrame(function(){ track.style.transition = ''; });
+  /* Recalculate on resize — no animation */
+  window.addEventListener(‘resize’, function(){
+    setSlideWidths();
+    applyTransform(false);
   });
 })();
 
