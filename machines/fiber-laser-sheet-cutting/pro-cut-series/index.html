@@ -51,16 +51,12 @@
   background-size: cover; background-position: center 40%;
   opacity: 0.85;
 }
-/* Dark gradient on left so text stays readable */
-.machine-hero::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(240,242,244,.82) 0%, rgba(240,242,244,.55) 55%, transparent 100%);
-  z-index: 0;
-}
+/* Overlay removed per design */
+.machine-hero::after { display: none; }
 .machine-hero-inner {
-  max-width: 1280px; margin: 0 auto; padding: 0 40px;
-  display: flex; flex-direction: column; max-width: 680px;
+  padding: 0 40px 0 60px;
+  max-width: 580px;
+  display: flex; flex-direction: column;
   position: relative; z-index: 1;
 }
 .mh-eyebrow {
@@ -109,6 +105,14 @@
   transition: all .15s;
 }
 .btn-mh-secondary:hover { background: #fff; border-color: #0055b3; color: #0055b3; }
+.btn-mh-catalog {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 22px; border: 1.5px solid rgba(13,27,42,.18); color: #2c3e50;
+  border-radius: 8px; font-size: 14px; font-weight: 600;
+  background: rgba(255,255,255,.8); text-decoration: none;
+  transition: all .15s;
+}
+.btn-mh-catalog:hover { background: #fff; border-color: #0066cc; color: #0066cc; }
 .machine-hero-visual { display: none; } /* removed per design */
 .machine-hero-svg { display: none; }
 
@@ -311,7 +315,7 @@
   .mh-stats { gap: 16px; padding: 14px 0; margin-bottom: 20px; }
   .mh-stat-val { font-size: 20px; }
   .mh-actions { gap: 10px; }
-  .btn-mh-primary, .btn-mh-secondary { padding: 11px 20px; font-size: 13px; }
+  .btn-mh-primary, .btn-mh-secondary, .btn-mh-catalog { padding: 11px 18px; font-size: 13px; }
 }
 
 @media (max-width: 640px) {
@@ -422,6 +426,7 @@
       <div class="mh-actions">
         <a href="#quote" class="btn-mh-primary">Request a Quote &rarr;</a>
         <a href="#specs" class="btn-mh-secondary">View Full Specs</a>
+        <a href="/assets/procut-series-catalog.pdf" download class="btn-mh-catalog">&#8595; Download Catalog</a>
       </div>
     </div>
     <div class="machine-hero-visual">
@@ -440,11 +445,11 @@
 <!-- ── Series Tabs (below hero) ──────────────────────────────── -->
 <div class="procut-series-switcher" role="tablist" aria-label="ProCut series selection">
   <div class="procut-series-switcher-inner">
-    <button class="procut-series-tab active" data-series="0" role="tab" aria-selected="true">
+    <button class="procut-series-tab active" id="seriesTab0" role="tab" aria-selected="true" onclick="switchSeries(0)">
       <span class="pst-title">ProCut Series</span>
       <span class="pst-sub">Gantry Protected Open Table</span>
     </button>
-    <button class="procut-series-tab" data-series="1" role="tab" aria-selected="false">
+    <button class="procut-series-tab" id="seriesTab1" role="tab" aria-selected="false" onclick="switchSeries(1)">
       <span class="pst-title">ProCut UL Series</span>
       <span class="pst-sub">Gantry Protected Ultra Large Format Open Table</span>
     </button>
@@ -463,8 +468,8 @@
   <div class="product-gallery-inner">
     <div class="gallery-main-wrap" id="pcGallery">
       <img id="pcMainImg" src="/assets/procut-front-clean.png" alt="Wavlon ProCut Series"/>
-      <button class="gallery-arrow prev" data-gallery="pc" data-dir="-1" aria-label="Previous image">&#8592;</button>
-      <button class="gallery-arrow next" data-gallery="pc" data-dir="1" aria-label="Next image">&#8594;</button>
+      <button class="gallery-arrow prev" onclick="galleryGo('pc',-1)" aria-label="Previous image">&#8592;</button>
+      <button class="gallery-arrow next" onclick="galleryGo('pc',1)" aria-label="Next image">&#8594;</button>
       <div class="gallery-dots" id="pcDots"></div>
     </div>
     <div class="gallery-thumbs" id="pcThumbs">
@@ -828,8 +833,8 @@
   <div class="product-gallery-inner">
     <div class="gallery-main-wrap" id="ulGallery">
       <img id="ulMainImg" src="/assets/procut-ul-front.png" alt="Wavlon ProCut UL Series"/>
-      <button class="gallery-arrow prev" data-gallery="ul" data-dir="-1" aria-label="Previous image">&#8592;</button>
-      <button class="gallery-arrow next" data-gallery="ul" data-dir="1" aria-label="Next image">&#8594;</button>
+      <button class="gallery-arrow prev" onclick="galleryGo('ul',-1)" aria-label="Previous image">&#8592;</button>
+      <button class="gallery-arrow next" onclick="galleryGo('ul',1)" aria-label="Next image">&#8594;</button>
       <div class="gallery-dots" id="ulDots"></div>
     </div>
     <div class="gallery-thumbs" id="ulThumbs">
@@ -1142,147 +1147,122 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
 var galleries = {};
 
 function initGallery(id, mainImgId, thumbsId, dotsId) {
-  var mainImg = document.getElementById(mainImgId);
+  var mainImg    = document.getElementById(mainImgId);
   var thumbsWrap = document.getElementById(thumbsId);
-  var dotsEl  = document.getElementById(dotsId);
-  /* Guard: bail if any required element is missing */
-  if (!mainImg || !thumbsWrap || !dotsEl) {
-    console.warn(‘initGallery: missing element for id=’ + id);
-    return;
-  }
+  var dotsEl     = document.getElementById(dotsId);
+  if (!mainImg || !thumbsWrap || !dotsEl) { console.warn(‘Gallery missing: ‘ + id); return; }
+
   var thumbs = thumbsWrap.querySelectorAll(‘.gallery-thumb’);
   var images = [];
-  thumbs.forEach(function(t){ if (t.dataset.src) images.push(t.dataset.src); });
-  if (!images.length) return; /* nothing to do */
+  thumbs.forEach(function(t) { if (t.dataset.src) images.push(t.dataset.src); });
+  if (!images.length) return;
 
-  var idx   = 0;
-  var timer = null;
+  /* g holds all mutable state — idx is read by galleryGo() */
+  var g = { idx: 0, timer: null };
 
-  /* Build dots */
+  /* Build dot navigation */
   images.forEach(function(_, i) {
     var d = document.createElement(‘button’);
     d.className = ‘gallery-dot’ + (i === 0 ? ‘ active’ : ‘’);
     d.setAttribute(‘aria-label’, ‘Photo ‘ + (i + 1));
-    d.onclick = function() { go(i); resetTimer(); };
+    d.onclick = function() { g.go(i); g.reset(); };
     dotsEl.appendChild(d);
   });
 
-  function go(n) {
-    idx = (n + images.length) % images.length;
+  g.go = function(n) {
+    g.idx = (n + images.length) % images.length;
     mainImg.style.opacity = ‘0’;
-    setTimeout(function() {
-      mainImg.src = images[idx];
-      mainImg.style.opacity = ‘1’;
-    }, 150);
-    thumbs.forEach(function(t, i) { t.classList.toggle(‘active’, i === idx); });
-    dotsEl.querySelectorAll(‘.gallery-dot’).forEach(function(d, i) { d.classList.toggle(‘active’, i === idx); });
-  }
+    setTimeout(function() { mainImg.src = images[g.idx]; mainImg.style.opacity = ‘1’; }, 150);
+    thumbs.forEach(function(t, i) { t.classList.toggle(‘active’, i === g.idx); });
+    dotsEl.querySelectorAll(‘.gallery-dot’).forEach(function(d, i) { d.classList.toggle(‘active’, i === g.idx); });
+  };
+  g.reset = function() {
+    clearInterval(g.timer);
+    g.timer = setInterval(function() { g.go(g.idx + 1); }, 4000);
+  };
 
-  function resetTimer() {
-    clearInterval(timer);
-    timer = setInterval(function() { go(idx + 1); }, 4000);
-  }
+  /* Thumbnail clicks */
+  thumbs.forEach(function(t, i) { t.onclick = function() { g.go(i); g.reset(); }; });
 
-  /* Wire thumbs */
-  thumbs.forEach(function(t, i) {
-    t.onclick = function() { go(i); resetTimer(); };
-  });
-
-  /* Wire arrow buttons that belong to this gallery */
-  document.querySelectorAll(‘.gallery-arrow[data-gallery="’ + id + ‘"]’).forEach(function(btn) {
-    btn.onclick = function() {
-      go(idx + parseInt(btn.dataset.dir, 10));
-      resetTimer();
-    };
-  });
-
-  resetTimer();
-  galleries[id] = { go: go, reset: resetTimer, getIdx: function() { return idx; } };
+  g.reset(); /* start autoplay */
+  galleries[id] = g;
 }
 
-/* Init galleries as soon as DOM is ready */
+/* Called from onclick="galleryGo(‘pc’, 1)" on arrow buttons */
+function galleryGo(id, dir) {
+  var g = galleries[id];
+  if (g) { g.go(g.idx + dir); g.reset(); }
+}
+
 document.addEventListener(‘DOMContentLoaded’, function() {
   initGallery(‘pc’, ‘pcMainImg’, ‘pcThumbs’, ‘pcDots’);
   initGallery(‘ul’, ‘ulMainImg’, ‘ulThumbs’, ‘ulDots’);
 });
 
 /* ═══════════════════════════════════════════════════════════
-   PROCUT / PROCUT UL TAB SWITCHER
+   TAB SWITCHER — global function called from onclick attributes
    ═══════════════════════════════════════════════════════════ */
-(function() {
-  var tabs    = document.querySelectorAll(‘.procut-series-tab’);
-  var slides  = document.querySelectorAll(‘.procut-body-slide’);
-  var current = 0;
-  var ANIM_MS = 420; /* must match CSS animation duration */
-
-  var seriesData = [
-    {
-      name: ‘ProCut Series’,
-      h1: ‘ProCut <em>Series</em>’,
-      subtitle: ‘3 kW – 12 kW · Gantry Fiber Laser Cutter’,
-      desc: "The ProCut Series is Wavlon’s entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.",
-      power: ‘12’, speed: ‘100’, steel: ‘35’,
-      pillPower: ‘3–12 kW’, pillFrames: ‘3015 / 4020’, pillSpeed: ‘100m/min’
-    },
-    {
-      name: ‘ProCut UL Series’,
-      h1: ‘ProCut <em>UL Series</em>’,
-      subtitle: ‘3 kW – 20 kW · Ultra Large Format Gantry Cutter’,
-      desc: "The ProCut UL Series extends Wavlon’s open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.",
-      power: ‘20’, speed: ‘120’, steel: ‘40’,
-      pillPower: ‘3–20 kW’, pillFrames: ‘4020 / 6025’, pillSpeed: ‘120m/min’
-    }
-  ];
-
-  function updateHero(d) {
-    var el = function(id) { return document.getElementById(id); };
-    el(‘heroSeriesName’).textContent = d.name;
-    el(‘heroH1’).innerHTML          = d.h1;
-    el(‘heroSubtitle’).textContent  = d.subtitle;
-    el(‘heroDesc’).textContent      = d.desc;
-    el(‘heroStatPower’).innerHTML   = d.power + ‘<span>kW</span>’;
-    el(‘heroStatSpeed’).innerHTML   = d.speed + ‘<span>m/min</span>’;
-    el(‘heroStatSteel’).innerHTML   = d.steel + ‘<span>mm</span>’;
-    el(‘pillPower’).textContent     = d.pillPower;
-    el(‘pillFrames’).textContent    = d.pillFrames;
-    el(‘pillSpeed’).textContent     = d.pillSpeed;
+var _seriesCurrent = 0;
+var SERIES_DATA = [
+  {
+    name: ‘ProCut Series’,
+    h1: ‘ProCut <em>Series</em>’,
+    subtitle: ‘3 kW – 12 kW · Gantry Fiber Laser Cutter’,
+    desc: "The ProCut Series is Wavlon’s entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.",
+    power: ‘12’, speed: ‘100’, steel: ‘35’,
+    pillPower: ‘3–12 kW’, pillFrames: ‘3015 / 4020’, pillSpeed: ‘100m/min’
+  },
+  {
+    name: ‘ProCut UL Series’,
+    h1: ‘ProCut <em>UL Series</em>’,
+    subtitle: ‘3 kW – 20 kW · Ultra Large Format Gantry Cutter’,
+    desc: "The ProCut UL Series extends Wavlon’s open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.",
+    power: ‘20’, speed: ‘120’, steel: ‘40’,
+    pillPower: ‘3–20 kW’, pillFrames: ‘4020 / 6025’, pillSpeed: ‘120m/min’
   }
+];
 
-  function switchTo(i) {
-    if (i === current) return;
-    var dir     = i > current ? ‘r’ : ‘l’;
-    var oldSlide = slides[current];
-    var newSlide = slides[i];
+function switchSeries(i) {
+  if (i === _seriesCurrent) return;
+  var dir = i > _seriesCurrent ? ‘r’ : ‘l’;
 
-    /* — Update tab buttons — */
-    tabs[current].classList.remove(‘active’);
-    tabs[current].setAttribute(‘aria-selected’, ‘false’);
-    tabs[i].classList.add(‘active’);
-    tabs[i].setAttribute(‘aria-selected’, ‘true’);
+  /* Tab highlight */
+  var oldTab = document.getElementById(‘seriesTab’ + _seriesCurrent);
+  var newTab = document.getElementById(‘seriesTab’ + i);
+  if (oldTab) { oldTab.classList.remove(‘active’); oldTab.setAttribute(‘aria-selected’, ‘false’); }
+  if (newTab) { newTab.classList.add(‘active’);    newTab.setAttribute(‘aria-selected’, ‘true’); }
 
-    current = i;
+  /* Slide swap */
+  var slides   = document.querySelectorAll(‘.procut-body-slide’);
+  var oldSlide = slides[_seriesCurrent];
+  var newSlide = slides[i];
+  _seriesCurrent = i;
 
-    /* — Hide old, show new with animation — */
-    oldSlide.classList.remove(‘active’, ‘entering-r’, ‘entering-l’);
-    newSlide.classList.remove(‘entering-r’, ‘entering-l’);   /* clear any stuck state */
-    void newSlide.offsetWidth;                               /* force reflow so animation restarts */
-    newSlide.classList.add(‘entering-’ + dir);               /* triggers CSS animation */
-
-    /* Use setTimeout (not animationend) — reliable across all browsers & motion settings */
+  if (oldSlide) oldSlide.classList.remove(‘active’, ‘entering-r’, ‘entering-l’);
+  if (newSlide) {
+    newSlide.classList.remove(‘entering-r’, ‘entering-l’);
+    void newSlide.offsetWidth;             /* force reflow so animation restarts */
+    newSlide.classList.add(‘entering-’ + dir);
     setTimeout(function() {
       newSlide.classList.remove(‘entering-r’, ‘entering-l’);
       newSlide.classList.add(‘active’);
-    }, ANIM_MS);
-
-    /* — Update hero text — */
-    updateHero(seriesData[current]);
+    }, 430);
   }
 
-  /* Wire tab buttons */
-  tabs.forEach(function(tab, i) {
-    tab.addEventListener(‘click’, function() { switchTo(i); });
-  });
-})();
+  /* Update hero content */
+  var d  = SERIES_DATA[i];
+  var el = function(eid) { return document.getElementById(eid); };
+  if (el(‘heroSeriesName’)) el(‘heroSeriesName’).textContent = d.name;
+  if (el(‘heroH1’))         el(‘heroH1’).innerHTML          = d.h1;
+  if (el(‘heroSubtitle’))   el(‘heroSubtitle’).textContent  = d.subtitle;
+  if (el(‘heroDesc’))       el(‘heroDesc’).textContent      = d.desc;
+  if (el(‘heroStatPower’))  el(‘heroStatPower’).innerHTML   = d.power + ‘<span>kW</span>’;
+  if (el(‘heroStatSpeed’))  el(‘heroStatSpeed’).innerHTML   = d.speed + ‘<span>m/min</span>’;
+  if (el(‘heroStatSteel’))  el(‘heroStatSteel’).innerHTML   = d.steel + ‘<span>mm</span>’;
+  if (el(‘pillPower’))      el(‘pillPower’).textContent     = d.pillPower;
+  if (el(‘pillFrames’))     el(‘pillFrames’).textContent    = d.pillFrames;
+  if (el(‘pillSpeed’))      el(‘pillSpeed’).textContent     = d.pillSpeed;
+}
 
 /* UL Quote form */
 document.getElementById('sqULForm').addEventListener('submit', async function(e){
