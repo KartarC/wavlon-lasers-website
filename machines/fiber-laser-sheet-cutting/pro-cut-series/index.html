@@ -41,52 +41,58 @@
 <style>
 /* ── Machine Hero ─────────────────────────────────────────── */
 .machine-hero {
-  background: #0a0e14;
-  padding: 120px 0 72px;
+  background: #e8eaec;
+  padding: 100px 0 64px;
   position: relative; overflow: hidden;
 }
 .machine-hero-grid {
   position: absolute; inset: 0;
   background-image: url('/assets/procut-hero-bg.png');
   background-size: cover; background-position: center 40%;
-  opacity: 0.28;
+  opacity: 0.85;
+}
+/* Dark gradient on left so text stays readable */
+.machine-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(240,242,244,.82) 0%, rgba(240,242,244,.55) 55%, transparent 100%);
+  z-index: 0;
 }
 .machine-hero-inner {
   max-width: 1280px; margin: 0 auto; padding: 0 40px;
-  display: grid; grid-template-columns: 1fr 480px;
-  gap: 64px; align-items: center;
+  display: flex; flex-direction: column; max-width: 680px;
   position: relative; z-index: 1;
 }
 .mh-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(0,102,204,.15); border: 1px solid rgba(0,102,204,.3);
-  color: #66aaff; font-size: 11px; font-weight: 700;
+  background: rgba(0,102,204,.1); border: 1px solid rgba(0,102,204,.25);
+  color: #0055bb; font-size: 11px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 1px;
   padding: 4px 14px; border-radius: 100px; margin-bottom: 20px;
 }
 .machine-hero h1 {
   font-size: clamp(32px, 3.5vw, 52px); font-weight: 800;
-  color: #fff; letter-spacing: -1.5px; line-height: 1.08;
+  color: #0d1b2a; letter-spacing: -1.5px; line-height: 1.08;
   margin-bottom: 10px;
 }
 .machine-hero h1 em { color: var(--blue); font-style: normal; }
 .mh-subtitle {
-  font-size: 18px; font-weight: 600; color: var(--blue);
+  font-size: 18px; font-weight: 600; color: #0066cc;
   margin-bottom: 16px;
 }
 .mh-desc {
-  font-size: 16px; color: #8899aa; line-height: 1.65;
-  max-width: 520px; margin-bottom: 32px;
+  font-size: 16px; color: #2c3e50; line-height: 1.65;
+  max-width: 540px; margin-bottom: 32px;
 }
 .mh-stats {
   display: flex; gap: 28px; flex-wrap: wrap;
-  padding: 24px 0; border-top: 1px solid rgba(255,255,255,.08);
+  padding: 24px 0; border-top: 1px solid rgba(0,0,0,.1);
   margin-bottom: 28px;
 }
 .mh-stat { display: flex; flex-direction: column; gap: 3px; }
-.mh-stat-val { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -1px; }
+.mh-stat-val { font-size: 26px; font-weight: 800; color: #0d1b2a; letter-spacing: -1px; }
 .mh-stat-val span { color: var(--blue); font-size: 18px; }
-.mh-stat-label { font-size: 11px; color: #526070; text-transform: uppercase; letter-spacing: .8px; font-weight: 600; }
+.mh-stat-label { font-size: 11px; color: #4a5a6a; text-transform: uppercase; letter-spacing: .8px; font-weight: 600; }
 .mh-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn-mh-primary {
   display: inline-flex; align-items: center; gap: 8px;
@@ -94,48 +100,60 @@
   border-radius: 8px; font-size: 14px; font-weight: 700;
   transition: background .15s;
 }
-.btn-mh-primary:hover { background: var(--blue-h); }
+.btn-mh-primary:hover { background: #0055b3; }
 .btn-mh-secondary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 26px; border: 1.5px solid rgba(255,255,255,.25); color: #fff;
+  padding: 13px 26px; border: 1.5px solid #0066cc; color: #0066cc;
   border-radius: 8px; font-size: 14px; font-weight: 600;
-  transition: border-color .15s;
+  background: rgba(255,255,255,.7);
+  transition: all .15s;
 }
-.btn-mh-secondary:hover { border-color: rgba(255,255,255,.6); }
-.machine-hero-visual {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 20px; padding: 36px;
-}
-.machine-hero-svg {
-  width: 100%; aspect-ratio: 4/3;
-  background: rgba(255,255,255,.06); border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 24px; overflow: hidden;
-}
-.machine-hero-svg img {
-  width: 100%; height: 100%; object-fit: contain;
-}
+.btn-mh-secondary:hover { background: #fff; border-color: #0055b3; color: #0055b3; }
+.machine-hero-visual { display: none; } /* removed per design */
+.machine-hero-svg { display: none; }
 
 /* ── Product gallery ──────────────────────────────────────── */
-.product-gallery { padding: 40px 0 0; background: #fff; }
-.product-gallery-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.product-gallery { padding: 56px 0 56px; background: #f8f9fa; }
+.product-gallery-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .gallery-main-wrap {
-  position: relative; border-radius: 12px; overflow: hidden;
-  background: #f5f6f8; aspect-ratio: 16/9; margin-bottom: 12px;
+  position: relative; border-radius: 14px; overflow: hidden;
+  background: #fff; aspect-ratio: 16/9; margin-bottom: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  cursor: pointer;
 }
 .gallery-main-wrap img {
   width: 100%; height: 100%; object-fit: contain;
-  transition: opacity .25s ease; display: block;
+  transition: opacity .3s ease; display: block;
 }
+.gallery-main-wrap .gallery-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,.9); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15); z-index: 2;
+  transition: background .15s; font-size: 16px; color: #0d1b2a;
+}
+.gallery-main-wrap .gallery-arrow:hover { background: #fff; }
+.gallery-main-wrap .gallery-arrow.prev { left: 12px; }
+.gallery-main-wrap .gallery-arrow.next { right: 12px; }
+.gallery-dots {
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px; z-index: 2;
+}
+.gallery-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,.5); border: none; cursor: pointer;
+  padding: 0; transition: background .15s;
+}
+.gallery-dot.active { background: #0066cc; }
 .gallery-thumbs {
   display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px;
 }
 .gallery-thumb {
-  flex-shrink: 0; width: 100px; height: 68px; border-radius: 8px;
+  flex-shrink: 0; width: 110px; height: 74px; border-radius: 9px;
   overflow: hidden; cursor: pointer; border: 2px solid transparent;
-  background: #f0f1f3; transition: border-color .15s;
-  padding: 0;
+  background: #fff; transition: border-color .15s; padding: 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
 }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gallery-thumb.active { border-color: #0066cc; }
@@ -147,10 +165,14 @@
 .feat-photo-grid.reverse > * { direction: ltr; }
 .feat-photo-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 16px 60px rgba(0,0,0,.12); }
 .feat-photo-frame img { width: 100%; height: 340px; object-fit: cover; display: block; }
-/* ── Body slides fix ─────────────────────────────────────── */
-.procut-body-wrap { overflow: hidden; width: 100%; }
-.procut-body-track { display: flex; }
-.procut-body-slide { min-width: 100vw; flex-shrink: 0; }
+/* ── Body slides ─────────────────────────────────────────── */
+.procut-body-wrap { overflow: hidden; position: relative; }
+.procut-body-track {
+  display: flex;
+  transition: transform .44s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+.procut-body-slide { width: 100vw; min-width: 100vw; flex-shrink: 0; overflow-x: hidden; }
 
 @media (max-width: 1024px) {
   .product-gallery-inner { padding: 0 24px; }
@@ -399,22 +421,19 @@
 <!-- ── ProCut Product Gallery ────────────────────────────── -->
 <div class="product-gallery">
   <div class="product-gallery-inner">
-    <div class="gallery-main-wrap">
+    <div class="gallery-main-wrap" id="pcGallery">
       <img id="pcMainImg" src="/assets/procut-front-clean.png" alt="Wavlon ProCut Series"/>
+      <button class="gallery-arrow prev" onclick="galleryNav('pc',-1)">&#8592;</button>
+      <button class="gallery-arrow next" onclick="galleryNav('pc',1)">&#8594;</button>
+      <div class="gallery-dots" id="pcDots"></div>
     </div>
-    <div class="gallery-thumbs">
-      <button class="gallery-thumb active" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-front-clean.png')">
-        <img src="/assets/procut-front-clean.png" alt="Front view"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-hero.png')">
-        <img src="/assets/procut-hero.png" alt="3/4 angle"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-light-curtain.png')">
-        <img src="/assets/procut-light-curtain.png" alt="Safety curtain"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-gantry.png')">
-        <img src="/assets/procut-gantry.png" alt="Gantry head"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-electrical-cabinet.png')">
-        <img src="/assets/procut-electrical-cabinet.png" alt="Electrical cabinet"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-bed.png')">
-        <img src="/assets/procut-bed.png" alt="Cutting bed"/></button>
+    <div class="gallery-thumbs" id="pcThumbs">
+      <button class="gallery-thumb active" data-src="/assets/procut-front-clean.png"><img src="/assets/procut-front-clean.png" alt="Front view"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-hero.png"><img src="/assets/procut-hero.png" alt="3/4 angle"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-light-curtain.png"><img src="/assets/procut-light-curtain.png" alt="Safety curtain"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-gantry.png"><img src="/assets/procut-gantry.png" alt="Gantry head"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-electrical-cabinet.png"><img src="/assets/procut-electrical-cabinet.png" alt="Cabinet"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-bed.png"><img src="/assets/procut-bed.png" alt="Cutting bed"/></button>
     </div>
   </div>
 </div>
@@ -463,6 +482,88 @@
           <div style="padding:6px 0;">Speed: 100 m/min · 1.0 G</div>
         </div>
         <div class="power-also">Cypnest included · 4020 also available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Key Features ──────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Built-In Features</span>
+      <h2>Engineering That Shows</h2>
+      <p>Every ProCut ships with the same tier-1 components. No upgrades needed — this is the standard build.</p>
+    </div>
+
+    <!-- Feature 1: Electrical Cabinet -->
+    <div class="feat-photo-grid">
+      <div class="feat-photo-frame">
+        <img src="/assets/procut-electrical-cabinet.png" alt="ProCut Schneider ABB electrical cabinet"/>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Electrical System</span>
+        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Schneider &amp; ABB — European Grade Throughout</h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Every ProCut features a fully organized electrical cabinet built with Schneider Electric and ABB components — inverters, contactors, circuit breakers, and servo drives. CSA-certified wiring throughout for Canadian compliance.</p>
+        <div class="feature-check-list">
+          <div class="feature-check-item">Schneider Electric PLCs, inverters &amp; breakers</div>
+          <div class="feature-check-item">ABB contactors &amp; motor starters</div>
+          <div class="feature-check-item">Yaskawa servo drives — Japanese precision</div>
+          <div class="feature-check-item">FDA &amp; CE / CSA certified components &amp; cables</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2: Safety Curtains -->
+    <div class="feat-photo-grid reverse">
+      <div class="feat-photo-frame">
+        <img src="/assets/procut-light-curtain.png" alt="ProCut high-sensitivity safety light curtains"/>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Safety System</span>
+        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">High-Sensitivity Safety Light Curtains</h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Integrated high-sensitivity safety light curtains on both ends of the machine beam. Immediate E-stop response to any intrusion during active cutting — keeping operators safe without slowing production.</p>
+        <div class="feature-check-list">
+          <div class="feature-check-item">Dual-side light curtain protection</div>
+          <div class="feature-check-item">Instantaneous E-stop on beam break</div>
+          <div class="feature-check-item">Safe restart after clearance — no manual reset delay</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 3: Gantry Design -->
+    <div class="feat-photo-grid">
+      <div class="feat-photo-frame">
+        <img src="/assets/procut-gantry.png" alt="ProCut precision gantry enclosed design"/>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Gantry Design</span>
+        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Enclosed Gantry Beam — Open Table Access</h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">The ProCut's distinctive gantry-enclosed beam protects the laser optics and mechanics from fume and spatter while keeping the cutting bed fully open. Load sheet stock from any direction — crane, forklift, or manual — without opening doors or waiting on a shuttle cycle.</p>
+        <div class="feature-check-list">
+          <div class="feature-check-item">ROUST German linear guide rails</div>
+          <div class="feature-check-item">Eblun helical rack &amp; pinion drive</div>
+          <div class="feature-check-item">±0.03mm positioning / ±0.02mm repeat precision</div>
+          <div class="feature-check-item">Unrestricted table access — no enclosure overhead</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 4: Cutting Bed -->
+    <div class="feat-photo-grid reverse">
+      <div class="feat-photo-frame">
+        <img src="/assets/procut-bed.png" alt="ProCut integrated precision cutting bed"/>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Cutting Bed</span>
+        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Integrated Precision Slat Bed</h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Heavy-duty slat bed welded into the machine frame — no flex, no alignment drift. Replaceable mild steel slats in 25mm and 50mm pitch. Scrap drawer keeps the cutting zone clean and reduces fume pocket buildup under the workpiece.</p>
+        <div class="feature-check-list">
+          <div class="feature-check-item">Welded-frame slat table — zero flex</div>
+          <div class="feature-check-item">Standard 3015 (3m × 1.5m) or 4020 (4m × 2m) beds</div>
+          <div class="feature-check-item">Replaceable slats — stocked in Toronto warehouse</div>
+          <div class="feature-check-item">Scrap drawer for fast cutting zone cleanup</div>
+        </div>
       </div>
     </div>
   </div>
@@ -563,92 +664,10 @@
 
     <div style="margin-top:32px;padding:20px 24px;background:rgba(0,102,204,.05);border:1px solid rgba(0,102,204,.15);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
       <div>
-        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;">Need the complete spec sheet?</div>
-        <div style="font-size:14px;color:var(--text2);">Download the full ProCut brochure with all power levels and frame options.</div>
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;">Download the full ProCut Series catalog</div>
+        <div style="font-size:14px;color:var(--text2);">Complete specification sheet — all power levels, frame options, and cutting data (PDF, 19 MB).</div>
       </div>
-      <a href="#brochure" class="btn-primary" style="flex-shrink:0;">Download Brochure (PDF)</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── Key Features ──────────────────────────────────────────── -->
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Built-In Features</span>
-      <h2>Engineering That Shows</h2>
-      <p>Every ProCut ships with the same tier-1 components. No upgrades needed — this is the standard build.</p>
-    </div>
-
-    <!-- Feature 1: Electrical Cabinet -->
-    <div class="feat-photo-grid">
-      <div class="feat-photo-frame">
-        <img src="/assets/procut-electrical-cabinet.png" alt="ProCut Schneider ABB electrical cabinet"/>
-      </div>
-      <div>
-        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Electrical System</span>
-        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Schneider &amp; ABB — European Grade Throughout</h3>
-        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Every ProCut features a fully organized electrical cabinet built with Schneider Electric and ABB components — inverters, contactors, circuit breakers, and servo drives. CSA-certified wiring throughout for Canadian compliance.</p>
-        <div class="feature-check-list">
-          <div class="feature-check-item">Schneider Electric PLCs, inverters &amp; breakers</div>
-          <div class="feature-check-item">ABB contactors &amp; motor starters</div>
-          <div class="feature-check-item">Yaskawa servo drives — Japanese precision</div>
-          <div class="feature-check-item">FDA &amp; CE / CSA certified components &amp; cables</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 2: Safety Curtains -->
-    <div class="feat-photo-grid reverse">
-      <div class="feat-photo-frame">
-        <img src="/assets/procut-light-curtain.png" alt="ProCut high-sensitivity safety light curtains"/>
-      </div>
-      <div>
-        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Safety System</span>
-        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">High-Sensitivity Safety Light Curtains</h3>
-        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Integrated high-sensitivity safety light curtains on both ends of the machine beam. Immediate E-stop response to any intrusion during active cutting — keeping operators safe without slowing production.</p>
-        <div class="feature-check-list">
-          <div class="feature-check-item">Dual-side light curtain protection</div>
-          <div class="feature-check-item">Instantaneous E-stop on beam break</div>
-          <div class="feature-check-item">Safe restart after clearance — no manual reset delay</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 3: Gantry Design -->
-    <div class="feat-photo-grid">
-      <div class="feat-photo-frame">
-        <img src="/assets/procut-gantry.png" alt="ProCut precision gantry enclosed design"/>
-      </div>
-      <div>
-        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Gantry Design</span>
-        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Enclosed Gantry Beam — Open Table Access</h3>
-        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">The ProCut's distinctive gantry-enclosed beam protects the laser optics and mechanics from fume and spatter while keeping the cutting bed fully open. Load sheet stock from any direction — crane, forklift, or manual — without opening doors or waiting on a shuttle cycle.</p>
-        <div class="feature-check-list">
-          <div class="feature-check-item">ROUST German linear guide rails</div>
-          <div class="feature-check-item">Eblun helical rack &amp; pinion drive</div>
-          <div class="feature-check-item">±0.03mm positioning / ±0.02mm repeat precision</div>
-          <div class="feature-check-item">Unrestricted table access — no enclosure overhead</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 4: Cutting Bed -->
-    <div class="feat-photo-grid reverse">
-      <div class="feat-photo-frame">
-        <img src="/assets/procut-bed.png" alt="ProCut integrated precision cutting bed"/>
-      </div>
-      <div>
-        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Cutting Bed</span>
-        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Integrated Precision Slat Bed</h3>
-        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Heavy-duty slat bed welded into the machine frame — no flex, no alignment drift. Replaceable mild steel slats in 25mm and 50mm pitch. Scrap drawer keeps the cutting zone clean and reduces fume pocket buildup under the workpiece.</p>
-        <div class="feature-check-list">
-          <div class="feature-check-item">Welded-frame slat table — zero flex</div>
-          <div class="feature-check-item">Standard 3015 (3m × 1.5m) or 4020 (4m × 2m) beds</div>
-          <div class="feature-check-item">Replaceable slats — stocked in Toronto warehouse</div>
-          <div class="feature-check-item">Scrap drawer for fast cutting zone cleanup</div>
-        </div>
-      </div>
+      <a href="/catalogs/wavlon-procut-series-catalog.pdf" download class="btn-primary" style="flex-shrink:0;">&#8595; Download Catalog (PDF)</a>
     </div>
   </div>
 </section>
@@ -684,18 +703,18 @@
   </div>
 </section>
 
-<!-- ── Brochure CTA ───────────────────────────────────────────── -->
+<!-- ── Catalog Download CTA ──────────────────────────────────── -->
 <section id="brochure" style="background:var(--bg-dark);padding:64px 0;">
   <div class="container-narrow" style="text-align:center;">
-    <h2 style="font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;color:#fff;margin-bottom:12px;">Download the ProCut Brochure</h2>
-    <p style="font-size:16px;color:#8899aa;margin-bottom:28px;">Full specifications, frame options, and model comparison for all WPC ProCut models.</p>
-    <form id="brochureForm" style="display:flex;gap:12px;max-width:440px;margin:0 auto;flex-wrap:wrap;">
-      <input type="email" id="brochure_email" placeholder="Enter your email address" required
-        style="flex:1;padding:13px 16px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);border-radius:8px;color:#fff;font-size:14px;min-width:200px;outline:none;"
-        onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='rgba(255,255,255,.2)'"/>
-      <button type="submit" class="btn-mh-primary" style="flex-shrink:0;">Send Brochure</button>
-    </form>
-    <p id="brochureMsg" style="display:none;margin-top:16px;color:#66aaff;font-size:14px;">&#10003; Brochure sent! Check your inbox.</p>
+    <h2 style="font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;color:#fff;margin-bottom:12px;">Download the ProCut Series Catalog</h2>
+    <p style="font-size:16px;color:#8899aa;margin-bottom:32px;">Full specifications, cutting data, frame options, and model comparison for all WPC ProCut models.</p>
+    <a href="/catalogs/wavlon-procut-series-catalog.pdf" download
+       style="display:inline-flex;align-items:center;gap:10px;padding:15px 32px;background:#0066cc;color:#fff;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:background .15s;"
+       onmouseover="this.style.background='#0055b3'" onmouseout="this.style.background='#0066cc'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Catalog (PDF · 19 MB)
+    </a>
+    <p style="margin-top:20px;font-size:13px;color:#526070;">No email required — direct download</p>
   </div>
 </section>
 
@@ -767,20 +786,18 @@
 <!-- ── ProCut UL Product Gallery ─────────────────────────── -->
 <div class="product-gallery">
   <div class="product-gallery-inner">
-    <div class="gallery-main-wrap">
+    <div class="gallery-main-wrap" id="ulGallery">
       <img id="ulMainImg" src="/assets/procut-ul-front.png" alt="Wavlon ProCut UL Series"/>
+      <button class="gallery-arrow prev" onclick="galleryNav('ul',-1)">&#8592;</button>
+      <button class="gallery-arrow next" onclick="galleryNav('ul',1)">&#8594;</button>
+      <div class="gallery-dots" id="ulDots"></div>
     </div>
-    <div class="gallery-thumbs">
-      <button class="gallery-thumb active" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-ul-front.png')">
-        <img src="/assets/procut-ul-front.png" alt="UL front"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-ul-side.png')">
-        <img src="/assets/procut-ul-side.png" alt="UL side"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-ul-wide.png')">
-        <img src="/assets/procut-ul-wide.png" alt="UL wide 6025"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-electrical-cabinet.png')">
-        <img src="/assets/procut-electrical-cabinet.png" alt="Cabinet"/></button>
-      <button class="gallery-thumb" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-light-curtain.png')">
-        <img src="/assets/procut-light-curtain.png" alt="Safety system"/></button>
+    <div class="gallery-thumbs" id="ulThumbs">
+      <button class="gallery-thumb active" data-src="/assets/procut-ul-front.png"><img src="/assets/procut-ul-front.png" alt="UL front"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-ul-side.png"><img src="/assets/procut-ul-side.png" alt="UL side"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-ul-wide.png"><img src="/assets/procut-ul-wide.png" alt="UL wide 6025"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-electrical-cabinet.png"><img src="/assets/procut-electrical-cabinet.png" alt="Cabinet"/></button>
+      <button class="gallery-thumb" data-src="/assets/procut-light-curtain.png"><img src="/assets/procut-light-curtain.png" alt="Safety system"/></button>
     </div>
   </div>
 </div>
@@ -1079,14 +1096,112 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
 </script>
 <script src="/assets/wavlon-chat.js" defer></script>
 <script>
-/* ── Gallery thumbnail switcher ── */
-function setGalleryImg(mainId, btn, src) {
-  var main = document.getElementById(mainId);
-  if (main) { main.src = src; }
-  var container = btn.closest('.gallery-thumbs');
-  if (container) container.querySelectorAll('.gallery-thumb').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
+/* ── Gallery system ── */
+var galleries = {};
+
+function initGallery(id, mainImgId, thumbsId, dotsId) {
+  var thumbs = document.querySelectorAll('#' + thumbsId + ' .gallery-thumb');
+  var dotsEl = document.getElementById(dotsId);
+  var mainImg = document.getElementById(mainImgId);
+  var images = [];
+  thumbs.forEach(function(t){ images.push(t.dataset.src); });
+  var idx = 0;
+  var timer = null;
+
+  // Build dots
+  images.forEach(function(_, i){
+    var d = document.createElement('button');
+    d.className = 'gallery-dot' + (i===0?' active':'');
+    d.onclick = function(){ go(i); resetTimer(); };
+    dotsEl.appendChild(d);
+  });
+
+  function go(n) {
+    idx = (n + images.length) % images.length;
+    mainImg.style.opacity = '0';
+    setTimeout(function(){
+      mainImg.src = images[idx];
+      mainImg.style.opacity = '1';
+    }, 150);
+    thumbs.forEach(function(t,i){ t.classList.toggle('active', i===idx); });
+    dotsEl.querySelectorAll('.gallery-dot').forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function(){ go(idx+1); }, 4000);
+  }
+
+  // Wire thumbs
+  thumbs.forEach(function(t, i){
+    t.onclick = function(){ go(i); resetTimer(); };
+  });
+
+  // Start autoplay
+  resetTimer();
+  galleries[id] = { go: go, reset: resetTimer };
 }
+
+function galleryNav(id, dir) {
+  if (galleries[id]) { galleries[id].go(galleries[id].idx + dir); galleries[id].reset(); }
+}
+
+// Patch galleryNav to track idx
+function initGallery(id, mainImgId, thumbsId, dotsId) {
+  var thumbs = document.querySelectorAll('#' + thumbsId + ' .gallery-thumb');
+  var dotsEl = document.getElementById(dotsId);
+  var mainImg = document.getElementById(mainImgId);
+  var images = [];
+  thumbs.forEach(function(t){ images.push(t.dataset.src); });
+  var idx = 0;
+  var timer = null;
+
+  images.forEach(function(_, i){
+    var d = document.createElement('button');
+    d.className = 'gallery-dot' + (i===0?' active':'');
+    d.addEventListener('click', function(){ go(i); resetTimer(); });
+    dotsEl.appendChild(d);
+  });
+
+  function go(n) {
+    idx = (n + images.length) % images.length;
+    mainImg.style.opacity = '0';
+    setTimeout(function(){
+      mainImg.src = images[idx];
+      mainImg.style.opacity = '1';
+    }, 150);
+    thumbs.forEach(function(t,i){ t.classList.toggle('active', i===idx); });
+    dotsEl.querySelectorAll('.gallery-dot').forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function(){ go(idx+1); }, 4000);
+  }
+
+  thumbs.forEach(function(t, i){
+    t.addEventListener('click', function(){ go(i); resetTimer(); });
+  });
+
+  resetTimer();
+  galleries[id] = {
+    go: function(n){ go(n); },
+    reset: resetTimer,
+    getIdx: function(){ return idx; }
+  };
+}
+
+function galleryNav(id, dir) {
+  if (galleries[id]) {
+    galleries[id].go(galleries[id].getIdx() + dir);
+    galleries[id].reset();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  initGallery('pc', 'pcMainImg', 'pcThumbs', 'pcDots');
+  initGallery('ul', 'ulMainImg', 'ulThumbs', 'ulDots');
+});
 
 /* ── ProCut / ProCut UL series tab switcher ── */
 (function(){
@@ -1123,9 +1238,8 @@ function setGalleryImg(mainId, btn, src) {
     current = i;
     tabs[current].classList.add('active');
     tabs[current].setAttribute('aria-selected','true');
-    /* Use pixel offset so % is relative to viewport, not track width */
-    var slideW = track.parentElement.offsetWidth || window.innerWidth;
-    track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
+    /* Each slide is 100vw — use window.innerWidth for exact offset */
+    track.style.transform = 'translateX(-' + (current * window.innerWidth) + 'px)';
 
     /* Update hero content */
     var d = seriesData[current];
@@ -1148,12 +1262,11 @@ function setGalleryImg(mainId, btn, src) {
     tab.addEventListener('click', function(){ switchTo(i); });
   });
 
-  /* Recalculate on resize so pixel offset stays correct */
+  /* Recalculate on resize */
   window.addEventListener('resize', function(){
-    var slideW = track.parentElement.offsetWidth || window.innerWidth;
     track.style.transition = 'none';
-    track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
-    setTimeout(function(){ track.style.transition = ''; }, 50);
+    track.style.transform = 'translateX(-' + (current * window.innerWidth) + 'px)';
+    requestAnimationFrame(function(){ track.style.transition = ''; });
   });
 })();
 
