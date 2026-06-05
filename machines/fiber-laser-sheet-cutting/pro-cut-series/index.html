@@ -110,9 +110,42 @@
 }
 .machine-hero-svg {
   width: 100%; aspect-ratio: 4/3;
-  background: rgba(255,255,255,.03); border-radius: 12px;
+  background: rgba(255,255,255,.06); border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 24px; overflow: hidden;
+}
+.machine-hero-svg img {
+  width: 100%; height: 100%; object-fit: contain;
+}
+
+/* ── Photo gallery (machine views) ───────────────────────── */
+.photo-gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
+.photo-gallery-item { position: relative; overflow: hidden; aspect-ratio: 16/10; }
+.photo-gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; display: block; }
+.photo-gallery-item:hover img { transform: scale(1.04); }
+.photo-gallery-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.7));
+  color: #fff; font-size: 12px; font-weight: 600; padding: 24px 16px 12px;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.photo-gallery-item.wide { grid-column: span 2; }
+
+/* ── Feature photo blocks ────────────────────────────────── */
+.feat-photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 64px; }
+.feat-photo-grid.reverse { direction: rtl; }
+.feat-photo-grid.reverse > * { direction: ltr; }
+.feat-photo-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 16px 60px rgba(0,0,0,.12); }
+.feat-photo-frame img { width: 100%; height: 340px; object-fit: cover; display: block; }
+@media (max-width: 1024px) {
+  .photo-gallery { grid-template-columns: 1fr 1fr; }
+  .photo-gallery-item.wide { grid-column: span 2; }
+  .feat-photo-grid { grid-template-columns: 1fr; gap: 32px; }
+  .feat-photo-grid.reverse { direction: ltr; }
+}
+@media (max-width: 640px) {
+  .photo-gallery { grid-template-columns: 1fr; }
+  .photo-gallery-item.wide { grid-column: span 1; }
 }
 .mh-spec-pills { display: flex; gap: 8px; flex-wrap: wrap; }
 .mh-spec-pill {
@@ -315,20 +348,8 @@
       </div>
     </div>
     <div class="machine-hero-visual">
-      <div class="machine-hero-svg">
-        <svg viewBox="0 0 380 285" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="90" width="340" height="165" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
-          <rect x="20" y="90" width="340" height="30" rx="12" fill="rgba(255,255,255,.08)"/>
-          <rect x="20" y="108" width="340" height="12" fill="rgba(255,255,255,.04)"/>
-          <rect x="155" y="36" width="28" height="56" rx="5" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-          <rect x="161" y="118" width="16" height="8" rx="3" fill="#0066cc"/>
-          <ellipse cx="169" cy="122" rx="4" ry="2" fill="#66aaff" opacity=".6"/>
-          <line x1="169" y1="126" x2="169" y2="254" stroke="#0066cc" stroke-width="2.5" stroke-dasharray="6 4" opacity=".5"/>
-          <circle cx="169" cy="254" r="5" fill="#0066cc" opacity=".3"/>
-          <rect x="40" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
-          <rect x="276" y="224" width="64" height="22" rx="5" fill="rgba(255,255,255,.07)"/>
-          <text x="169" y="275" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="10" font-family="Inter,sans-serif" letter-spacing="3">WPC — PROCUT SERIES</text>
-        </svg>
+      <div class="machine-hero-svg" style="background:rgba(255,255,255,.08);">
+        <img src="/assets/procut-front-clean.png" alt="Wavlon ProCut Series Fiber Laser Cutting Machine — Front View" loading="eager"/>
       </div>
       <div class="mh-spec-pills">
         <div class="mh-spec-pill"><div class="mh-spec-pill-label">Power</div><div class="mh-spec-pill-val" id="pillPower">3–12 kW</div></div>
@@ -359,6 +380,34 @@
 
     <!-- ── Slide 0: ProCut Series ── -->
     <div class="procut-body-slide">
+
+<!-- ── Machine Photo Gallery ────────────────────────────────── -->
+<div class="photo-gallery">
+  <div class="photo-gallery-item wide">
+    <img src="/assets/procut-hero.png" alt="Wavlon ProCut Series — 3/4 view" loading="lazy"/>
+    <div class="photo-gallery-caption">WPC Series — Gantry Protected Open Table</div>
+  </div>
+  <div class="photo-gallery-item">
+    <img src="/assets/procut-light-curtain.png" alt="ProCut safety light curtain" loading="lazy"/>
+    <div class="photo-gallery-caption">High-Sensitivity Safety Curtains</div>
+  </div>
+  <div class="photo-gallery-item">
+    <img src="/assets/procut-gantry.png" alt="ProCut gantry head detail" loading="lazy"/>
+    <div class="photo-gallery-caption">Precision Gantry Head Assembly</div>
+  </div>
+  <div class="photo-gallery-item">
+    <img src="/assets/procut-electrical-cabinet.png" alt="ProCut electrical cabinet" loading="lazy"/>
+    <div class="photo-gallery-caption">Schneider &amp; ABB Electrical Cabinet</div>
+  </div>
+  <div class="photo-gallery-item">
+    <img src="/assets/procut-bed.png" alt="ProCut integrated cutting bed" loading="lazy"/>
+    <div class="photo-gallery-caption">Integrated Precision Cutting Bed</div>
+  </div>
+  <div class="photo-gallery-item">
+    <img src="/assets/procut-detail-head.png" alt="ProCut laser head detail" loading="lazy"/>
+    <div class="photo-gallery-caption">BLT Laser Head — Auto Focus</div>
+  </div>
+</div>
 
 <!-- ── Power Options ─────────────────────────────────────────── -->
 <section class="section-alt">
@@ -513,40 +562,81 @@
 </section>
 
 <!-- ── Key Features ──────────────────────────────────────────── -->
-<section class="section-alt">
+<section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
-      <div>
-        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Key Features</span>
-        <h2 style="font-size:clamp(26px,2.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:24px;line-height:1.15;">Built for Real-World Fabrication</h2>
-        <div class="feature-check-list">
-          <div class="feature-check-item"><strong>MAX Fiber Laser Source</strong> — Industry-leading fiber laser source with high reliability and minimal maintenance requirements.</div>
-          <div class="feature-check-item"><strong>BOCI BLT Laser Heads</strong> — BLT-310 (3 kW), BLT-421S (6 kW), BLT-442 (12 kW) for precise, adaptive standoff cutting.</div>
-          <div class="feature-check-item"><strong>Yaskawa Servo Motors (Japan)</strong> — High-torque precision servo drives on all linear axes for consistent accuracy.</div>
-          <div class="feature-check-item"><strong>ROUST Linear Guide Rails (Germany)</strong> — German-engineered guide rails for smooth, accurate gantry travel.</div>
-          <div class="feature-check-item"><strong>Schneider &amp; ABB Electrics (France)</strong> — European electrical components throughout — inverters, contactors, circuit breakers.</div>
-          <div class="feature-check-item"><strong>Cypcut / Hypcut Software</strong> — Windows-native CNC software with DXF/DWG/AI import, technology tables, and live monitoring.</div>
-          <div class="feature-check-item"><strong>27-inch Console</strong> — Large internal-design touchscreen console for easy operator use.</div>
-          <div class="feature-check-item"><strong>Automatic Calibration</strong> — Automated calibration reduces setup time and keeps accuracy consistent.</div>
-          <div class="feature-check-item"><strong>FDA &amp; CE / CSA Certified</strong> — All components and cables meet FDA &amp; CE standards; CSA-certified wiring throughout.</div>
-        </div>
+    <div class="section-head">
+      <span class="eyebrow">Built-In Features</span>
+      <h2>Engineering That Shows</h2>
+      <p>Every ProCut ships with the same tier-1 components. No upgrades needed — this is the standard build.</p>
+    </div>
+
+    <!-- Feature 1: Electrical Cabinet -->
+    <div class="feat-photo-grid">
+      <div class="feat-photo-frame">
+        <img src="/assets/procut-electrical-cabinet.png" alt="ProCut Schneider ABB electrical cabinet"/>
       </div>
       <div>
-        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Why ProCut</span>
-        <h2 style="font-size:clamp(26px,2.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:24px;line-height:1.15;">The Right Machine for Growing Shops</h2>
-        <div style="display:flex;flex-direction:column;gap:20px;">
-          <div style="padding:20px;background:#fff;border:1px solid var(--border);border-radius:12px;">
-            <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">Best Entry Price</div>
-            <p style="font-size:14px;color:var(--text2);line-height:1.6;">ProCut delivers professional cutting performance at the most accessible price in the Wavlon line — no full enclosure or shuttle table overhead to pay for.</p>
-          </div>
-          <div style="padding:20px;background:#fff;border:1px solid var(--border);border-radius:12px;">
-            <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">Open Table for Easy Loading</div>
-            <p style="font-size:14px;color:var(--text2);line-height:1.6;">Gantry open-table design means unrestricted fork or crane loading from any direction — no waiting for doors or shuttle cycle times.</p>
-          </div>
-          <div style="padding:20px;background:#fff;border:1px solid var(--border);border-radius:12px;">
-            <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">Canadian-Stocked Parts</div>
-            <p style="font-size:14px;color:var(--text2);line-height:1.6;">Critical consumables (nozzles, lenses, protective windows) held in Canadian inventory for fast turnaround — no 6-week overseas waits.</p>
-          </div>
+        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Electrical System</span>
+        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Schneider &amp; ABB — European Grade Throughout</h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Every ProCut features a fully organized electrical cabinet built with Schneider Electric and ABB components — inverters, contactors, circuit breakers, and servo drives. CSA-certified wiring throughout for Canadian compliance.</p>
+        <div class="feature-check-list">
+          <div class="feature-check-item">Schneider Electric PLCs, inverters &amp; breakers</div>
+          <div class="feature-check-item">ABB contactors &amp; motor starters</div>
+          <div class="feature-check-item">Yaskawa servo drives — Japanese precision</div>
+          <div class="feature-check-item">FDA &amp; CE / CSA certified components &amp; cables</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2: Safety Curtains -->
+    <div class="feat-photo-grid reverse">
+      <div class="feat-photo-frame">
+        <img src="/assets/procut-light-curtain.png" alt="ProCut high-sensitivity safety light curtains"/>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Safety System</span>
+        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">High-Sensitivity Safety Light Curtains</h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Integrated high-sensitivity safety light curtains on both ends of the machine beam. Immediate E-stop response to any intrusion during active cutting — keeping operators safe without slowing production.</p>
+        <div class="feature-check-list">
+          <div class="feature-check-item">Dual-side light curtain protection</div>
+          <div class="feature-check-item">Instantaneous E-stop on beam break</div>
+          <div class="feature-check-item">Safe restart after clearance — no manual reset delay</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 3: Gantry Design -->
+    <div class="feat-photo-grid">
+      <div class="feat-photo-frame">
+        <img src="/assets/procut-gantry.png" alt="ProCut precision gantry enclosed design"/>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Gantry Design</span>
+        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Enclosed Gantry Beam — Open Table Access</h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">The ProCut's distinctive gantry-enclosed beam protects the laser optics and mechanics from fume and spatter while keeping the cutting bed fully open. Load sheet stock from any direction — crane, forklift, or manual — without opening doors or waiting on a shuttle cycle.</p>
+        <div class="feature-check-list">
+          <div class="feature-check-item">ROUST German linear guide rails</div>
+          <div class="feature-check-item">Eblun helical rack &amp; pinion drive</div>
+          <div class="feature-check-item">±0.03mm positioning / ±0.02mm repeat precision</div>
+          <div class="feature-check-item">Unrestricted table access — no enclosure overhead</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 4: Cutting Bed -->
+    <div class="feat-photo-grid reverse">
+      <div class="feat-photo-frame">
+        <img src="/assets/procut-bed.png" alt="ProCut integrated precision cutting bed"/>
+      </div>
+      <div>
+        <span class="eyebrow" style="display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);background:rgba(0,102,204,.08);padding:4px 14px;border-radius:100px;margin-bottom:16px;">Cutting Bed</span>
+        <h3 style="font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;line-height:1.2;">Integrated Precision Slat Bed</h3>
+        <p style="font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;">Heavy-duty slat bed welded into the machine frame — no flex, no alignment drift. Replaceable mild steel slats in 25mm and 50mm pitch. Scrap drawer keeps the cutting zone clean and reduces fume pocket buildup under the workpiece.</p>
+        <div class="feature-check-list">
+          <div class="feature-check-item">Welded-frame slat table — zero flex</div>
+          <div class="feature-check-item">Standard 3015 (3m × 1.5m) or 4020 (4m × 2m) beds</div>
+          <div class="feature-check-item">Replaceable slats — stocked in Toronto warehouse</div>
+          <div class="feature-check-item">Scrap drawer for fast cutting zone cleanup</div>
         </div>
       </div>
     </div>
@@ -663,6 +753,22 @@
 
     <!-- ── Slide 1: ProCut UL Series ─────────────────────────── -->
     <div class="procut-body-slide">
+
+<!-- ── UL Machine Photo Gallery ─────────────────────────────── -->
+<div class="photo-gallery">
+  <div class="photo-gallery-item wide">
+    <img src="/assets/procut-ul-front.png" alt="Wavlon ProCut UL Series — front view" loading="lazy"/>
+    <div class="photo-gallery-caption">WPC-UL Series — Ultra Large Format Open Table</div>
+  </div>
+  <div class="photo-gallery-item">
+    <img src="/assets/procut-ul-side.png" alt="ProCut UL side view" loading="lazy"/>
+    <div class="photo-gallery-caption">Extended Gantry Rail System</div>
+  </div>
+  <div class="photo-gallery-item">
+    <img src="/assets/procut-ul-wide.png" alt="ProCut UL wide format view" loading="lazy"/>
+    <div class="photo-gallery-caption">6025 Frame — 6m × 2.5m Cutting Area</div>
+  </div>
+</div>
 
       <!-- UL Power Options -->
       <section class="section-alt">
@@ -967,20 +1073,22 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
   /* Hero content per series */
   var seriesData = [
     {
-      name: 'ProCut Series',
-      h1: 'ProCut <em>Series</em>',
-      subtitle: '3 kW – 12 kW · Gantry Fiber Laser Cutter',
+      name: ‘ProCut Series’,
+      h1: ‘ProCut <em>Series</em>’,
+      subtitle: ‘3 kW – 12 kW · Gantry Fiber Laser Cutter’,
       desc: "The ProCut Series is Wavlon’s entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.",
-      power: '12', speed: '100', steel: '35',
-      pillPower: '3–12 kW', pillFrames: '3015 / 4020', pillSpeed: '100m/min'
+      power: ‘12’, speed: ‘100’, steel: ‘35’,
+      pillPower: ‘3–12 kW’, pillFrames: ‘3015 / 4020’, pillSpeed: ‘100m/min’,
+      heroImg: ‘/assets/procut-front-clean.png’, heroImgAlt: ‘Wavlon ProCut Series Fiber Laser Cutting Machine’
     },
     {
-      name: 'ProCut UL Series',
-      h1: 'ProCut <em>UL Series</em>',
-      subtitle: '3 kW – 20 kW · Ultra Large Format Gantry Cutter',
+      name: ‘ProCut UL Series’,
+      h1: ‘ProCut <em>UL Series</em>’,
+      subtitle: ‘3 kW – 20 kW · Ultra Large Format Gantry Cutter’,
       desc: "The ProCut UL Series extends Wavlon’s open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.",
-      power: '20', speed: '120', steel: '40',
-      pillPower: '3–20 kW', pillFrames: '4020 / 6025', pillSpeed: '120m/min'
+      power: ‘20’, speed: ‘120’, steel: ‘40’,
+      pillPower: ‘3–20 kW’, pillFrames: ‘4020 / 6025’, pillSpeed: ‘120m/min’,
+      heroImg: ‘/assets/procut-ul-front.png’, heroImgAlt: ‘Wavlon ProCut UL Series Ultra Large Format Fiber Laser’
     }
   ];
 
@@ -1005,6 +1113,9 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
     document.getElementById('pillPower').textContent = d.pillPower;
     document.getElementById('pillFrames').textContent = d.pillFrames;
     document.getElementById('pillSpeed').textContent = d.pillSpeed;
+    /* Swap hero photo */
+    var heroImg = document.querySelector('.machine-hero-svg img');
+    if (heroImg && d.heroImg) { heroImg.src = d.heroImg; heroImg.alt = d.heroImgAlt; }
   }
 
   tabs.forEach(function(tab, i){
