@@ -41,16 +41,15 @@
 <style>
 /* ── Machine Hero ─────────────────────────────────────────── */
 .machine-hero {
-  background: var(--bg-dark);
+  background: #0a0e14;
   padding: 120px 0 72px;
   position: relative; overflow: hidden;
 }
 .machine-hero-grid {
   position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: 80px 80px;
+  background-image: url('/assets/procut-hero-bg.png');
+  background-size: cover; background-position: center 40%;
+  opacity: 0.28;
 }
 .machine-hero-inner {
   max-width: 1280px; margin: 0 auto; padding: 0 40px;
@@ -118,18 +117,29 @@
   width: 100%; height: 100%; object-fit: contain;
 }
 
-/* ── Photo gallery (machine views) ───────────────────────── */
-.photo-gallery { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; background: #111; }
-.photo-gallery-item { position: relative; overflow: hidden; height: 240px; }
-.photo-gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; display: block; }
-.photo-gallery-item:hover img { transform: scale(1.04); }
-.photo-gallery-caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,.75));
-  color: #fff; font-size: 11px; font-weight: 600; padding: 20px 14px 10px;
-  text-transform: uppercase; letter-spacing: .8px;
+/* ── Product gallery ──────────────────────────────────────── */
+.product-gallery { padding: 40px 0 0; background: #fff; }
+.product-gallery-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.gallery-main-wrap {
+  position: relative; border-radius: 12px; overflow: hidden;
+  background: #f5f6f8; aspect-ratio: 16/9; margin-bottom: 12px;
 }
-.photo-gallery-item.wide { grid-column: span 2; height: 240px; }
+.gallery-main-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+  transition: opacity .25s ease; display: block;
+}
+.gallery-thumbs {
+  display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px;
+}
+.gallery-thumb {
+  flex-shrink: 0; width: 100px; height: 68px; border-radius: 8px;
+  overflow: hidden; cursor: pointer; border: 2px solid transparent;
+  background: #f0f1f3; transition: border-color .15s;
+  padding: 0;
+}
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-thumb.active { border-color: #0066cc; }
+.gallery-thumb:hover { border-color: #aac8f0; }
 
 /* ── Feature photo blocks ────────────────────────────────── */
 .feat-photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 64px; }
@@ -137,15 +147,20 @@
 .feat-photo-grid.reverse > * { direction: ltr; }
 .feat-photo-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 16px 60px rgba(0,0,0,.12); }
 .feat-photo-frame img { width: 100%; height: 340px; object-fit: cover; display: block; }
+/* ── Body slides fix ─────────────────────────────────────── */
+.procut-body-wrap { overflow: hidden; width: 100%; }
+.procut-body-track { display: flex; }
+.procut-body-slide { min-width: 100vw; flex-shrink: 0; }
+
 @media (max-width: 1024px) {
-  .photo-gallery { grid-template-columns: 1fr 1fr; }
-  .photo-gallery-item, .photo-gallery-item.wide { height: 200px; grid-column: span 1; }
+  .product-gallery-inner { padding: 0 24px; }
+  .gallery-thumb { width: 80px; height: 54px; }
   .feat-photo-grid { grid-template-columns: 1fr; gap: 32px; }
   .feat-photo-grid.reverse { direction: ltr; }
 }
 @media (max-width: 640px) {
-  .photo-gallery { grid-template-columns: 1fr 1fr; }
-  .photo-gallery-item, .photo-gallery-item.wide { height: 160px; grid-column: span 1; }
+  .product-gallery-inner { padding: 0 16px; }
+  .gallery-thumb { width: 68px; height: 46px; }
 }
 .mh-spec-pills { display: flex; gap: 8px; flex-wrap: wrap; }
 .mh-spec-pill {
@@ -381,31 +396,26 @@
     <!-- ── Slide 0: ProCut Series ── -->
     <div class="procut-body-slide">
 
-<!-- ── Machine Photo Gallery ────────────────────────────────── -->
-<div class="photo-gallery">
-  <div class="photo-gallery-item wide">
-    <img src="/assets/procut-hero.png" alt="Wavlon ProCut Series — 3/4 view" loading="lazy"/>
-    <div class="photo-gallery-caption">WPC Series — Gantry Protected Open Table</div>
-  </div>
-  <div class="photo-gallery-item">
-    <img src="/assets/procut-light-curtain.png" alt="ProCut safety light curtain" loading="lazy"/>
-    <div class="photo-gallery-caption">High-Sensitivity Safety Curtains</div>
-  </div>
-  <div class="photo-gallery-item">
-    <img src="/assets/procut-gantry.png" alt="ProCut gantry head detail" loading="lazy"/>
-    <div class="photo-gallery-caption">Precision Gantry Head Assembly</div>
-  </div>
-  <div class="photo-gallery-item">
-    <img src="/assets/procut-electrical-cabinet.png" alt="ProCut electrical cabinet" loading="lazy"/>
-    <div class="photo-gallery-caption">Schneider &amp; ABB Electrical Cabinet</div>
-  </div>
-  <div class="photo-gallery-item">
-    <img src="/assets/procut-bed.png" alt="ProCut integrated cutting bed" loading="lazy"/>
-    <div class="photo-gallery-caption">Integrated Precision Cutting Bed</div>
-  </div>
-  <div class="photo-gallery-item">
-    <img src="/assets/procut-detail-head.png" alt="ProCut laser head detail" loading="lazy"/>
-    <div class="photo-gallery-caption">BLT Laser Head — Auto Focus</div>
+<!-- ── ProCut Product Gallery ────────────────────────────── -->
+<div class="product-gallery">
+  <div class="product-gallery-inner">
+    <div class="gallery-main-wrap">
+      <img id="pcMainImg" src="/assets/procut-front-clean.png" alt="Wavlon ProCut Series"/>
+    </div>
+    <div class="gallery-thumbs">
+      <button class="gallery-thumb active" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-front-clean.png')">
+        <img src="/assets/procut-front-clean.png" alt="Front view"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-hero.png')">
+        <img src="/assets/procut-hero.png" alt="3/4 angle"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-light-curtain.png')">
+        <img src="/assets/procut-light-curtain.png" alt="Safety curtain"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-gantry.png')">
+        <img src="/assets/procut-gantry.png" alt="Gantry head"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-electrical-cabinet.png')">
+        <img src="/assets/procut-electrical-cabinet.png" alt="Electrical cabinet"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('pcMainImg',this,'/assets/procut-bed.png')">
+        <img src="/assets/procut-bed.png" alt="Cutting bed"/></button>
+    </div>
   </div>
 </div>
 
@@ -754,19 +764,24 @@
     <!-- ── Slide 1: ProCut UL Series ─────────────────────────── -->
     <div class="procut-body-slide">
 
-<!-- ── UL Machine Photo Gallery ─────────────────────────────── -->
-<div class="photo-gallery">
-  <div class="photo-gallery-item wide">
-    <img src="/assets/procut-ul-front.png" alt="Wavlon ProCut UL Series — front view" loading="lazy"/>
-    <div class="photo-gallery-caption">WPC-UL Series — Ultra Large Format Open Table</div>
-  </div>
-  <div class="photo-gallery-item">
-    <img src="/assets/procut-ul-side.png" alt="ProCut UL side view" loading="lazy"/>
-    <div class="photo-gallery-caption">Extended Gantry Rail System</div>
-  </div>
-  <div class="photo-gallery-item">
-    <img src="/assets/procut-ul-wide.png" alt="ProCut UL wide format view" loading="lazy"/>
-    <div class="photo-gallery-caption">6025 Frame — 6m × 2.5m Cutting Area</div>
+<!-- ── ProCut UL Product Gallery ─────────────────────────── -->
+<div class="product-gallery">
+  <div class="product-gallery-inner">
+    <div class="gallery-main-wrap">
+      <img id="ulMainImg" src="/assets/procut-ul-front.png" alt="Wavlon ProCut UL Series"/>
+    </div>
+    <div class="gallery-thumbs">
+      <button class="gallery-thumb active" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-ul-front.png')">
+        <img src="/assets/procut-ul-front.png" alt="UL front"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-ul-side.png')">
+        <img src="/assets/procut-ul-side.png" alt="UL side"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-ul-wide.png')">
+        <img src="/assets/procut-ul-wide.png" alt="UL wide 6025"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-electrical-cabinet.png')">
+        <img src="/assets/procut-electrical-cabinet.png" alt="Cabinet"/></button>
+      <button class="gallery-thumb" onclick="setGalleryImg('ulMainImg',this,'/assets/procut-light-curtain.png')">
+        <img src="/assets/procut-light-curtain.png" alt="Safety system"/></button>
+    </div>
   </div>
 </div>
 
@@ -1064,6 +1079,15 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
 </script>
 <script src="/assets/wavlon-chat.js" defer></script>
 <script>
+/* ── Gallery thumbnail switcher ── */
+function setGalleryImg(mainId, btn, src) {
+  var main = document.getElementById(mainId);
+  if (main) { main.src = src; }
+  var container = btn.closest('.gallery-thumbs');
+  if (container) container.querySelectorAll('.gallery-thumb').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+}
+
 /* ── ProCut / ProCut UL series tab switcher ── */
 (function(){
   var tabs   = document.querySelectorAll('.procut-series-tab');
@@ -1099,7 +1123,9 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
     current = i;
     tabs[current].classList.add('active');
     tabs[current].setAttribute('aria-selected','true');
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    /* Use pixel offset so % is relative to viewport, not track width */
+    var slideW = track.parentElement.offsetWidth || window.innerWidth;
+    track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
 
     /* Update hero content */
     var d = seriesData[current];
@@ -1120,6 +1146,14 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
 
   tabs.forEach(function(tab, i){
     tab.addEventListener('click', function(){ switchTo(i); });
+  });
+
+  /* Recalculate on resize so pixel offset stays correct */
+  window.addEventListener('resize', function(){
+    var slideW = track.parentElement.offsetWidth || window.innerWidth;
+    track.style.transition = 'none';
+    track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
+    setTimeout(function(){ track.style.transition = ''; }, 50);
   });
 })();
 
