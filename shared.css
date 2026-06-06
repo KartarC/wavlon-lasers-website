@@ -196,25 +196,34 @@ input, textarea, select { font-family: inherit; }
 .mega-cs-link { font-size: 13px; color: var(--blue); font-weight: 500; }
 .mega-cs-link:hover { color: var(--blue-dk); }
 
-/* ── Support mini-dropdown (narrow mega-menu override) ───────── */
-#navSupport { position: relative !important; }
-#navSupport .mega-menu {
-  position: absolute !important;
-  left: 50% !important; right: auto !important;
-  top: 100% !important;
-  transform: translateX(-50%) translateY(-8px) !important;
-  width: 280px !important;
-  min-height: 0 !important;
+/* ── Support mini-dropdown — standalone, no has-mega ─────────── */
+/* Uses pure CSS :hover / :focus-within. No nav.js involvement.   */
+.nav-supp-drop { position: relative; }
+.supp-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  width: 272px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--blue);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 20px 56px rgba(0,0,0,.14);
+  padding: 6px 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity .18s ease, visibility .18s ease, transform .18s ease;
+  z-index: 1001;
+  list-style: none;
 }
-.nav-item.open#navSupport .mega-menu {
-  transform: translateX(-50%) translateY(0) !important;
+.nav-supp-drop:hover .supp-panel,
+.nav-supp-drop:focus-within .supp-panel {
+  opacity: 1; visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
-#navSupport .mega-inner {
-  display: flex !important; flex-direction: column !important;
-  grid-template-columns: none !important;
-  min-height: 0 !important;
-  padding: 6px 0 !important; padding-left: 0 !important;
-}
+/* Rotate chevron when open */
+.nav-supp-drop:hover .nav-chevron,
+.nav-supp-drop:focus-within .nav-chevron { transform: rotate(180deg); }
 .supp-link {
   display: flex; align-items: center; gap: 12px;
   padding: 12px 16px; color: var(--text2);
