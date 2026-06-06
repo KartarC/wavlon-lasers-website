@@ -486,6 +486,48 @@
     </button>
   </div>
 </div>
+<!-- Tab switcher script — placed HERE so switchSeries() is defined the moment buttons exist -->
+<script>
+var _seriesCurrent = 0;
+var SERIES_DATA = [
+  { name:'ProCut Series', h1:'ProCut <em>Series</em>',
+    subtitle:'3 kW – 12 kW · Gantry Fiber Laser Cutter',
+    desc:"The ProCut Series is Wavlon's entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.",
+    power:'12', speed:'100', steel:'35', pillPower:'3–12 kW', pillFrames:'3015 / 4020', pillSpeed:'100m/min' },
+  { name:'ProCut UL Series', h1:'ProCut <em>UL Series</em>',
+    subtitle:'3 kW – 20 kW · Ultra Large Format Gantry Cutter',
+    desc:"The ProCut UL Series extends Wavlon's open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.",
+    power:'20', speed:'120', steel:'40', pillPower:'3–20 kW', pillFrames:'4020 / 6025', pillSpeed:'120m/min' }
+];
+
+function switchSeries(n) {
+  /* Update tab styling */
+  var tabs = document.querySelectorAll('.procut-series-tab');
+  tabs.forEach(function(t, i) {
+    t.classList.toggle('active', i === n);
+    t.setAttribute('aria-selected', i === n ? 'true' : 'false');
+  });
+  /* Show/hide slides — use inline style so it cannot be overridden */
+  var slides = document.querySelectorAll('.procut-body-slide');
+  slides.forEach(function(s, i) {
+    s.style.display = (i === n) ? 'block' : 'none';
+  });
+  /* Update hero text */
+  var d = SERIES_DATA[n];
+  var el = function(id) { return document.getElementById(id); };
+  if (el('heroSeriesName')) el('heroSeriesName').textContent = d.name;
+  if (el('heroH1'))         el('heroH1').innerHTML          = d.h1;
+  if (el('heroSubtitle'))   el('heroSubtitle').textContent  = d.subtitle;
+  if (el('heroDesc'))       el('heroDesc').textContent      = d.desc;
+  if (el('heroStatPower'))  el('heroStatPower').innerHTML   = d.power + '<span>kW</span>';
+  if (el('heroStatSpeed'))  el('heroStatSpeed').innerHTML   = d.speed + '<span>m/min</span>';
+  if (el('heroStatSteel'))  el('heroStatSteel').innerHTML   = d.steel + '<span>mm</span>';
+  if (el('pillPower'))      el('pillPower').textContent     = d.pillPower;
+  if (el('pillFrames'))     el('pillFrames').textContent    = d.pillFrames;
+  if (el('pillSpeed'))      el('pillSpeed').textContent     = d.pillSpeed;
+  _seriesCurrent = n;
+}
+</script>
 
 <!-- ── Body slides ────────────────────────────────────────────── -->
 <div class="procut-body-wrap">
@@ -1240,71 +1282,6 @@ document.addEventListener(‘DOMContentLoaded’, function() {
   initGallery(‘pc’, ‘pcMainImg’, ‘pcThumbs’, ‘pcDots’);
   initGallery(‘ul’, ‘ulMainImg’, ‘ulThumbs’, ‘ulDots’);
 });
-
-/* ═══════════════════════════════════════════════════════════
-   TAB SWITCHER — global function called from onclick attributes
-   ═══════════════════════════════════════════════════════════ */
-var _seriesCurrent = 0;
-var SERIES_DATA = [
-  {
-    name: ‘ProCut Series’,
-    h1: ‘ProCut <em>Series</em>’,
-    subtitle: ‘3 kW – 12 kW · Gantry Fiber Laser Cutter’,
-    desc: "The ProCut Series is Wavlon’s entry-level workhorse — a gantry-style fiber laser cutter with an enclosed cutting head and beam over an open machine bed. Ideal for general fabrication shops and job shops that want dependable daily-driver cutting without paying for a full enclosure or shuttle table.",
-    power: ‘12’, speed: ‘100’, steel: ‘35’,
-    pillPower: ‘3–12 kW’, pillFrames: ‘3015 / 4020’, pillSpeed: ‘100m/min’
-  },
-  {
-    name: ‘ProCut UL Series’,
-    h1: ‘ProCut <em>UL Series</em>’,
-    subtitle: ‘3 kW – 20 kW · Ultra Large Format Gantry Cutter’,
-    desc: "The ProCut UL Series extends Wavlon’s open-table gantry platform to ultra large format bed sizes — purpose-built for structural steel, oversized plate, and high-volume shops that routinely cut beyond standard 3015 dimensions.",
-    power: ‘20’, speed: ‘120’, steel: ‘40’,
-    pillPower: ‘3–20 kW’, pillFrames: ‘4020 / 6025’, pillSpeed: ‘120m/min’
-  }
-];
-
-function switchSeries(i) {
-  if (i === _seriesCurrent) return;
-  var dir = i > _seriesCurrent ? ‘r’ : ‘l’;
-
-  /* Tab highlight */
-  var oldTab = document.getElementById(‘seriesTab’ + _seriesCurrent);
-  var newTab = document.getElementById(‘seriesTab’ + i);
-  if (oldTab) { oldTab.classList.remove(‘active’); oldTab.setAttribute(‘aria-selected’, ‘false’); }
-  if (newTab) { newTab.classList.add(‘active’);    newTab.setAttribute(‘aria-selected’, ‘true’); }
-
-  /* Slide swap */
-  var slides   = document.querySelectorAll(‘.procut-body-slide’);
-  var oldSlide = slides[_seriesCurrent];
-  var newSlide = slides[i];
-  _seriesCurrent = i;
-
-  if (oldSlide) oldSlide.classList.remove(‘active’, ‘entering-r’, ‘entering-l’);
-  if (newSlide) {
-    newSlide.classList.remove(‘entering-r’, ‘entering-l’);
-    void newSlide.offsetWidth;             /* force reflow so animation restarts */
-    newSlide.classList.add(‘entering-’ + dir);
-    setTimeout(function() {
-      newSlide.classList.remove(‘entering-r’, ‘entering-l’);
-      newSlide.classList.add(‘active’);
-    }, 430);
-  }
-
-  /* Update hero content */
-  var d  = SERIES_DATA[i];
-  var el = function(eid) { return document.getElementById(eid); };
-  if (el(‘heroSeriesName’)) el(‘heroSeriesName’).textContent = d.name;
-  if (el(‘heroH1’))         el(‘heroH1’).innerHTML          = d.h1;
-  if (el(‘heroSubtitle’))   el(‘heroSubtitle’).textContent  = d.subtitle;
-  if (el(‘heroDesc’))       el(‘heroDesc’).textContent      = d.desc;
-  if (el(‘heroStatPower’))  el(‘heroStatPower’).innerHTML   = d.power + ‘<span>kW</span>’;
-  if (el(‘heroStatSpeed’))  el(‘heroStatSpeed’).innerHTML   = d.speed + ‘<span>m/min</span>’;
-  if (el(‘heroStatSteel’))  el(‘heroStatSteel’).innerHTML   = d.steel + ‘<span>mm</span>’;
-  if (el(‘pillPower’))      el(‘pillPower’).textContent     = d.pillPower;
-  if (el(‘pillFrames’))     el(‘pillFrames’).textContent    = d.pillFrames;
-  if (el(‘pillSpeed’))      el(‘pillSpeed’).textContent     = d.pillSpeed;
-}
 
 /* UL Quote form */
 document.getElementById('sqULForm').addEventListener('submit', async function(e){
