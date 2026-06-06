@@ -339,6 +339,10 @@ a.footer-contact-item:hover { color: #fff; }
   flex-wrap: wrap; gap: 12px;
 }
 .footer-copy { font-size: 13px; color: #526070; }
+.footer-legal { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.footer-legal a { font-size: 13px; color: #526070; text-decoration: none; }
+.footer-legal a:hover { color: #5b9bd5; text-decoration: underline; }
+.footer-legal span { color: #3a4f62; }
 
 /* ═══════════════════════════════════════════════════════════════
    BUTTONS
