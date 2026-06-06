@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -18,35 +18,151 @@
 ]}
 </script>
 <style>
-.series-compare { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:0; }
-.sc-card {
-  border:1px solid var(--border); border-radius:var(--radius);
+/* ── Series machine cards ─────────────────────────────────────── */
+.sm-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.sm-card {
+  border:1px solid var(--border); border-radius:16px;
   overflow:hidden; background:#fff;
-  transition:box-shadow .2s, transform .2s;
+  transition:box-shadow .25s, transform .25s;
+  display:flex; flex-direction:column;
 }
-.sc-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-3px); }
-.sc-card-head {
-  padding:28px 28px 20px;
-  border-bottom:1px solid var(--border);
+.sm-card:hover { box-shadow:0 20px 56px rgba(0,0,0,.12); transform:translateY(-5px); }
+.sm-card-img {
+  height:270px;
+  background:linear-gradient(145deg,#0a1929 0%,#0d2240 60%,#0f2a50 100%);
+  display:flex; align-items:center; justify-content:center;
+  padding:20px; position:relative; overflow:hidden;
 }
-.sc-series { font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:8px; }
-.sc-name { font-size:22px;font-weight:800;color:var(--text);letter-spacing:-.5px;margin-bottom:4px; }
-.sc-power { font-size:15px;font-weight:600;color:var(--blue); }
-.sc-card-body { padding:24px 28px; }
-.sc-row { display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px; }
-.sc-row:last-child { border-bottom:none; }
-.sc-row-label { color:var(--text2);font-weight:500; }
-.sc-row-val { color:var(--text);font-weight:600; }
-.sc-card-foot { padding:20px 28px;background:var(--bg-alt); }
-.sc-card-foot a { display:block;width:100%;text-align:center;padding:12px;background:var(--blue);color:#fff;border-radius:7px;font-size:14px;font-weight:600;transition:background .15s; }
-.sc-card-foot a:hover { background:var(--blue-h); }
-.mat-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
-.mat-card { background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px;text-align:center; }
-.mat-icon { font-size:28px;margin-bottom:8px; }
-.mat-name { font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px; }
-.mat-range { font-size:12px;color:var(--text3); }
-@media(max-width:1024px){.series-compare{grid-template-columns:1fr;}}
-@media(max-width:640px){.mat-grid{grid-template-columns:1fr 1fr;}}
+.sm-card-img::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 110%, rgba(0,102,204,.25) 0%, transparent 70%);
+}
+.sm-card-img img {
+  max-height:230px; width:auto; max-width:100%;
+  object-fit:contain; position:relative; z-index:1;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,.5));
+}
+.sm-card-badge {
+  position:absolute; top:14px; right:14px; z-index:2;
+  background:var(--blue); color:#fff;
+  font-size:10px; font-weight:800; text-transform:uppercase;
+  letter-spacing:1.2px; padding:4px 10px; border-radius:100px;
+}
+.sm-card-body { padding:24px 28px; flex:1; display:flex; flex-direction:column; }
+.sm-card-series { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--blue); margin-bottom:6px; }
+.sm-card-name { font-size:22px; font-weight:800; color:var(--text); letter-spacing:-.5px; margin-bottom:4px; }
+.sm-card-power { font-size:14px; font-weight:600; color:var(--text2); margin-bottom:18px; }
+.sm-spec { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--border); font-size:13.5px; }
+.sm-spec:last-of-type { border-bottom:none; }
+.sm-spec-label { color:var(--text2); }
+.sm-spec-val { color:var(--text); font-weight:600; }
+.sm-card-cta { margin-top:20px; }
+.sm-card-cta a {
+  display:block; width:100%; text-align:center;
+  padding:12px; background:var(--blue); color:#fff;
+  border-radius:8px; font-size:14px; font-weight:700;
+  transition:background .15s;
+}
+.sm-card-cta a:hover { background:var(--blue-h); }
+.sm-card-cta a.outline {
+  background:transparent; border:2px solid var(--blue);
+  color:var(--blue);
+}
+.sm-card-cta a.outline:hover { background:var(--blue); color:#fff; }
+
+/* ── Feature rows ─────────────────────────────────────────────── */
+.feat-row {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center; padding:72px 0;
+}
+.feat-row + .feat-row { border-top:1px solid var(--border); }
+.feat-row-img {
+  border-radius:20px; overflow:hidden;
+  background:linear-gradient(145deg,#0a1929 0%,#0d2240 60%,#0f2a50 100%);
+  display:flex; align-items:center; justify-content:center;
+  padding:40px 32px; min-height:340px; position:relative;
+}
+.feat-row-img::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 110%, rgba(0,102,204,.28) 0%, transparent 65%);
+}
+.feat-row-img img {
+  max-width:100%; max-height:300px; object-fit:contain;
+  position:relative; z-index:1;
+  filter:drop-shadow(0 12px 32px rgba(0,0,0,.55));
+}
+.feat-row-tag {
+  font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:1.2px; color:var(--blue); margin-bottom:10px;
+}
+.feat-row h3 {
+  font-size:clamp(22px,2.5vw,32px); font-weight:800;
+  color:var(--text); letter-spacing:-.5px; margin-bottom:16px;
+}
+.feat-row-desc { font-size:15px; line-height:1.7; color:var(--text2); margin-bottom:24px; }
+.feat-bullets { list-style:none; margin:0 0 28px; display:flex; flex-direction:column; gap:10px; }
+.feat-bullets li {
+  display:flex; align-items:flex-start; gap:10px;
+  font-size:14px; color:var(--text2);
+}
+.feat-bullets li::before {
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--blue); flex-shrink:0; margin-top:7px;
+}
+.feat-cta { display:flex; gap:12px; flex-wrap:wrap; }
+.feat-cta a {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:11px 22px; border-radius:8px;
+  font-size:14px; font-weight:700; transition:all .15s;
+}
+.feat-cta a.primary { background:var(--blue); color:#fff; }
+.feat-cta a.primary:hover { background:var(--blue-h); }
+.feat-cta a.ghost { border:1.5px solid var(--border); color:var(--text2); }
+.feat-cta a.ghost:hover { border-color:var(--blue); color:var(--blue); }
+
+/* ── Material grid ────────────────────────────────────────────── */
+.mat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.mat-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-sm); padding:20px; }
+.mat-head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.mat-icon-wrap {
+  width:36px; height:36px; border-radius:8px;
+  background:rgba(0,102,204,.08);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.mat-name { font-size:14px; font-weight:700; color:var(--text); }
+.mat-range { font-size:12px; color:var(--text3); margin-bottom:4px; }
+.mat-note { font-size:11px; color:var(--text3); line-height:1.5; }
+
+/* ── Why Wavlon strip ─────────────────────────────────────────── */
+.why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px; }
+.why-card {
+  background:#fff; border:1px solid var(--border);
+  border-radius:12px; padding:24px;
+}
+.why-icon {
+  width:44px; height:44px; border-radius:10px;
+  background:rgba(0,102,204,.08);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:14px;
+}
+.why-title { font-size:15px; font-weight:700; color:var(--text); margin-bottom:6px; }
+.why-desc { font-size:13px; color:var(--text2); line-height:1.6; }
+
+@media(max-width:1024px){
+  .sm-grid { grid-template-columns:1fr; }
+  .feat-row { grid-template-columns:1fr; gap:40px; padding:48px 0; }
+  .feat-row.reverse .feat-row-img { order:-1; }
+  .why-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:768px){
+  .mat-grid { grid-template-columns:1fr 1fr; }
+  .why-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:640px){
+  .mat-grid { grid-template-columns:1fr; }
+  .why-grid { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
@@ -81,11 +197,11 @@
         </div></div>
       </li>
       <li class="nav-item has-mega" id="navTech"><button class="nav-link nav-link-btn" id="techBtn" aria-expanded="false">Technologies<svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-menu" id="megaMenuTech"><div class="mega-inner"><div class="mega-sidebar"><p class="mega-sidebar-title">Technology Areas</p><ul class="mega-cats"><li><a class="mega-cat-btn active" data-panel="tech-heads" href="/technologies/laser-heads/"><span class="mega-cat-icon">&#9830;</span>Laser Heads &amp; Controllers<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-cat-btn" data-panel="tech-chillers" href="/contact/"><span class="mega-cat-icon">&#9830;</span>Water Chillers<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-cat-btn" data-panel="tech-resonators" href="/contact/"><span class="mega-cat-icon">&#9830;</span>Laser Sources<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-cat-btn" data-panel="tech-servos" href="/contact/"><span class="mega-cat-icon">&#9830;</span>Servo Systems<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul><a href="/technologies/" class="mega-view-all">View All Technologies &rarr;</a></div><div class="mega-panels"><div class="mega-panel active" id="panel-tech-heads"><p class="mega-panel-label">Laser Heads &amp; Controllers</p><div class="mega-products-grid"><a href="/technologies/laser-heads/" class="mega-prod-card"><div class="mega-prod-img" style="background:#f0f2f5;padding:8px;overflow:hidden;"><img src="/assets/blt4-thumb.png" alt="2D Cutting Heads" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">2D Cutting Heads</div><div class="mega-prod-spec">BLT3 to BLT9 &middot; 3&#x2013;60kW</div></div></a><a href="/technologies/laser-heads/tube-cutting-heads/" class="mega-prod-card"><div class="mega-prod-img" style="background:#f0f2f5;padding:8px;overflow:hidden;"><img src="/assets/blt442t.png" alt="Tube Cutting Heads" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Tube Cutting Heads</div><div class="mega-prod-spec">BLT3T / BLT4T / BLT5H</div></div></a><a href="/technologies/laser-heads/controllers/" class="mega-prod-card"><div class="mega-prod-img" style="background:#f0f2f5;padding:8px;overflow:hidden;"><img src="/assets/fscut4000e.png" alt="Controllers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Controllers</div><div class="mega-prod-spec">FSCUT Series</div></div></a></div></div><div class="mega-panel" id="panel-tech-chillers"><p class="mega-panel-label">Water Chillers</p><div style="padding:32px 24px;"><p style="color:#868e96;font-size:14px;line-height:1.6;margin-bottom:16px;">S&amp;A industrial water chillers for laser cooling &#x2014; coming soon.</p><a href="/contact/" style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:#0066cc;color:#fff;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;">Inquire &rarr;</a></div></div><div class="mega-panel" id="panel-tech-resonators"><p class="mega-panel-label">Laser Sources</p><div style="padding:32px 24px;"><p style="color:#868e96;font-size:14px;line-height:1.6;margin-bottom:16px;">IPG Photonics, Raycus, and MAX fiber laser resonators &#x2014; coming soon.</p><a href="/contact/" style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:#0066cc;color:#fff;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;">Inquire &rarr;</a></div></div><div class="mega-panel" id="panel-tech-servos"><p class="mega-panel-label">Servo Systems</p><div style="padding:32px 24px;"><p style="color:#868e96;font-size:14px;line-height:1.6;margin-bottom:16px;">Yaskawa servo motor and drive systems &#x2014; coming soon.</p><a href="/contact/" style="display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:#0066cc;color:#fff;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;">Inquire &rarr;</a></div></div></div></div></div></li>
-          <li class="nav-item has-mega" id="navIndustries"><button class="nav-link nav-link-btn" id="industriesBtn" aria-expanded="false">Industries<svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-menu" id="megaMenuIndustries"><div class="mega-inner"><div class="mega-sidebar"><p class="mega-sidebar-title">Explore</p><ul class="mega-cats"><li><a class="mega-cat-btn active" data-panel="ind-industries" href="/industries/"><span class="mega-cat-icon">&#9632;</span>Industries<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-cat-btn" data-panel="ind-applications" href="/applications/"><span class="mega-cat-icon">&#9632;</span>Applications<svg width="6" height="10" viewBox="0 0 6 10" fill="none"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul><a href="/industries/" class="mega-view-all">View All Industries &rarr;</a></div><div class="mega-panels"><div class="mega-panel active" id="panel-ind-industries"><p class="mega-panel-label">Industries We Serve</p><div class="mega-products-grid" style="grid-template-columns:repeat(3,1fr);"><a href="/industries/#automotive" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-automotive.jpg" alt="Automotive" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Automotive</div><div class="mega-prod-spec">Body panels &amp; chassis parts</div></div></a><a href="/industries/#structural-steel" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-steel.jpg" alt="Structural Steel" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Structural Steel</div><div class="mega-prod-spec">Beams, columns &amp; frames</div></div></a><a href="/industries/#hvac" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-hvac.jpg" alt="HVAC &amp; Mechanical" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">HVAC &amp; Mechanical</div><div class="mega-prod-spec">Ductwork &amp; components</div></div></a><a href="/industries/#aerospace" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-aerospace.jpg" alt="Aerospace &amp; Defence" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Aerospace &amp; Defence</div><div class="mega-prod-spec">Precision components</div></div></a><a href="/industries/#agriculture" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-agriculture.jpg" alt="Agricultural Equipment" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Agricultural Equipment</div><div class="mega-prod-spec">Heavy machinery parts</div></div></a><a href="/industries/#fabrication" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-fabrication.jpg" alt="Custom Fabrication" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Custom Fabrication</div><div class="mega-prod-spec">Job shops &amp; contract mfg</div></div></a></div></div><div class="mega-panel" id="panel-ind-applications"><p class="mega-panel-label">Cutting &amp; Joining Applications</p><div class="mega-products-grid"><a href="/applications/#sheet-cutting" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/app-laser-cutting.jpg" alt="Sheet Metal Cutting" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Sheet Metal Cutting</div><div class="mega-prod-spec">Flat plate &amp; sheet</div></div></a><a href="/applications/#tube-cutting" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/app-tube-cutting.jpg" alt="Tube &amp; Profile Cutting" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Tube &amp; Profile Cutting</div><div class="mega-prod-spec">Round, square &amp; structural</div></div></a><a href="/applications/#decorative" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/app-decorative.jpg" alt="Decorative &amp; Panel" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Decorative &amp; Panel</div><div class="mega-prod-spec">Architectural metal cutting</div></div></a><a href="/applications/#welding" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/app-welding.jpg" alt="Laser Welding" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Laser Welding</div><div class="mega-prod-spec">High-speed fusion welding</div></div></a></div></div></div></div></div></li>
-          <li class="nav-item"><a href="/financing/" class="nav-link">Financing</a></li>
-          <li class="nav-item has-mega" id="navSupport"><button class="nav-link nav-link-btn" aria-expanded="false" aria-haspopup="true">Support<svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-menu" id="megaMenuSupport"><div class="mega-inner"><a href="/service/" class="supp-link"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div><div class="nav-dropdown-info-title">Service &amp; Support</div><div class="nav-dropdown-info-sub">Installation, warranty &amp; remote</div></div></a><a href="/parts/" class="supp-link"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div><div><div class="nav-dropdown-info-title">Parts &amp; Consumables</div><div class="nav-dropdown-info-sub">Lenses, nozzles, ceramic holders</div></div></a></div></div></li><li><a href="/parts/"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div><div><div class="nav-dropdown-info-title">Parts &amp; Consumables</div><div class="nav-dropdown-info-sub">Lenses, nozzles, ceramic holders</div></div></a></li></ul></li>
-          <li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+      <li class="nav-item has-mega" id="navIndustries"><button class="nav-link nav-link-btn" aria-expanded="false" aria-haspopup="true">Industries<svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-menu" id="megaMenuIndustries" role="region" aria-label="Industries and Applications"><div class="mega-inner"><div class="mega-sidebar"><p class="mega-sidebar-title">Explore</p><ul class="mega-cats"><li><a class="mega-cat-btn active" data-panel="ind-industries" href="/industries/"><span class="mega-cat-icon">&#9632;</span>Industries<svg width="6" height="10" viewBox="0 0 6 10" fill="none" aria-hidden="true"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a class="mega-cat-btn" data-panel="ind-applications" href="/applications/"><span class="mega-cat-icon">&#9632;</span>Applications<svg width="6" height="10" viewBox="0 0 6 10" fill="none" aria-hidden="true"><path d="M1 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul><a href="/industries/" class="mega-view-all">View All Industries &rarr;</a></div><div class="mega-panels"><div class="mega-panel active" id="panel-ind-industries"><p class="mega-panel-label">Industries We Serve</p><div class="mega-products-grid" style="grid-template-columns:repeat(3,1fr);"><a href="/industries/#automotive" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-automotive.jpg" alt="Automotive" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Automotive</div><div class="mega-prod-spec">Body panels &amp; chassis parts</div></div></a><a href="/industries/#structural-steel" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-steel.jpg" alt="Structural Steel" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Structural Steel</div><div class="mega-prod-spec">Beams, columns &amp; frames</div></div></a><a href="/industries/#hvac" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-hvac.jpg" alt="HVAC &amp; Mechanical" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">HVAC &amp; Mechanical</div><div class="mega-prod-spec">Ductwork &amp; components</div></div></a><a href="/industries/#aerospace" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-aerospace.jpg" alt="Aerospace &amp; Defence" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Aerospace &amp; Defence</div><div class="mega-prod-spec">Precision components</div></div></a><a href="/industries/#agriculture" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-agriculture.jpg" alt="Agricultural Equipment" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Agricultural Equipment</div><div class="mega-prod-spec">Heavy machinery parts</div></div></a><a href="/industries/#fabrication" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/ind-fabrication.jpg" alt="Custom Fabrication" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Custom Fabrication</div><div class="mega-prod-spec">Job shops &amp; contract mfg</div></div></a></div></div><div class="mega-panel" id="panel-ind-applications"><p class="mega-panel-label">Cutting &amp; Joining Applications</p><div class="mega-products-grid"><a href="/applications/#sheet-cutting" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/app-laser-cutting.jpg" alt="Sheet Metal Cutting" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Sheet Metal Cutting</div><div class="mega-prod-spec">Flat plate &amp; sheet</div></div></a><a href="/applications/#tube-cutting" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/app-tube-cutting.jpg" alt="Tube &amp; Profile Cutting" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Tube &amp; Profile Cutting</div><div class="mega-prod-spec">Round, square &amp; structural</div></div></a><a href="/applications/#decorative" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/app-decorative.jpg" alt="Decorative &amp; Panel" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Decorative &amp; Panel</div><div class="mega-prod-spec">Architectural metal cutting</div></div></a><a href="/applications/#welding" class="mega-prod-card"><div class="mega-prod-img" style="overflow:hidden;padding:0;"><img src="/assets/app-welding.jpg" alt="Laser Welding" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">Laser Welding</div><div class="mega-prod-spec">High-speed fusion welding</div></div></a></div></div></div></div></div></li>
+      <li class="nav-item"><a href="/financing/" class="nav-link">Financing</a></li>
+      <li class="nav-item has-mega" id="navSupport"><button class="nav-link nav-link-btn" aria-expanded="false" aria-haspopup="true">Support<svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="mega-menu" id="megaMenuSupport"><div class="mega-inner"><a href="/service/" class="supp-link"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div><div class="nav-dropdown-info-title">Service &amp; Support</div><div class="nav-dropdown-info-sub">Installation, warranty &amp; remote</div></div></a><a href="/parts/" class="supp-link"><div class="nav-dropdown-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div><div><div class="nav-dropdown-info-title">Parts &amp; Consumables</div><div class="nav-dropdown-info-sub">Lenses, nozzles, ceramic holders</div></div></a></div></div></li>
+      <li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
     </ul></nav>
     <div class="header-actions"><a href="/contact/#quote" class="btn-inquiry">Get a Quote</a></div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
@@ -99,13 +215,6 @@
       <li><a href="/machines/fiber-laser-tube-cutting/t-series/">T-Series Tube</a></li>
       <li><a href="/machines/fiber-laser-automation/tower-system/">Tower System</a></li>
       <li><a href="/machines/fiber-laser-welding/air-cooled-series/">W-Series Welding</a></li>
-    </ul></li>
-    <li><button class="mobile-nav-btn">Technologies <span>+</span></button><ul class="mobile-sub">
-      <li><a href="/technologies/">All Technologies</a></li>
-      <li><a href="/technologies/laser-heads/">Laser Heads &amp; Controllers</a></li>
-      <li><a href="/technologies/laser-heads/2d-cutting-heads/">2D Cutting Heads</a></li>
-      <li><a href="/technologies/laser-heads/tube-cutting-heads/">Tube Cutting Heads</a></li>
-      <li><a href="/technologies/laser-heads/controllers/">Controllers</a></li>
     </ul></li>
     <li><button class="mobile-nav-btn">Industries <span>+</span></button><ul class="mobile-sub">
       <li><a href="/industries/">All Industries</a></li>
@@ -123,103 +232,273 @@
 </header>
 
 <main class="page-wrap">
+
+  <!-- ── Hero ──────────────────────────────────────────────────── -->
   <section class="page-hero">
     <div class="page-hero-grid"></div>
     <div class="page-hero-inner">
       <nav class="breadcrumbs"><a href="/">Home</a><span class="sep">/</span><a href="/machines/">Machines</a><span class="sep">/</span><span class="current">Fiber Laser Sheet Cutting</span></nav>
       <div class="page-hero-eyebrow">Sheet Cutting Machines</div>
       <h1>Fiber Laser <em>Sheet Cutting</em></h1>
-      <p>Three series — ProCut, PowerCut, and UltraCut — covering 3kW to 20kW+. Choose the right power level and configuration for your material, thickness, and production volume.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="/machines/fiber-laser-sheet-cutting/pro-cut-series/" class="btn-primary">ProCut (3–12kW)</a>
-        <a href="/machines/fiber-laser-sheet-cutting/power-cut-series/" class="btn-outline-white">PowerCut (3–12kW)</a>
-        <a href="/machines/fiber-laser-sheet-cutting/ultra-cut-series/" class="btn-outline-white">UltraCut (3–20kW+)</a>
+      <p>Three series — ProCut, PowerCut, and UltraCut — covering 3kW to 20kW+. Choose the right enclosure type, power level, and bed size for your material and production volume.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+        <a href="/machines/fiber-laser-sheet-cutting/pro-cut-series/" class="btn-primary">ProCut Series</a>
+        <a href="/machines/fiber-laser-sheet-cutting/power-cut-series/" class="btn-outline-white">PowerCut Series</a>
+        <a href="/machines/fiber-laser-sheet-cutting/ultra-cut-series/" class="btn-outline-white">UltraCut Series</a>
       </div>
     </div>
   </section>
 
+  <!-- ── Three Series Cards with Machine Images ────────────────── -->
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Compare Series</span>
-        <h2>Find the Right Power Level</h2>
-        <p>All three series run the same MAX fiber laser platform with FSCUT controls. The difference is enclosure type, bed size, and material thickness capability.</p>
+        <span class="eyebrow">Three Series</span>
+        <h2>Select Your Series</h2>
+        <p>Same MAX fiber laser source and FSCUT controls across all series. Choose based on enclosure, bed format, and cutting power.</p>
       </div>
-      <div class="series-compare">
-        <div class="sc-card">
-          <div class="sc-card-head">
-            <div class="sc-series">Open Frame · WPC Series</div>
-            <div class="sc-name">ProCut Series</div>
-            <div class="sc-power">3,000W – 12,000W</div>
+      <div class="sm-grid">
+
+        <!-- ProCut -->
+        <div class="sm-card">
+          <div class="sm-card-img">
+            <img src="/assets/Wavlon%20ProCut%20Front.-transparentpng.png" alt="Wavlon ProCut Series fiber laser cutting machine" loading="eager"/>
           </div>
-          <div class="sc-card-body">
-            <div class="sc-row"><span class="sc-row-label">Max Steel Thickness</span><span class="sc-row-val">35mm (12kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Max Stainless</span><span class="sc-row-val">30mm (12kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Max Aluminum</span><span class="sc-row-val">25mm (12kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Bed Sizes</span><span class="sc-row-val">3015 &amp; 4020</span></div>
-            <div class="sc-row"><span class="sc-row-label">Best For</span><span class="sc-row-val">Job shops, fab shops</span></div>
+          <div class="sm-card-body">
+            <div class="sm-card-series">Open Frame · WPC Series</div>
+            <div class="sm-card-name">ProCut Series</div>
+            <div class="sm-card-power">3,000W – 12,000W</div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Mild Steel</span><span class="sm-spec-val">35mm (12kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Stainless</span><span class="sm-spec-val">30mm (12kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Aluminum</span><span class="sm-spec-val">25mm (12kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Bed Sizes</span><span class="sm-spec-val">3015 &amp; 4020</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Best For</span><span class="sm-spec-val">Job shops &amp; fabricators</span></div>
+            <div class="sm-card-cta"><a href="/machines/fiber-laser-sheet-cutting/pro-cut-series/">View ProCut Series &rarr;</a></div>
           </div>
-          <div class="sc-card-foot"><a href="/machines/fiber-laser-sheet-cutting/pro-cut-series/">View ProCut &rarr;</a></div>
         </div>
-        <div class="sc-card" style="border-color:var(--blue);box-shadow:0 0 0 2px rgba(0,102,204,.15);">
-          <div class="sc-card-head" style="background:rgba(0,102,204,.03);">
-            <div class="sc-series" style="display:flex;align-items:center;gap:8px;">Enclosed Cabin · WFC Series <span style="background:var(--blue);color:#fff;font-size:10px;padding:2px 8px;border-radius:100px;">POPULAR</span></div>
-            <div class="sc-name">PowerCut Series</div>
-            <div class="sc-power">3,000W – 12,000W</div>
+
+        <!-- PowerCut -->
+        <div class="sm-card" style="border-color:var(--blue);box-shadow:0 0 0 2px rgba(0,102,204,.12);">
+          <div class="sm-card-img" style="background:linear-gradient(145deg,#0a1929 0%,#0d2240 60%,#122e5a 100%);">
+            <div class="sm-card-badge">Most Popular</div>
+            <img src="/assets/WL-F%20Series%20Front.png" alt="Wavlon PowerCut Series enclosed fiber laser cutting machine" loading="eager"/>
           </div>
-          <div class="sc-card-body">
-            <div class="sc-row"><span class="sc-row-label">Max Steel Thickness</span><span class="sc-row-val">35mm (12kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Max Stainless</span><span class="sc-row-val">30mm (12kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Max Aluminum</span><span class="sc-row-val">25mm (12kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Bed Size</span><span class="sc-row-val">3015</span></div>
-            <div class="sc-row"><span class="sc-row-label">Best For</span><span class="sc-row-val">Production manufacturers</span></div>
+          <div class="sm-card-body">
+            <div class="sm-card-series">Enclosed Cabin · WFC Series</div>
+            <div class="sm-card-name">PowerCut Series</div>
+            <div class="sm-card-power">3,000W – 12,000W</div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Mild Steel</span><span class="sm-spec-val">35mm (12kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Stainless</span><span class="sm-spec-val">30mm (12kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Aluminum</span><span class="sm-spec-val">25mm (12kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Bed Size</span><span class="sm-spec-val">3015</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Best For</span><span class="sm-spec-val">Production manufacturers</span></div>
+            <div class="sm-card-cta"><a href="/machines/fiber-laser-sheet-cutting/power-cut-series/">View PowerCut Series &rarr;</a></div>
           </div>
-          <div class="sc-card-foot"><a href="/machines/fiber-laser-sheet-cutting/power-cut-series/">View PowerCut &rarr;</a></div>
         </div>
-        <div class="sc-card">
-          <div class="sc-card-head">
-            <div class="sc-series">Dual Exchange · WUC Series</div>
-            <div class="sc-name">UltraCut Series</div>
-            <div class="sc-power">3,000W – 20,000W+</div>
+
+        <!-- UltraCut -->
+        <div class="sm-card">
+          <div class="sm-card-img">
+            <img src="/assets/UltraCut%20Serie%20_%20Transparent.png" alt="Wavlon UltraCut Series high-power dual-exchange fiber laser cutting machine" loading="eager"/>
           </div>
-          <div class="sc-card-body">
-            <div class="sc-row"><span class="sc-row-label">Max Steel Thickness</span><span class="sc-row-val">40mm (20kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Max Stainless</span><span class="sc-row-val">35mm (20kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Max Aluminum</span><span class="sc-row-val">30mm (20kW)</span></div>
-            <div class="sc-row"><span class="sc-row-label">Bed Sizes</span><span class="sc-row-val">3015 &amp; 4020</span></div>
-            <div class="sc-row"><span class="sc-row-label">Best For</span><span class="sc-row-val">Heavy industry, structural</span></div>
+          <div class="sm-card-body">
+            <div class="sm-card-series">Dual Exchange · WUC Series</div>
+            <div class="sm-card-name">UltraCut Series</div>
+            <div class="sm-card-power">3,000W – 20,000W+</div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Mild Steel</span><span class="sm-spec-val">40mm (20kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Stainless</span><span class="sm-spec-val">35mm (20kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Max Aluminum</span><span class="sm-spec-val">30mm (20kW)</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Bed Sizes</span><span class="sm-spec-val">3015 &amp; 4020</span></div>
+            <div class="sm-spec"><span class="sm-spec-label">Best For</span><span class="sm-spec-val">Heavy industry &amp; structural</span></div>
+            <div class="sm-card-cta"><a href="/machines/fiber-laser-sheet-cutting/ultra-cut-series/">View UltraCut Series &rarr;</a></div>
           </div>
-          <div class="sc-card-foot"><a href="/machines/fiber-laser-sheet-cutting/ultra-cut-series/">View UltraCut &rarr;</a></div>
         </div>
+
       </div>
     </div>
   </section>
 
+  <!-- ── ProCut Feature Row ─────────────────────────────────────── -->
   <section class="section-alt">
+    <div class="container">
+
+      <div class="feat-row">
+        <div class="feat-row-img">
+          <img src="/assets/Wavlon%20ProCut%20Front.-transparentpng.png" alt="ProCut Series open-frame fiber laser cutting machine"/>
+        </div>
+        <div class="feat-row-content">
+          <div class="feat-row-tag">Open Frame · WPC Series</div>
+          <h3>ProCut Series<br/><span style="color:var(--blue);">3kW – 12kW</span></h3>
+          <p class="feat-row-desc">The ProCut is Wavlon's open-frame workhorse — a clean gantry design with full-width accessibility, ideal for mixed-material job shops and fabrication operations where operators need easy access to the cutting bed.</p>
+          <ul class="feat-bullets">
+            <li>Open gantry design for unrestricted loading and unloading</li>
+            <li>3015 and 4020 bed formats — handles oversized plate</li>
+            <li>MAX fiber laser source with FSCUT 2000 controller</li>
+            <li>Light curtain safety system standard on all configurations</li>
+            <li>ProCut UL variant adds ultra-large 6020 bed option</li>
+          </ul>
+          <div class="feat-cta">
+            <a href="/machines/fiber-laser-sheet-cutting/pro-cut-series/" class="primary">View ProCut Series &rarr;</a>
+            <a href="/contact/#quote" class="ghost">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PowerCut Feature Row (reversed) -->
+      <div class="feat-row reverse">
+        <div class="feat-row-content">
+          <div class="feat-row-tag">Enclosed Cabin · WFC Series · Most Popular</div>
+          <h3>PowerCut Series<br/><span style="color:var(--blue);">3kW – 12kW</span></h3>
+          <p class="feat-row-desc">The PowerCut is Wavlon's flagship enclosed cabin machine — a fully sealed cutting environment with integrated fume extraction, automatic door operation, and a compact 3015 footprint built for production environments.</p>
+          <ul class="feat-bullets">
+            <li>Full enclosure with automatic sliding door for operator safety</li>
+            <li>Integrated zone smoke extraction — no external ducting required</li>
+            <li>Sectioned enclosure panels for easy internal access &amp; maintenance</li>
+            <li>Left-hand and right-hand door configurations available</li>
+            <li>CE-certified electrical cabinet with Schneider components</li>
+          </ul>
+          <div class="feat-cta">
+            <a href="/machines/fiber-laser-sheet-cutting/power-cut-series/" class="primary">View PowerCut Series &rarr;</a>
+            <a href="/contact/#quote" class="ghost">Request a Quote</a>
+          </div>
+        </div>
+        <div class="feat-row-img">
+          <img src="/assets/WL-F%20Series%20Front.png" alt="PowerCut Series enclosed cabin fiber laser cutting machine"/>
+        </div>
+      </div>
+
+      <!-- UltraCut Feature Row -->
+      <div class="feat-row">
+        <div class="feat-row-img">
+          <img src="/assets/UltraCut%20Serie%20_%20Transparent.png" alt="UltraCut Series high-power dual-exchange fiber laser cutting machine"/>
+        </div>
+        <div class="feat-row-content">
+          <div class="feat-row-tag">Dual Exchange · WUC Series</div>
+          <h3>UltraCut Series<br/><span style="color:var(--blue);">3kW – 20kW+</span></h3>
+          <p class="feat-row-desc">The UltraCut is built for heavy production — dual-pallet exchange tables for near-continuous operation, high-power laser options up to 20kW, and a robust frame engineered for structural steel and thick-plate cutting.</p>
+          <ul class="feat-bullets">
+            <li>Dual-pallet exchange table — load while the machine cuts</li>
+            <li>Up to 20kW for thick stainless, aluminum, and mild steel</li>
+            <li>Monitoring cameras for remote process observation</li>
+            <li>Optional bevel cutting head for chamfered edge preparation</li>
+            <li>Safety light curtains and fume monitoring standard</li>
+          </ul>
+          <div class="feat-cta">
+            <a href="/machines/fiber-laser-sheet-cutting/ultra-cut-series/" class="primary">View UltraCut Series &rarr;</a>
+            <a href="/contact/#quote" class="ghost">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Material Capabilities ──────────────────────────────────── -->
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow">Material Capabilities</span>
         <h2>Cuts Every Common Metal</h2>
-        <p>All sheet cutting series support the full range of metals used in fabrication, manufacturing, and construction.</p>
+        <p>All three sheet cutting series support the full range of metals used in fabrication, manufacturing, and structural construction.</p>
       </div>
       <div class="mat-grid">
-        <div class="mat-card"><div class="mat-icon">⚙️</div><div class="mat-name">Mild Steel</div><div class="mat-range">Up to 80mm (30kW)</div></div>
-        <div class="mat-card"><div class="mat-icon">✨</div><div class="mat-name">Stainless Steel</div><div class="mat-range">Up to 60mm (30kW)</div></div>
-        <div class="mat-card"><div class="mat-icon">🔩</div><div class="mat-name">Aluminum</div><div class="mat-range">Up to 50mm (30kW)</div></div>
-        <div class="mat-card"><div class="mat-icon">🟡</div><div class="mat-name">Brass &amp; Bronze</div><div class="mat-range">Up to 20mm (6kW)</div></div>
-        <div class="mat-card"><div class="mat-icon">🟠</div><div class="mat-name">Copper</div><div class="mat-range">Up to 16mm (6kW)</div></div>
-        <div class="mat-card"><div class="mat-icon">🔷</div><div class="mat-name">Galvanized Steel</div><div class="mat-range">Up to 25mm (12kW)</div></div>
+        <div class="mat-card">
+          <div class="mat-head">
+            <div class="mat-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <div class="mat-name">Mild Steel</div>
+          </div>
+          <div class="mat-range">Up to 80mm (30kW)</div>
+          <div class="mat-note">Most common material. ProCut/PowerCut handle up to 35mm at 12kW; UltraCut up to 40mm at 20kW.</div>
+        </div>
+        <div class="mat-card">
+          <div class="mat-head">
+            <div class="mat-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="mat-name">Stainless Steel</div>
+          </div>
+          <div class="mat-range">Up to 60mm (30kW)</div>
+          <div class="mat-note">Nitrogen-assist cutting delivers clean, oxide-free edges on 304 and 316L grades.</div>
+        </div>
+        <div class="mat-card">
+          <div class="mat-head">
+            <div class="mat-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <div class="mat-name">Aluminum</div>
+          </div>
+          <div class="mat-range">Up to 50mm (30kW)</div>
+          <div class="mat-note">High reflectivity handled by MAX fiber source. Clean cuts on 5052, 6061, and 7075 alloys.</div>
+        </div>
+        <div class="mat-card">
+          <div class="mat-head">
+            <div class="mat-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div class="mat-name">Brass &amp; Bronze</div>
+          </div>
+          <div class="mat-range">Up to 20mm (6kW)</div>
+          <div class="mat-note">Used in decorative, electrical, and marine fabrication. Clean kerf with minimal burr.</div>
+        </div>
+        <div class="mat-card">
+          <div class="mat-head">
+            <div class="mat-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+            <div class="mat-name">Copper</div>
+          </div>
+          <div class="mat-range">Up to 16mm (6kW)</div>
+          <div class="mat-note">Electrical busbars, heat exchangers, and cooling components. High-speed cutting with fiber advantage.</div>
+        </div>
+        <div class="mat-card">
+          <div class="mat-head">
+            <div class="mat-icon-wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div>
+            <div class="mat-name">Galvanized Steel</div>
+          </div>
+          <div class="mat-range">Up to 25mm (12kW)</div>
+          <div class="mat-note">HVAC ductwork, roofing, and enclosures. Fume extraction recommended — standard on PowerCut.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section style="background:var(--bg-dark);padding:64px 0;text-align:center;">
-    <div class="container-narrow">
-      <h2 style="font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;color:#fff;margin-bottom:14px;">Not Sure Which Series Fits Your Needs?</h2>
-      <p style="font-size:16px;color:#8899aa;margin-bottom:28px;">Tell us your material, thickness, and production volume — we'll recommend the right series and configuration.</p>
-      <a href="/contact/#quote" class="btn-primary">Get a Free Recommendation &rarr;</a>
+  <!-- ── Why Wavlon Strip ───────────────────────────────────────── -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why Wavlon</span>
+        <h2>Built for Canadian Manufacturers</h2>
+        <p>Every machine ships with Canadian-backed installation, training, and service — not just a freight quote.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="why-title">Canadian Sales &amp; Support</div>
+          <div class="why-desc">Toronto-based team handles installation, training, and ongoing support. No overseas time zones, no language barriers.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
+          <div class="why-title">Parts Stocked in Canada</div>
+          <div class="why-desc">Lenses, nozzles, ceramic holders, and consumables warehoused domestically for next-business-day delivery.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <div class="why-title">Remote Diagnostics</div>
+          <div class="why-desc">Every machine includes remote access capability. Our technicians can diagnose and resolve most issues without an on-site visit.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="why-title">Flexible Financing</div>
+          <div class="why-desc">Equipment financing available through Canadian lenders. Lease or loan structures designed for manufacturers at all stages.</div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- ── CTA ────────────────────────────────────────────────────── -->
+  <section style="background:var(--bg-dark);padding:72px 0;text-align:center;">
+    <div class="container-narrow">
+      <h2 style="font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-1px;color:#fff;margin-bottom:16px;">Not Sure Which Series Fits Your Operation?</h2>
+      <p style="font-size:16px;color:#8899aa;margin-bottom:32px;line-height:1.7;">Tell us your material, thickness, and production volume — we'll recommend the right series, power level, and bed size at no cost.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="/contact/#quote" class="btn-primary">Get a Free Recommendation &rarr;</a>
+        <a href="/machines/" style="display:inline-flex;align-items:center;padding:13px 24px;border:1.5px solid rgba(255,255,255,.25);border-radius:8px;color:#fff;font-size:14px;font-weight:600;transition:border-color .15s;" onmouseover="this.style.borderColor='rgba(255,255,255,.6)'" onmouseout="this.style.borderColor='rgba(255,255,255,.25)'">View All Machines</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!-- FOOTER — inline copy -->
