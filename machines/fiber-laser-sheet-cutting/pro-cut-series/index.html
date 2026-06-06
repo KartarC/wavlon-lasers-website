@@ -58,8 +58,9 @@
 }
 .machine-hero-inner {
   position: relative; z-index: 2;
-  max-width: 1280px; margin: 0 auto;
-  padding: 120px 40px 80px;
+  width: 100%; max-width: 1280px; margin: 0 auto;
+  padding: 120px 40px 80px 76px;
+  box-sizing: border-box;
 }
 .mh-text-col { max-width: 580px; }
 .mh-eyebrow {
@@ -339,11 +340,11 @@
   .power-grid { grid-template-columns: 1fr 1fr; }
   .procut-series-switcher-inner { padding: 0 24px; }
   .procut-series-tab { padding: 16px 24px 14px; }
-  .machine-hero-inner { padding: 100px 32px 64px; }
+  .machine-hero-inner { padding: 100px 32px 64px 48px; }
 }
 @media (max-width: 768px) {
   .machine-hero { min-height: 520px; }
-  .machine-hero-inner { padding: 90px 24px 56px; }
+  .machine-hero-inner { padding: 90px 24px 56px 48px; }
   .machine-hero h1 { font-size: clamp(30px,8vw,44px); letter-spacing: -1.5px; }
   .mh-desc { font-size: 14px; }
   .mh-stats { gap: 20px; }
@@ -355,7 +356,7 @@
   .brochure-inner { padding: 0 24px; }
 }
 @media (max-width: 640px) {
-  .machine-hero-inner { padding: 80px 20px 48px; }
+  .machine-hero-inner { padding: 80px 20px 48px 34px; }
   .power-grid { grid-template-columns: 1fr 1fr; }
   .pst-sub { display: none; }
   .procut-series-tab { padding: 14px 18px 12px; }
