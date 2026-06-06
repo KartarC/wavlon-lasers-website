@@ -59,9 +59,9 @@
 .machine-hero-inner {
   position: relative; z-index: 2;
   max-width: 1280px; margin: 0 auto;
-  padding: 120px 60px 80px;
-  max-width: 680px;
+  padding: 120px 40px 80px;
 }
+.mh-text-col { max-width: 580px; }
 .mh-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   background: rgba(0,102,204,.25); border: 1px solid rgba(0,102,204,.4);
@@ -443,7 +443,7 @@
 <section class="machine-hero" id="hero">
   <div class="machine-hero-grid"></div>
   <div class="machine-hero-inner">
-    <div>
+    <div class="mh-text-col">
       <nav class="breadcrumbs" style="margin-bottom:20px;">
         <a href="/" style="color:#526070;">Home</a><span class="sep" style="color:#2a3a4a;">/</span>
         <a href="/machines/" style="color:#526070;">Machines</a><span class="sep" style="color:#2a3a4a;">/</span>
@@ -492,8 +492,66 @@
     </button>
   </div>
 </div>
-<!-- Tab switcher script — placed HERE so switchSeries() is defined the moment buttons exist -->
+<!-- Core interactive scripts — placed HERE, before any body content -->
 <script>
+/* ── Gallery system ─────────────────────────── */
+var galleries = {};
+
+function initGallery(id, mainImgId, thumbsId, dotsId) {
+  var mainImg    = document.getElementById(mainImgId);
+  var thumbsWrap = document.getElementById(thumbsId);
+  var dotsEl     = document.getElementById(dotsId);
+  if (!mainImg || !thumbsWrap || !dotsEl) { console.warn('Gallery missing:', id); return; }
+
+  var thumbs = thumbsWrap.querySelectorAll('.gallery-thumb');
+  var images = [];
+  thumbs.forEach(function(t) { if (t.dataset.src) images.push(t.dataset.src); });
+  if (!images.length) { console.warn('No images for gallery:', id); return; }
+
+  /* Clear any previous init */
+  if (galleries[id] && galleries[id].timer) clearInterval(galleries[id].timer);
+  dotsEl.innerHTML = '';
+
+  var g = { idx: 0, timer: null };
+
+  images.forEach(function(_, i) {
+    var d = document.createElement('button');
+    d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Photo ' + (i + 1));
+    d.onclick = function() { g.go(i); g.reset(); };
+    dotsEl.appendChild(d);
+  });
+
+  g.go = function(n) {
+    g.idx = (n + images.length) % images.length;
+    mainImg.style.opacity = '0';
+    mainImg.style.transform = 'scale(0.97)';
+    setTimeout(function() {
+      mainImg.src = images[g.idx];
+      mainImg.style.opacity = '1';
+      mainImg.style.transform = 'scale(1)';
+    }, 180);
+    thumbs.forEach(function(t, i) { t.classList.toggle('active', i === g.idx); });
+    dotsEl.querySelectorAll('.gallery-dot').forEach(function(d, i) { d.classList.toggle('active', i === g.idx); });
+  };
+  g.reset = function() {
+    clearInterval(g.timer);
+    g.timer = setInterval(function() { g.go(g.idx + 1); }, 4500);
+  };
+
+  thumbs.forEach(function(t, i) { t.onclick = function() { g.go(i); g.reset(); }; });
+  g.reset();
+  galleries[id] = g;
+  console.log('Gallery initialized:', id, images.length, 'images');
+}
+
+function galleryGo(id, dir) {
+  var g = galleries[id];
+  if (g) { g.go(g.idx + dir); g.reset(); }
+  else console.warn('galleryGo: no gallery:', id);
+}
+
+/* ── Tab switcher ───────────────────────────── */
 var _seriesCurrent = 0;
 var SERIES_DATA = [
   { name:'ProCut Series', h1:'ProCut <em>Series</em>',
@@ -591,6 +649,7 @@ function switchSeries(n) {
     </div>
   </div>
 </div>
+<script>initGallery('pc','pcMainImg','pcThumbs','pcDots');</script>
 
 <!-- ── Power Options ─────────────────────────────────────────── -->
 <section class="section-alt">
@@ -946,6 +1005,7 @@ function switchSeries(n) {
     </div>
   </div>
 </div>
+<script>initGallery('ul','ulMainImg','ulThumbs','ulDots');</script>
 
       <!-- UL Power Options -->
       <section class="section-alt">
@@ -1242,79 +1302,6 @@ if (_bf) _bf.addEventListener('submit', async function(e) {
 });
 </script>
 <script src="/assets/wavlon-chat.js" defer></script>
-
-<!-- ═══ GALLERY SYSTEM — own block, no dependencies ═══ -->
-<script>
-(function() {
-  var galleries = {};
-
-  function initGallery(id, mainImgId, thumbsId, dotsId) {
-    var mainImg    = document.getElementById(mainImgId);
-    var thumbsWrap = document.getElementById(thumbsId);
-    var dotsEl     = document.getElementById(dotsId);
-    if (!mainImg || !thumbsWrap || !dotsEl) return;
-
-    var thumbs = thumbsWrap.querySelectorAll(‘.gallery-thumb’);
-    var images = [];
-    thumbs.forEach(function(t) { if (t.dataset.src) images.push(t.dataset.src); });
-    if (!images.length) return;
-
-    var g = { idx: 0, timer: null };
-
-    /* Dot buttons */
-    images.forEach(function(_, i) {
-      var d = document.createElement(‘button’);
-      d.className = ‘gallery-dot’ + (i === 0 ? ‘ active’ : ‘’);
-      d.setAttribute(‘aria-label’, ‘Photo ‘ + (i + 1));
-      d.onclick = function() { g.go(i); g.reset(); };
-      dotsEl.appendChild(d);
-    });
-
-    g.go = function(n) {
-      g.idx = (n + images.length) % images.length;
-      mainImg.style.opacity = ‘0’;
-      mainImg.style.transform = ‘scale(0.97)’;
-      setTimeout(function() {
-        mainImg.src = images[g.idx];
-        mainImg.style.opacity = ‘1’;
-        mainImg.style.transform = ‘scale(1)’;
-      }, 180);
-      thumbs.forEach(function(t, i) { t.classList.toggle(‘active’, i === g.idx); });
-      dotsEl.querySelectorAll(‘.gallery-dot’).forEach(function(d, i) { d.classList.toggle(‘active’, i === g.idx); });
-    };
-    g.reset = function() {
-      clearInterval(g.timer);
-      g.timer = setInterval(function() { g.go(g.idx + 1); }, 4500);
-    };
-
-    /* Thumbnail clicks */
-    thumbs.forEach(function(t, i) {
-      t.onclick = function() { g.go(i); g.reset(); };
-    });
-
-    g.reset();
-    galleries[id] = g;
-  }
-
-  /* Global — called by onclick on arrow buttons */
-  window.galleryGo = function(id, dir) {
-    var g = galleries[id];
-    if (g) { g.go(g.idx + dir); g.reset(); }
-  };
-
-  /* Init both galleries now — scripts are at bottom of body, DOM is ready */
-  initGallery(‘pc’, ‘pcMainImg’, ‘pcThumbs’, ‘pcDots’);
-  initGallery(‘ul’, ‘ulMainImg’, ‘ulThumbs’, ‘ulDots’);
-
-  /* Also wire up on DOMContentLoaded as fallback (belt + suspenders) */
-  if (document.readyState === ‘loading’) {
-    document.addEventListener(‘DOMContentLoaded’, function() {
-      initGallery(‘pc’, ‘pcMainImg’, ‘pcThumbs’, ‘pcDots’);
-      initGallery(‘ul’, ‘ulMainImg’, ‘ulThumbs’, ‘ulDots’);
-    });
-  }
-}());
-</script>
 
 <!-- ═══ FORM HANDLERS ═══ -->
 <script>
