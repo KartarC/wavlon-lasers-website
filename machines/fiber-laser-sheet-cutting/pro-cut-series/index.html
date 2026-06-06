@@ -39,109 +39,162 @@
 ]}
 </script>
 <style>
+/* ════════════════════════════════════════════════════════════
+   PROCUT SERIES — REDESIGNED STYLES
+   ════════════════════════════════════════════════════════════ */
+
 /* ── Machine Hero ─────────────────────────────────────────── */
 .machine-hero {
-  background: #e8eaec;
-  padding: 100px 0 64px;
+  background: #0d1b2a;
+  min-height: 600px;
   position: relative; overflow: hidden;
+  display: flex; align-items: center;
 }
 .machine-hero-grid {
   position: absolute; inset: 0;
   background-image: url('/assets/procut-hero-bg.png');
   background-size: cover; background-position: center 40%;
-  opacity: 0.85;
+  opacity: 0.22;
 }
-/* Overlay removed per design */
-.machine-hero::after { display: none; }
 .machine-hero-inner {
-  padding: 0 40px 0 60px;
-  max-width: 580px;
-  display: flex; flex-direction: column;
-  position: relative; z-index: 1;
+  position: relative; z-index: 2;
+  max-width: 1280px; margin: 0 auto;
+  padding: 120px 60px 80px;
+  max-width: 680px;
 }
 .mh-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(0,102,204,.1); border: 1px solid rgba(0,102,204,.25);
-  color: #0055bb; font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px;
-  padding: 4px 14px; border-radius: 100px; margin-bottom: 20px;
+  background: rgba(0,102,204,.25); border: 1px solid rgba(0,102,204,.4);
+  color: #66aaff; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.2px;
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 22px;
 }
 .machine-hero h1 {
-  font-size: clamp(32px, 3.5vw, 52px); font-weight: 800;
-  color: #0d1b2a; letter-spacing: -1.5px; line-height: 1.08;
-  margin-bottom: 10px;
+  font-size: clamp(36px, 4vw, 58px); font-weight: 800;
+  color: #fff; letter-spacing: -2px; line-height: 1.05;
+  margin-bottom: 12px;
 }
-.machine-hero h1 em { color: var(--blue); font-style: normal; }
+.machine-hero h1 em { color: #3399ff; font-style: normal; }
 .mh-subtitle {
-  font-size: 18px; font-weight: 600; color: #0066cc;
-  margin-bottom: 16px;
+  font-size: 18px; font-weight: 500; color: #99b8cc;
+  margin-bottom: 18px;
 }
 .mh-desc {
-  font-size: 16px; color: #2c3e50; line-height: 1.65;
-  max-width: 540px; margin-bottom: 32px;
+  font-size: 15px; color: #8899aa; line-height: 1.7;
+  max-width: 540px; margin-bottom: 36px;
 }
 .mh-stats {
-  display: flex; gap: 28px; flex-wrap: wrap;
-  padding: 24px 0; border-top: 1px solid rgba(0,0,0,.1);
-  margin-bottom: 28px;
+  display: flex; gap: 32px; flex-wrap: wrap;
+  padding: 24px 0; border-top: 1px solid rgba(255,255,255,.1);
+  margin-bottom: 32px;
 }
-.mh-stat { display: flex; flex-direction: column; gap: 3px; }
-.mh-stat-val { font-size: 26px; font-weight: 800; color: #0d1b2a; letter-spacing: -1px; }
-.mh-stat-val span { color: var(--blue); font-size: 18px; }
-.mh-stat-label { font-size: 11px; color: #4a5a6a; text-transform: uppercase; letter-spacing: .8px; font-weight: 600; }
+.mh-stat { display: flex; flex-direction: column; gap: 4px; }
+.mh-stat-val { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -1px; }
+.mh-stat-val span { color: #3399ff; font-size: 17px; font-weight: 600; }
+.mh-stat-label { font-size: 11px; color: #526070; text-transform: uppercase; letter-spacing: .9px; font-weight: 600; }
 .mh-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn-mh-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 26px; background: var(--blue); color: #fff;
+  padding: 14px 28px; background: #0066cc; color: #fff;
   border-radius: 8px; font-size: 14px; font-weight: 700;
-  transition: background .15s;
+  text-decoration: none; transition: background .15s;
 }
 .btn-mh-primary:hover { background: #0055b3; }
 .btn-mh-secondary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 26px; border: 1.5px solid #0066cc; color: #0066cc;
+  padding: 14px 22px; border: 1.5px solid rgba(255,255,255,.25); color: #ccd9e6;
   border-radius: 8px; font-size: 14px; font-weight: 600;
-  background: rgba(255,255,255,.7);
+  background: rgba(255,255,255,.07); text-decoration: none;
   transition: all .15s;
 }
-.btn-mh-secondary:hover { background: #fff; border-color: #0055b3; color: #0055b3; }
+.btn-mh-secondary:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.45); color: #fff; }
 .btn-mh-catalog {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 22px; border: 1.5px solid rgba(13,27,42,.18); color: #2c3e50;
+  padding: 14px 22px; border: 1.5px solid rgba(255,255,255,.15); color: #8899aa;
   border-radius: 8px; font-size: 14px; font-weight: 600;
-  background: rgba(255,255,255,.8); text-decoration: none;
+  background: transparent; text-decoration: none;
   transition: all .15s;
 }
-.btn-mh-catalog:hover { background: #fff; border-color: #0066cc; color: #0066cc; }
-.machine-hero-visual { display: none; } /* removed per design */
+.btn-mh-catalog:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.3); color: #ccd9e6; }
+.machine-hero-visual { display: none; }
 .machine-hero-svg { display: none; }
+.mh-spec-pills { display: none; }
 
-/* ── Product gallery ──────────────────────────────────────── */
-.product-gallery { padding: 56px 0 56px; background: #f8f9fa; }
-.product-gallery-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+/* ── Series tab switcher ─────────────────────────────────── */
+.procut-series-switcher {
+  background: #fff;
+  border-bottom: 2px solid #e8ecf0;
+  position: sticky; top: var(--header-h); z-index: 90;
+  box-shadow: 0 2px 16px rgba(0,0,0,.07);
+}
+.procut-series-switcher-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 40px;
+  display: flex; gap: 0;
+}
+.procut-series-tab {
+  padding: 20px 36px 18px;
+  background: transparent; border: none; cursor: pointer;
+  text-align: left; border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: border-color .2s, background .15s;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.procut-series-tab:hover { background: rgba(0,102,204,.04); }
+.procut-series-tab.active { border-bottom-color: #0066cc; background: rgba(0,102,204,.03); }
+.pst-title {
+  font-size: 15px; font-weight: 700; color: #4a5a70;
+  white-space: nowrap;
+}
+.procut-series-tab.active .pst-title { color: #0066cc; }
+.pst-sub {
+  font-size: 11px; color: #8899aa; line-height: 1.35; font-weight: 500;
+}
+
+/* ── Body slides ─────────────────────────────────────────── */
+.procut-body-wrap { position: relative; }
+.procut-body-track { position: relative; }
+.procut-body-slide { display: none; width: 100%; }
+.procut-body-slide.active { display: block; }
+@keyframes wl-slide-in-r {
+  from { opacity: 0; transform: translateX(56px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes wl-slide-in-l {
+  from { opacity: 0; transform: translateX(-56px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.procut-body-slide.entering-r { display: block; animation: wl-slide-in-r .42s cubic-bezier(.4,0,.2,1) both; }
+.procut-body-slide.entering-l { display: block; animation: wl-slide-in-l .42s cubic-bezier(.4,0,.2,1) both; }
+
+/* ── Gallery section ─────────────────────────────────────── */
+.pc-gallery-section { background: #f4f6f9; padding: 64px 0; }
+.pc-gallery-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start;
+}
+.gallery-col { display: flex; flex-direction: column; gap: 14px; }
 .gallery-main-wrap {
   position: relative; border-radius: 14px; overflow: hidden;
-  background: #fff; aspect-ratio: 16/9; margin-bottom: 14px;
-  box-shadow: 0 4px 24px rgba(0,0,0,.08);
-  cursor: pointer;
+  background: #fff; aspect-ratio: 4/3;
+  box-shadow: 0 8px 32px rgba(0,0,0,.1);
 }
 .gallery-main-wrap img {
   width: 100%; height: 100%; object-fit: contain;
-  transition: opacity .3s ease; display: block;
+  transition: opacity .25s ease; display: block;
 }
-.gallery-main-wrap .gallery-arrow {
+.gallery-arrow {
   position: absolute; top: 50%; transform: translateY(-50%);
-  width: 40px; height: 40px; border-radius: 50%;
-  background: rgba(255,255,255,.9); border: none; cursor: pointer;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.95); border: 1px solid rgba(0,0,0,.08); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,.15); z-index: 2;
-  transition: background .15s; font-size: 16px; color: #0d1b2a;
+  box-shadow: 0 3px 12px rgba(0,0,0,.15); z-index: 2;
+  transition: all .15s; font-size: 18px; color: #0d1b2a; line-height: 1;
 }
-.gallery-main-wrap .gallery-arrow:hover { background: #fff; }
-.gallery-main-wrap .gallery-arrow.prev { left: 12px; }
-.gallery-main-wrap .gallery-arrow.next { right: 12px; }
+.gallery-arrow:hover { background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.22); }
+.gallery-arrow.prev { left: 14px; }
+.gallery-arrow.next { right: 14px; }
 .gallery-dots {
-  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
   display: flex; gap: 6px; z-index: 2;
 }
 .gallery-dot {
@@ -149,181 +202,159 @@
   background: rgba(255,255,255,.5); border: none; cursor: pointer;
   padding: 0; transition: background .15s;
 }
-.gallery-dot.active { background: #0066cc; }
-.gallery-thumbs {
-  display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px;
-}
+.gallery-dot.active { background: #0066cc; width: 20px; border-radius: 4px; }
+.gallery-thumbs { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 2px; }
 .gallery-thumb {
-  flex-shrink: 0; width: 110px; height: 74px; border-radius: 9px;
+  flex-shrink: 0; width: 100px; height: 70px; border-radius: 8px;
   overflow: hidden; cursor: pointer; border: 2px solid transparent;
-  background: #fff; transition: border-color .15s; padding: 0;
-  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  background: #fff; transition: all .15s; padding: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
 }
 .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.gallery-thumb.active { border-color: #0066cc; }
-.gallery-thumb:hover { border-color: #aac8f0; }
+.gallery-thumb.active { border-color: #0066cc; box-shadow: 0 0 0 3px rgba(0,102,204,.18); }
+.gallery-thumb:hover:not(.active) { border-color: #99bfe6; }
+
+/* Gallery pitch column */
+.gallery-pitch { display: flex; flex-direction: column; justify-content: center; }
+.gallery-pitch-eyebrow {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+  color: #0066cc; background: rgba(0,102,204,.08); display: inline-block;
+  padding: 4px 14px; border-radius: 100px; margin-bottom: 18px;
+}
+.gallery-pitch h2 {
+  font-size: clamp(24px,2.5vw,34px); font-weight: 800; letter-spacing: -1px;
+  color: #0d1b2a; line-height: 1.15; margin-bottom: 16px;
+}
+.gallery-pitch p { font-size: 15px; color: #495057; line-height: 1.7; margin-bottom: 24px; }
+.gallery-check-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.gallery-check-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: #2c3e50; line-height: 1.5;
+}
+.gallery-check-item::before {
+  content: '✓'; flex-shrink: 0; width: 22px; height: 22px;
+  background: #0066cc; color: #fff; border-radius: 50%;
+  font-size: 11px; font-weight: 800; display: flex;
+  align-items: center; justify-content: center; margin-top: 1px;
+}
+
+/* ── Power / Model Cards ─────────────────────────────────── */
+.power-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.power-card {
+  border: 2px solid #e8ecf0; border-radius: 14px;
+  padding: 28px 22px; text-align: left; position: relative;
+  background: #fff; transition: border-color .2s, box-shadow .2s, transform .15s;
+}
+.power-card:hover { border-color: #0066cc; box-shadow: 0 8px 28px rgba(0,102,204,.12); transform: translateY(-2px); }
+.power-card.active {
+  border-color: #0066cc; background: linear-gradient(135deg, #fff 0%, rgba(0,102,204,.04) 100%);
+  box-shadow: 0 8px 32px rgba(0,102,204,.15);
+}
+.power-badge {
+  display: inline-block; font-size: 10px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; padding: 3px 10px; border-radius: 100px;
+  background: #0066cc; color: #fff; margin-bottom: 14px;
+}
+.power-kw { font-size: 36px; font-weight: 800; color: #0d1b2a; letter-spacing: -2px; line-height: 1; }
+.power-kw span { font-size: 18px; color: #6a7a8a; font-weight: 600; letter-spacing: 0; }
+.power-label { font-size: 13px; color: #6a7a8a; margin: 6px 0 14px; font-weight: 500; }
+.power-model { font-size: 11px; font-weight: 700; color: #0066cc; margin-bottom: 16px; letter-spacing: .5px; }
+.power-specs { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; border-top: 1px solid #f0f2f5; }
+.power-specs li { font-size: 13px; color: #495057; padding: 7px 0; border-bottom: 1px solid #f0f2f5; display: flex; justify-content: space-between; }
+.power-specs li strong { color: #0d1b2a; font-weight: 600; }
 
 /* ── Feature photo blocks ────────────────────────────────── */
-.feat-photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 64px; }
+.feat-photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 72px; }
 .feat-photo-grid.reverse { direction: rtl; }
 .feat-photo-grid.reverse > * { direction: ltr; }
-.feat-photo-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 16px 60px rgba(0,0,0,.12); }
+.feat-photo-frame {
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.13);
+}
 .feat-photo-frame img { width: 100%; height: 340px; object-fit: cover; display: block; }
-/* ── Body slides — show/hide with directional animation ─────── */
-.procut-body-wrap { position: relative; overflow: hidden; }
-.procut-body-track { position: relative; }
-.procut-body-slide { display: none; width: 100%; }
-.procut-body-slide.active { display: block; }
 
-@keyframes wl-slide-in-r {
-  from { opacity: 0; transform: translateX(64px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes wl-slide-in-l {
-  from { opacity: 0; transform: translateX(-64px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-.procut-body-slide.entering-r {
-  display: block;
-  animation: wl-slide-in-r .42s cubic-bezier(.4,0,.2,1) both;
-}
-.procut-body-slide.entering-l {
-  display: block;
-  animation: wl-slide-in-l .42s cubic-bezier(.4,0,.2,1) both;
-}
+/* ── Spec tables ─────────────────────────────────────────── */
+.spec-section { padding: 72px 0; background: #fff; }
+.spec-table-wrap { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,.07); margin-bottom: 32px; }
+.spec-table-wrap table { width: 100%; border-collapse: collapse; }
+.spec-table-wrap thead tr { background: #0d1b2a; }
+.spec-table-wrap thead th { padding: 14px 18px; color: #fff; font-size: 13px; font-weight: 700; text-align: left; border: none; }
+.spec-table-wrap thead th:first-child { color: #8899aa; }
+.spec-table-wrap tbody tr:nth-child(even) { background: #f8f9fa; }
+.spec-table-wrap tbody tr:nth-child(odd) { background: #fff; }
+.spec-table-wrap tbody td { padding: 12px 18px; font-size: 13px; color: #2c3e50; border: none; border-bottom: 1px solid #f0f2f5; }
+.spec-table-wrap tbody td:first-child { font-weight: 600; color: #0d1b2a; }
 
-@media (max-width: 1024px) {
-  .product-gallery-inner { padding: 0 24px; }
-  .gallery-thumb { width: 80px; height: 54px; }
-  .feat-photo-grid { grid-template-columns: 1fr; gap: 32px; }
-  .feat-photo-grid.reverse { direction: ltr; }
+/* ── Brochure CTA (email gate) ───────────────────────────── */
+.brochure-section { background: #0d1b2a; padding: 80px 0; }
+.brochure-inner { max-width: 600px; margin: 0 auto; padding: 0 40px; text-align: center; }
+.brochure-inner h2 { font-size: clamp(26px,3vw,38px); font-weight: 800; letter-spacing: -1px; color: #fff; margin-bottom: 12px; }
+.brochure-inner p { font-size: 16px; color: #8899aa; margin-bottom: 36px; line-height: 1.6; }
+.brochure-form-wrap { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; }
+.brochure-form-wrap input {
+  flex: 1; padding: 14px 18px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06); color: #fff; font-size: 14px;
+  outline: none; transition: border-color .15s;
 }
-@media (max-width: 640px) {
-  .product-gallery-inner { padding: 0 16px; }
-  .gallery-thumb { width: 68px; height: 46px; }
+.brochure-form-wrap input::placeholder { color: #526070; }
+.brochure-form-wrap input:focus { border-color: rgba(0,102,204,.6); }
+.brochure-form-wrap button {
+  padding: 14px 22px; background: #0066cc; color: #fff; border: none;
+  border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer;
+  white-space: nowrap; transition: background .15s;
 }
-.mh-spec-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-.mh-spec-pill {
-  display: flex; flex-direction: column; gap: 2px;
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-  border-radius: 8px; padding: 10px 14px; flex: 1; min-width: 80px;
-}
-.mh-spec-pill-label { font-size: 10px; color: #526070; text-transform: uppercase; letter-spacing: .8px; font-weight: 600; }
-.mh-spec-pill-val { font-size: 14px; font-weight: 700; color: #fff; }
+.brochure-form-wrap button:hover { background: #0055b3; }
+.brochure-success { color: #66cc88; font-size: 15px; font-weight: 600; margin-top: 16px; display: none; }
 
-/* ── Power Options ────────────────────────────────────────── */
-.power-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.power-card {
-  border: 2px solid var(--border); border-radius: var(--radius);
-  padding: 24px; text-align: center; cursor: pointer;
-  transition: border-color .15s, box-shadow .15s;
-  background: #fff;
-}
-.power-card:hover, .power-card.active {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(0,102,204,.1);
-}
-.power-card.active { background: rgba(0,102,204,.03); }
-.power-kw { font-size: 28px; font-weight: 800; color: var(--text); letter-spacing: -1px; }
-.power-kw span { font-size: 16px; color: var(--text3); font-weight: 600; }
-.power-label { font-size: 12px; color: var(--text3); margin-top: 4px; font-weight: 500; }
-.power-model { font-size: 11px; font-weight: 700; color: var(--blue); margin-top: 6px; letter-spacing: .5px; }
-.power-also { font-size: 11px; color: var(--text3); margin-top: 4px; }
-
-/* ── Compare ──────────────────────────────────────────────── */
-.compare-nav {
-  display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;
-}
+/* ── Compare nav ─────────────────────────────────────────── */
+.compare-nav { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
 .compare-nav a {
-  padding: 8px 18px; border: 1.5px solid var(--border2); border-radius: 100px;
-  font-size: 13px; font-weight: 600; color: var(--text2);
+  padding: 8px 20px; border: 1.5px solid #dde2ea; border-radius: 100px;
+  font-size: 13px; font-weight: 600; color: #6a7a8a; text-decoration: none;
   transition: all .15s;
 }
 .compare-nav a.current, .compare-nav a:hover {
-  border-color: var(--blue); color: var(--blue);
-  background: rgba(0,102,204,.05);
+  border-color: #0066cc; color: #0066cc; background: rgba(0,102,204,.06);
 }
 
-/* ── Series tab switcher (below hero) ────────────────────── */
-.procut-series-switcher {
-  background: #fff;
-  border-bottom: 2px solid var(--border);
-  position: sticky; top: var(--header-h); z-index: 90;
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
-}
-.procut-series-switcher-inner {
-  max-width: 1280px; margin: 0 auto; padding: 0 40px;
-  display: flex; gap: 0;
-}
-.procut-series-tab {
-  padding: 18px 32px 16px;
-  background: transparent; border: none; cursor: pointer;
-  text-align: left; border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  transition: border-color .2s, background .15s;
-  display: flex; flex-direction: column; gap: 3px;
-}
-.procut-series-tab:hover { background: rgba(0,102,204,.04); }
-.procut-series-tab.active { border-bottom-color: var(--blue); }
-.pst-title {
-  font-size: 14px; font-weight: 700; color: var(--text2);
-  white-space: nowrap;
-}
-.procut-series-tab.active .pst-title { color: var(--blue); }
-.pst-sub {
-  font-size: 11px; color: var(--text3); line-height: 1.35; font-weight: 500;
+/* ── Quote section ───────────────────────────────────────── */
+.quote-section { background: #f4f6f9; padding: 80px 0; }
+.quote-pitch-icon {
+  width: 44px; height: 44px; background: rgba(0,102,204,.1); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
 }
 
+/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .machine-hero-inner { grid-template-columns: 1fr; }
-  .machine-hero-visual { display: none; }
+  .pc-gallery-inner { grid-template-columns: 1fr; gap: 40px; }
+  .gallery-pitch { padding-top: 0; }
+  .feat-photo-grid { grid-template-columns: 1fr; gap: 32px; }
+  .feat-photo-grid.reverse { direction: ltr; }
   .power-grid { grid-template-columns: 1fr 1fr; }
   .procut-series-switcher-inner { padding: 0 24px; }
-  .procut-series-tab { padding: 14px 20px 12px; }
+  .procut-series-tab { padding: 16px 24px 14px; }
+  .machine-hero-inner { padding: 100px 32px 64px; }
 }
-
-/* ── Mobile hero: machine photo visible, text pinned to top ── */
 @media (max-width: 768px) {
-  .machine-hero {
-    padding: 0;
-    min-height: 520px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .machine-hero-grid {
-    background-image: url('/assets/procut-hero-bg.png');
-    background-position: center 60%;
-    background-size: cover;
-    opacity: 1;
-  }
-  /* Gradient: strong at top for text legibility, fades out revealing the machine */
-  .machine-hero::after {
-    background: linear-gradient(180deg,
-      rgba(232,234,236,1.00) 0%,
-      rgba(232,234,236,.96) 22%,
-      rgba(232,234,236,.80) 42%,
-      rgba(232,234,236,.30) 65%,
-      transparent 100%);
-  }
-  .machine-hero-inner {
-    padding: 32px 20px 0;
-    max-width: 100%;
-  }
-  .machine-hero h1 { font-size: clamp(28px, 8vw, 40px); letter-spacing: -1px; }
-  .mh-desc { font-size: 14px; line-height: 1.6; margin-bottom: 20px; }
-  .mh-stats { gap: 16px; padding: 14px 0; margin-bottom: 20px; }
-  .mh-stat-val { font-size: 20px; }
-  .mh-actions { gap: 10px; }
-  .btn-mh-primary, .btn-mh-secondary, .btn-mh-catalog { padding: 11px 18px; font-size: 13px; }
-}
-
-@media (max-width: 640px) {
+  .machine-hero { min-height: 520px; }
+  .machine-hero-inner { padding: 90px 24px 56px; }
+  .machine-hero h1 { font-size: clamp(30px,8vw,44px); letter-spacing: -1.5px; }
+  .mh-desc { font-size: 14px; }
+  .mh-stats { gap: 20px; }
+  .mh-stat-val { font-size: 22px; }
+  .btn-mh-primary, .btn-mh-secondary, .btn-mh-catalog { padding: 12px 18px; font-size: 13px; }
+  .pc-gallery-inner { padding: 0 20px; }
   .power-grid { grid-template-columns: 1fr 1fr; }
-  .machine-hero-inner { padding: 28px 20px 0; }
+  .brochure-form-wrap { flex-direction: column; }
+  .brochure-inner { padding: 0 24px; }
+}
+@media (max-width: 640px) {
+  .machine-hero-inner { padding: 80px 20px 48px; }
+  .power-grid { grid-template-columns: 1fr 1fr; }
   .pst-sub { display: none; }
-  .procut-series-tab { padding: 14px 16px 12px; }
+  .procut-series-tab { padding: 14px 18px 12px; }
   .procut-series-switcher-inner { padding: 0 16px; }
+  .power-grid[style*="repeat(4"] { grid-template-columns: 1fr 1fr !important; }
 }
 </style>
 </head>
@@ -464,21 +495,39 @@
     <div class="procut-body-slide active">
 
 <!-- ── ProCut Product Gallery ────────────────────────────── -->
-<div class="product-gallery">
-  <div class="product-gallery-inner">
-    <div class="gallery-main-wrap" id="pcGallery">
-      <img id="pcMainImg" src="/assets/procut-front-clean.png" alt="Wavlon ProCut Series"/>
-      <button class="gallery-arrow prev" onclick="galleryGo('pc',-1)" aria-label="Previous image">&#8592;</button>
-      <button class="gallery-arrow next" onclick="galleryGo('pc',1)" aria-label="Next image">&#8594;</button>
-      <div class="gallery-dots" id="pcDots"></div>
+<div class="pc-gallery-section">
+  <div class="pc-gallery-inner">
+    <!-- Gallery column -->
+    <div class="gallery-col">
+      <div class="gallery-main-wrap">
+        <img id="pcMainImg" src="/assets/procut-front-clean.png" alt="Wavlon ProCut Series"/>
+        <button class="gallery-arrow prev" onclick="galleryGo('pc',-1)" aria-label="Previous image">&#8592;</button>
+        <button class="gallery-arrow next" onclick="galleryGo('pc',1)" aria-label="Next image">&#8594;</button>
+        <div class="gallery-dots" id="pcDots"></div>
+      </div>
+      <div class="gallery-thumbs" id="pcThumbs">
+        <button class="gallery-thumb active" data-src="/assets/procut-front-clean.png"><img src="/assets/procut-front-clean.png" alt="Front view"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-hero.png"><img src="/assets/procut-hero.png" alt="3/4 angle"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-light-curtain.png"><img src="/assets/procut-light-curtain.png" alt="Safety curtain"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-gantry.png"><img src="/assets/procut-gantry.png" alt="Gantry head"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-electrical-cabinet.png"><img src="/assets/procut-electrical-cabinet.png" alt="Cabinet"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-bed.png"><img src="/assets/procut-bed.png" alt="Cutting bed"/></button>
+      </div>
     </div>
-    <div class="gallery-thumbs" id="pcThumbs">
-      <button class="gallery-thumb active" data-src="/assets/procut-front-clean.png"><img src="/assets/procut-front-clean.png" alt="Front view"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-hero.png"><img src="/assets/procut-hero.png" alt="3/4 angle"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-light-curtain.png"><img src="/assets/procut-light-curtain.png" alt="Safety curtain"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-gantry.png"><img src="/assets/procut-gantry.png" alt="Gantry head"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-electrical-cabinet.png"><img src="/assets/procut-electrical-cabinet.png" alt="Cabinet"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-bed.png"><img src="/assets/procut-bed.png" alt="Cutting bed"/></button>
+    <!-- Pitch column -->
+    <div class="gallery-pitch">
+      <div class="gallery-pitch-eyebrow">Gantry Fiber Laser Cutter</div>
+      <h2>Open Table. Enclosed Beam. Built to Cut Every Day.</h2>
+      <p>The ProCut delivers tier-1 components at an entry-level price — Yaskawa servos, ROUST rails, and a 27-inch Cypcut console, standard on every model.</p>
+      <div class="gallery-check-list">
+        <div class="gallery-check-item">Schneider &amp; ABB electrical — CSA-certified throughout</div>
+        <div class="gallery-check-item">ROUST German linear guide rails + Eblun helical rack</div>
+        <div class="gallery-check-item">Dual high-sensitivity safety light curtains, both ends</div>
+        <div class="gallery-check-item">Open bed — crane, forklift, or manual loading, any direction</div>
+        <div class="gallery-check-item">±0.03 mm positioning / ±0.02 mm repeat accuracy</div>
+        <div class="gallery-check-item">Cypcut software with DXF/DWG nesting (12kW: Cypnest included)</div>
+      </div>
+      <a href="#quote" class="btn-mh-primary" style="align-self:flex-start;">Request a Quote &rarr;</a>
     </div>
   </div>
 </div>
@@ -489,44 +538,43 @@
     <div class="section-head">
       <span class="eyebrow">Power Options</span>
       <h2>Choose Your Model</h2>
-      <p>The ProCut Series is available in 3 kW, 6 kW, and 12 kW configurations on both 3015 and 4020 frame sizes.</p>
+      <p>The ProCut Series is available in 3 kW, 6 kW, and 12 kW on both 3015 and 4020 frame sizes. All models share the same tier-1 drivetrain.</p>
     </div>
     <div class="power-grid">
       <div class="power-card">
-        <div class="power-kw">3<span>kW</span></div>
+        <div class="power-kw">3<span> kW</span></div>
         <div class="power-label">Entry Level</div>
-        <div class="power-model">WPC-3015-3K / WPC-4020-3K</div>
-        <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 0.5–16 mm</div>
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-310</div>
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT2000E</div>
-          <div style="padding:6px 0;">Speed: 100 m/min · 1.0 G</div>
-        </div>
-        <div class="power-also">4020 frame also available</div>
+        <div class="power-model">WPC-3015-3K &nbsp;/&nbsp; WPC-4020-3K</div>
+        <ul class="power-specs">
+          <li><span>Steel Range</span><strong>0.5–16 mm</strong></li>
+          <li><span>Laser Head</span><strong>BLT-310</strong></li>
+          <li><span>Control</span><strong>FSCUT2000E</strong></li>
+          <li><span>Speed</span><strong>100 m/min · 1.0 G</strong></li>
+        </ul>
       </div>
       <div class="power-card active">
-        <div class="power-kw">6<span>kW</span></div>
-        <div class="power-label">Most Popular</div>
-        <div class="power-model">WPC-3015-6K / WPC-4020-6K</div>
-        <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 0.5–22 mm</div>
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-421S</div>
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT4000E</div>
-          <div style="padding:6px 0;">Speed: 100 m/min · 1.0 G</div>
-        </div>
-        <div class="power-also">4020 frame also available</div>
+        <div class="power-badge">Most Popular</div>
+        <div class="power-kw">6<span> kW</span></div>
+        <div class="power-label">Best Balance of Speed &amp; Power</div>
+        <div class="power-model">WPC-3015-6K &nbsp;/&nbsp; WPC-4020-6K</div>
+        <ul class="power-specs">
+          <li><span>Steel Range</span><strong>0.5–22 mm</strong></li>
+          <li><span>Laser Head</span><strong>BLT-421S</strong></li>
+          <li><span>Control</span><strong>FSCUT4000E</strong></li>
+          <li><span>Speed</span><strong>100 m/min · 1.0 G</strong></li>
+        </ul>
       </div>
       <div class="power-card">
-        <div class="power-kw">12<span>kW</span></div>
+        <div class="power-kw">12<span> kW</span></div>
         <div class="power-label">High Performance</div>
-        <div class="power-model">WPC-3015-12K / WPC-4020-12K</div>
-        <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 2–35 mm</div>
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-442</div>
-          <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT8000</div>
-          <div style="padding:6px 0;">Speed: 100 m/min · 1.0 G</div>
-        </div>
-        <div class="power-also">Cypnest included · 4020 also available</div>
+        <div class="power-model">WPC-3015-12K &nbsp;/&nbsp; WPC-4020-12K</div>
+        <ul class="power-specs">
+          <li><span>Steel Range</span><strong>2–35 mm</strong></li>
+          <li><span>Laser Head</span><strong>BLT-442</strong></li>
+          <li><span>Control</span><strong>FSCUT8000</strong></li>
+          <li><span>Speed</span><strong>100 m/min · 1.0 G</strong></li>
+        </ul>
+        <div style="margin-top:12px;font-size:11px;color:#0066cc;font-weight:600;">Cypnest nesting software included</div>
       </div>
     </div>
   </div>
@@ -623,96 +671,70 @@
       <p>All six ProCut models — 3015 and 4020 frame sizes across 3 kW, 6 kW, and 12 kW.</p>
     </div>
 
-    <h3 style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border);">3015 Frame Models (Working Area: 3080 &times; 1540 mm)</h3>
-    <div style="overflow-x:auto;margin-bottom:36px;">
-      <table class="spec-table" style="min-width:700px;">
-        <thead>
-          <tr>
-            <th>Specification</th>
-            <th>WPC-3015-3K</th>
-            <th>WPC-3015-6K</th>
-            <th>WPC-3015-12K</th>
-          </tr>
-        </thead>
+    <p style="font-size:13px;font-weight:700;color:#0d1b2a;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">3015 Frame — Working Area 3080 &times; 1540 mm</p>
+    <div class="spec-table-wrap" style="overflow-x:auto;margin-bottom:36px;">
+      <table style="min-width:640px;width:100%;border-collapse:collapse;">
+        <thead><tr style="background:#0d1b2a;">
+          <th style="padding:14px 18px;color:#8899aa;font-size:13px;font-weight:700;text-align:left;border:none;">Specification</th>
+          <th style="padding:14px 18px;color:#fff;font-size:13px;font-weight:700;text-align:left;border:none;">WPC-3015-3K</th>
+          <th style="padding:14px 18px;color:#fff;font-size:13px;font-weight:700;text-align:left;border:none;">WPC-3015-6K</th>
+          <th style="padding:14px 18px;color:#fff;font-size:13px;font-weight:700;text-align:left;border:none;">WPC-3015-12K</th>
+        </tr></thead>
         <tbody>
-          <tr><td>Laser Power</td><td>3 kW</td><td>6 kW</td><td>12 kW</td></tr>
-          <tr><td>Working Area</td><td>3080 &times; 1540 mm</td><td>3080 &times; 1540 mm</td><td>3080 &times; 1540 mm</td></tr>
-          <tr><td>Steel Range</td><td>0.5–16 mm</td><td>0.5–22 mm</td><td>2–35 mm</td></tr>
-          <tr><td>Laser Head</td><td>BLT-310</td><td>BLT-421S</td><td>BLT-442</td></tr>
-          <tr><td>Control System</td><td>FSCUT2000E</td><td>FSCUT4000E</td><td>FSCUT8000</td></tr>
-          <tr><td>X-Axis Travel</td><td>1540 mm</td><td>1540 mm</td><td>1540 mm</td></tr>
-          <tr><td>Y-Axis Travel</td><td>3080 mm</td><td>3080 mm</td><td>3080 mm</td></tr>
-          <tr><td>Z-Axis Travel</td><td>300 mm</td><td>300 mm</td><td>300 mm</td></tr>
-          <tr><td>Max Acceleration</td><td>1.0 G</td><td>1.0 G</td><td>1.0 G</td></tr>
-          <tr><td>Max Speed</td><td>100 m/min</td><td>100 m/min</td><td>100 m/min</td></tr>
-          <tr><td>Nesting Software</td><td>Optional</td><td>Optional</td><td>Cypnest (included)</td></tr>
+          <tr style="background:#fff;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Laser Power</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">3 kW</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">6 kW</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">12 kW</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Steel Range</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">0.5–16 mm</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">0.5–22 mm</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">2–35 mm</td></tr>
+          <tr style="background:#fff;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Laser Head</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">BLT-310</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">BLT-421S</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">BLT-442</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Control System</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">FSCUT2000E</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">FSCUT4000E</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">FSCUT8000</td></tr>
+          <tr style="background:#fff;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Working Area</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;" colspan="3">3080 &times; 1540 mm</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Max Speed</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;" colspan="3">100 m/min · 1.0 G</td></tr>
+          <tr style="background:#fff;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;">Nesting Software</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;">Optional</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;">Optional</td><td style="padding:12px 18px;font-size:13px;color:#0066cc;font-weight:700;">Cypnest (included)</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3 style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border);">4020 Frame Models (Working Area: 4000 &times; 2000 mm)</h3>
-    <div style="overflow-x:auto;margin-bottom:36px;">
-      <table class="spec-table" style="min-width:700px;">
-        <thead>
-          <tr>
-            <th>Specification</th>
-            <th>WPC-4020-3K</th>
-            <th>WPC-4020-6K</th>
-            <th>WPC-4020-12K</th>
-          </tr>
-        </thead>
+    <p style="font-size:13px;font-weight:700;color:#0d1b2a;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">4020 Frame — Working Area 4000 &times; 2000 mm</p>
+    <div class="spec-table-wrap" style="overflow-x:auto;margin-bottom:40px;">
+      <table style="min-width:640px;width:100%;border-collapse:collapse;">
+        <thead><tr style="background:#0d1b2a;">
+          <th style="padding:14px 18px;color:#8899aa;font-size:13px;font-weight:700;text-align:left;border:none;">Specification</th>
+          <th style="padding:14px 18px;color:#fff;font-size:13px;font-weight:700;text-align:left;border:none;">WPC-4020-3K</th>
+          <th style="padding:14px 18px;color:#fff;font-size:13px;font-weight:700;text-align:left;border:none;">WPC-4020-6K</th>
+          <th style="padding:14px 18px;color:#fff;font-size:13px;font-weight:700;text-align:left;border:none;">WPC-4020-12K</th>
+        </tr></thead>
         <tbody>
-          <tr><td>Laser Power</td><td>3 kW</td><td>6 kW</td><td>12 kW</td></tr>
-          <tr><td>Working Area</td><td>4000 &times; 2000 mm</td><td>4000 &times; 2000 mm</td><td>4000 &times; 2000 mm</td></tr>
-          <tr><td>Steel Range</td><td>0.5–16 mm</td><td>0.5–22 mm</td><td>0.5–22 mm</td></tr>
-          <tr><td>Laser Head</td><td>BLT-310</td><td>BLT-421S</td><td>BLT-442</td></tr>
-          <tr><td>Control System</td><td>FSCUT2000E</td><td>FSCUT4000E</td><td>FSCUT8000</td></tr>
-          <tr><td>X-Axis Travel</td><td>4020 mm</td><td>4020 mm</td><td>4020 mm</td></tr>
-          <tr><td>Y-Axis Travel</td><td>2010 mm</td><td>2010 mm</td><td>2010 mm</td></tr>
-          <tr><td>Z-Axis Travel</td><td>300 mm</td><td>300 mm</td><td>300 mm</td></tr>
-          <tr><td>Max Acceleration</td><td>1.0 G</td><td>1.0 G</td><td>1.0 G</td></tr>
-          <tr><td>Max Speed</td><td>100 m/min</td><td>100 m/min</td><td>100 m/min</td></tr>
-          <tr><td>Nesting Software</td><td>Optional</td><td>Optional</td><td>Cypnest (included)</td></tr>
+          <tr style="background:#fff;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Laser Power</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">3 kW</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">6 kW</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">12 kW</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Steel Range</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">0.5–16 mm</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">0.5–22 mm</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">2–35 mm</td></tr>
+          <tr style="background:#fff;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Laser Head</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">BLT-310</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">BLT-421S</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">BLT-442</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Control System</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">FSCUT2000E</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">FSCUT4000E</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">FSCUT8000</td></tr>
+          <tr style="background:#fff;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Working Area</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;" colspan="3">4000 &times; 2000 mm</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Max Speed</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;" colspan="3">100 m/min · 1.0 G</td></tr>
+          <tr style="background:#fff;"><td style="padding:12px 18px;font-size:13px;font-weight:600;color:#0d1b2a;">Nesting Software</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;">Optional</td><td style="padding:12px 18px;font-size:13px;color:#2c3e50;">Optional</td><td style="padding:12px 18px;font-size:13px;color:#0066cc;font-weight:700;">Cypnest (included)</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3 style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border);">Common Specifications (All ProCut Models)</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
-      <div>
-        <table class="spec-table">
-          <tr><td>Laser Source</td><td>MAX</td></tr>
-          <tr><td>Servo Motor</td><td>Yaskawa (Japan)</td></tr>
-          <tr><td>Reducer</td><td>TECHMECH</td></tr>
-          <tr><td>Linear Guide Rail</td><td>ROUST (Germany)</td></tr>
-          <tr><td>Helical Rack</td><td>Eblun (Taiwan)</td></tr>
-          <tr><td>Electrical Components</td><td>Schneider &amp; ABB (France)</td></tr>
-          <tr><td>Pneumatic / Gas</td><td>SMC</td></tr>
-          <tr><td>Water Chiller</td><td>S&amp;A</td></tr>
-          <tr><td>Calibration</td><td>Automatic</td></tr>
-        </table>
-      </div>
-      <div>
-        <table class="spec-table">
-          <tr><td>Machine Frame</td><td>Metal plate welded construction</td></tr>
-          <tr><td>Machine Beam</td><td>Steel</td></tr>
-          <tr><td>Enclosure</td><td>Gantry-style enclosed beam, open machine bed</td></tr>
-          <tr><td>Operating Voltage</td><td>380V / 3-phase / 60Hz</td></tr>
-          <tr><td>Software</td><td>Cypcut / Hypcut</td></tr>
-          <tr><td>Screen</td><td>27-inch internal-design console</td></tr>
-          <tr><td>Positioning Precision</td><td>&plusmn;0.03 mm / 1000 mm</td></tr>
-          <tr><td>Repeat Precision</td><td>&plusmn;0.02 mm / 1000 mm</td></tr>
-          <tr><td>Certification</td><td>FDA &amp; CE / CSA components &amp; cables</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div style="margin-top:32px;padding:20px 24px;background:rgba(0,102,204,.05);border:1px solid rgba(0,102,204,.15);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-      <div>
-        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;">Download the full ProCut Series catalog</div>
-        <div style="font-size:14px;color:var(--text2);">Complete specification sheet — all power levels, frame options, and cutting data (PDF, 19 MB).</div>
-      </div>
-      <a href="/catalogs/wavlon-procut-series-catalog.pdf" download class="btn-primary" style="flex-shrink:0;">&#8595; Download Catalog (PDF)</a>
+    <p style="font-size:13px;font-weight:700;color:#0d1b2a;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Common Specifications — All ProCut Models</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <div class="spec-table-wrap"><table style="width:100%;border-collapse:collapse;">
+        <tbody>
+          <tr style="background:#fff;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Laser Source</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">MAX</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Servo Motor</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">Yaskawa (Japan)</td></tr>
+          <tr style="background:#fff;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Linear Guide Rail</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">ROUST (Germany)</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Helical Rack</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">Eblun (Taiwan)</td></tr>
+          <tr style="background:#fff;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Electrical</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">Schneider &amp; ABB (France)</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;">Water Chiller</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;">S&amp;A</td></tr>
+        </tbody>
+      </table></div>
+      <div class="spec-table-wrap"><table style="width:100%;border-collapse:collapse;">
+        <tbody>
+          <tr style="background:#fff;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Operating Voltage</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">380V / 3-phase / 60Hz</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Software</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">Cypcut / Hypcut</td></tr>
+          <tr style="background:#fff;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Screen</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">27-inch console</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Positioning Precision</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">&plusmn;0.03 mm / 1000 mm</td></tr>
+          <tr style="background:#fff;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;border-bottom:1px solid #f0f2f5;">Repeat Precision</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;border-bottom:1px solid #f0f2f5;">&plusmn;0.02 mm / 1000 mm</td></tr>
+          <tr style="background:#f8f9fa;"><td style="padding:11px 16px;font-size:13px;font-weight:600;color:#0d1b2a;">Certification</td><td style="padding:11px 16px;font-size:13px;color:#2c3e50;">FDA &amp; CE / CSA</td></tr>
+        </tbody>
+      </table></div>
     </div>
   </div>
 </section>
@@ -748,23 +770,25 @@
   </div>
 </section>
 
-<!-- ── Catalog Download CTA ──────────────────────────────────── -->
-<section id="brochure" style="background:var(--bg-dark);padding:64px 0;">
-  <div class="container-narrow" style="text-align:center;">
-    <h2 style="font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;color:#fff;margin-bottom:12px;">Download the ProCut Series Catalog</h2>
-    <p style="font-size:16px;color:#8899aa;margin-bottom:32px;">Full specifications, cutting data, frame options, and model comparison for all WPC ProCut models.</p>
-    <a href="/catalogs/wavlon-procut-series-catalog.pdf" download
-       style="display:inline-flex;align-items:center;gap:10px;padding:15px 32px;background:#0066cc;color:#fff;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;transition:background .15s;"
-       onmouseover="this.style.background='#0055b3'" onmouseout="this.style.background='#0066cc'">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download Catalog (PDF · 19 MB)
-    </a>
-    <p style="margin-top:20px;font-size:13px;color:#526070;">No email required — direct download</p>
+<!-- ── Catalog Download CTA (email gate) ─────────────────────── -->
+<section id="brochure" class="brochure-section">
+  <div class="brochure-inner">
+    <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:rgba(0,102,204,.25);border-radius:14px;margin-bottom:24px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#66aaff" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </div>
+    <h2>Download the ProCut Series Catalog</h2>
+    <p>Full specifications, cutting data, frame options, and model comparison for all WPC ProCut models. We'll email you the PDF instantly.</p>
+    <form id="brochureForm" class="brochure-form-wrap">
+      <input type="email" id="brochure_email" placeholder="your@email.com" required autocomplete="email"/>
+      <button type="submit">Get Catalog Link</button>
+    </form>
+    <div class="brochure-success" id="brochureMsg">&#10003; Check your inbox — catalog link sent!</div>
+    <p style="margin-top:18px;font-size:12px;color:#3a4a5a;">No spam. One email. Unsubscribe anytime.</p>
   </div>
 </section>
 
 <!-- ── Quote Form ─────────────────────────────────────────────── -->
-<section class="section-alt" id="quote">
+<section class="quote-section" id="quote">
   <div class="container">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
       <div>
@@ -829,20 +853,36 @@
     <div class="procut-body-slide">
 
 <!-- ── ProCut UL Product Gallery ─────────────────────────── -->
-<div class="product-gallery">
-  <div class="product-gallery-inner">
-    <div class="gallery-main-wrap" id="ulGallery">
-      <img id="ulMainImg" src="/assets/procut-ul-front.png" alt="Wavlon ProCut UL Series"/>
-      <button class="gallery-arrow prev" onclick="galleryGo('ul',-1)" aria-label="Previous image">&#8592;</button>
-      <button class="gallery-arrow next" onclick="galleryGo('ul',1)" aria-label="Next image">&#8594;</button>
-      <div class="gallery-dots" id="ulDots"></div>
+<div class="pc-gallery-section">
+  <div class="pc-gallery-inner">
+    <div class="gallery-col">
+      <div class="gallery-main-wrap">
+        <img id="ulMainImg" src="/assets/procut-ul-front.png" alt="Wavlon ProCut UL Series"/>
+        <button class="gallery-arrow prev" onclick="galleryGo('ul',-1)" aria-label="Previous image">&#8592;</button>
+        <button class="gallery-arrow next" onclick="galleryGo('ul',1)" aria-label="Next image">&#8594;</button>
+        <div class="gallery-dots" id="ulDots"></div>
+      </div>
+      <div class="gallery-thumbs" id="ulThumbs">
+        <button class="gallery-thumb active" data-src="/assets/procut-ul-front.png"><img src="/assets/procut-ul-front.png" alt="UL front"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-ul-side.png"><img src="/assets/procut-ul-side.png" alt="UL side"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-ul-wide.png"><img src="/assets/procut-ul-wide.png" alt="UL wide 6025"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-electrical-cabinet.png"><img src="/assets/procut-electrical-cabinet.png" alt="Cabinet"/></button>
+        <button class="gallery-thumb" data-src="/assets/procut-light-curtain.png"><img src="/assets/procut-light-curtain.png" alt="Safety system"/></button>
+      </div>
     </div>
-    <div class="gallery-thumbs" id="ulThumbs">
-      <button class="gallery-thumb active" data-src="/assets/procut-ul-front.png"><img src="/assets/procut-ul-front.png" alt="UL front"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-ul-side.png"><img src="/assets/procut-ul-side.png" alt="UL side"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-ul-wide.png"><img src="/assets/procut-ul-wide.png" alt="UL wide 6025"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-electrical-cabinet.png"><img src="/assets/procut-electrical-cabinet.png" alt="Cabinet"/></button>
-      <button class="gallery-thumb" data-src="/assets/procut-light-curtain.png"><img src="/assets/procut-light-curtain.png" alt="Safety system"/></button>
+    <div class="gallery-pitch">
+      <div class="gallery-pitch-eyebrow">Ultra Large Format Gantry Cutter</div>
+      <h2>6m × 2.5m Bed. Up to 20 kW. Same Open-Table Design.</h2>
+      <p>The ProCut UL extends the proven gantry platform to oversized formats — ideal for structural steel, wide plate, and applications that exceed standard 3015 dimensions.</p>
+      <div class="gallery-check-list">
+        <div class="gallery-check-item">4020 and 6025 frame options — handles full-length structural stock</div>
+        <div class="gallery-check-item">Up to 20 kW with BLT-860H head — cuts 40mm carbon steel cleanly</div>
+        <div class="gallery-check-item">Reinforced gantry beam engineered for longer-span travel</div>
+        <div class="gallery-check-item">Unrestricted crane/forklift loading — no enclosure cycle delay</div>
+        <div class="gallery-check-item">Yaskawa servo drives across all axes for long-travel precision</div>
+        <div class="gallery-check-item">Canadian-stocked consumables — nozzles, lenses, windows</div>
+      </div>
+      <a href="#quote-ul" class="btn-mh-primary" style="align-self:flex-start;">Request a Quote &rarr;</a>
     </div>
   </div>
 </div>
@@ -857,48 +897,49 @@
           </div>
           <div class="power-grid" style="grid-template-columns:repeat(4,1fr);">
             <div class="power-card">
-              <div class="power-kw">3<span>kW</span></div>
+              <div class="power-kw">3<span> kW</span></div>
               <div class="power-label">Entry UL</div>
               <div class="power-model">WPC-UL-4020-3K / WPC-UL-6025-3K</div>
-              <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 0.5–16 mm</div>
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-310</div>
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT2000E</div>
-                <div style="padding:6px 0;">Speed: 100 m/min · 1.0 G</div>
-              </div>
+              <ul class="power-specs">
+                <li><span>Steel</span><strong>0.5–16 mm</strong></li>
+                <li><span>Head</span><strong>BLT-310</strong></li>
+                <li><span>Control</span><strong>FSCUT2000E</strong></li>
+                <li><span>Speed</span><strong>100 m/min</strong></li>
+              </ul>
             </div>
             <div class="power-card">
-              <div class="power-kw">6<span>kW</span></div>
+              <div class="power-kw">6<span> kW</span></div>
               <div class="power-label">Standard UL</div>
               <div class="power-model">WPC-UL-4020-6K / WPC-UL-6025-6K</div>
-              <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 0.5–22 mm</div>
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-421S</div>
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT4000E</div>
-                <div style="padding:6px 0;">Speed: 120 m/min · 1.0 G</div>
-              </div>
+              <ul class="power-specs">
+                <li><span>Steel</span><strong>0.5–22 mm</strong></li>
+                <li><span>Head</span><strong>BLT-421S</strong></li>
+                <li><span>Control</span><strong>FSCUT4000E</strong></li>
+                <li><span>Speed</span><strong>120 m/min</strong></li>
+              </ul>
             </div>
             <div class="power-card active">
-              <div class="power-kw">12<span>kW</span></div>
-              <div class="power-label">Most Popular</div>
+              <div class="power-badge">Most Popular</div>
+              <div class="power-kw">12<span> kW</span></div>
+              <div class="power-label">Precision + Power</div>
               <div class="power-model">WPC-UL-4020-12K / WPC-UL-6025-12K</div>
-              <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 2–35 mm</div>
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-442</div>
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT8000</div>
-                <div style="padding:6px 0;">Speed: 120 m/min · 1.0 G</div>
-              </div>
+              <ul class="power-specs">
+                <li><span>Steel</span><strong>2–35 mm</strong></li>
+                <li><span>Head</span><strong>BLT-442</strong></li>
+                <li><span>Control</span><strong>FSCUT8000</strong></li>
+                <li><span>Speed</span><strong>120 m/min</strong></li>
+              </ul>
             </div>
             <div class="power-card">
-              <div class="power-kw">20<span>kW</span></div>
+              <div class="power-kw">20<span> kW</span></div>
               <div class="power-label">Heavy Duty</div>
               <div class="power-model">WPC-UL-4020-20K / WPC-UL-6025-20K</div>
-              <div style="margin-top:16px;font-size:13px;color:var(--text2);text-align:left;">
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Steel: 5–40 mm</div>
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Laser Head: BLT-860H</div>
-                <div style="padding:6px 0;border-bottom:1px solid var(--border);">Control: FSCUT8000</div>
-                <div style="padding:6px 0;">Speed: 120 m/min · 1.2 G</div>
-              </div>
+              <ul class="power-specs">
+                <li><span>Steel</span><strong>5–40 mm</strong></li>
+                <li><span>Head</span><strong>BLT-860H</strong></li>
+                <li><span>Control</span><strong>FSCUT8000</strong></li>
+                <li><span>Speed</span><strong>120 m/min · 1.2G</strong></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1003,7 +1044,7 @@
       </section>
 
       <!-- UL Quote Form -->
-      <section class="section-alt" id="quote-ul">
+      <section class="quote-section" id="quote-ul">
         <div class="container">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
             <div>
@@ -1121,7 +1162,8 @@ document.getElementById('sqForm').addEventListener('submit', async function(e) {
 });
 
 /* Brochure form */
-document.getElementById('brochureForm').addEventListener('submit', async function(e) {
+var _bf = document.getElementById('brochureForm');
+if (_bf) _bf.addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('button');
   btn.textContent = 'Sending…'; btn.disabled = true;
@@ -1135,7 +1177,7 @@ document.getElementById('brochureForm').addEventListener('submit', async functio
     this.style.display = 'none';
     document.getElementById('brochureMsg').style.display = 'block';
   } catch(err) {
-    btn.textContent = 'Send Brochure'; btn.disabled = false;
+    btn.textContent = 'Get Catalog Link'; btn.disabled = false;
   }
 });
 </script>
