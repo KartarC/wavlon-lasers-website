@@ -239,9 +239,9 @@
       <a href="#video" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:1.5px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Watch in Action
       </a>
-      <a href="/catalogs/wavlon-powercut-series-catalog.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:1.5px solid rgba(255,255,255,.15);color:#8899aa;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;">
+      <button onclick="openCatalogModal('PowerCut Series','/catalogs/wavlon-powercut-series-catalog.pdf')" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:1.5px solid rgba(255,255,255,.15);color:#8899aa;border-radius:8px;font-size:14px;font-weight:600;background:transparent;cursor:pointer;">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Catalog
-      </a>
+      </button>
       <a href="#specs" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:1.5px solid rgba(255,255,255,.15);color:#8899aa;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;">View Full Specs</a>
     </div>
   </div>
@@ -578,10 +578,10 @@
         <h4>PowerCut Series — Full Product Catalog</h4>
         <p>Complete specifications, dimensional drawings, cutting data tables, and component details.</p>
       </div>
-      <a href="/catalogs/wavlon-powercut-series-catalog.pdf" target="_blank" class="catalog-cta-btn">
+      <button onclick="openCatalogModal('PowerCut Series','/catalogs/wavlon-powercut-series-catalog.pdf')" class="catalog-cta-btn" style="border:none;cursor:pointer;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download PDF
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -686,6 +686,7 @@
   <div class="footer-col"><h5>Support</h5><ul><li><a href="/contact/">Contact Us</a></li><li><a href="/contact/#quote">Get a Quote</a></li><li><a href="/service/#installation">Installation</a></li><li><a href="/service/#warranty">Warranty</a></li></ul></div>
 </div></div><div class="footer-bottom"><div class="footer-bottom-inner"><p class="footer-copy">&copy; 2026 Wavlon Lasers Inc. All rights reserved.</p><p class="footer-copy">Toronto, Ontario, Canada</p></div></div></footer>
 
+<script src="/assets/catalog-modal.js"></script>
 <script src="/nav.js"></script>
 <script>
 document.getElementById('pqForm').addEventListener('submit', async function(e) {

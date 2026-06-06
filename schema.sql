@@ -116,6 +116,27 @@ DO $$ BEGIN
 EXCEPTION WHEN duplicate_object THEN NULL;
 END $$;
 
+-- ─── CATALOG DOWNLOAD LEADS ──────────────────────────────────────────────────
+-- Populated via /api/capture-lead (server-side only — service role key never exposed)
+CREATE TABLE IF NOT EXISTS catalog_download_leads (
+  id             uuid primary key default gen_random_uuid(),
+  first_name     text not null,
+  last_name      text not null,
+  company_email  text not null,
+  company_name   text not null,
+  source         text default 'Catalog Download',
+  catalog_name   text,
+  page_url       text,
+  ip_address     text,
+  submitted_at   timestamptz default now()
+);
+
+ALTER TABLE catalog_download_leads ENABLE ROW LEVEL SECURITY;
+-- No public INSERT policy — all writes go through the service role key in /api/capture-lead
+
+CREATE INDEX IF NOT EXISTS idx_catalog_leads_submitted ON catalog_download_leads(submitted_at DESC);
+CREATE INDEX IF NOT EXISTS idx_catalog_leads_catalog   ON catalog_download_leads(catalog_name);
+
 -- ─── INDEXES ──────────────────────────────────────────────────────────────────
 CREATE INDEX IF NOT EXISTS idx_machines_status      ON machines(status);
 CREATE INDEX IF NOT EXISTS idx_machines_category    ON machines(category);

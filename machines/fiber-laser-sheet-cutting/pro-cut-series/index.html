@@ -463,7 +463,7 @@
       <div class="mh-actions">
         <a href="#quote" class="btn-mh-primary">Request a Quote &rarr;</a>
         <a href="#specs" class="btn-mh-secondary">View Full Specs</a>
-        <a href="/assets/procut-series-catalog.pdf" download class="btn-mh-catalog">&#8595; Download Catalog</a>
+        <button onclick="openCatalogModal('ProCut Series','/catalogs/wavlon-procut-series-catalog.pdf')" class="btn-mh-catalog" style="border:none;cursor:pointer;">&#8595; Download Catalog</button>
       </div>
     </div>
     <div class="machine-hero-visual">
@@ -889,19 +889,18 @@ function switchSeries(n) {
   </div>
 </section>
 
-<!-- ── Catalog Download CTA (email gate) ─────────────────────── -->
+<!-- ── Catalog Download CTA ───────────────────────────────────── -->
 <section id="brochure" class="brochure-section">
   <div class="brochure-inner">
     <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;background:rgba(0,102,204,.25);border-radius:14px;margin-bottom:24px;">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#66aaff" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
     </div>
     <h2>Download the ProCut Series Catalog</h2>
-    <p>Full specifications, cutting data, frame options, and model comparison for all WPC ProCut models. We'll email you the PDF instantly.</p>
-    <form id="brochureForm" class="brochure-form-wrap">
-      <input type="email" id="brochure_email" placeholder="your@email.com" required autocomplete="email"/>
-      <button type="submit">Get Catalog Link</button>
-    </form>
-    <div class="brochure-success" id="brochureMsg">&#10003; Check your inbox — catalog link sent!</div>
+    <p>Full specifications, cutting data, frame options, and model comparison for all WPC ProCut models.</p>
+    <button onclick="openCatalogModal('ProCut Series','/catalogs/wavlon-procut-series-catalog.pdf')" style="display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:#0066cc;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;margin-top:8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Get the Catalog
+    </button>
     <p style="margin-top:18px;font-size:12px;color:#3a4a5a;">No spam. One email. Unsubscribe anytime.</p>
   </div>
 </section>
@@ -1244,6 +1243,7 @@ function switchSeries(n) {
   <div class="footer-bottom"><div class="footer-bottom-inner"><p class="footer-copy">&copy; 2026 Wavlon Lasers Inc. All rights reserved.</p><p class="footer-copy">Toronto, Ontario, Canada</p></div></div>
 </footer>
 
+<script src="/assets/catalog-modal.js"></script>
 <script src="/nav.js"></script>
 <script>
 // Supabase credentials handled server-side via /api/submit-form
@@ -1281,25 +1281,6 @@ document.getElementById('sqForm').addEventListener('submit', async function(e) {
   }
 });
 
-/* Brochure form */
-var _bf = document.getElementById('brochureForm');
-if (_bf) _bf.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('button');
-  btn.textContent = 'Sending…'; btn.disabled = true;
-  try {
-    await postToSupabase('lead', {
-      email: document.getElementById('brochure_email').value,
-      machine_interest: 'ProCut Series',
-      source: 's-series-brochure',
-      message: 'Requested ProCut Series brochure download'
-    });
-    this.style.display = 'none';
-    document.getElementById('brochureMsg').style.display = 'block';
-  } catch(err) {
-    btn.textContent = 'Get Catalog Link'; btn.disabled = false;
-  }
-});
 </script>
 <script src="/assets/wavlon-chat.js" defer></script>
 

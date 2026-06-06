@@ -234,10 +234,10 @@
     <div class="uc-cta-row">
       <a href="#quote" class="uc-btn-primary">Request a Quote &rarr;</a>
       <a href="#specs" class="uc-btn-ghost">Full Specifications</a>
-      <a href="/catalogs/wavlon-ultracut-series-catalog.pdf" download class="uc-btn-outline-blue">
+      <button onclick="openCatalogModal('UltraCut Series','/catalogs/wavlon-ultracut-series-catalog.pdf')" class="uc-btn-outline-blue" style="border:none;cursor:pointer;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         Download Catalog
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -614,10 +614,10 @@
         <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Updated May 2026</span>
       </div>
     </div>
-    <a href="/catalogs/wavlon-ultracut-series-catalog.pdf" download class="catalog-dl-btn">
+    <button onclick="openCatalogModal('UltraCut Series','/catalogs/wavlon-ultracut-series-catalog.pdf')" class="catalog-dl-btn" style="border:none;cursor:pointer;">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Download Catalog
-    </a>
+    </button>
   </div>
 </section>
 
@@ -696,6 +696,7 @@
 <div class="footer-col"><h5>Support</h5><ul><li><a href="/contact/">Contact Us</a></li><li><a href="/contact/#quote">Get a Quote</a></li><li><a href="/service/#installation">Installation</a></li><li><a href="/parts/#order">Order Parts</a></li></ul></div>
 </div></div><div class="footer-bottom"><div class="footer-bottom-inner"><p class="footer-copy">&copy; 2026 Wavlon Lasers Inc. All rights reserved.</p><p class="footer-copy">Toronto, Ontario, Canada</p></div></div></footer>
 
+<script src="/assets/catalog-modal.js"></script>
 <script src="/nav.js"></script>
 <script>
 // Supabase credentials handled server-side via /api/submit-form
