@@ -196,6 +196,42 @@ input, textarea, select { font-family: inherit; }
 .mega-cs-link { font-size: 13px; color: var(--blue); font-weight: 500; }
 .mega-cs-link:hover { color: var(--blue-dk); }
 
+/* ── Simple Nav Dropdown (Support) ───────────────────────────── */
+.has-dropdown { position: relative; }
+.nav-dropdown {
+  position: absolute; top: calc(100% + 6px); left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.13);
+  min-width: 220px;
+  padding: 6px 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity .18s, visibility .18s, transform .18s;
+  z-index: 1000;
+  list-style: none; margin: 0;
+}
+.has-dropdown:hover .nav-dropdown {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown li a {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 11px 16px;
+  font-size: 13px; font-weight: 500; color: var(--text2);
+  transition: background .14s, color .14s;
+  text-decoration: none;
+}
+.nav-dropdown li a:hover { background: #f0f6ff; color: var(--blue); }
+.nav-dropdown li:not(:last-child) a { border-bottom: 1px solid var(--border); }
+.nav-dropdown-icon {
+  width: 32px; height: 32px; flex-shrink: 0;
+  background: rgba(0,102,204,.08); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-dropdown-info-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.nav-dropdown-info-sub { font-size: 11px; color: var(--text3); line-height: 1.4; }
+
 /* Header action buttons */
 .btn-inquiry {
   display: inline-flex; align-items: center; justify-content: center;
