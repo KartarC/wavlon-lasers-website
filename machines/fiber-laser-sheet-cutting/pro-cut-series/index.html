@@ -121,6 +121,14 @@
 .machine-hero-svg { display: none; }
 .mh-spec-pills { display: none; }
 
+/* Mobile hero image — hidden on desktop, revealed on mobile */
+.mh-mobile-img { display: none; }
+.mh-mobile-img img {
+  width: 100%; height: auto; display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+}
+
 /* ── Series tab switcher ─────────────────────────────────── */
 .procut-series-switcher {
   background: #fff;
@@ -343,20 +351,32 @@
   .machine-hero-inner { padding: 100px 32px 64px 48px; }
 }
 @media (max-width: 768px) {
-  .machine-hero { min-height: 520px; }
-  .machine-hero-inner { padding: 90px 24px 56px 48px; }
+  .machine-hero { min-height: auto; }
+  .machine-hero-inner { padding: 72px 24px 48px 48px; }
   .machine-hero h1 { font-size: clamp(30px,8vw,44px); letter-spacing: -1.5px; }
   .mh-desc { font-size: 14px; }
   .mh-stats { gap: 20px; }
   .mh-stat-val { font-size: 22px; }
   .btn-mh-primary, .btn-mh-secondary, .btn-mh-catalog { padding: 12px 18px; font-size: 13px; }
+  /* gallery */
+  .pc-gallery-section { padding: 40px 0; }
   .pc-gallery-inner { padding: 0 20px; }
+  .gallery-thumb { width: 80px; height: 56px; }
+  /* mobile hero image */
+  .mh-mobile-img { display: block; margin-top: 32px; }
+  /* other */
   .power-grid { grid-template-columns: 1fr 1fr; }
   .brochure-form-wrap { flex-direction: column; }
   .brochure-inner { padding: 0 24px; }
 }
 @media (max-width: 640px) {
-  .machine-hero-inner { padding: 80px 20px 48px 34px; }
+  .machine-hero-inner { padding: 64px 20px 40px 34px; }
+  /* gallery */
+  .pc-gallery-section { padding: 28px 0; }
+  .pc-gallery-inner { padding: 0 16px; }
+  .gallery-thumb { width: 64px; height: 46px; border-radius: 6px; }
+  .gallery-thumbs { gap: 8px; }
+  /* other */
   .power-grid { grid-template-columns: 1fr 1fr; }
   .pst-sub { display: none; }
   .procut-series-tab { padding: 14px 18px 12px; }
@@ -467,6 +487,11 @@
         <button onclick="openCatalogModal('ProCut Series','/catalogs/wavlon-procut-series-catalog.pdf')" class="btn-mh-catalog" style="border:none;cursor:pointer;">&#8595; Download Catalog</button>
       </div>
     </div>
+    <!-- Mobile hero image — shown only on ≤768px via CSS -->
+    <div class="mh-mobile-img">
+      <img src="/assets/procut-hero.png" alt="Wavlon ProCut Series Fiber Laser Cutting Machine" loading="eager"/>
+    </div>
+
     <div class="machine-hero-visual">
       <div class="machine-hero-svg" style="background:rgba(255,255,255,.08);">
         <img src="/assets/procut-front-clean.png" alt="Wavlon ProCut Series Fiber Laser Cutting Machine — Front View" loading="eager"/>
