@@ -24,14 +24,36 @@
 .page-hero h1 em{color:var(--blue);font-style:normal;}
 .page-hero p{font-size:18px;color:#8899aa;line-height:1.7;max-width:680px;}
 .eyebrow-sm{display:inline-flex;align-items:center;gap:8px;background:rgba(0,102,204,.15);border:1px solid rgba(0,102,204,.3);color:#66aaff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 14px;border-radius:100px;margin-bottom:20px;}
-.industry-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
-.industry-card{border:1.5px solid var(--border);border-radius:var(--radius);padding:32px;display:flex;gap:24px;align-items:flex-start;}
-.industry-icon{width:52px;height:52px;border-radius:12px;background:rgba(0,102,204,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.industry-card h3{font-size:17px;font-weight:700;color:var(--text);margin-bottom:8px;}
-.industry-card p{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:12px;}
-.industry-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.industry-tag{font-size:11px;font-weight:600;color:var(--blue);background:rgba(0,102,204,.07);border:1px solid rgba(0,102,204,.15);padding:3px 10px;border-radius:100px;}
-@media(max-width:1024px){.industry-grid{grid-template-columns:1fr;}}
+
+/* ── Photo card grid ─────────────────────────────────────── */
+.ind-photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.ind-card{border-radius:14px;overflow:hidden;border:1.5px solid var(--border);background:#fff;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;}
+.ind-card:hover{box-shadow:0 16px 48px rgba(0,0,0,.12);transform:translateY(-3px);}
+.ind-card-img{position:relative;height:200px;overflow:hidden;background:#0d1b2a;flex-shrink:0;}
+.ind-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.ind-card:hover .ind-card-img img{transform:scale(1.04);}
+.ind-card-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.ind-card-label{position:absolute;bottom:0;left:0;right:0;padding:28px 16px 14px;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%);z-index:1;}
+.ind-card-label h3{font-size:16px;font-weight:800;color:#fff;margin:0;letter-spacing:-.3px;line-height:1.2;}
+.ind-card-body{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;gap:10px;}
+.ind-card-body p{font-size:13.5px;color:#495057;line-height:1.65;margin:0;flex:1;}
+.ind-card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
+.ind-card-tag{font-size:11px;font-weight:600;color:var(--blue);background:rgba(0,102,204,.07);border:1px solid rgba(0,102,204,.15);padding:2px 9px;border-radius:100px;white-space:nowrap;}
+.ind-card-cta{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--blue);text-decoration:none;margin-top:8px;}
+.ind-card-cta:hover{text-decoration:underline;}
+.ind-card-cta svg{transition:transform .15s;}
+.ind-card-cta:hover svg{transform:translateX(3px);}
+
+/* ── Stat strip ──────────────────────────────────────────── */
+.ind-stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--bg-dark);border-radius:14px;overflow:hidden;margin-bottom:56px;}
+.ind-stat{padding:28px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.07);}
+.ind-stat:last-child{border-right:none;}
+.ind-stat-num{font-size:32px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;}
+.ind-stat-num em{color:#5b9bd5;font-style:normal;}
+.ind-stat-label{font-size:12px;color:#8899aa;margin-top:5px;font-weight:500;}
+
+@media(max-width:1024px){.ind-photo-grid{grid-template-columns:repeat(2,1fr);}.ind-stat-strip{grid-template-columns:repeat(2,1fr);}.ind-stat:nth-child(2){border-right:none;}}
+@media(max-width:640px){.ind-photo-grid{grid-template-columns:1fr;}.ind-stat-strip{grid-template-columns:repeat(2,1fr);}.ind-card-img{height:180px;}}
 @media(max-width:768px){.page-hero-inner{padding:0 20px;}}
 </style>
 </head>
@@ -114,71 +136,141 @@
 
 <section class="section">
   <div class="container">
-    <div class="industry-grid">
-      <div class="industry-card">
-        <div class="industry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <div>
-          <h3>Automotive &amp; Transportation</h3>
-          <p>Brackets, chassis components, body panels, exhaust parts, and structural reinforcements. High-volume, tight-tolerance cutting of high-strength steel and aluminum alloys.</p>
-          <div class="industry-tags"><span class="industry-tag">AHSS / UHSS</span><span class="industry-tag">Aluminum</span><span class="industry-tag">High Volume</span><span class="industry-tag">P-Series / X-Series</span></div>
+
+    <!-- Stat strip -->
+    <div class="ind-stat-strip" style="margin-bottom:56px;">
+      <div class="ind-stat"><div class="ind-stat-num">8<em>+</em></div><div class="ind-stat-label">Industries Served</div></div>
+      <div class="ind-stat"><div class="ind-stat-num">1<em>kW–</em>30<em>kW</em></div><div class="ind-stat-label">Power Range</div></div>
+      <div class="ind-stat"><div class="ind-stat-num">80<em>mm</em></div><div class="ind-stat-label">Max Plate Thickness</div></div>
+      <div class="ind-stat"><div class="ind-stat-num"><em>CA</em>N</div><div class="ind-stat-label">Sales &amp; Support Base</div></div>
+    </div>
+
+    <!-- Photo cards grid -->
+    <div class="ind-photo-grid">
+
+      <!-- Automotive -->
+      <div class="ind-card" id="automotive">
+        <div class="ind-card-img">
+          <img src="/assets/ind-automotive.jpg" alt="Automotive fiber laser cutting" loading="lazy"/>
+          <div class="ind-card-label"><h3>Automotive &amp; Transportation</h3></div>
+        </div>
+        <div class="ind-card-body">
+          <p>Brackets, chassis components, body panels, exhaust parts, and structural reinforcements. High-volume, tight-tolerance cutting of AHSS and aluminum alloys.</p>
+          <div class="ind-card-tags"><span class="ind-card-tag">AHSS / UHSS</span><span class="ind-card-tag">Aluminum</span><span class="ind-card-tag">High Volume</span><span class="ind-card-tag">PowerCut / UltraCut</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <div>
-          <h3>Structural Steel &amp; Construction</h3>
-          <p>Connection plates, gussets, angle brackets, and flat bar components. Thick plate cutting up to 80mm on the X-Series. Tube and hollow section profiles on the T-Series.</p>
-          <div class="industry-tags"><span class="industry-tag">Thick Plate</span><span class="industry-tag">Structural Tube</span><span class="industry-tag">X-Series / T-Series</span></div>
+
+      <!-- Structural Steel -->
+      <div class="ind-card" id="structural-steel">
+        <div class="ind-card-img">
+          <img src="/assets/ind-steel.jpg" alt="Structural steel fiber laser cutting" loading="lazy"/>
+          <div class="ind-card-label"><h3>Structural Steel &amp; Construction</h3></div>
+        </div>
+        <div class="ind-card-body">
+          <p>Connection plates, gussets, angle brackets, and flat bar. Thick plate up to 80mm on the UltraCut. Tube and hollow section profiles on the T-Series.</p>
+          <div class="ind-card-tags"><span class="ind-card-tag">Thick Plate</span><span class="ind-card-tag">Structural Tube</span><span class="ind-card-tag">UltraCut / T-Series</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <div>
-          <h3>HVAC &amp; Mechanical</h3>
+
+      <!-- HVAC -->
+      <div class="ind-card" id="hvac">
+        <div class="ind-card-img">
+          <img src="/assets/ind-hvac.jpg" alt="HVAC fiber laser cutting" loading="lazy"/>
+          <div class="ind-card-label"><h3>HVAC &amp; Mechanical</h3></div>
+        </div>
+        <div class="ind-card-body">
           <p>Duct flanges, brackets, damper plates, access panels, and casing components. Fast cycle times on galvanized and mild steel at light gauge.</p>
-          <div class="industry-tags"><span class="industry-tag">Galvanized Steel</span><span class="industry-tag">Light Gauge</span><span class="industry-tag">High Mix</span><span class="industry-tag">S-Series</span></div>
+          <div class="ind-card-tags"><span class="ind-card-tag">Galvanized Steel</span><span class="ind-card-tag">Light Gauge</span><span class="ind-card-tag">High Mix</span><span class="ind-card-tag">ProCut Series</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
-        <div>
-          <h3>Aerospace &amp; Defence</h3>
-          <p>Titanium, Inconel, and aerospace-grade aluminum components requiring tight tolerances. Low heat input fiber laser process minimizes distortion in critical parts.</p>
-          <div class="industry-tags"><span class="industry-tag">Titanium</span><span class="industry-tag">Inconel</span><span class="industry-tag">Aerospace Aluminum</span><span class="industry-tag">P-Series / X-Series</span></div>
+
+      <!-- Aerospace -->
+      <div class="ind-card" id="aerospace">
+        <div class="ind-card-img">
+          <img src="/assets/ind-aerospace.jpg" alt="Aerospace fiber laser cutting" loading="lazy"/>
+          <div class="ind-card-label"><h3>Aerospace &amp; Defence</h3></div>
+        </div>
+        <div class="ind-card-body">
+          <p>Titanium, Inconel, and aerospace-grade aluminum requiring tight tolerances. Low heat input minimizes distortion in mission-critical parts.</p>
+          <div class="ind-card-tags"><span class="ind-card-tag">Titanium</span><span class="ind-card-tag">Inconel</span><span class="ind-card-tag">Aero Aluminum</span><span class="ind-card-tag">PowerCut / UltraCut</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zM2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
-        <div>
-          <h3>Agricultural Equipment</h3>
-          <p>Frame sections, guards, brackets, and wear parts for farm implements and heavy equipment. Mild steel and AR plate cutting with fast turnaround for regional dealers and OEMs.</p>
-          <div class="industry-tags"><span class="industry-tag">AR Plate</span><span class="industry-tag">Mild Steel</span><span class="industry-tag">OEM Parts</span><span class="industry-tag">P-Series</span></div>
+
+      <!-- Agriculture -->
+      <div class="ind-card" id="agriculture">
+        <div class="ind-card-img">
+          <img src="/assets/ind-agriculture.jpg" alt="Agricultural equipment fiber laser cutting" loading="lazy"/>
+          <div class="ind-card-label"><h3>Agricultural Equipment</h3></div>
+        </div>
+        <div class="ind-card-body">
+          <p>Frame sections, guards, brackets, and wear parts for farm implements and heavy equipment. Mild steel and AR plate with fast turnaround for regional OEMs.</p>
+          <div class="ind-card-tags"><span class="ind-card-tag">AR Plate</span><span class="ind-card-tag">Mild Steel</span><span class="ind-card-tag">OEM Parts</span><span class="ind-card-tag">PowerCut Series</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
-        <div>
-          <h3>Custom Fabrication &amp; Job Shops</h3>
-          <p>High-mix, low-volume work across all materials. Quick job changeovers, flexible nesting software, and a wide material capability make Wavlon the natural choice for job shops.</p>
-          <div class="industry-tags"><span class="industry-tag">High Mix</span><span class="industry-tag">All Materials</span><span class="industry-tag">Quick Setup</span><span class="industry-tag">S-Series / P-Series</span></div>
+
+      <!-- Custom Fabrication -->
+      <div class="ind-card" id="fabrication">
+        <div class="ind-card-img">
+          <img src="/assets/ind-fabrication.jpg" alt="Custom fabrication fiber laser cutting" loading="lazy"/>
+          <div class="ind-card-label"><h3>Custom Fabrication &amp; Job Shops</h3></div>
+        </div>
+        <div class="ind-card-body">
+          <p>High-mix, low-volume work across all materials. Quick job changeovers, flexible nesting, and wide material capability make Wavlon the natural choice for job shops.</p>
+          <div class="ind-card-tags"><span class="ind-card-tag">High Mix</span><span class="ind-card-tag">All Materials</span><span class="ind-card-tag">Quick Setup</span><span class="ind-card-tag">ProCut / PowerCut</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-        <div>
-          <h3>Food Processing &amp; Pharmaceutical</h3>
-          <p>316L stainless steel for food-grade equipment — tanks, conveyors, hoppers, and enclosures. Clean, burr-free edges that meet sanitary welding requirements.</p>
-          <div class="industry-tags"><span class="industry-tag">316L Stainless</span><span class="industry-tag">Sanitary Grade</span><span class="industry-tag">Clean Edges</span><span class="industry-tag">S-Series / P-Series</span></div>
+
+      <!-- Food Processing — gradient fallback -->
+      <div class="ind-card" id="food-processing">
+        <div class="ind-card-img">
+          <div class="ind-card-img-fallback" style="background:linear-gradient(135deg,#0a2540 0%,#0d3b6e 60%,#0a2540 100%);">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(91,155,213,.6)" stroke-width="1.2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div class="ind-card-label"><h3>Food Processing &amp; Pharmaceutical</h3></div>
+        </div>
+        <div class="ind-card-body">
+          <p>316L stainless steel for food-grade tanks, conveyors, hoppers, and enclosures. Clean, burr-free edges that meet sanitary welding and cGMP requirements.</p>
+          <div class="ind-card-tags"><span class="ind-card-tag">316L Stainless</span><span class="ind-card-tag">Sanitary Grade</span><span class="ind-card-tag">Burr-Free</span><span class="ind-card-tag">ProCut / PowerCut</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="industry-card">
-        <div class="industry-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0066cc" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
-        <div>
-          <h3>Energy &amp; Oil &amp; Gas</h3>
-          <p>Flanges, pressure vessel components, structural members for upstream and downstream applications. X-Series handles the thick carbon steel and stainless these projects demand.</p>
-          <div class="industry-tags"><span class="industry-tag">Thick Plate</span><span class="industry-tag">Carbon Steel</span><span class="industry-tag">Duplex SS</span><span class="industry-tag">X-Series</span></div>
+
+      <!-- Energy — gradient fallback -->
+      <div class="ind-card" id="energy">
+        <div class="ind-card-img">
+          <div class="ind-card-img-fallback" style="background:linear-gradient(135deg,#0d1b2a 0%,#162035 60%,#0d1b2a 100%);">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(91,155,213,.6)" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M2 12h2M20 12h2M12 2v2M12 20v2"/></svg>
+          </div>
+          <div class="ind-card-label"><h3>Energy &amp; Oil &amp; Gas</h3></div>
+        </div>
+        <div class="ind-card-body">
+          <p>Flanges, pressure vessel components, and structural members for upstream and downstream applications. UltraCut handles thick carbon steel and duplex stainless.</p>
+          <div class="ind-card-tags"><span class="ind-card-tag">Thick Plate</span><span class="ind-card-tag">Carbon Steel</span><span class="ind-card-tag">Duplex SS</span><span class="ind-card-tag">UltraCut Series</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
+
+      <!-- Mining & Heavy Industry — gradient fallback -->
+      <div class="ind-card" id="mining">
+        <div class="ind-card-img">
+          <div class="ind-card-img-fallback" style="background:linear-gradient(135deg,#131f2e 0%,#1c2d44 60%,#131f2e 100%);">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(91,155,213,.6)" stroke-width="1.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div class="ind-card-label"><h3>Mining &amp; Heavy Industry</h3></div>
+        </div>
+        <div class="ind-card-body">
+          <p>Wear liners, bucket lips, conveyor components, and structural frames from abrasion-resistant plate. Hardox and AR400 cutting with consistent edge quality at scale.</p>
+          <div class="ind-card-tags"><span class="ind-card-tag">Hardox / AR400</span><span class="ind-card-tag">Thick Plate</span><span class="ind-card-tag">Wear Parts</span><span class="ind-card-tag">UltraCut Series</span></div>
+          <a href="/contact/#quote" class="ind-card-cta">Get a quote <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
