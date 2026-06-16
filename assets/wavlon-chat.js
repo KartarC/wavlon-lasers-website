@@ -169,6 +169,34 @@
     .wlc-send:disabled { background:#ced4da; cursor:default; }
     .wlc-branding { text-align:center; padding:6px; font-size:10px; color:#adb5bd; background:#fff; flex-shrink:0; }
 
+    .wlc-faq-wrap {
+      display:flex; flex-direction:column; gap:8px;
+      align-self:flex-start; max-width:100%; margin-top:4px;
+    }
+    .wlc-faq-label { font-size:10.5px; font-weight:700; color:#868e96; text-transform:uppercase; letter-spacing:.6px; margin:0 0 2px; }
+    .wlc-chips { display:flex; flex-wrap:wrap; gap:6px; }
+    .wlc-chip {
+      display:inline-flex; align-items:center;
+      padding:6px 12px; border-radius:100px;
+      border:1.5px solid #dee2e6; background:#fff;
+      font-size:11.5px; font-weight:600; color:#1a1a2e;
+      cursor:pointer; font-family:inherit; line-height:1.2;
+      transition:border-color .15s, background .15s, color .15s;
+      text-decoration:none; white-space:nowrap;
+    }
+    .wlc-chip:hover { border-color:#0066cc; color:#0066cc; background:rgba(0,102,204,.05); }
+    .wlc-chip-cta { background:#0066cc; border-color:#0066cc; color:#fff !important; }
+    .wlc-chip-cta:hover { background:#0055b3 !important; border-color:#0055b3 !important; color:#fff !important; }
+    .wlc-cta-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+    .wlc-cta-btn {
+      display:inline-flex; align-items:center; gap:4px;
+      padding:7px 14px; border-radius:8px;
+      background:#0066cc; color:#fff !important;
+      font-size:12px; font-weight:700; text-decoration:none;
+      transition:background .15s; white-space:nowrap;
+    }
+    .wlc-cta-btn:hover { background:#0055b3; }
+
     @media(max-width:400px){
       #wlc-panel  { width:calc(100vw - 24px); right:12px; bottom:84px; }
       #wlc-bubble { bottom:16px; right:16px; }
@@ -272,9 +300,10 @@
     if (!messagesEl.hasChildNodes()) {
       var first = (userInfo && userInfo.name) ? userInfo.name.split(' ')[0] : null;
       var g = first
-        ? 'Hi ' + first + '! I\'m the Wavlon AI.\n\nAsk me anything about our fiber laser machines — specs, cutting thickness, power options, lead times, or financing.'
-        : 'Hi! I\'m the Wavlon AI Assistant.\n\nAsk me anything about our fiber laser machines — specs, cutting thickness, power options, lead times, or financing.';
+        ? 'Hi ' + first + '! I\'m the Wavlon AI.\n\nI can help you find the right fiber laser machine, check cutting specs, or answer questions about pricing, financing, and delivery.\n\nPick a quick question below or type your own:'
+        : 'Hi! I\'m the Wavlon AI Assistant.\n\nI can help you find the right fiber laser machine, check cutting specs, or answer questions about pricing, financing, and delivery.\n\nPick a quick question below or type your own:';
       appendMsg(g, 'bot');
+      appendFaqChips();
     }
   }
 
@@ -316,12 +345,68 @@
     });
   });
 
+  // ── FAQ chips ─────────────────────────────────────────────────────────
+  var FAQ_ITEMS = [
+    { label: 'Which machine suits me?',   q: 'Which laser machine is right for my application?' },
+    { label: 'Cutting thickness guide',   q: 'What materials and thicknesses can your machines cut?' },
+    { label: 'Pricing & financing',       q: 'What are your pricing and financing options?' },
+    { label: 'Lead times & delivery',     q: 'What are your lead times and how is delivery handled?' },
+    { label: 'Warranty & service',        q: 'What does your warranty and after-sale service include?' },
+  ];
+
+  function appendFaqChips() {
+    if (document.getElementById('wlc-faq-chips')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'wlc-faq-wrap'; wrap.id = 'wlc-faq-chips';
+    var label = document.createElement('p');
+    label.className = 'wlc-faq-label'; label.textContent = 'Quick questions';
+    var inner = document.createElement('div'); inner.className = 'wlc-chips';
+    wrap.appendChild(label); wrap.appendChild(inner);
+    FAQ_ITEMS.forEach(function(faq) {
+      var btn = document.createElement('button');
+      btn.className = 'wlc-chip'; btn.textContent = faq.label;
+      btn.addEventListener('click', function() {
+        removeFaqChips(); inputEl.value = faq.q; sendMessage();
+      });
+      inner.appendChild(btn);
+    });
+    var ctaLinks = [
+      { label: 'Get a Quote →', href: '/contact/#quote' },
+      { label: 'View Machines →', href: '/machines/' },
+    ];
+    ctaLinks.forEach(function(c) {
+      var a = document.createElement('a');
+      a.className = 'wlc-chip wlc-chip-cta'; a.href = c.href; a.textContent = c.label;
+      inner.appendChild(a);
+    });
+    messagesEl.appendChild(wrap);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function removeFaqChips() {
+    var el = document.getElementById('wlc-faq-chips'); if (el) el.remove();
+  }
+
   // ── Chat ──────────────────────────────────────────────────────────────
   function fmt(text) {
     var h = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     h = h.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
     h = h.replace(/^- (.+)$/gm,'<span style="display:block;padding-left:12px;position:relative;"><span style="position:absolute;left:0">•</span>$1</span>');
-    return h.replace(/\n/g,'<br>');
+    // Collect [CTA: label](/path/) patterns into a trailing row of buttons
+    var ctaBtns = [];
+    h = h.replace(/\[CTA:\s*([^\]]+)\]\(([^)]+)\)/g, function(_, label, url) {
+      ctaBtns.push({ label: label.trim(), url: url.trim() });
+      return '';
+    });
+    // Inline markdown links [text](url)
+    h = h.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:#0066cc;text-decoration:underline;" target="_self">$1</a>');
+    h = h.replace(/\n/g,'<br>');
+    if (ctaBtns.length) {
+      h += '<div class="wlc-cta-row">' + ctaBtns.map(function(b) {
+        return '<a class="wlc-cta-btn" href="' + b.url + '">' + b.label + ' &rarr;</a>';
+      }).join('') + '</div>';
+    }
+    return h;
   }
   function appendMsg(text, role) {
     var m = document.createElement('div'); m.className='wlc-msg '+role;
@@ -337,6 +422,7 @@
   async function sendMessage() {
     var q = inputEl.value.trim(); if(!q || isLoading) return;
     isLoading=true; sendBtn.disabled=true; inputEl.value='';
+    removeFaqChips();
     appendMsg(q,'user'); showTyping();
     try {
       var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,sessionId,pageUrl:window.location.href,userInfo:userInfo||{}})});
