@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Homepage -->
@@ -37,23 +37,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Laser Head -->
-  <url>
-    <loc>https://wavlonlasers.com/machines/laser-head/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://wavlonlasers.com/machines/laser-head/selection-guide/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://wavlonlasers.com/machines/laser-head/features/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <!-- Tube Cutting -->
   <url>
     <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/</loc>
@@ -61,7 +44,12 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/t-series/</loc>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/double-chuck/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/triple-chuck/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -75,7 +63,7 @@
   <url>
     <loc>https://wavlonlasers.com/machines/fiber-laser-automation/tower-system/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
   </url>
 
   <!-- Welding -->
@@ -88,6 +76,23 @@
     <loc>https://wavlonlasers.com/machines/fiber-laser-welding/air-cooled-series/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Technologies -->
+  <url>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/tube-cutting-heads/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Marketing pages -->
@@ -109,7 +114,7 @@
   <url>
     <loc>https://wavlonlasers.com/machine-showcase/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.6</priority>
   </url>
 
   <!-- Support -->
