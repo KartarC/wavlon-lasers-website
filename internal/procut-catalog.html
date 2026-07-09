@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Wavlon ProCut Series — Product Catalog</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --steel-900: #0d2e54;
+    --steel-800: #103862;
+    --steel-700: #1b4f8c;   /* primary */
+    --steel-600: #2360a8;
+    --steel-500: #2e6bb8;
+    --steel-100: #e8eff8;
+    --steel-050: #f4f7fb;
+
+    --red:       #dc2626;   /* laser hotspot — use sparingly */
+    --red-dark:  #b91c1c;
+
+    --ink:       #131822;
+    --ink-2:     #2a3140;
+    --mute:      #6b7280;
+    --mute-2:    #9aa1ad;
+    --line:      #e3e6ec;
+    --line-2:    #cdd2dc;
+
+    --white:     #ffffff;
+    --offwhite:  #f7f8fa;
+
+    --serif:     "Inter", system-ui, sans-serif;
+    --mono:      "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  /* ---------- Reset ---------- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #2a2e36; font-family: var(--serif); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+
+  /* ---------- Page frame ---------- */
+  .page {
+    position: relative;
+    width: 8.5in;
+    height: 11in;
+    margin: 0.25in auto;
+    background: var(--white);
+    overflow: hidden;
+    page-break-after: always;
+    box-shadow: 0 4px 24px rgba(0,0,0,.35);
+  }
+  .page.dark { background: #0a0d12; color: #fff; }
+
+  /* Standard content frame (interior pages) */
+  .frame { padding: 0.6in 0.6in 0.85in; height: 100%; display: flex; flex-direction: column; }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    position: absolute; left: 0.6in; right: 0.6in; bottom: 0.35in;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 8.5pt; color: var(--mute); letter-spacing: .12em; text-transform: uppercase;
+    border-top: 1px solid var(--line); padding-top: 8px;
+  }
+  .footer .mark { display: inline-flex; align-items: center; gap: 8px; }
+  .footer .swatch { width: 10px; height: 10px; background: var(--steel-700); transform: skewX(-22deg); }
+  .footer .pageno { font-family: var(--mono); color: var(--ink-2); letter-spacing: .04em; }
+  .footer.dark { border-top-color: rgba(255,255,255,.14); color: rgba(255,255,255,.55); }
+  .footer.dark .pageno { color: rgba(255,255,255,.8); }
+
+  /* ---------- Section labels ---------- */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 9pt; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--steel-700);
+  }
+  .eyebrow::before {
+    content: ""; width: 22px; height: 2px; background: var(--steel-700);
+  }
+  .eyebrow.red { color: var(--red); }
+  .eyebrow.red::before { background: var(--red); }
+  .eyebrow.light { color: var(--steel-500); }
+  .eyebrow.light::before { background: var(--steel-500); }
+
+  .h-display {
+    font-weight: 800; font-size: 38pt; line-height: 1.02; letter-spacing: -0.02em; color: var(--ink);
+  }
+  .h-display .accent { color: var(--steel-700); font-style: italic; font-weight: 800; }
+  .h-section {
+    font-weight: 700; font-size: 26pt; line-height: 1.06; letter-spacing: -0.015em; color: var(--ink);
+  }
+  .h-sub {
+    font-weight: 600; font-size: 13pt; line-height: 1.25; color: var(--ink);
+  }
+  .body {
+    font-size: 10.5pt; line-height: 1.55; color: var(--ink-2);
+  }
+  .body.lg { font-size: 11.5pt; }
+  .body.sm { font-size: 9.5pt; line-height: 1.5; color: var(--mute); }
+  .mono { font-family: var(--mono); }
+  .num  { font-family: var(--mono); font-feature-settings: "tnum"; }
+
+  .rule { height: 1px; background: var(--line); }
+  .rule.heavy { background: var(--steel-700); height: 2px; }
+  .rule.red { background: var(--red); height: 2px; }
+
+  /* ---------- Reused: brandstrip / logomark ---------- */
+  .logomark {
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .logomark img { height: 28px; width: auto; }
+  .logomark.lg img { height: 44px; }
+  .logomark.xl img { height: 140px; }
+  .logomark.xxl img { height: 110px; }
+
+  .corner-cut {
+    position: absolute; top: 0; right: 0; width: 1.4in; height: 1.4in;
+    background: linear-gradient(135deg, transparent 50%, var(--steel-700) 50%);
+  }
+
+  /* ---------- COVER (page 01) — light studio ---------- */
+  .cover {
+    position: relative; width: 100%; height: 100%;
+    background: #eef2f7; color: var(--ink); overflow: hidden;
+  }
+  .cover .photo {
+    position: absolute; inset: 0; z-index: 1;
+    background: url("https://wavlonlasers.com/assets/machine-front.png") center top / cover no-repeat;
+  }
+  .cover .scrim {
+    position: absolute; inset: 0; z-index: 2;
+    background:
+      linear-gradient(180deg, rgba(238,242,247,.97) 0%, rgba(238,242,247,.86) 18%, rgba(238,242,247,.30) 34%, rgba(238,242,247,0) 46%);
+  }
+  .cover .ribbon {
+    position: absolute; left: 0; top: 0; bottom: 0; z-index: 3;
+    width: 0.32in;
+    background: linear-gradient(180deg, var(--steel-700) 0%, var(--steel-700) 70%, var(--red) 70.1%, var(--red) 100%);
+  }
+  .cover .top-bar {
+    position: absolute; top: 0.55in; left: 0.85in; right: 0.55in; z-index: 3;
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--mute);
+  }
+  .cover .top-bar .meta {
+    font-size: 8.5pt; letter-spacing: .22em; text-transform: uppercase; font-weight: 500;
+  }
+  .cover .top-bar img { height: 92px; }
+  .cover .title-block {
+    position: absolute; left: 0.85in; right: 0.85in; top: 1.5in; z-index: 3; color: var(--ink);
+  }
+  .cover .kicker {
+    font-size: 10pt; font-weight: 600; letter-spacing: .32em; text-transform: uppercase;
+    color: var(--steel-700);
+    display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+  }
+  .cover .kicker .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(220,38,38,.18); }
+  .cover h1 {
+    font-size: 73pt; line-height: .93; letter-spacing: -0.04em; font-weight: 800;
+    text-transform: none;
+  }
+  .cover h1 .series {
+    display: block; font-size: 73pt; font-weight: 300; font-style: italic; letter-spacing: -0.04em; color: var(--steel-600); margin-top: 0;
+  }
+  .cover h1 .meta-line {
+    display: block; font-size: 11pt; font-weight: 500; font-style: normal; letter-spacing: .16em; color: var(--mute); margin-top: 18px; text-transform: uppercase;
+  }
+  .cover .meta-row {
+    position: absolute; bottom: 0.5in; left: 0.85in; right: 0.55in; z-index: 3;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    color: var(--ink-2); font-size: 9pt; letter-spacing: .2em; text-transform: uppercase;
+  }
+  .cover .power-tag {
+    color: var(--ink); font-family: var(--mono); font-size: 11pt; font-weight: 500;
+    border-left: 2px solid var(--red); padding: 4px 10px 4px 12px;
+    background: rgba(255,255,255,.82);
+  }
+  .cover .power-tag .big { font-size: 22pt; font-weight: 600; letter-spacing: -.02em; }
+  .cover .doc-id {
+    font-family: var(--mono); font-size: 8pt; text-align: right; color: var(--mute); letter-spacing: .08em;
+    background: rgba(255,255,255,.82); padding: 4px 6px;
+  }
+
+  /* ---------- PAGE 02 — Positioning ---------- */
+  .p2 .hero-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.6in; margin-top: 0.35in;
+  }
+  .p2 .lede { font-size: 17.5pt; line-height: 1.32; font-weight: 400; color: var(--ink); letter-spacing: -0.005em; }
+  .p2 .lede .strong { font-weight: 600; color: var(--steel-700); }
+  .p2 .props {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 0.45in;
+    border-top: 1px solid var(--line);
+  }
+  .p2 .prop {
+    padding: 24px 24px 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .p2 .prop:nth-child(2n) { padding-left: 24px; border-left: 1px solid var(--line); }
+  .p2 .prop:nth-last-child(-n+2) { border-bottom: none; }
+  .p2 .prop .num {
+    color: var(--steel-700); font-weight: 600; font-size: 10pt; letter-spacing: .12em;
+  }
+  .p2 .prop h4 {
+    font-size: 15pt; font-weight: 700; letter-spacing: -0.01em; margin-top: 10px; margin-bottom: 8px;
+  }
+  .p2 .prop p { font-size: 10pt; color: var(--mute); line-height: 1.5; }
+
+  /* ---------- PAGE 03 — Machine at a glance (dark) ---------- */
+  .p3 { background: #0a0d12; color: #fff; }
+  .p3 .stage {
+    position: absolute; inset: 0;
+    background: url("https://wavlonlasers.com/assets/wlf-shop-floor.png") center 52% / cover no-repeat #0a0d12;
+  }
+  .p3 .stage::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(8,11,16,.92) 0 26%, rgba(8,11,16,.34) 50%, rgba(8,11,16,.92) 82%, rgba(8,11,16,.96) 100%),
+      linear-gradient(90deg, rgba(8,11,16,.55) 0%, rgba(8,11,16,0) 55%);
+  }
+  .p3 .top {
+    position: absolute; top: 0.55in; left: 0.6in; right: 0.6in;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .p3 .top .eyebrow { color: rgba(255,255,255,.9); }
+  .p3 .top .eyebrow::before { background: var(--red); }
+  .p3 .top .model {
+    font-family: var(--mono); font-size: 9pt; color: rgba(255,255,255,.6); letter-spacing: .14em;
+  }
+  .p3 h2 {
+    position: absolute; top: 1.1in; left: 0.6in; right: 0.6in;
+    color: #fff; font-size: 32pt; font-weight: 700; line-height: 1.05; letter-spacing: -0.015em;
+    max-width: 6in;
+  }
+  .p3 h2 .em { color: var(--steel-500); font-style: italic; font-weight: 700; }
+  .p3 .stats {
+    position: absolute; bottom: 0.95in; left: 0.6in; right: 0.6in;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    background: rgba(10,13,18,.78); backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .p3 .stat {
+    padding: 22px 18px; border-right: 1px solid rgba(255,255,255,.12);
+  }
+  .p3 .stat:last-child { border-right: none; }
+  .p3 .stat .label {
+    font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.55); font-weight: 500;
+  }
+  .p3 .stat .big {
+    font-family: var(--mono); font-size: 29pt; font-weight: 600; color: #fff; letter-spacing: -.02em;
+    margin-top: 12px; line-height: 1;
+  }
+  .p3 .stat .big .u { font-size: 12pt; color: rgba(255,255,255,.65); font-weight: 400; margin-left: 4px; }
+  .p3 .stat.hot .big { color: var(--red); }
+  .p3 .stat .note { font-size: 8.5pt; color: rgba(255,255,255,.5); margin-top: 8px; }
+
+  /* ---------- PAGE 04 — Single Table ---------- */
+  .p4 .hero-img {
+    margin: 0 -0.6in; height: 4.4in; background: #eef1f5 url("https://wavlonlasers.com/assets/wlf-front.png");
+    background-size: cover; background-position: center 40%; background-repeat: no-repeat;
+  }
+  .p4 .belowhero {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 0.55in; margin-top: 0.35in;
+  }
+  .p4 .belowhero h3 { font-size: 22pt; font-weight: 700; letter-spacing: -0.015em; }
+  .p4 .belowhero .body { margin-top: 14px; }
+  .cycle {
+    display: flex; flex-direction: column; gap: 14px; margin-top: 8px;
+  }
+  .cycle .step { display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: start; }
+  .cycle .step .ix {
+    font-family: var(--mono); font-size: 10pt; font-weight: 600; color: var(--steel-700);
+    border: 1px solid var(--steel-700); width: 28px; height: 28px; display: grid; place-items: center;
+  }
+  .cycle .step .ix.red { color: var(--red); border-color: var(--red); }
+  .cycle .step h5 { font-size: 11pt; font-weight: 600; }
+  .cycle .step p { font-size: 9.5pt; color: var(--mute); margin-top: 2px; line-height: 1.45; }
+
+  /* ---------- PAGE 05 — Cabin ---------- */
+  .p5 .heroblock {
+    margin: 0.2in -0.6in 0;
+    position: relative;
+    height: 3.7in;
+    overflow: hidden;
+    display: grid; grid-template-columns: 1.55fr 1fr; gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .p5 .imgwell {
+    position: relative; background: #ffffff; overflow: hidden;
+    border-right: 1px solid var(--line);
+  }
+  .p5 .heroblock img.main {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center;
+    padding: 8px;
+  }
+  .p5 .annot-col {
+    padding: 22px 22px 22px 26px;
+    background: var(--steel-050);
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .p5 .annot-col .head {
+    font-family: var(--mono); font-size: 7.5pt; letter-spacing: .2em; color: var(--steel-700);
+    text-transform: uppercase; font-weight: 600;
+    border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 2px;
+  }
+  .p5 .annot-item {
+    display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start;
+  }
+  .p5 .annot-item .ix {
+    font-family: var(--mono); font-size: 8pt; color: var(--red); font-weight: 600; margin-top: 2px;
+  }
+  .p5 .annot-item h6 { font-size: 10pt; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+  .p5 .annot-item p { font-size: 8.5pt; color: var(--mute); margin-top: 2px; line-height: 1.45; }
+  .p5 .features {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 0.35in;
+    border-top: 1px solid var(--line);
+  }
+  .p5 .features .f {
+    padding: 18px 20px 4px 0; border-right: 1px solid var(--line);
+  }
+  .p5 .features .f:last-child { border-right: none; padding-right: 0; }
+  .p5 .features .f:nth-child(n+2) { padding-left: 20px; }
+  .p5 .features .icon { color: var(--steel-700); margin-bottom: 10px; }
+  .p5 .features h5 { font-size: 12pt; font-weight: 700; letter-spacing: -0.01em; }
+  .p5 .features p { font-size: 9.5pt; color: var(--mute); line-height: 1.5; margin-top: 6px; }
+
+  /* ---------- PAGE 06 — Safety Systems (monitoring + curtains) ---------- */
+  .p5b .topband { display: flex; justify-content: space-between; align-items: baseline; }
+  .p5b h3.lead {
+    font-size: 19pt; font-weight: 700; letter-spacing: -.015em; margin-top: 10px;
+  }
+  .p5b h3.lead .em { color: var(--steel-700); font-style: italic; font-weight: 700; }
+  .p5b .lede {
+    font-size: 10pt; line-height: 1.5; color: var(--mute);
+    margin-top: 6px; max-width: 5.4in;
+  }
+  .p5b .block-cam, .p5b .block-elec {
+    display: grid; gap: 0;
+    margin: 0.3in -0.6in 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    height: 2.95in;
+  }
+  .p5b .block-cam { grid-template-columns: 1.1fr 1fr; }
+  .p5b .block-elec { grid-template-columns: 1fr 1.05fr; }
+  .p5b .block-cam .img {
+    background: #11151c url("https://wavlonlasers.com/assets/ultracut-monitoring-cameras.jpg") center / cover no-repeat;
+  }
+  .p5b .block-cam .copy {
+    padding: 0 0.6in 0 30px;
+    display: flex; flex-direction: column; justify-content: center;
+    background: #fff;
+  }
+  .p5b .block-cam .copy .tag {
+    font-family: var(--mono); font-size: 7.5pt; letter-spacing: .2em; color: var(--red);
+    text-transform: uppercase; font-weight: 600;
+  }
+  .p5b .block-cam .copy h4 {
+    font-size: 16pt; font-weight: 700; letter-spacing: -.012em; line-height: 1.1; margin-top: 8px;
+  }
+  .p5b .block-cam .copy p { font-size: 9.5pt; line-height: 1.5; color: var(--ink-2); margin-top: 10px; }
+
+  .p5b .block-elec .img {
+    background: #eef1f5 url("https://wavlonlasers.com/assets/wlf-electrical-cabinet.png") center / cover no-repeat;
+  }
+  .p5b .block-elec .copy {
+    padding: 0 30px 0 0.6in;
+    display: flex; flex-direction: column; justify-content: center;
+    background: #fff;
+  }
+  .p5b .block-elec .copy .tag {
+    font-family: var(--mono); font-size: 7.5pt; letter-spacing: .2em; color: var(--red);
+    text-transform: uppercase; font-weight: 600;
+  }
+  .p5b .block-elec .copy h4 {
+    font-size: 16pt; font-weight: 700; letter-spacing: -.012em; line-height: 1.1; margin-top: 8px;
+  }
+  .p5b .block-elec .copy p { font-size: 9.5pt; line-height: 1.5; color: var(--ink-2); margin-top: 10px; }
+
+  .p5b .block-curtain {
+    margin: 0.32in -0.6in 0;
+    background: #06090f;
+    color: #fff;
+    display: flex; flex-direction: column;
+    height: 3.8in;
+  }
+  .p5b .block-curtain .hero {
+    flex: 1; min-height: 0;
+    background: #06090f url("https://wavlonlasers.com/assets/wlf-door-movement.png") center 45% / cover no-repeat;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+  .p5b .block-curtain .copy {
+    padding: 16px 0.6in 18px;
+    display: grid; grid-template-columns: 1fr 1.7fr; gap: 28px; align-items: center;
+  }
+  .p5b .block-curtain .copy .tag {
+    font-family: var(--mono); font-size: 7.5pt; letter-spacing: .2em; color: var(--red);
+    text-transform: uppercase; font-weight: 600;
+  }
+  .p5b .block-curtain .copy h4 {
+    font-size: 16pt; font-weight: 700; letter-spacing: -.012em; line-height: 1.1; margin-top: 6px; color: #fff;
+  }
+  .p5b .block-curtain .copy p { font-size: 9.5pt; line-height: 1.5; color: rgba(255,255,255,.78); }
+
+  /* ---------- PAGE 07 — Bed & Beam structure ---------- */
+  .pbed .heroblock {
+    margin: 0.22in -0.6in 0;
+    position: relative;
+    height: 3.95in;
+    overflow: hidden;
+    display: grid; grid-template-columns: 1.5fr 1fr; gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .pbed .imgwell {
+    position: relative; background: #0a0d12; overflow: hidden;
+    border-right: 1px solid var(--line);
+  }
+  .pbed .imgwell img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center;
+    padding: 10px;
+  }
+  .pbed .annot-col {
+    padding: 18px 22px 18px 26px;
+    background: var(--steel-050);
+    display: flex; flex-direction: column; gap: 11px;
+  }
+  .pbed .annot-col .head {
+    font-family: var(--mono); font-size: 7.5pt; letter-spacing: .2em; color: var(--steel-700);
+    text-transform: uppercase; font-weight: 600;
+    border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 2px;
+  }
+  .pbed .annot-item { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; }
+  .pbed .annot-item .ix { font-family: var(--mono); font-size: 8pt; color: var(--red); font-weight: 600; margin-top: 2px; }
+  .pbed .annot-item h6 { font-size: 10pt; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+  .pbed .annot-item p { font-size: 8.5pt; color: var(--mute); margin-top: 2px; line-height: 1.45; }
+  .pbed .features {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 0.32in;
+    border-top: 1px solid var(--line);
+  }
+  .pbed .features .f { padding: 18px 20px 4px 0; border-right: 1px solid var(--line); }
+  .pbed .features .f:last-child { border-right: none; padding-right: 0; }
+  .pbed .features .f:nth-child(n+2) { padding-left: 20px; }
+  .pbed .features .icon { color: var(--steel-700); margin-bottom: 10px; }
+  .pbed .features h5 { font-size: 12pt; font-weight: 700; letter-spacing: -0.01em; }
+  .pbed .features p { font-size: 9.5pt; color: var(--mute); line-height: 1.5; margin-top: 6px; }
+
+  /* ---------- PAGE 08 — Laser head ---------- */
+  .p6 .grid {
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 0.4in; margin-top: 0.3in;
+    flex: 1; min-height: 0;
+  }
+  .p6 .left { display: flex; flex-direction: column; }
+  .p6 .leadimg {
+    background: #0a0d12; height: 4.6in; position: relative; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .p6 .leadimg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 18px; }
+  .p6 .leadcap { font-family: var(--mono); font-size: 8pt; letter-spacing: .14em; color: var(--mute); text-transform: uppercase; margin-top: 8px; }
+  .p6 .right { display: flex; flex-direction: column; gap: 14px; }
+  .p6 .detail {
+    background: #ffffff; height: 1.85in; position: relative; overflow: hidden;
+    border: 1px solid var(--line);
+    padding-top: 26px;
+  }
+  .p6 .detail img { position: absolute; left: 0; right: 0; top: 26px; bottom: 0; width: 100%; height: calc(100% - 26px); object-fit: contain; padding: 8px; mix-blend-mode: multiply; z-index: 1; }
+  .p6 .detail .tag {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 2;
+    font-family: var(--mono); font-size: 7.5pt; letter-spacing: .16em; color: var(--steel-700);
+    background: var(--steel-050); padding: 6px 10px; border-bottom: 1px solid var(--line);
+    font-weight: 600;
+  }
+  .p6 .headlineup {
+    border: 1px solid var(--line);
+  }
+  .p6 .headlineup .row {
+    display: grid; grid-template-columns: 0.7fr 1fr 1.6fr; padding: 9px 12px; border-bottom: 1px solid var(--line);
+    align-items: center; font-size: 9pt;
+  }
+  .p6 .headlineup .row:last-child { border-bottom: none; }
+  .p6 .headlineup .row.head {
+    background: var(--steel-700); color: #fff; text-transform: uppercase; letter-spacing: .12em; font-size: 7.5pt; font-weight: 600;
+  }
+  .p6 .headlineup .pw { font-family: var(--mono); font-weight: 600; color: var(--steel-700); }
+  .p6 .headlineup .model { font-family: var(--mono); font-weight: 500; }
+
+  /* ---------- PAGE 09 — Control + components ---------- */
+  .p7 .top {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 0.45in; margin-top: 0.3in;
+  }
+  .p7 .console {
+    background: #0a0d12; height: 3.6in; position: relative; overflow: hidden;
+  }
+  .p7 .console img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .p7 .console .badge {
+    position: absolute; top: 14px; left: 14px;
+    font-family: var(--mono); font-size: 8pt; letter-spacing: .14em; color: rgba(255,255,255,.85);
+    border: 1px solid rgba(255,255,255,.25); padding: 4px 8px;
+  }
+  .p7 .ctrl-copy h4 { font-size: 18pt; font-weight: 700; letter-spacing: -0.012em; line-height: 1.1; }
+  .p7 .ctrl-copy p { margin-top: 12px; }
+  .p7 .ctrl-list { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .p7 .ctrl-list li { font-size: 9.5pt; color: var(--ink-2); display: grid; grid-template-columns: 14px 1fr; gap: 8px; align-items: start; }
+  .p7 .ctrl-list li::before {
+    content: ""; width: 8px; height: 8px; background: var(--steel-700); margin-top: 6px;
+    transform: skewX(-22deg);
+  }
+  .p7 .partners-section { margin-top: 0.4in; }
+  .p7 .partners-section .head {
+    display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;
+  }
+  .p7 .partners {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid var(--line); border-left: 1px solid var(--line);
+  }
+  .p7 .partners .p {
+    padding: 14px 16px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    min-height: 0.85in; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .p7 .partners .p .role { font-size: 7.5pt; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
+  .p7 .partners .p .name { font-size: 13pt; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+  .p7 .partners .p .origin { font-size: 8pt; color: var(--mute-2); font-family: var(--mono); letter-spacing: .04em; }
+
+  /* ---------- PAGE 10 — Configurations ---------- */
+  .p8 .intro { margin-top: 0.25in; max-width: 5.6in; }
+  .p8 .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    margin-top: 0.35in;
+    border-top: 2px solid var(--steel-700);
+  }
+  .p8 .tier {
+    padding: 18px 16px 20px;
+    border-right: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 10px;
+    position: relative;
+  }
+  .p8 .tier:last-child { border-right: none; }
+  .p8 .tier.flag::before {
+    content: "MOST POPULAR"; position: absolute; top: -2px; left: 0; right: -1px;
+    background: var(--red); color: #fff; font-size: 7.5pt; font-weight: 600; letter-spacing: .14em;
+    padding: 4px 8px; transform: translateY(-100%); text-align: center;
+  }
+  .p8 .tier.flag { border-top: 2px solid var(--red); margin-top: -2px; }
+  .p8 .tier .tag {
+    font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--mute);
+  }
+  .p8 .tier .pw {
+    font-family: var(--mono); font-size: 33pt; font-weight: 600; letter-spacing: -.03em; color: var(--steel-700);
+    line-height: 1;
+  }
+  .p8 .tier.flag .pw { color: var(--red); }
+  .p8 .tier .pw .u { font-size: 13pt; font-weight: 500; color: var(--ink-2); margin-left: 2px; }
+  .p8 .tier .codes { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+  .p8 .tier .code {
+    font-family: var(--mono); font-size: 8.5pt; color: var(--ink-2); letter-spacing: .02em;
+  }
+  .p8 .tier .specs {
+    margin-top: auto;
+    padding-top: 12px; border-top: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .p8 .tier .specs .row { display: flex; justify-content: space-between; gap: 8px; font-size: 9pt; }
+  .p8 .tier .specs .k { color: var(--mute); letter-spacing: .04em; }
+  .p8 .tier .specs .v { font-family: var(--mono); font-weight: 500; color: var(--ink); }
+  .p8 .footnote {
+    margin-top: 0.3in; padding: 18px 20px;
+    background: var(--steel-050); border-left: 3px solid var(--red);
+    display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; align-items: center;
+  }
+  .p8 .footnote .ttl { font-size: 12pt; font-weight: 700; color: var(--ink); }
+  .p8 .footnote .ttl .red { color: var(--red); }
+  .p8 .footnote .desc { font-size: 9.5pt; color: var(--mute); margin-top: 4px; line-height: 1.5; }
+  .p8 .footnote .right { text-align: right; }
+  .p8 .footnote .right .mc { font-family: var(--mono); font-size: 11pt; font-weight: 600; color: var(--steel-700); }
+  .p8 .footnote .right .lbl { font-size: 8pt; letter-spacing: .14em; color: var(--mute); text-transform: uppercase; }
+
+  /* ---------- PAGE 11 — Spec tables ---------- */
+  .spec-meta {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 0.2in; padding-bottom: 10px; border-bottom: 2px solid var(--steel-700);
+  }
+  .spec-meta h3 { font-size: 18pt; font-weight: 700; letter-spacing: -.015em; }
+  .spec-meta .tag {
+    font-family: var(--mono); font-size: 9pt; letter-spacing: .14em; color: var(--steel-700);
+    text-transform: uppercase;
+  }
+  table.specs {
+    width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 14px;
+  }
+  table.specs th, table.specs td {
+    border-bottom: 1px solid var(--line);
+    padding: 6px 10px; text-align: left; vertical-align: middle;
+  }
+  table.specs thead th {
+    background: var(--steel-700); color: #fff;
+    font-size: 8.5pt; letter-spacing: .12em; text-transform: uppercase; font-weight: 600;
+    border-bottom: none;
+  }
+  table.specs thead th.first { background: var(--steel-800); }
+  table.specs tbody th {
+    font-weight: 500; color: var(--ink); font-size: 9pt; width: 32%;
+    background: var(--steel-050);
+  }
+  table.specs td { font-family: var(--mono); color: var(--ink-2); font-weight: 500; }
+  table.specs tbody tr:last-child th, table.specs tbody tr:last-child td { border-bottom: 2px solid var(--steel-700); }
+  table.specs td.hl { color: var(--red); font-weight: 600; }
+
+  table.common {
+    width: 100%; border-collapse: collapse; font-size: 9pt; margin-top: 14px;
+  }
+  table.common th, table.common td {
+    border-bottom: 1px solid var(--line); padding: 6px 10px;
+  }
+  table.common th {
+    text-align: left; width: 38%; color: var(--mute);
+    font-weight: 500; letter-spacing: .04em; font-size: 8.5pt; text-transform: uppercase;
+  }
+  table.common td { font-family: var(--mono); color: var(--ink-2); font-weight: 500; }
+
+  .twocol-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35in; }
+
+  .spec-note {
+    font-size: 8.5pt; color: var(--mute); margin-top: 10px; font-style: italic;
+  }
+
+  /* ---------- PAGE 12 — Series Comparison ---------- */
+  .p11 .intro { margin-top: 0.25in; max-width: 5.4in; }
+  .p11 .legend {
+    display: grid; grid-template-columns: 28% 24% 24% 24%; gap: 0; margin-top: 0.35in;
+    border-top: 2px solid var(--steel-700);
+  }
+  .p11 .legend .spacer {
+    padding: 16px 18px; border-right: 1px solid var(--line);
+    background: var(--steel-050);
+    display: flex; align-items: flex-end;
+  }
+  .p11 .legend .spacer .lbl {
+    font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); font-weight: 500;
+  }
+  .p11 .legend .col {
+    padding: 16px 18px; border-right: 1px solid var(--line);
+  }
+  .p11 .legend .col:last-child { border-right: none; }
+  .p11 .legend .col.flag { background: var(--steel-050); border-top: 2px solid var(--red); margin-top: -2px; position: relative; }
+  .p11 .legend .col.flag::before {
+    content: "THIS CATALOG";
+    position: absolute; top: -2px; right: 14px; background: var(--red); color: #fff;
+    font-size: 7pt; letter-spacing: .18em; padding: 3px 7px;
+    transform: translateY(-100%);
+  }
+  .p11 .legend .tag { font-family: var(--mono); font-size: 8.5pt; color: var(--mute); letter-spacing: .1em; }
+  .p11 .legend .nm { font-size: 18pt; font-weight: 700; margin-top: 4px; }
+  .p11 .legend .nm .light { font-weight: 300; color: var(--mute); margin-left: 6px; }
+  .p11 .legend .desc { font-size: 9pt; color: var(--mute); margin-top: 6px; }
+  table.compare {
+    width: 100%; border-collapse: collapse; margin-top: 0; table-layout: fixed;
+  }
+  table.compare col.k { width: 28%; }
+  table.compare col.v { width: 24%; }
+  table.compare th, table.compare td {
+    padding: 9px 14px; font-size: 9pt; border-bottom: 1px solid var(--line);
+    text-align: left;
+  }
+  table.compare td { white-space: normal; word-wrap: break-word; }
+  table.compare thead th { display: none; }
+  table.compare tbody th {
+    text-align: left; font-weight: 500; color: var(--mute); width: 28%;
+    font-size: 8.5pt; letter-spacing: .04em; text-transform: uppercase;
+  }
+  table.compare tbody td { font-family: var(--mono); color: var(--ink-2); font-weight: 500; vertical-align: middle; }
+  table.compare tbody td.col-flag { background: var(--steel-050); color: var(--ink); font-weight: 600; }
+  table.compare tbody td.col-flag.hot { color: var(--red); }
+  table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { border-bottom: 2px solid var(--steel-700); }
+
+  /* ---------- PAGE 13 — Back cover ---------- */
+  .back { background: #0a0d12; color: #fff; height: 100%; position: relative; overflow: hidden; }
+  .back .grid-bg {
+    position: absolute; inset: 0; opacity: .07;
+    background-image:
+      linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  }
+  .back .ribbon {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 0.32in;
+    background: linear-gradient(180deg, var(--steel-700) 0%, var(--steel-700) 30%, var(--red) 30.1%, var(--red) 100%);
+  }
+  .back .body-area {
+    position: absolute; inset: 0.7in 0.7in 0.7in 0.95in; display: flex; flex-direction: column;
+  }
+  .back .logo img { height: 96px; filter: brightness(0) invert(1); }
+  .back .promise { margin-top: 0.7in; max-width: 6.2in; }
+  .back .promise .label {
+    color: var(--steel-500); font-size: 9pt; letter-spacing: .25em; text-transform: uppercase; font-weight: 600;
+  }
+  .back .promise h3 {
+    margin-top: 12px; font-size: 38pt; line-height: 1.04; letter-spacing: -.02em; font-weight: 800;
+  }
+  .back .promise h3 .em { color: var(--steel-500); font-style: italic; font-weight: 800; }
+  .back .promise p {
+    margin-top: 16px; max-width: 5.4in;
+    font-size: 11pt; line-height: 1.55; color: rgba(255,255,255,.78);
+  }
+  .back .contact-grid {
+    margin-top: auto;
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 0;
+    border-top: 1px solid rgba(255,255,255,.18); padding-top: 22px;
+  }
+  .back .contact-grid .col { padding-right: 24px; }
+  .back .contact-grid .col + .col { padding-left: 24px; border-left: 1px solid rgba(255,255,255,.14); }
+  .back .contact-grid .label {
+    font-size: 8pt; color: rgba(255,255,255,.5); letter-spacing: .2em; text-transform: uppercase; font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .back .contact-grid .v { font-size: 10.5pt; color: #fff; line-height: 1.45; }
+  .back .contact-grid .v.mono { font-family: var(--mono); font-size: 10pt; }
+  .back .certs {
+    display: flex; gap: 12px; margin-top: 0.45in;
+  }
+  .back .certs .c {
+    border: 1px solid rgba(255,255,255,.32); padding: 6px 12px;
+    font-family: var(--mono); font-size: 8.5pt; letter-spacing: .14em; color: rgba(255,255,255,.85);
+  }
+  .back .footer-line {
+    position: absolute; bottom: 0.35in; left: 0.95in; right: 0.7in;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 8pt; color: rgba(255,255,255,.45); letter-spacing: .14em; text-transform: uppercase;
+    border-top: 1px solid rgba(255,255,255,.12); padding-top: 10px;
+  }
+
+  /* ---------- PAGE — ProCut UL ---------- */
+  .pul .imgband {
+    margin: 0.28in -0.6in 0;
+    height: 3.35in;
+    background: #eef1f5 url("https://wavlonlasers.com/assets/wlf-sectioned-1.png") center 46% / cover no-repeat;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .pul .imgband .stamp {
+    position: absolute; left: 22px; bottom: 18px;
+    font-family: var(--mono); font-size: 8pt; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--ink-2); background: rgba(255,255,255,.82); padding: 6px 10px;
+    border-left: 2px solid var(--red);
+  }
+  .pul .sizes {
+    display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 0;
+    margin-top: 0.34in; border-top: 2px solid var(--steel-700);
+  }
+  .pul .size {
+    padding: 18px 22px 18px 0; border-right: 1px solid var(--line);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .pul .size:nth-child(n+2) { padding-left: 22px; }
+  .pul .size:last-child { border-right: none; background: var(--steel-050); padding-right: 22px; }
+  .pul .size .tag { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+  .pul .size .dim {
+    font-family: var(--mono); font-size: 27pt; font-weight: 600; letter-spacing: -.02em; color: var(--steel-700); line-height: 1;
+  }
+  .pul .size .dim .u { font-size: 12pt; font-weight: 500; color: var(--ink-2); margin-left: 2px; }
+  .pul .size .code { font-family: var(--mono); font-size: 8.5pt; color: var(--ink-2); }
+  .pul .size .note { font-size: 9pt; color: var(--mute); line-height: 1.45; margin-top: 2px; }
+  .pul .size.custom .ttl { font-size: 12pt; font-weight: 700; color: var(--ink); }
+  .pul .size.custom .ttl .red { color: var(--red); }
+
+  /* ---------- PAGE — ProCut UL Profiles & Specs ---------- */
+  .pulspec .gallery { display: flex; flex-direction: column; gap: 12px; margin-top: 0.26in; }
+  .pulspec .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pulspec .shot {
+    position: relative; overflow: hidden; border: 1px solid var(--line); background: #eef1f5;
+  }
+  .pulspec .shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pulspec .shot.wide { height: 2.45in; }
+  .pulspec .shot.sm { height: 1.62in; }
+  .pulspec .shot .cap {
+    position: absolute; left: 0; bottom: 0;
+    font-family: var(--mono); font-size: 7.5pt; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-2); background: rgba(255,255,255,.86); padding: 5px 9px;
+    border-top: 2px solid var(--red); border-right: 1px solid var(--line);
+  }
+  .pulspec .spec-meta { margin-top: 0.28in; }
+  .pulspec table.specs { margin-top: 12px; }
+  .pulspec .ulnote {
+    margin-top: 12px; padding: 13px 18px;
+    background: var(--steel-050); border-left: 3px solid var(--steel-700);
+    font-size: 8.5pt; color: var(--ink-2); line-height: 1.5;
+  }
+  .pulspec .ulnote strong { color: var(--steel-700); }
+
+  /* ---------- PRINT ---------- */
+  @page { size: letter portrait; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    .page { box-shadow: none; margin: 0; }
+    .no-print { display: none !important; }
+  }
+  /* Screen toolbar */
+  .toolbar {
+    position: fixed; top: 12px; right: 12px; z-index: 1000;
+    display: flex; gap: 8px;
+    background: rgba(255,255,255,.94); border: 1px solid var(--line); border-radius: 4px; padding: 8px 10px;
+    font-size: 11px; color: var(--ink-2); font-family: var(--mono);
+    box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  }
+  .toolbar button {
+    font: inherit; color: #fff; background: var(--steel-700); border: none;
+    padding: 6px 10px; cursor: pointer; letter-spacing: .06em;
+  }
+  .toolbar button:hover { background: var(--steel-800); }
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <span>15 pages · Letter portrait</span>
+  <button onclick="window.print()">Save as PDF</button>
+</div>
+
+<!-- =========================================================
+     PAGE 01 — COVER
+========================================================= -->
+<section class="page" data-screen-label="01 Cover">
+  <div class="cover">
+    <div class="photo"></div>
+    <div class="scrim"></div>
+    <div class="ribbon"></div>
+
+    <div class="top-bar">
+      <div class="logomark xl"><img src="https://wavlonlasers.com/assets/wavlon-logo.png" alt="Wavlon Lasers"></div>
+      <div class="meta">Product Catalog · 2026</div>
+    </div>
+
+    <div class="title-block">
+      <div class="kicker"><span class="dot"></span> Gantry Fiber Laser · Open Bed</div>
+      <h1>ProCut<span class="series">Series</span><span class="meta-line">WPC Models · 3 kW – 20 kW · 3015 / 6020 + UL</span></h1>
+    </div>
+
+    <div class="meta-row">
+      <div class="power-tag">
+        <div>Power Range</div>
+        <div class="big">3 – 20 kW</div>
+      </div>
+      <div class="doc-id">
+        WAVLON / WPC<br>
+        DOC-WPC-CAT-001
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 02 — POSITIONING / INSIDE COVER
+========================================================= -->
+<section class="page p2" data-screen-label="02 Positioning">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <span class="eyebrow">Introduction</span>
+      <div class="logomark" style="height: 1.1in;"><img src="https://wavlonlasers.com/assets/wavlon-logo.png" alt="" style="height: 1.1in; max-height: 1.1in;"></div>
+    </div>
+
+    <div class="hero-row">
+      <div>
+        <p class="lede">
+          The <span class="strong">ProCut Series</span> is Wavlon's entry-level gantry platform — an enclosed cutting head and beam traveling over an open machine bed, built for fast, no-fuss sheet production.
+        </p>
+      </div>
+      <div>
+        <p class="body">
+          Built on a welded, stress-relieved bed with an open work area, the WPC Series gives operators clear, unobstructed access to load and unload large or heavy sheet directly. The cutting head and cross beam run inside an enclosed gantry hood, while high-sensitivity light curtains and a built-in electrical cabinet keep the operator protected and the footprint tight.
+        </p>
+        <p class="body" style="margin-top: 12px;">
+          The entry-level workhorse — from a 3015 frame to ultra-large-format UL beds. Designed for fast training. Backed by Canadian sales and service.
+        </p>
+      </div>
+    </div>
+
+    <div style="flex: 1;"></div>
+
+    <div class="props">
+      <div class="prop">
+        <div class="num">01 — OPEN BED</div>
+        <h4>Open-Access Work Bed</h4>
+        <p>The gantry travels over a fixed open bed, giving clear, unobstructed access to load and unload large or heavy sheet directly — no enclosure to work around.</p>
+      </div>
+      <div class="prop">
+        <div class="num">02 — GANTRY</div>
+        <h4>Enclosed Head &amp; Beam</h4>
+        <p>The cutting head and cross beam run inside an enclosed gantry hood with an OD-rated viewing window — protection at the cut, openness where you load.</p>
+      </div>
+      <div class="prop">
+        <div class="num">03 — SAFETY</div>
+        <h4>Light Curtains &amp; Cabinet</h4>
+        <p>High-sensitivity light safety curtains guard the cutting zone, while the electrical cabinet is built into the machine body to minimise footprint.</p>
+      </div>
+      <div class="prop">
+        <div class="num">04 — SUPPORT</div>
+        <h4>Canadian-Backed Service</h4>
+        <p>Sales, installation, training, and spare parts from a North American team — with remote support and locally available components.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Introduction</span>
+    <span class="pageno">02 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 03 — AT A GLANCE (DARK)
+========================================================= -->
+<section class="page p3 dark" data-screen-label="03 At a Glance">
+  <div class="stage"></div>
+
+  <div class="top">
+    <span class="eyebrow light">At a Glance</span>
+    <span class="model">WPC-3015 / 6020 · GANTRY PLATFORM</span>
+  </div>
+
+  <h2>Fast, open-bed cutting,<br>built for the working<br>North American <span class="em">job shop.</span></h2>
+
+  <div class="stats">
+    <div class="stat hot">
+      <div class="label">Max Laser Power</div>
+      <div class="big">20<span class="u">kW</span></div>
+      <div class="note">From 3 kW · MAX source</div>
+    </div>
+    <div class="stat">
+      <div class="label">Max Speed</div>
+      <div class="big">100<span class="u">m/min</span></div>
+      <div class="note">1.2 G acceleration</div>
+    </div>
+    <div class="stat">
+      <div class="label">Repeat Precision</div>
+      <div class="big">±0.02<span class="u">mm</span></div>
+      <div class="note">Per metre</div>
+    </div>
+    <div class="stat">
+      <div class="label">Work Bed</div>
+      <div class="big">6020<span class="u">+UL</span></div>
+      <div class="note">3015 / 6020 · to 25 m UL</div>
+    </div>
+  </div>
+
+  <div class="footer dark">
+    <span class="mark"><span class="swatch" style="background:#fff"></span> Wavlon ProCut Series</span>
+    <span>At a Glance</span>
+    <span class="pageno">03 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 04 — SINGLE AUTO PULL-OUT TABLE
+========================================================= -->
+<section class="page p4" data-screen-label="04 Open-Bed Gantry">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Highlight · 01</span>
+      <span class="body sm">Open work area · enclosed cut</span>
+    </div>
+
+    <div class="hero-img"></div>
+
+    <div class="belowhero">
+      <div>
+        <h3>Open-Bed<br>Gantry Design.</h3>
+        <p class="body" style="margin-top:14px;">
+          A high-rigidity gantry carries the cutting head and cross beam across a fixed, open machine bed. With no surrounding cabin, the operator has clear access from every side — loading raw sheet and clearing finished parts is direct and fast, including large or heavy plate that would be awkward to feed into an enclosure.
+        </p>
+        <p class="body" style="margin-top:10px;">
+          Where it counts, the cut stays protected: the head and beam run inside an enclosed gantry hood with an OD-rated viewing window, and high-sensitivity light curtains halt motion before anyone reaches the cutting zone.
+        </p>
+      </div>
+      <div>
+        <div class="eyebrow red" style="margin-bottom: 14px;">Cycle</div>
+        <div class="cycle">
+          <div class="step"><div class="ix">01</div><div><h5>Load onto the open bed</h5><p>Sheet drops straight onto the open slat bed — crane, forklift, or by hand, from any side.</p></div></div>
+          <div class="step"><div class="ix">02</div><div><h5>Gantry traverses &amp; cuts</h5><p>The enclosed head and beam track the program at up to 100 m/min while light curtains guard the zone.</p></div></div>
+          <div class="step"><div class="ix red">03</div><div><h5>Clear &amp; reload</h5><p>Finished parts and skeleton lift straight off the open bed for a fast turnaround to the next sheet.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Highlight 01 — Open-Bed Gantry</span>
+    <span class="pageno">04 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 05 — LIGHT CURTAINS & SAFETY
+========================================================= -->
+<section class="page p5" data-screen-label="05 Light Curtains">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Highlight · 02</span>
+      <span class="body sm">Operator safety · light curtains</span>
+    </div>
+
+    <h3 style="font-size:20pt; font-weight:700; letter-spacing:-.015em; margin-top: 10px;">High-Sensitivity Light Curtains.</h3>
+    <p class="body" style="margin-top: 6px; max-width: 6in;">
+      With an open bed, safety is built into the gantry itself. High-sensitivity light safety curtains screen the cutting zone and halt motion the instant the beam is broken, while a green status beacon signals machine state across the floor and the head and beam stay shielded inside the enclosed hood. Designed to meet North American safety requirements, including CSA standards.
+    </p>
+
+    <div class="heroblock">
+      <div class="imgwell">
+        <img class="main" src="https://wavlonlasers.com/assets/ultracut-safety-curtains.jpg" alt="ProCut gantry with yellow light safety curtains and green status beacon">
+      </div>
+      <div class="annot-col">
+        <div class="head">Safety — At a Glance</div>
+        <div class="annot-item">
+          <div class="ix">01</div>
+          <div>
+            <h6>High-sensitivity curtains</h6>
+            <p>Light curtains screen the cutting zone and stop all motion the instant the beam is broken.</p>
+          </div>
+        </div>
+        <div class="annot-item">
+          <div class="ix">02</div>
+          <div>
+            <h6>Green status beacon</h6>
+            <p>A full-height signal strip shows machine state — running, idle, or fault — at a glance across the floor.</p>
+          </div>
+        </div>
+        <div class="annot-item">
+          <div class="ix">03</div>
+          <div>
+            <h6>OD-rated viewing window</h6>
+            <p>The enclosed hood carries a radiation-shielded window so the cut stays visible without exposure.</p>
+          </div>
+        </div>
+        <div class="annot-item">
+          <div class="ix">04</div>
+          <div>
+            <h6>E-stop &amp; interlocks</h6>
+            <p>Emergency stop and motion interlocks back up the curtains for layered operator protection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="f">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2 L24 7 V15 C24 20 19 24 14 26 C9 24 4 20 4 15 V7 Z" stroke="currentColor" stroke-width="1.6"></path><path d="M9 14 L13 18 L20 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <h5>Light curtains</h5>
+        <p>High-sensitivity safety curtains halt motion before anyone reaches the cutting zone — protection without a full enclosure.</p>
+      </div>
+      <div class="f">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="10" y="3" width="8" height="15" rx="4" stroke="currentColor" stroke-width="1.6"></rect><path d="M14 18 V25 M9 25 H19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </div>
+        <h5>Status beacon</h5>
+        <p>A full-height status light reports running, idle, and fault states clearly across a busy shop floor.</p>
+      </div>
+      <div class="f">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="1" stroke="currentColor" stroke-width="1.6"></rect><path d="M8 11 H20 M8 15 H20" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path></svg>
+        </div>
+        <h5>OD-rated window</h5>
+        <p>The enclosed gantry hood keeps the cutting head and beam shielded behind a radiation-rated viewing window.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Highlight 02 — Light Curtains</span>
+    <span class="pageno">05 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 06 — SAFETY SYSTEMS (Monitoring + Light Curtains)
+========================================================= -->
+<section class="page p5b" data-screen-label="06 Electrical Cabinet">
+  <div class="frame">
+    <div class="topband">
+      <span class="eyebrow">Highlight · 02 · cont.</span>
+      <span class="body sm">Built-in cabinet · tidy footprint</span>
+    </div>
+
+    <h3 class="lead">Built into the body, <span class="em">organised for service.</span></h3>
+    <p class="lede">
+      The electrical cabinet folds into the machine body — no separate floor-standing enclosure to place or wire — with components laid out in clear tiers for fast diagnosis and service.
+    </p>
+
+    <div class="block-cam">
+      <div class="img" role="img" aria-label="ProCut built-in electrical cabinet with door open and green status beacon"></div>
+      <div class="copy">
+        <div class="tag">01 · Inside the cabinet</div>
+        <h4>Built-in Electrical Cabinet.</h4>
+        <p>
+          Drives, source bay, breakers, and control electronics are arranged in clearly organised tiers behind a sealed door — every component visible and reachable for quick diagnosis. A full-height green beacon on the cabinet face reports machine status across the floor.
+        </p>
+      </div>
+    </div>
+
+    <div class="block-elec">
+      <div class="copy">
+        <div class="tag">02 · Tidy footprint</div>
+        <h4>Integrated, Compact Footprint.</h4>
+        <p>
+          Because the cabinet is integrated into the machine base rather than standing alongside it, the ProCut occupies less floor and installs with fewer external runs — power and control stay contained within the machine body, keeping the shop floor clear around the open bed.
+        </p>
+      </div>
+      <div class="img" role="img" aria-label="ProCut machine showing integrated cabinet within the body"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Highlight 02 — Electrical Cabinet</span>
+    <span class="pageno">06 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 07 — BED & BEAM STRUCTURE
+========================================================= -->
+<section class="page pbed" data-screen-label="07 Bed &amp; Beam">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Highlight · 03</span>
+      <span class="body sm">Rigidity · thermal stability</span>
+    </div>
+
+    <h3 style="font-size:20pt; font-weight:700; letter-spacing:-.015em; margin-top: 10px;">Engineered for Rigidity.</h3>
+    <p class="body" style="margin-top: 6px; max-width: 6in;">
+      The machine bed is an in-house welded structure, annealed to release internal stress, with reinforced rib plates and mortise-and-tenon joints. The cross beam is high-strength steel, tempered for thermal stability under heavy cutting — so the ProCut holds dimensional accuracy through extended production.
+    </p>
+
+    <div class="heroblock">
+      <div class="imgwell">
+        <img src="https://wavlonlasers.com/assets/exchange-table.png" alt="ProCut integrated welded bed with steel slat work surface">
+      </div>
+      <div class="annot-col">
+        <div class="head">Structure — At a Glance</div>
+        <div class="annot-item">
+          <div class="ix">01</div>
+          <div>
+            <h6>Annealed welded bed</h6>
+            <p>Stress-relieved welded structure minimises deformation for long-term accuracy and durability.</p>
+          </div>
+        </div>
+        <div class="annot-item">
+          <div class="ix">02</div>
+          <div>
+            <h6>Reinforced rib plates</h6>
+            <p>Internal mortise-and-tenon ribs add rigidity and suppress vibration at high-speed travel.</p>
+          </div>
+        </div>
+        <div class="annot-item">
+          <div class="ix">03</div>
+          <div>
+            <h6>High-strength steel beam</h6>
+            <p>Integrated, tempered steel cross beam holds accuracy under thermal load during heavy cutting.</p>
+          </div>
+        </div>
+        <div class="annot-item">
+          <div class="ix">04</div>
+          <div>
+            <h6>Welded plate frame</h6>
+            <p>Metal-plate welded construction forms a stable, rigid base for consistent long-term accuracy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="f">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 8 H24 M4 12 H24 M4 16 H24 M4 20 H24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+        </div>
+        <h5>Steel slat work bed</h5>
+        <p>Replaceable steel support slats carry the sheet across the open bed and swap out quickly once consumed.</p>
+      </div>
+      <div class="f">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="9" width="6" height="5" stroke="currentColor" stroke-width="1.4"></rect><rect x="11" y="9" width="6" height="5" stroke="currentColor" stroke-width="1.4"></rect><rect x="18" y="9" width="6" height="5" stroke="currentColor" stroke-width="1.4"></rect><rect x="7" y="15" width="6" height="5" stroke="currentColor" stroke-width="1.4"></rect><rect x="14" y="15" width="6" height="5" stroke="currentColor" stroke-width="1.4"></rect></svg>
+        </div>
+        <h5>Slag collection drawers</h5>
+        <p>Pull-out trays beneath the bed catch dross and offcut for fast, low-labour cleanout between jobs.</p>
+      </div>
+      <div class="f">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 8 H24 M4 14 H24 M4 20 H24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="9" cy="8" r="2" fill="currentColor"></circle><circle cx="17" cy="14" r="2" fill="currentColor"></circle><circle cx="11" cy="20" r="2" fill="currentColor"></circle></svg>
+        </div>
+        <h5>Hardened guides &amp; rack</h5>
+        <p>Precision linear guides with helical rack-and-pinion drive carry the gantry smoothly at full speed.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Highlight 03 — Bed &amp; Beam</span>
+    <span class="pageno">07 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 08 — LASER HEAD
+========================================================= -->
+<section class="page p6" data-screen-label="08 Laser Head">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Key Feature</span>
+      <span class="body sm">Fast focus · collision protection · window monitoring</span>
+    </div>
+    <h3 style="font-size:22pt; font-weight:700; letter-spacing:-.015em; margin-top: 14px;">BOCI BLT <span style="font-weight:300; color:var(--mute);">cutting heads.</span></h3>
+    <p class="body" style="margin-top: 10px; max-width: 6.5in;">
+      The laser head is one of the most important parts of any cutting machine. Each ProCut power tier ships with the matched <strong style="color:var(--steel-700); font-weight:600;">BOCI BLT cutting head</strong> — from the BLT-310 up to high-power BLT heads — with fast focusing, collision protection, protective-window monitoring, and water cooling. <strong style="color:var(--steel-700); font-weight:600;">Precitec head integration is available</strong> on request.
+    </p>
+
+    <div class="grid">
+      <div class="left">
+        <div class="leadimg">
+          <img src="https://wavlonlasers.com/assets/blt-laser-head.jpg" alt="BOCI BLT laser head full assembly">
+        </div>
+        <div class="leadcap">FIG. 01 — BOCI BLT cutting head assembly · representative model</div>
+      </div>
+      <div class="right">
+        <div class="detail">
+          <div class="tag">EXPLODED VIEW</div>
+          <img src="https://wavlonlasers.com/assets/blt-laser-head-exploded.webp" alt="Laser head exploded view">
+        </div>
+        <div class="detail">
+          <div class="tag">PROTECTIVE LENS</div>
+          <img src="https://wavlonlasers.com/assets/blt-protective-lens.webp" alt="Protective lens detail">
+        </div>
+
+        <div class="headlineup">
+          <div class="row head"><div>POWER</div><div>BLT HEAD</div><div>NOTES</div></div>
+          <div class="row"><div class="pw">3 kW</div><div class="model">BLT-310</div><div>Thin-gauge fidelity, fast focus</div></div>
+          <div class="row"><div class="pw">6 kW</div><div class="model">BLT-421S</div><div>Mid-range work-horse head</div></div>
+          <div class="row"><div class="pw">12 kW</div><div class="model">BLT-442</div><div>Thick-plate, adaptive standoff</div></div>
+          <div class="row"><div class="pw">20 kW</div><div class="model">BLT high-power</div><div>Maximum thickness &amp; throughput</div></div>
+          <div class="row" style="background: var(--steel-050);"><div class="pw" style="color: var(--red);">Opt.</div><div class="model">Precitec</div><div>Premium integration on request</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Key Feature — Laser Head</span>
+    <span class="pageno">08 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 09 — CONTROL + COMPONENTS
+========================================================= -->
+<section class="page p7" data-screen-label="09 Control + Components">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Key Feature</span>
+      <span class="body sm">CNC control · premium components</span>
+    </div>
+
+    <div class="top">
+      <div class="console">
+        <div class="badge">CYPCUT / HYPCUT · 27" CONSOLE</div>
+        <img src="https://wavlonlasers.com/assets/cypcut-control-console.jpg" alt="Cypcut control console">
+      </div>
+      <div class="ctrl-copy">
+        <h4>Cypcut &amp; Hypcut Control.</h4>
+        <p class="body">Windows-native CNC software on a 27-inch internal-design console — nesting, edge searching, range checking, and live cut monitoring in one operator-facing interface, with DXF / DWG / AI import.</p>
+        <ul class="ctrl-list">
+          <li>FSCUT2000E / 4000E / 8000 controllers matched to power tier</li>
+          <li>Cypnest nesting software included on higher-power models</li>
+          <li>Automatic calibration and one-click edge search</li>
+          <li>27" touchscreen — internal design, operator-facing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="partners-section">
+      <div class="head">
+        <span class="eyebrow">Premium Components</span>
+        <span class="body sm">Sourced internationally · integrated in Canada</span>
+      </div>
+      <div class="partners">
+        <div class="p"><div class="role">Laser Source</div><div><div class="name">MAX</div><div class="origin">FIBER LASER</div></div></div>
+        <div class="p"><div class="role">Servo Motor</div><div><div class="name">Yaskawa</div><div class="origin">JAPAN</div></div></div>
+        <div class="p"><div class="role">Linear Guide Rail</div><div><div class="name">ROUST</div><div class="origin">GERMANY</div></div></div>
+        <div class="p"><div class="role">Helical Rack</div><div><div class="name">Eblun</div><div class="origin">TAIWAN</div></div></div>
+        <div class="p"><div class="role">Reducer</div><div><div class="name">TECHMECH</div><div class="origin">PRECISION DRIVE</div></div></div>
+        <div class="p"><div class="role">Electrical</div><div><div class="name">Schneider · ABB</div><div class="origin">FRANCE</div></div></div>
+        <div class="p"><div class="role">Pneumatic / Gas</div><div><div class="name">SMC</div><div class="origin">PNEUMATICS</div></div></div>
+        <div class="p"><div class="role">Water Chiller</div><div><div class="name">S&amp;A</div><div class="origin">PROCESS COOLING</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Key Feature — Control &amp; Components</span>
+    <span class="pageno">09 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 10 — CONFIGURATIONS
+========================================================= -->
+<section class="page p8" data-screen-label="10 Configurations">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Configurations</span>
+      <span class="body sm">Two standard beds · one UL platform</span>
+    </div>
+
+    <h3 class="h-section" style="margin-top: 16px;">Choose your <span style="color:var(--steel-700); font-style: italic;">bed size.</span></h3>
+
+    <p class="body intro">
+      Every ProCut shares the same open-bed gantry, enclosed cutting head, welded bed, motion package, and component lineup — and scales from 3 to 20 kW on any frame. Pick the bed that matches your sheet.
+    </p>
+
+    <div class="grid">
+      <div class="tier">
+        <div class="tag">Compact</div>
+        <div class="pw">3015</div>
+        <div class="codes">
+          <span class="code">WPC-3015 · 3.0 × 1.5 m</span>
+        </div>
+        <div class="specs">
+          <div class="row"><span class="k">Bed</span><span class="v">3000 × 1500</span></div>
+          <div class="row"><span class="k">Power</span><span class="v">3 – 20 kW</span></div>
+          <div class="row"><span class="k">Speed</span><span class="v">100 m/min</span></div>
+          <div class="row"><span class="k">For</span><span class="v">General job shop</span></div>
+        </div>
+      </div>
+
+      <div class="tier flag">
+        <div class="tag">Most Popular</div>
+        <div class="pw">6020</div>
+        <div class="codes">
+          <span class="code">WPC-6020 · 6.0 × 2.0 m</span>
+        </div>
+        <div class="specs">
+          <div class="row"><span class="k">Bed</span><span class="v">6000 × 2000</span></div>
+          <div class="row"><span class="k">Power</span><span class="v">3 – 20 kW</span></div>
+          <div class="row"><span class="k">Speed</span><span class="v">100 m/min</span></div>
+          <div class="row"><span class="k">For</span><span class="v">Large-sheet work</span></div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tag">Ultra Large</div>
+        <div class="pw">UL</div>
+        <div class="codes">
+          <span class="code">WPC-UL · 14 / 25 m</span>
+        </div>
+        <div class="specs">
+          <div class="row"><span class="k">Bed</span><span class="v">14 / 25 × 3.5 m</span></div>
+          <div class="row"><span class="k">Power</span><span class="v">3 – 20 kW</span></div>
+          <div class="row"><span class="k">Format</span><span class="v">Custom length</span></div>
+          <div class="row"><span class="k">For</span><span class="v">Plate &amp; structurals</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnote">
+      <div>
+        <div class="ttl">Custom beds &amp; power levels <span class="red">— available on request.</span></div>
+        <div class="desc">Beyond the standard 3015 and 6020 frames, ProCut UL is built to length for ultra-large-format plate — 14 m and 25 m tables on a 3.5 m width — and any frame can be matched with a 3–20 kW source, head, control, and chiller package. Contact sales for configuration and lead-time.</div>
+      </div>
+      <div class="right">
+        <div class="mc">WPC · UL / CUSTOM</div>
+        <div class="lbl">By Quotation</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Configurations</span>
+    <span class="pageno">10 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 11 — ProCut UL (ULTRA LARGE FORMAT)
+========================================================= -->
+<section class="page pul" data-screen-label="11 ProCut UL">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Range Extension</span>
+      <span class="body sm">Ultra large format · built to length</span>
+    </div>
+
+    <h3 class="h-section" style="margin-top: 16px;">ProCut <span style="color:var(--steel-700); font-style: italic;">UL</span> — Ultra Large Format.</h3>
+    <p class="body intro" style="max-width: 6in;">
+      For oversized plate and structural work, ProCut UL stretches the same open-bed gantry onto an ultra-large-format bed — the same enclosed cutting head and 3–20 kW power range, built to length on a 3.5 m width.
+    </p>
+
+    <div class="imgband">
+      <div class="stamp">ProCut UL · open-bed gantry · 14 m – 25 m table</div>
+    </div>
+
+    <div class="sizes">
+      <div class="size">
+        <div class="tag">Long Bed</div>
+        <div class="dim">14<span class="u">×3.5 m</span></div>
+        <div class="code">WPC-UL-14</div>
+        <div class="note">Long-format plate and oversized sheet on a single bed.</div>
+      </div>
+      <div class="size">
+        <div class="tag">Maximum Length</div>
+        <div class="dim">25<span class="u">×3.5 m</span></div>
+        <div class="code">WPC-UL-25</div>
+        <div class="note">Maximum table length for structurals and big-batch nesting.</div>
+      </div>
+      <div class="size custom">
+        <div class="ttl">Built to your <span class="red">length.</span></div>
+        <div class="note">UL beds are configured to spec with a matched source from 6 kW up to 200 kW, head, and motion package. Full ultra-large-format data sheet on the following page.</div>
+        <div class="code" style="margin-top:auto; color:var(--steel-700); font-weight:600;">WPC-UL · BY QUOTATION</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>ProCut UL — Ultra Large Format</span>
+    <span class="pageno">11 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 12 — ProCut UL PROFILES & SPECIFICATIONS
+========================================================= -->
+<section class="page pulspec" data-screen-label="12 ProCut UL Specs">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">ProCut UL · cont.</span>
+      <span class="body sm">Profiles · ultra-large-format data</span>
+    </div>
+
+    <h3 class="h-section" style="margin-top: 16px;">UL profiles &amp; <span style="color:var(--steel-700); font-style: italic;">specifications.</span></h3>
+
+    <div class="gallery">
+      <div class="shot wide">
+        <img src="https://wavlonlasers.com/assets/wlf-front-rh.png" alt="ProCut UL side profile — full-length open-bed gantry">
+        <span class="cap">Side profile · full-length open bed</span>
+      </div>
+      <div class="row2">
+        <div class="shot sm">
+          <img src="https://wavlonlasers.com/assets/wlf-front.png" alt="ProCut UL front elevation with side-mounted integrated table">
+          <span class="cap">Front · integrated side table</span>
+        </div>
+        <div class="shot sm">
+          <img src="https://wavlonlasers.com/assets/wlf-sectioned-1.png" alt="ProCut UL three-quarter view showing dual cutting zones">
+          <span class="cap">Three-quarter · dual zone</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-meta">
+      <div>
+        <h3>ProCut UL — Ultra Large Format</h3>
+        <div class="body sm" style="margin-top:4px;">Built-to-length open-bed gantry · dimensions in millimetres</div>
+      </div>
+      <div class="tag">WPC-UL</div>
+    </div>
+
+    <table class="specs">
+      <thead>
+        <tr>
+          <th class="first">Working Area</th>
+          <th>14000 × 3500</th>
+          <th>25000 × 3500</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>Laser Power</th><td class="hl">6 – 200 kW</td><td class="hl">6 – 200 kW</td></tr>
+        <tr><th>X/Y Positioning Accuracy</th><td>±0.05 mm/m</td><td>±0.05 mm/m</td></tr>
+        <tr><th>X/Y Repeat Positioning Accuracy</th><td>±0.05 mm/m</td><td>±0.05 mm/m</td></tr>
+        <tr><th>Maximum Movement Speed</th><td>100 m/min</td><td>100 m/min</td></tr>
+        <tr><th>Maximum Acceleration</th><td>0.8 G</td><td>0.8 G</td></tr>
+        <tr><th>Z-Axis Travel</th><td>200 mm</td><td>300 – 500 mm</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ulnote">
+      ProCut UL scales the open-bed gantry to <strong>14 m and 25 m tables on a 3.5 m width</strong>, matched with a source from <strong>6 kW up to 200 kW</strong> for heavy plate and structural work. Beds, power, and Z-travel are configured to spec — contact <span class="mono">sales@wavlonlasers.com</span> for the current UL data sheet and lead-time.
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>ProCut UL — Profiles &amp; Specifications</span>
+    <span class="pageno">12 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 11 — TECHNICAL SPECIFICATIONS
+========================================================= -->
+<section class="page" data-screen-label="13 Specifications">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Technical Specifications</span>
+      <span class="body sm">By working area · dimensions in millimetres</span>
+    </div>
+
+    <div class="spec-meta">
+      <div>
+        <h3>ProCut WPC — Standard Beds</h3>
+        <div class="body sm" style="margin-top:4px;">3015 / 6020 open-bed gantry platform · UL ultra-large-format on the previous page</div>
+      </div>
+      <div class="tag">WPC</div>
+    </div>
+
+    <table class="specs">
+      <thead>
+        <tr>
+          <th class="first">Specification</th>
+          <th>WPC-3015</th>
+          <th>WPC-6020</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>Laser Power</th><td class="hl">3 – 20 kW</td><td class="hl">3 – 20 kW</td></tr>
+        <tr><th>Working Area</th><td>3000 × 1500</td><td>6000 × 2000</td></tr>
+        <tr><th>X/Y Positioning Accuracy</th><td>±0.03 mm/m</td><td>±0.03 mm/m</td></tr>
+        <tr><th>X/Y Repeat Accuracy</th><td>±0.02 mm/m</td><td>±0.02 mm/m</td></tr>
+        <tr><th>Max Speed</th><td>100 m/min</td><td>100 m/min</td></tr>
+        <tr><th>Max Acceleration</th><td>1.2 G</td><td>1.2 G</td></tr>
+        <tr><th>Z-Axis Travel</th><td>120</td><td>120</td></tr>
+        <tr><th>Laser Head</th><td>BOCI BLT</td><td>BOCI BLT</td></tr>
+        <tr><th>Control System</th><td>Cypcut / Hypcut</td><td>Cypcut / Hypcut</td></tr>
+        <tr><th>Nesting Software</th><td>Optional</td><td>Optional</td></tr>
+      </tbody>
+    </table>
+
+    <div class="spec-meta" style="margin-top: 0.22in;">
+      <div>
+        <h3 style="font-size:14pt;">Common Specifications — All ProCut Models</h3>
+      </div>
+    </div>
+
+    <div class="twocol-tables">
+      <table class="common">
+        <tbody>
+          <tr><th>Laser Source</th><td>MAX</td></tr>
+          <tr><th>Servo Motor</th><td>Yaskawa (Japan)</td></tr>
+          <tr><th>Reducer</th><td>TECHMECH</td></tr>
+          <tr><th>Linear Guide Rail</th><td>ROUST (Germany)</td></tr>
+          <tr><th>Helical Rack</th><td>Eblun (Taiwan)</td></tr>
+          <tr><th>Electrical</th><td>Schneider &amp; ABB (FR)</td></tr>
+          <tr><th>Pneumatic / Gas</th><td>SMC</td></tr>
+          <tr><th>Water Chiller</th><td>S&amp;A</td></tr>
+        </tbody>
+      </table>
+      <table class="common">
+        <tbody>
+          <tr><th>Machine Frame</th><td>Welded metal plate</td></tr>
+          <tr><th>Machine Beam</th><td>Steel</td></tr>
+          <tr><th>Enclosure</th><td>Enclosed head &amp; beam</td></tr>
+          <tr><th>Table Type</th><td>Open fixed bed</td></tr>
+          <tr><th>Operating Voltage</th><td>380 V / 3-ph / 60 Hz</td></tr>
+          <tr><th>Software</th><td>Cypcut / Hypcut</td></tr>
+          <tr><th>Screen</th><td>Operator console</td></tr>
+          <tr><th>Certification</th><td>FDA &amp; CE / CSA</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="spec-note">Positioning accuracy ±0.03 mm/m · Repositioning accuracy ±0.02 mm/m · Calibration automatic. Cutting capacity depends on laser power, gas, and material. <strong style="color:var(--steel-700);">Custom power and ultra-large-format beds available on request</strong> — contact <span class="mono">sales@wavlonlasers.com</span> for the most current data sheet.</p>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Technical Specifications — WPC</span>
+    <span class="pageno">13 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 12 — SERIES COMPARISON
+========================================================= -->
+<section class="page p11" data-screen-label="14 Series Comparison">
+  <div class="frame">
+    <div style="display:flex; justify-content: space-between; align-items: baseline;">
+      <span class="eyebrow">Range Overview</span>
+      <span class="body sm">Three Wavlon sheet-cutting platforms</span>
+    </div>
+
+    <h3 class="h-section" style="margin-top: 16px;"><span style="color:var(--red); font-style: italic;">ProCut</span> · PowerCut · UltraCut.</h3>
+    <p class="body intro">
+      Three Wavlon sheet platforms cover entry-level through flagship production. ProCut is the entry-level workhorse — an open-bed gantry with an enclosed cutting head, scaling from a compact 3015 frame to ultra-large-format UL beds.
+    </p>
+
+    <div class="legend">
+      <div class="spacer"><span class="lbl">Sheet-Cutting Series</span></div>
+      <div class="col flag">
+        <div class="tag" style="color: var(--red);">WPC · ENTRY</div>
+        <div class="nm">ProCut</div>
+        <div class="desc">Open-bed gantry with enclosed head. 3015 / 6020 + UL.</div>
+      </div>
+      <div class="col">
+        <div class="tag">WFC · MID</div>
+        <div class="nm">PowerCut</div>
+        <div class="desc">Enclosed mid-tier with single automatic pull-out table.</div>
+      </div>
+      <div class="col">
+        <div class="tag">WUC · FLAGSHIP</div>
+        <div class="nm">UltraCut</div>
+        <div class="desc">Flagship dual-exchange production. Widest power range, both frames.</div>
+      </div>
+    </div>
+
+    <table class="compare">
+      <colgroup>
+        <col class="k">
+        <col class="v">
+        <col class="v">
+        <col class="v">
+      </colgroup>
+      <tbody>
+        <tr><th>Power Range</th><td class="col-flag hot">3 – 20 kW · UL to 200 kW</td><td>3 – 12 kW</td><td>3 – 20 kW · to 160 kW POA</td></tr>
+        <tr><th>Max Acceleration</th><td class="col-flag">1.2 G</td><td>1.2 G</td><td>1.2 G</td></tr>
+        <tr><th>Max Speed</th><td class="col-flag">100 m/min</td><td>120 m/min</td><td>120 m/min</td></tr>
+        <tr><th>Beds / Frames</th><td class="col-flag hot">3015 / 6020 / UL</td><td>3015 only</td><td>3015 / 4020</td></tr>
+        <tr><th>Enclosure</th><td class="col-flag">Enclosed head &amp; beam</td><td>Full enclosed cabin</td><td>Full enclosed cabin</td></tr>
+        <tr><th>Table Type</th><td class="col-flag">Open fixed bed</td><td>Single auto pull-out</td><td>Dual exchange shuttle</td></tr>
+        <tr><th>Best For</th><td class="col-flag">Entry-level workhorse</td><td>Enclosed mid-tier</td><td>Flagship production</td></tr>
+      </tbody>
+    </table>
+
+    <p class="spec-note" style="margin-top: 18px;">POA = Price on Application. Full spec sheets for each series are available on request from <span class="mono">sales@wavlonlasers.com</span>.</p>
+  </div>
+
+  <div class="footer">
+    <span class="mark"><span class="swatch"></span> Wavlon ProCut Series</span>
+    <span>Range Overview</span>
+    <span class="pageno">14 / 15</span>
+  </div>
+</section>
+
+<!-- =========================================================
+     PAGE 13 — BACK COVER
+========================================================= -->
+<section class="page" data-screen-label="15 Back Cover">
+  <div class="back">
+    <div class="grid-bg"></div>
+    <div class="ribbon"></div>
+
+    <div class="body-area">
+      <div class="logo"><img src="https://wavlonlasers.com/assets/wavlon-logo.png" alt="Wavlon Lasers"></div>
+
+      <div class="promise">
+        <div class="label">Canadian Sales &amp; Support</div>
+        <h3>Industrial-grade laser cutting,<br>backed by Canadian <span class="em">service.</span></h3>
+        <p>
+          Wavlon Lasers builds, installs, and supports fiber laser cutting machines from Toronto. Sales, installation, training, parts, and long-term service — engineered for North American shop floors. Get a configuration and quote within one business day.
+        </p>
+
+        <div class="certs">
+          <div class="c">CSA-ALIGNED</div>
+          <div class="c">1 YR ONSITE WARRANTY</div>
+          <div class="c">PARTS WARRANTY</div>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="col">
+          <div class="label">Sales · Quotes</div>
+          <div class="v mono">sales@wavlonlasers.com</div>
+          <div class="v mono" style="margin-top: 4px;">+1 (888) 277-6144</div>
+          <div class="v" style="margin-top: 4px; font-size: 9pt; color: rgba(255,255,255,.6);">Mon–Fri · 8am – 6pm EST</div>
+        </div>
+        <div class="col">
+          <div class="label">Office</div>
+          <div class="v">Toronto, Ontario</div>
+          <div class="v" style="font-size: 9pt; color: rgba(255,255,255,.6); margin-top: 4px;">Canada</div>
+        </div>
+        <div class="col">
+          <div class="label">Online</div>
+          <div class="v mono" style="font-size: 10pt;">wavlonlasers.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-line">
+      <span>© 2026 Wavlon Lasers Inc. · All rights reserved.</span>
+      <span class="mono">DOC-WPC-CAT-001 · REV A</span>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+</body></html>
