@@ -365,7 +365,7 @@
     FAQ.forEach(function(f) {
       var b = document.createElement('button');
       b.className = 'wlc-qr-btn'; b.textContent = f.label;
-      b.addEventListener('click', function(){ hideQR(); inputEl.value = f.q; sendMessage(); });
+      b.addEventListener('click', function(e){ e.stopPropagation(); hideQR(); inputEl.value = f.q; sendMessage(); });
       qrEl.appendChild(b);
     });
     qrEl.style.display = 'flex';
