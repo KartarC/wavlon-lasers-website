@@ -341,14 +341,126 @@
   .why-close { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
   .why-close img { height: 26px; width: auto; }
   .why-close p { font-size: 8.5pt; color: var(--mute); max-width: 4in; line-height: 1.5; }
+
+  /* ================= Title Page (cover) ================= */
+  .title-page {
+    position: relative; width: 100%; height: 100%; overflow: hidden;
+    background: #0a0d12; color: #fff;
+  }
+  .title-page .photo {
+    position: absolute; inset: 0; z-index: 1;
+    background: url("https://wavlonlasers.com/internal/compressed/procut-hero-bg.jpg") center 42% / cover no-repeat;
+  }
+  .title-page .scrim {
+    position: absolute; inset: 0; z-index: 2;
+    background:
+      linear-gradient(180deg, rgba(8,11,16,.55) 0%, rgba(8,11,16,.72) 45%, rgba(8,11,16,.94) 100%),
+      linear-gradient(90deg, rgba(8,11,16,.5) 0%, rgba(8,11,16,0) 60%);
+  }
+  .title-page .ribbon {
+    position: absolute; left: 0; top: 0; bottom: 0; z-index: 3; width: 0.32in;
+    background: linear-gradient(180deg, var(--steel-700) 0%, var(--steel-700) 70%, var(--red) 70.1%, var(--red) 100%);
+  }
+  .title-page .top-bar {
+    position: absolute; top: 0.6in; left: 0.85in; right: 0.6in; z-index: 4;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .title-page .top-bar img { height: 40px; width: auto; filter: brightness(0) invert(1); }
+  .title-page .top-bar .doctag {
+    font-family: var(--mono); font-size: 8pt; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.65);
+  }
+  .title-page .heading {
+    position: absolute; left: 0.85in; right: 0.85in; top: 2.5in; z-index: 4;
+  }
+  .title-page .kicker {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 9pt; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: #ffb4ab;
+  }
+  .title-page .kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+  .title-page h1 {
+    font-size: 44pt; font-weight: 800; letter-spacing: -.02em; line-height: 1.05; margin-top: 16px;
+  }
+  .title-page h1 .light { font-weight: 300; font-style: italic; color: var(--steel-500); }
+  .title-page .sub {
+    font-size: 11pt; color: rgba(255,255,255,.75); margin-top: 12px; letter-spacing: .04em;
+  }
+  .title-page .infobox {
+    position: absolute; left: 0.85in; right: 0.85in; bottom: 0.75in; z-index: 4;
+    background: rgba(10,13,18,.72); backdrop-filter: blur(3px);
+    border: 1px solid rgba(255,255,255,.14); border-left: 3px solid var(--red);
+    padding: 20px 24px; display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px;
+  }
+  .title-page .infobox .row + .row { margin-top: 10px; }
+  .title-page .infobox .lbl {
+    font-size: 7.5pt; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.5); font-weight: 600;
+  }
+  .title-page .infobox .v {
+    font-size: 12pt; font-weight: 600; color: #fff; margin-top: 4px; letter-spacing: -.005em;
+  }
+  .title-page .infobox .v.mono { font-family: var(--mono); font-size: 11pt; font-weight: 500; }
 </style>
 </head>
 <body>
 
 <div class="toolbar no-print">
-  <span>Quotation template · 5 pages · Letter</span>
+  <span>Quotation template · 6 pages · Letter</span>
   <button onclick="window.print()">Save as PDF</button>
 </div>
+
+<!-- =========================================================
+     TITLE PAGE — cover photo, Attention & quote details overlay
+========================================================= -->
+<section class="page" data-screen-label="Quote — Title Page">
+  <div class="title-page">
+    <div class="photo"></div>
+    <div class="scrim"></div>
+    <div class="ribbon"></div>
+
+    <div class="top-bar">
+      <img src="https://wavlonlasers.com/assets/wavlon-logo.png" alt="Wavlon Lasers">
+      <span class="doctag">Official Quotation · Rise Tek Machinery</span>
+    </div>
+
+    <div class="heading">
+      <span class="kicker">Fiber Laser Cutting System</span>
+      <h1><span class="fill" data-field="brand">Wavlon</span> <span class="fill" data-field="model">ProCut</span><br><span class="light fill" data-field="power_config">2 kW Single-Phase</span></h1>
+      <p class="sub">Prepared exclusively for the customer detailed below. Full configuration, pricing, and terms follow on the pages of this document.</p>
+    </div>
+
+    <div class="infobox">
+      <div>
+        <div class="row">
+          <div class="lbl">Attention</div>
+          <div class="v fill" data-field="recipient_name">Gleb Ladin</div>
+        </div>
+        <div class="row">
+          <div class="lbl">Prepared For</div>
+          <div class="v fill" data-field="customer_name">Niche Devices</div>
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <div class="lbl">Quote No.</div>
+          <div class="v mono fill" data-field="quote_no">RQ-2026-0001</div>
+        </div>
+        <div class="row">
+          <div class="lbl">Date</div>
+          <div class="v mono fill" data-field="quote_date">Jul 8, 2026</div>
+        </div>
+      </div>
+      <div>
+        <div class="row">
+          <div class="lbl">Valid For</div>
+          <div class="v mono fill" data-field="valid_for">30 working days</div>
+        </div>
+        <div class="row">
+          <div class="lbl">Currency</div>
+          <div class="v mono">CAD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- =========================================================
      PAGE 01 — WHY CHOOSE RISE TEK (hero, stats, benefits)
