@@ -13,6 +13,15 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Remote/deploy: Push, pull request, and Vercel state, or `not performed`.
 - Follow-up: Remaining action or `none`.
 
+### 2026-07-20 17:14 EDT — Codex — Enforce identical mega menu across pages
+
+- Scope: Diagnosed the reported navigation drift as a risk from independently embedded page headers. Added a shared-header verification guard to the site sync so every rendered header must exactly match the homepage/shared source and an unmarked or stale header fails the build instead of shipping a different mega menu.
+- Files: `build.js`; this production-record update also changes `CHANGELOG.md` and `HANDOFF.md`.
+- Validation: `npm.cmd run sync` refreshed and verified 36 shared headers; static comparison found zero header differences; live comparison confirmed identical header markup on the homepage, Machines, Double Chuck, About, Service, and Technologies pages; Vercel production deployment `https://wavlon-lasers-website-ea6iwbels-infinara.vercel.app` reached `Ready`.
+- Git: PR #6 squash-merged to `main` as `e3868f1`; this production-record branch is `codex/mega-menu-production-log`.
+- Remote/deploy: Live at `https://wavlonlasers.com`.
+- Follow-up: None. Future header drift will stop the sync with a clear error.
+
 ### 2026-07-20 15:10 EDT — Codex — Publish Double Chuck gallery to production
 
 - Scope: Merged the reviewed Double Chuck gallery update through PR #4 and verified the resulting Vercel production deployment and live website output.
