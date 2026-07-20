@@ -1,16 +1,14 @@
 # Current Handoff
 
-Last updated: 2026-07-20 15:06 EDT by Codex
+Last updated: 2026-07-20 15:10 EDT by Codex
 
 ## Current state
 
-- Active branch: `codex/tubecut-double-chuck-gallery`, based on `origin/main` at `ffafa89`.
-- Purpose: publish the complete rebranded Double Chuck image set, transparent homepage/mega-menu image, and dedicated product gallery.
+- Active branch: `codex/tubecut-double-chuck-production-log-2`, based on production `main` at `9b9b9af`.
+- Purpose: record the verified production deployment of the complete Double Chuck gallery update.
 - Pre-existing work: `assets/powercut-guide/` is untracked and is not part of this branch.
-- Product commit: `5e93c19`; collaboration-record commit follows.
-- GitHub: branch pushed; draft PR #4 is open.
-- Vercel preview: deployment `dpl_4VnWSbb9KvHCic5NNAJC8qMyr4nB` is `Ready` at `https://wavlon-lasers-website-9l9iecph7-infinara.vercel.app`.
-- Production branch: `main` at `ffafa89`; production remains unchanged until PR #4 is merged.
+- Product work was squash-merged through GitHub PR #4 as production commit `9b9b9af`.
+- Production deployment: `dpl_FpNhsBznQJDCtawzyyH2uUKq6srH` is `Ready` at `https://wavlon-lasers-website-c15ggwyg2-infinara.vercel.app` and aliased to `https://wavlonlasers.com`.
 - New image assets: `assets/tubecut-double-chuck-view-01.png` through `assets/tubecut-double-chuck-view-07.png`, all 1672×941 RGBA with transparent backgrounds.
 - Homepage and shared mega menu use `assets/tubecut-double-chuck-view-07.png`; the Double Chuck page contains a seven-view selectable gallery.
 - Shared partials now use current Double/Triple Chuck links. `build.js` consumes existing cookie-consent tags during sync, preventing duplicates.
@@ -19,16 +17,15 @@ Last updated: 2026-07-20 15:06 EDT by Codex
 
 ## Production state
 
-- `main` is at `ffafa89` and `https://wavlonlasers.com` still serves the earlier approved Double Chuck hero update.
-- PR #4 is preview-only until reviewed and merged; a merge to `main` triggers the production Vercel deployment.
+- `main` is at `9b9b9af`; the complete Double Chuck image set, homepage card, site-wide mega-menu image, and seven-view gallery are live at `https://wavlonlasers.com`.
+- Live homepage, product page, seven gallery references, mega-menu image reference, and final PNG asset delivery were verified after deployment.
 
 ## What the next assistant must do
 
 1. Read `AGENTS.md` and the newest `CHANGELOG.md` entry before editing.
 2. Run `git status --short --branch` and confirm `assets/powercut-guide/` remains untracked.
-3. Review PR #4 and its Vercel preview. Do not regenerate or overwrite the seven approved Double Chuck views unless the user requests revisions.
-4. If the user approves production, merge PR #4 and verify the resulting production deployment, homepage image, mega-menu image, and gallery asset delivery; then log the deployment in `CHANGELOG.md` and refresh this handoff.
-5. Do not start Triple Chuck imagery until the user provides its source pictures.
+3. Preserve the seven approved Double Chuck views unless the user requests revisions.
+4. Do not start Triple Chuck imagery until the user provides its source pictures.
 
 ## Access notes
 

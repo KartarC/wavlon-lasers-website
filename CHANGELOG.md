@@ -13,6 +13,15 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Remote/deploy: Push, pull request, and Vercel state, or `not performed`.
 - Follow-up: Remaining action or `none`.
 
+### 2026-07-20 15:10 EDT — Codex — Publish Double Chuck gallery to production
+
+- Scope: Merged the reviewed Double Chuck gallery update through PR #4 and verified the resulting Vercel production deployment and live website output.
+- Files: No product files changed during this deployment step; `CHANGELOG.md` and `HANDOFF.md` record the final production state.
+- Validation: Production deployment `dpl_FpNhsBznQJDCtawzyyH2uUKq6srH` reached `Ready`; `https://wavlonlasers.com` returned `200` and referenced `/assets/tubecut-double-chuck-view-07.png`; the live Double Chuck page returned `200`, contained the gallery controller, referenced all seven unique gallery assets, and used the transparent image in the mega menu; the live PNG returned `200` as `image/png` with 761,289 bytes.
+- Git: PR #4 squash-merged to `main` as `9b9b9af`; this production-record branch is `codex/tubecut-double-chuck-production-log-2`.
+- Remote/deploy: Live at `https://wavlonlasers.com`; production deployment `https://wavlon-lasers-website-c15ggwyg2-infinara.vercel.app`.
+- Follow-up: Begin Triple Chuck imagery only after the user supplies its source pictures; revise Double Chuck renders only if the user requests visual adjustments.
+
 ### 2026-07-20 15:06 EDT — Codex — Rebrand Double Chuck image set and add gallery
 
 - Scope: AI-edited all seven supplied Double Chuck manufacturer renders to a white Wavlon-branded finish, removed T5/TS/LD/Chinese manufacturer markings, converted the backgrounds to transparency, placed a transparent product view on the homepage and shared mega menu, and added a responsive seven-view gallery to the Double Chuck page. Repaired stale shared header/footer product links and made the sync script consume existing cookie-consent tags so repeated syncs remain idempotent.
