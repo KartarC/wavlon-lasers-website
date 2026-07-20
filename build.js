@@ -56,7 +56,7 @@ for (const file of files) {
 
   // Replace footer: matches both plain and decorated comment variants
   const newHtml2 = html.replace(
-    /<!--[^>]*FOOTER[^>]*inline copy[^>]*-->[\s\S]*?<\/footer>/,
+    /<!--[^>]*FOOTER[^>]*inline copy[^>]*-->[\s\S]*?<\/footer>(?:\s*<script src="\/assets\/cookie-consent\.js" defer><\/script>)*/,
     `<!-- FOOTER — inline copy -->\n${footerHtml}`
   );
   if (newHtml2 !== html) { html = newHtml2; changed = true; }
