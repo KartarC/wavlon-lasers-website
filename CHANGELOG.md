@@ -13,6 +13,15 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Remote/deploy: Push, pull request, and Vercel state, or `not performed`.
 - Follow-up: Remaining action or `none`.
 
+### 2026-07-20 15:06 EDT — Codex — Rebrand Double Chuck image set and add gallery
+
+- Scope: AI-edited all seven supplied Double Chuck manufacturer renders to a white Wavlon-branded finish, removed T5/TS/LD/Chinese manufacturer markings, converted the backgrounds to transparency, placed a transparent product view on the homepage and shared mega menu, and added a responsive seven-view gallery to the Double Chuck page. Repaired stale shared header/footer product links and made the sync script consume existing cookie-consent tags so repeated syncs remain idempotent.
+- Files: `assets/tubecut-double-chuck-view-01.png` through `assets/tubecut-double-chuck-view-07.png`; `index.html`; `machines/fiber-laser-tube-cutting/double-chuck/index.html`; `_partials/header.html`; `_partials/footer.html`; `build.js`; and the 36 generated inline header/footer copies refreshed by `npm run sync`.
+- Validation: Visually reviewed all seven generated renders; confirmed each output is a 1672×941 RGBA PNG with a transparent corner; confirmed seven unique gallery asset references; ran `npm.cmd run sync`; confirmed no HTML page has duplicate cookie-consent script references; ran `git diff --check`; Vercel preview deployment `dpl_4VnWSbb9KvHCic5NNAJC8qMyr4nB` reached `Ready`.
+- Git: `codex/tubecut-double-chuck-gallery`; product commit `5e93c19`; this collaboration-record commit follows.
+- Remote/deploy: Branch pushed to GitHub; draft PR #4 open at `https://github.com/KartarC/wavlon-lasers-website/pull/4`; Ready preview at `https://wavlon-lasers-website-9l9iecph7-infinara.vercel.app`. Production `main` is unchanged.
+- Follow-up: Review the preview and merge PR #4 when approved; merging to `main` will trigger the production Vercel deployment.
+
 ## 2026-07-20 14:33 EDT — Codex — Publish Double Chuck image to production
 
 - Scope: Investigated the old homepage image reported by the user. Confirmed production was still serving the placeholder because PR #2 had not been merged, then merged the approved Double Chuck image update into `main`.
