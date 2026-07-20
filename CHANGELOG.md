@@ -13,13 +13,22 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Remote/deploy: Push, pull request, and Vercel state, or `not performed`.
 - Follow-up: Remaining action or `none`.
 
+## 2026-07-20 14:33 EDT — Codex — Publish Double Chuck image to production
+
+- Scope: Investigated the old homepage image reported by the user. Confirmed production was still serving the placeholder because PR #2 had not been merged, then merged the approved Double Chuck image update into `main`.
+- Files: No product files changed during this deployment step; `CHANGELOG.md` and `HANDOFF.md` record the verified production state.
+- Validation: Vercel production deployment `dpl_DHuzNyadjNqkE9tAFUbEVodHzPPo` reached `Ready`; live homepage HTML references `/assets/tubecut-double-chuck-hero.png`; the live asset returned `200 OK`.
+- Git: PR #2 squash-merged to `main` as `17e6ee1`.
+- Remote/deploy: Live at `https://wavlonlasers.com`; production deployment `https://wavlon-lasers-website-oo7mqxb8d-infinara.vercel.app`.
+- Follow-up: If a browser tab still shows the placeholder, refresh the page to replace its cached HTML.
+
 ## 2026-07-20 14:25 EDT — Codex — Add approved Double Chuck machine render
 
 - Scope: Replaced the generic homepage image for TubeCut Double Chuck and added the supplied Wavlon-branded machine render to the dedicated Double Chuck hero. Added responsive hero layout and social-preview metadata. Triple Chuck was intentionally left unchanged until its source images arrive.
 - Files: `assets/tubecut-double-chuck-hero.png`, `index.html`, `machines/fiber-laser-tube-cutting/double-chuck/index.html`, `CHANGELOG.md`, `HANDOFF.md`.
 - Validation: Asset path and dimensions checked, responsive markup/CSS reviewed, image references verified, and Git diff checks run.
 - Git: `codex/tubecut-double-chuck-images`; product update commit `4452d6c`, followed by this publishing-status update.
-- Remote/deploy: Branch pushed; draft GitHub PR #2 opened. Vercel preview is `Ready` at `https://wavlon-lasers-website-git-codex-tubecut-double-b7d4f6-infinara.vercel.app`. Production is unchanged.
+- Remote/deploy: Branch pushed and PR #2 merged; see the production entry above.
 - Follow-up: Add and rebrand further manufacturer images when supplied; begin Triple Chuck only after the user provides its pictures.
 
 ## 2026-07-20 15:30 EDT — Claude — Document prior Claude product changes; update handoff

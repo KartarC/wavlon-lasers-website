@@ -4,15 +4,15 @@ Last updated: 2026-07-20 by Codex
 
 ## Current state
 
-- Active branch: `codex/tubecut-double-chuck-images`, based on `origin/main` at `e83e6d0` after collaboration PR #1 was merged.
-- Purpose: first Double Chuck front-end image update using the supplied approved render.
+- Active branch: `codex/tubecut-double-chuck-production-log`, based on production `main` at `17e6ee1`.
+- Purpose: record the verified production deployment of the first Double Chuck image update.
 - Pre-existing work: `assets/powercut-guide/` is untracked and is not part of this branch.
-- Production branch: `main` at `e83e6d0`; collaboration files are merged. The Double Chuck image update is not yet on production.
+- Production branch: `main` at `17e6ee1`; the Double Chuck image update is live at `wavlonlasers.com`.
 - Supplied machine render: stored as `assets/tubecut-double-chuck-hero.png` and used on the homepage card and Double Chuck page hero.
 - Brand reference logo for future manufacturer-image edits: `C:\Users\Karta\OneDrive - Rise Tek Inc\Wavlon Lasers\Marketing Department\Design Space\Wavlon Logo\wavlon_lasers_full_logo_transparent.png`.
 - Triple Chuck: deliberately unchanged; waiting for user-supplied source pictures.
-- Review: Draft GitHub PR #2 is open against `main` for this Double Chuck image update.
-- Preview: `https://wavlon-lasers-website-git-codex-tubecut-double-b7d4f6-infinara.vercel.app` is `Ready` and protected by Vercel SSO. Production is unchanged.
+- Review: GitHub PR #2 was squash-merged as `17e6ee1`.
+- Production: Vercel deployment `dpl_DHuzNyadjNqkE9tAFUbEVodHzPPo` is `Ready`; live HTML and image delivery were verified.
 
 ## What is on production main (live at wavlonlasers.com)
 
