@@ -42,6 +42,8 @@ function walkHtml(dir, results = []) {
 
 const files = walkHtml(ROOT);
 let synced = 0;
+let headersVerified = 0;
+const INLINE_HEADER_PATTERN = /<!--[^>]*HEADER[^>]*inline copy[^>]*-->\s*(<header[\s\S]*?<\/header>)/;
 
 for (const file of files) {
   let html = fs.readFileSync(file, 'utf8');
@@ -53,6 +55,18 @@ for (const file of files) {
     `<!-- HEADER — inline copy -->\n${headerHtml}`
   );
   if (newHtml1 !== html) { html = newHtml1; changed = true; }
+
+  // Every page that renders a site header must use the exact shared source.
+  // This makes a future unmarked or stale inline copy fail during sync instead
+  // of silently shipping a different mega menu on an inner page.
+  const inlineHeader = html.match(INLINE_HEADER_PATTERN);
+  if (/<header\b/i.test(html) && !inlineHeader) {
+    throw new Error(`Unmarked site header in ${path.relative(ROOT, file)}. Add the inline header marker before syncing.`);
+  }
+  if (inlineHeader && inlineHeader[1].trim() !== headerHtml) {
+    throw new Error(`Header mismatch after sync in ${path.relative(ROOT, file)}.`);
+  }
+  if (inlineHeader) headersVerified++;
 
   // Replace footer: matches both plain and decorated comment variants
   const newHtml2 = html.replace(
@@ -68,4 +82,4 @@ for (const file of files) {
   }
 }
 
-console.log(`\nDone. Synced header/footer into ${synced} pages.`);
+console.log(`\nDone. Synced header/footer into ${synced} pages. Verified ${headersVerified} shared headers.`);
