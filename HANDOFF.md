@@ -1,15 +1,18 @@
 # Current Handoff
 
-Last updated: 2026-07-20 by Claude
+Last updated: 2026-07-20 by Codex
 
 ## Current state
 
-- Active branch: `codex/collaboration-workflow`, based on `origin/main` at `75f6a0c` and pushed to GitHub.
-- Purpose: collaboration/changelog setup only; no product behavior was intentionally changed on this branch.
+- Active branch: `codex/tubecut-double-chuck-images`, based on `origin/main` at `e83e6d0` after collaboration PR #1 was merged.
+- Purpose: first Double Chuck front-end image update using the supplied approved render.
 - Pre-existing work: `assets/powercut-guide/` is untracked and is not part of this branch.
-- Production branch: `main` at `75f6a0c` (Codex's "Add Customer Requirements + Commercial Summary" commit, 2026-07-09 17:24 EDT). All Claude product changes (`0d20ccb` → `8b39c2d`) are on `main` and are live at `wavlonlasers.com`.
-- Review: Draft GitHub PR #1 is open against `main` — merge it to bring collaboration files into production.
-- Preview: Vercel branch alias `https://wavlon-lasers-website-git-codex-collaboration-workflow-infinara.vercel.app` is `Ready` and protected by Vercel SSO.
+- Production branch: `main` at `e83e6d0`; collaboration files are merged. The Double Chuck image update is not yet on production.
+- Supplied machine render: stored as `assets/tubecut-double-chuck-hero.png` and used on the homepage card and Double Chuck page hero.
+- Brand reference logo for future manufacturer-image edits: `C:\Users\Karta\OneDrive - Rise Tek Inc\Wavlon Lasers\Marketing Department\Design Space\Wavlon Logo\wavlon_lasers_full_logo_transparent.png`.
+- Triple Chuck: deliberately unchanged; waiting for user-supplied source pictures.
+- Review: Draft GitHub PR #2 is open against `main` for this Double Chuck image update.
+- Preview: `https://wavlon-lasers-website-git-codex-tubecut-double-b7d4f6-infinara.vercel.app` is `Ready` and protected by Vercel SSO. Production is unchanged.
 
 ## What is on production main (live at wavlonlasers.com)
 
@@ -33,8 +36,9 @@ Codex changes also on `main` (on top of the above):
 
 1. Read `AGENTS.md` and `CHANGELOG.md` before editing.
 2. Run `git status --short --branch` and confirm `assets/powercut-guide/` remains untracked.
-3. **Merge PR #1** (or ask the user) to land the collaboration files on `main`.
-4. For any new product work: pull latest `origin/main`, create a focused `claude/<topic>` branch, work, then open a PR. Do not push directly to `main`.
+3. Review the latest Double Chuck changelog entry and preserve the supplied render unless the user requests a revision.
+4. For each new manufacturer image, remove manufacturer wording, recolor blue machine panels to white, and apply the supplied Wavlon logo while preserving machine geometry and realism.
+5. Do not start Triple Chuck imagery until the user provides its source pictures.
 
 ## Access notes
 

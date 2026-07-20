@@ -8,6 +8,7 @@
 <meta property="og:title" content="TubeCut Double Chuck Fiber Laser Tube Cutting Machine (1.5–12kW) | Wavlon Lasers"/>
 <meta property="og:description" content="Entry-to-intermediate double-chuck fiber laser tube cutting — 1.5kW to 12kW, ⌀120–360mm, four model line-up. Canadian support."/>
 <meta property="og:type" content="product"/>
+<meta property="og:image" content="https://wavlonlasers.com/assets/tubecut-double-chuck-hero.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="shortcut icon" href="/favicon.ico"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon.png"/><link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png"/><link rel="apple-touch-icon" sizes="512x512" href="/assets/favicon-512.png"/><link rel="stylesheet" href="/shared.css"/>
@@ -25,7 +26,9 @@
 <style>
 .machine-hero{background:var(--bg-dark);padding:80px 0 72px;position:relative;overflow:hidden;}
 .machine-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:80px 80px;}
-.machine-hero-inner{max-width:1280px;margin:0 auto;padding:0 40px;position:relative;z-index:1;}
+.machine-hero-inner{max-width:1440px;margin:0 auto;padding:0 40px;position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.92fr) minmax(480px,1.08fr);align-items:center;gap:48px;}
+.machine-hero-visual{margin:0;overflow:hidden;border-radius:18px;background:#eef0f3;box-shadow:0 28px 70px rgba(0,0,0,.35);}
+.machine-hero-visual img{display:block;width:100%;height:auto;aspect-ratio:1.84/1;object-fit:cover;}
 .model-table{width:100%;border-collapse:collapse;font-size:14px;}
 .model-table th{background:var(--bg-dark);color:#fff;font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;padding:12px 14px;text-align:left;}
 .model-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text2);}
@@ -33,7 +36,8 @@
 .model-table tr.popular td{background:#fff8e1;}
 .model-table td:first-child{font-weight:700;color:var(--text);}
 .model-table .badge-pop{display:inline-block;background:#0066cc;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;margin-left:6px;letter-spacing:.4px;}
-@media(max-width:768px){.model-table{font-size:12.5px;}.model-table th,.model-table td{padding:9px 8px;}}
+@media(max-width:1024px){.machine-hero-inner{grid-template-columns:1fr;gap:36px;}.machine-hero-visual{max-width:900px;}}
+@media(max-width:768px){.machine-hero{padding:56px 0 48px;}.machine-hero-inner{padding:0 20px;}.machine-hero-visual{border-radius:12px;}.model-table{font-size:12.5px;}.model-table th,.model-table td{padding:9px 8px;}}
 </style>
 </head>
 <body>
@@ -104,6 +108,7 @@
 <section class="machine-hero">
   <div class="machine-hero-grid"></div>
   <div class="machine-hero-inner">
+    <div class="machine-hero-copy">
     <nav class="breadcrumbs" style="margin-bottom:20px;"><a href="/" style="color:#526070;">Home</a><span class="sep" style="color:#2a3a4a;">/</span><a href="/machines/" style="color:#526070;">Machines</a><span class="sep" style="color:#2a3a4a;">/</span><a href="/machines/fiber-laser-tube-cutting/" style="color:#526070;">Tube Cutting</a><span class="sep" style="color:#2a3a4a;">/</span><span style="color:#8899aa;">TubeCut Double Chuck</span></nav>
     <div style="display:inline-flex;align-items:center;background:rgba(0,102,204,.15);border:1px solid rgba(0,102,204,.3);color:#66aaff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 14px;border-radius:100px;margin-bottom:20px;">Fiber Laser Tube Cutting · Double Chuck</div>
     <h1 style="font-size:clamp(32px,3.5vw,52px);font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1.08;margin-bottom:10px;">TubeCut <span style="color:var(--blue);">Double Chuck</span></h1>
@@ -119,6 +124,10 @@
       <a href="#quote" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--blue);color:#fff;border-radius:8px;font-size:14px;font-weight:700;">Request a Quote &rarr;</a>
       <a href="#models" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border:1.5px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;font-size:14px;font-weight:600;">View Model Lineup</a>
     </div>
+    </div>
+    <figure class="machine-hero-visual">
+      <img src="/assets/tubecut-double-chuck-hero.png" alt="Wavlon TubeCut Double Chuck fiber laser tube cutting machine" width="1672" height="941" fetchpriority="high"/>
+    </figure>
   </div>
 </section>
 
