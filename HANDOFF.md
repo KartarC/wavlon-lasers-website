@@ -11,6 +11,8 @@ Last updated: 2026-07-20 by Codex
 - Supplied machine render: stored as `assets/tubecut-double-chuck-hero.png` and used on the homepage card and Double Chuck page hero.
 - Brand reference logo for future manufacturer-image edits: `C:\Users\Karta\OneDrive - Rise Tek Inc\Wavlon Lasers\Marketing Department\Design Space\Wavlon Logo\wavlon_lasers_full_logo_transparent.png`.
 - Triple Chuck: deliberately unchanged; waiting for user-supplied source pictures.
+- Review: Draft GitHub PR #2 is open against `main` for this Double Chuck image update.
+- Preview: `https://wavlon-lasers-website-git-codex-tubecut-double-b7d4f6-infinara.vercel.app` is `Ready` and protected by Vercel SSO. Production is unchanged.
 
 ## What is on production main (live at wavlonlasers.com)
 
