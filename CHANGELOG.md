@@ -13,6 +13,15 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Remote/deploy: Push, pull request, and Vercel state, or `not performed`.
 - Follow-up: Remaining action or `none`.
 
+## 2026-07-20 14:25 EDT — Codex — Add approved Double Chuck machine render
+
+- Scope: Replaced the generic homepage image for TubeCut Double Chuck and added the supplied Wavlon-branded machine render to the dedicated Double Chuck hero. Added responsive hero layout and social-preview metadata. Triple Chuck was intentionally left unchanged until its source images arrive.
+- Files: `assets/tubecut-double-chuck-hero.png`, `index.html`, `machines/fiber-laser-tube-cutting/double-chuck/index.html`, `CHANGELOG.md`, `HANDOFF.md`.
+- Validation: Asset path and dimensions checked, responsive markup/CSS reviewed, image references verified, and Git diff checks run.
+- Git: `codex/tubecut-double-chuck-images`; included in the Double Chuck image update commit.
+- Remote/deploy: Publishing status will be recorded after the branch and Vercel preview are verified.
+- Follow-up: Add and rebrand further manufacturer images when supplied; begin Triple Chuck only after the user provides its pictures.
+
 ## 2026-07-20 15:30 EDT — Claude — Document prior Claude product changes; update handoff
 
 - Scope: Retrospective documentation of five Claude product changes that landed on `main` before the collaboration workflow existed. No code changed in this entry; changes were already pushed.
