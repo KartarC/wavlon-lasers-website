@@ -33,12 +33,25 @@
 .model-table tr.popular td{background:#fff8e1;}
 .model-table td:first-child{font-weight:700;color:var(--text);}
 .model-table .badge-pop{display:inline-block;background:#0066cc;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;margin-left:6px;letter-spacing:.4px;}
-@media(max-width:768px){.model-table{font-size:12.5px;}.model-table th,.model-table td{padding:9px 8px;}}
+.product-gallery{display:grid;grid-template-columns:minmax(0,1fr) 172px;gap:20px;align-items:start;}
+.product-gallery-main{margin:0;min-height:520px;border:1px solid var(--border);border-radius:16px;background:#f8f9fa;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.product-gallery-main img{display:block;width:100%;height:100%;max-height:620px;object-fit:contain;}
+.product-gallery-thumbs{display:grid;grid-template-columns:1fr;gap:10px;}
+.product-gallery-thumb{border:1px solid var(--border);border-radius:10px;background:#f8f9fa;padding:0;overflow:hidden;cursor:pointer;aspect-ratio:16/9;transition:border-color .2s,box-shadow .2s;}
+.product-gallery-thumb img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;}
+.product-gallery-thumb:hover,.product-gallery-thumb:focus-visible{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px rgba(0,102,204,.12);}
+.product-gallery-thumb.is-active{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue);}
+@media(max-width:768px){.model-table{font-size:12.5px;}.model-table th,.model-table td{padding:9px 8px;}.product-gallery{grid-template-columns:1fr;}.product-gallery-main{min-height:320px;}.product-gallery-thumbs{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:480px){.product-gallery-main{min-height:240px;}.product-gallery-thumbs{grid-template-columns:repeat(3,1fr);}}
 </style>
 </head>
 <body>
 <!-- HEADER — inline copy -->
 <header id="site-header">
+  <style>
+    #megaMenu a[href="/machines/fiber-laser-tube-cutting/triple-chuck/"] .mega-prod-img{background:transparent url("/assets/tubecut-triple-chuck-view-01.png") center/contain no-repeat!important;padding:0!important;}
+    #megaMenu a[href="/machines/fiber-laser-tube-cutting/triple-chuck/"] .machine-svg-wrap{display:none;}
+  </style>
   <div class="header-topbar"><div class="header-topbar-inner">
     <span>Industrial Fiber Laser Cutting Machines &mdash; Canadian Sales &amp; Support</span>
     <span><a href="mailto:sales@wavlonlasers.com">sales@wavlonlasers.com</a> &nbsp;|&nbsp; <a href="tel:+18882776144">(888) 277-6144</a> &nbsp;|&nbsp; Mon–Fri 8am–6pm EST</span>
@@ -124,6 +137,24 @@
   </div>
 </section>
 
+<section class="section-alt" id="gallery">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Product Gallery</span><h2>TubeCut Triple Chuck From Every Angle</h2><p>Explore the heavy-duty triple-chuck platform, long-bed material handling system, and operator enclosure.</p></div>
+    <div class="product-gallery" aria-label="TubeCut Triple Chuck image gallery">
+      <figure class="product-gallery-main">
+        <img id="tripleChuckGalleryMain" src="/assets/tubecut-triple-chuck-view-01.png" alt="Wavlon TubeCut Triple Chuck front three-quarter view" width="1672" height="941"/>
+      </figure>
+      <div class="product-gallery-thumbs" role="list" aria-label="Choose a product view">
+        <button class="product-gallery-thumb is-active" type="button" data-triple-gallery-src="/assets/tubecut-triple-chuck-view-01.png" data-triple-gallery-alt="Wavlon TubeCut Triple Chuck front three-quarter view" aria-label="Show front three-quarter view" aria-current="true"><img src="/assets/tubecut-triple-chuck-view-01.png" alt="" loading="lazy"/></button>
+        <button class="product-gallery-thumb" type="button" data-triple-gallery-src="/assets/tubecut-triple-chuck-view-02.png" data-triple-gallery-alt="Wavlon TubeCut Triple Chuck long side profile view" aria-label="Show long side profile view"><img src="/assets/tubecut-triple-chuck-view-02.png" alt="" loading="lazy"/></button>
+        <button class="product-gallery-thumb" type="button" data-triple-gallery-src="/assets/tubecut-triple-chuck-view-03.png" data-triple-gallery-alt="Wavlon TubeCut Triple Chuck alternate side view" aria-label="Show alternate side view"><img src="/assets/tubecut-triple-chuck-view-03.png" alt="" loading="lazy"/></button>
+        <button class="product-gallery-thumb" type="button" data-triple-gallery-src="/assets/tubecut-triple-chuck-view-04.png" data-triple-gallery-alt="Wavlon TubeCut Triple Chuck elevated three-quarter view" aria-label="Show elevated three-quarter view"><img src="/assets/tubecut-triple-chuck-view-04.png" alt="" loading="lazy"/></button>
+        <button class="product-gallery-thumb" type="button" data-triple-gallery-src="/assets/tubecut-triple-chuck-view-05.png" data-triple-gallery-alt="Wavlon TubeCut Triple Chuck wide opposite-side view" aria-label="Show wide opposite-side view"><img src="/assets/tubecut-triple-chuck-view-05.png" alt="" loading="lazy"/></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="models">
   <div class="container">
     <div class="section-head"><span class="eyebrow">Model Lineup</span><h2>Three Models, One Heavy Duty Tier</h2><p>From the most popular 360mm/520mm workhorses up to the 680mm round / 570mm square flagship.</p></div>
@@ -204,6 +235,10 @@
 <script>
 // Supabase credentials handled server-side via /api/submit-form
 document.getElementById('tcqForm').addEventListener('submit',async function(e){e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;try{await fetch('/api/submit-form',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('tcq_name').value,email:document.getElementById('tcq_email').value,phone:document.getElementById('tcq_phone').value,company:document.getElementById('tcq_company').value,machine_interest:'TubeCut Triple Chuck — '+document.getElementById('tcq_model').value,material:document.getElementById('tcq_material').value,message:document.getElementById('tcq_message').value,source:'tubecut-triple-chuck-page'})});document.getElementById('tcqFormWrap').style.display='none';document.getElementById('tcqSuccess').style.display='block';}catch(err){btn.textContent='Send Quote Request';btn.disabled=false;}});
+</script>
+<script>
+const tripleGalleryMain=document.getElementById('tripleChuckGalleryMain');
+document.querySelectorAll('[data-triple-gallery-src]').forEach(function(button){button.addEventListener('click',function(){tripleGalleryMain.src=button.dataset.tripleGallerySrc;tripleGalleryMain.alt=button.dataset.tripleGalleryAlt;document.querySelectorAll('[data-triple-gallery-src]').forEach(function(item){item.classList.remove('is-active');item.removeAttribute('aria-current');});button.classList.add('is-active');button.setAttribute('aria-current','true');});});
 </script>
 <script src="/assets/wavlon-chat.js" defer></script>
 </body>
