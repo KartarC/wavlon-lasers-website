@@ -6,7 +6,7 @@ Last updated: 2026-07-20 18:00 EDT by Codex
 
 - Active branch: `codex/tubecut-triple-chuck-gallery`, based on `origin/main` at `cfb162f`.
 - Purpose: publish the user-supplied TubeCut Triple Chuck product image set, homepage card, shared mega-menu card, and product-page gallery.
-- Product commit: `Add Triple Chuck image gallery`; branch has not yet been pushed.
+- Product commit: `Add Triple Chuck image gallery`; pushed to GitHub as draft PR #8. Vercel preview is `Ready` at `https://wavlon-lasers-website-hvojptad7-infinara.vercel.app` (Vercel sign-in protected).
 - Pre-existing work: `assets/powercut-guide/` is untracked and is not part of this branch.
 - Product work was squash-merged through GitHub PR #4 as production commit `9b9b9af`.
 - Production deployment: `dpl_FpNhsBznQJDCtawzyyH2uUKq6srH` is `Ready` at `https://wavlon-lasers-website-c15ggwyg2-infinara.vercel.app` and aliased to `https://wavlonlasers.com`.
@@ -28,7 +28,7 @@ Last updated: 2026-07-20 18:00 EDT by Codex
 1. Read `AGENTS.md` and the newest `CHANGELOG.md` entry before editing.
 2. Run `git status --short --branch` and confirm `assets/powercut-guide/` remains untracked.
 3. Preserve the seven approved Double Chuck views unless the user requests revisions.
-4. Review the Triple Chuck update, commit only its listed source files and generated assets, push the focused branch, and verify its Vercel preview before merging.
+4. Review PR #8, mark it ready, merge it, and verify the production deployment plus live Triple Chuck asset references.
 
 ## Access notes
 
