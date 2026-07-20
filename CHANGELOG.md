@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-20 18:00 EDT — Codex — Publish Triple Chuck gallery to production
+
+- Scope: Merged the reviewed Triple Chuck image update through PR #8 and verified its Vercel production deployment and live website output.
+- Files: No product files changed during this deployment-record step; `CHANGELOG.md` and `HANDOFF.md` record the final production state.
+- Validation: Production deployment `dpl_AEU7DSiHmKF8gmVvgsrMKTbNp9yt` reached `Ready` and is aliased to `https://wavlonlasers.com`. Live homepage and Triple Chuck page both returned `200`; the homepage references view 01, the Triple Chuck page references the shared menu asset and all five gallery views with its controller, and the live PNG returned `200` as `image/png` (598,799 bytes).
+- Git: PR #8 squash-merged to `main` as `e0fedf9`.
+- Remote/deploy: Live at `https://wavlonlasers.com`; production deployment `https://wavlon-lasers-website-8qwl19kfl-infinara.vercel.app`.
+- Follow-up: None.
+
 ### 2026-07-20 18:00 EDT — Codex — Rebrand Triple Chuck image set and add gallery
 
 - Scope: AI-edited all five supplied Triple Chuck manufacturer renders to a white Wavlon-branded finish, removed manufacturer text and logos, converted their backgrounds to transparency, placed the transparent product view on the homepage and shared mega menu, and added a responsive selectable five-view gallery to the Triple Chuck page.
