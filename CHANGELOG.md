@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-20 18:00 EDT — Codex — Rebrand Triple Chuck image set and add gallery
+
+- Scope: AI-edited all five supplied Triple Chuck manufacturer renders to a white Wavlon-branded finish, removed manufacturer text and logos, converted their backgrounds to transparency, placed the transparent product view on the homepage and shared mega menu, and added a responsive selectable five-view gallery to the Triple Chuck page.
+- Files: `assets/tubecut-triple-chuck-view-01.png` through `assets/tubecut-triple-chuck-view-05.png`; `index.html`; `machines/fiber-laser-tube-cutting/triple-chuck/index.html`; `_partials/header.html`; and the 36 generated inline header copies refreshed by `npm.cmd run sync`.
+- Validation: Visually reviewed all five generated renders; confirmed each is a 1672×941 PNG with alpha transparency; confirmed all five gallery references plus the gallery controller; ran `npm.cmd run sync`, which refreshed and verified 36 shared headers; ran `git diff --check`.
+- Git: `codex/tubecut-triple-chuck-gallery`; committed with this collaboration record (`Add Triple Chuck image gallery`).
+- Remote/deploy: Pushed to GitHub and opened draft PR #8. Vercel preview deployment `https://wavlon-lasers-website-hvojptad7-infinara.vercel.app` is `Ready`; its public URL is protected by the team Vercel sign-in.
+- Follow-up: Mark PR #8 ready, merge after review, and verify the production deployment.
+
 ## Entry template
 
 ### YYYY-MM-DD HH:MM TZ — Author — Short title
