@@ -1,5 +1,9 @@
 # Wavlon Lasers — Claude Code Instructions
 
+## Shared Claude/Codex workflow
+
+Before making changes, read `AGENTS.md`, `CHANGELOG.md`, and `HANDOFF.md`. `AGENTS.md` is the source of truth for collaboration records, handoffs, branch safety, staging, commits, pushes, and deployment-sensitive actions. Record completed Claude work in `CHANGELOG.md` and refresh `HANDOFF.md` so Codex can continue safely.
+
 ## About This Repo
 Public website for **Wavlon Lasers**, a fiber laser cutting machine company based in Toronto, Ontario, Canada.
 Brand new company. Sells industrial fiber laser cutting machines from entry-level (1kW) to heavy-duty (30kW+).
@@ -105,8 +109,8 @@ Active panel controlled by `data-panel` attribute on `.mega-cat-btn`. Panel swit
 ## Rules — ALWAYS FOLLOW
 1. **Never delete** `index.html`, `header.html`, `footer.html`, `shared.css`, `nav.js`, or `wavlon_lasers_full_logo_transparent.png`
 2. **Never modify** `vercel.json`
-3. **After EVERY change**: `git add . && git commit -m "describe change" && git push origin main`
-4. **Always confirm** what was pushed after each operation
+3. **Use the safe Git workflow in `AGENTS.md`**: work on a focused agent branch, stage explicit files, and prefer a reviewed pull request over direct pushes to `main`
+4. **Always confirm** what was committed, pushed, and deployed after each operation; never report a push or deployment that was not verified
 5. **Keep Supabase credentials** as `SUPABASE_URL_PLACEHOLDER` / `SUPABASE_KEY_PLACEHOLDER` until real credentials are provided
 6. **All new pages must**: embed inline header/footer, link to `/shared.css`, link to `/nav.js`, use root-absolute paths
 
