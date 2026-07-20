@@ -13,14 +13,23 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Remote/deploy: Push, pull request, and Vercel state, or `not performed`.
 - Follow-up: Remaining action or `none`.
 
+## 2026-07-20 14:13 EDT — Codex — Publish collaboration workflow
+
+- Scope: Published the collaboration-only branch and verified its Git-integrated Vercel preview.
+- Files: `AGENTS.md`, `CHANGELOG.md`, `HANDOFF.md`, `CLAUDE.md`.
+- Validation: Staged-scope review, Git diff checks, Vercel deployment inspection, and HTTP header check.
+- Git: Setup commit `4e56308` on `codex/collaboration-workflow`; publishing-status commit follows on the same branch.
+- Remote/deploy: Branch pushed to GitHub; draft PR #1 opened. Vercel preview is `Ready` at branch alias `https://wavlon-lasers-website-git-codex-collaboration-workflow-infinara.vercel.app`. Preview access is protected by Vercel SSO. Production was not changed.
+- Follow-up: Review the draft PR and merge it when approved; the merge to `main` is expected to trigger the production deployment.
+
 ## 2026-07-20 14:07 EDT — Codex — Establish shared collaboration workflow
 
 - Scope: Added shared instructions, an append-only collaboration log, and a current-state handoff. Replaced the unsafe automatic direct-to-main rule in `CLAUDE.md` with the shared branch and review workflow.
 - Files: `AGENTS.md`, `CHANGELOG.md`, `HANDOFF.md`, `CLAUDE.md`.
 - Validation: Markdown review, `git diff --check`, working-tree scope check.
 - Git: `codex/collaboration-workflow`; included in the collaboration workflow setup commit.
-- Remote/deploy: Publishing status will be recorded in a follow-up entry after verification.
-- Follow-up: Push the branch, open a draft pull request, and verify its Vercel preview deployment.
+- Remote/deploy: See the publishing entry above.
+- Follow-up: See the publishing entry above.
 
 ## Observed baseline
 

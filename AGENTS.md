@@ -35,4 +35,3 @@ These instructions apply to every assistant working in this repository, includin
 - Do not commit credentials, tokens, `.env` files, or Vercel project secrets.
 - Keep internal links root-absolute and preserve the SEO requirements in `CLAUDE.md`.
 - Do not hand-edit generated header/footer copies without also updating their source partials and running the sync command.
-

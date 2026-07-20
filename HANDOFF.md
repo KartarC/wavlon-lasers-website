@@ -4,10 +4,12 @@ Last updated: 2026-07-20 by Codex
 
 ## Current state
 
-- Active branch: `codex/collaboration-workflow`, based on `origin/main` at `75f6a0c`.
+- Active branch: `codex/collaboration-workflow`, based on `origin/main` at `75f6a0c` and pushed to GitHub.
 - Purpose: collaboration/changelog setup only; no product behavior was intentionally changed.
 - Pre-existing work: `assets/powercut-guide/` is untracked and is not part of this branch.
 - Production branch: `main`; `CLAUDE.md` says Vercel automatically deploys pushes to it.
+- Review: Draft GitHub PR #1 is open against `main`.
+- Preview: Vercel branch alias `https://wavlon-lasers-website-git-codex-collaboration-workflow-infinara.vercel.app` is `Ready` and protected by Vercel SSO. Production was not changed.
 
 ## What the next assistant must do
 
