@@ -1,48 +1,38 @@
 # Current Handoff
 
-Last updated: 2026-07-20 by Codex
+Last updated: 2026-07-20 15:06 EDT by Codex
 
 ## Current state
 
-- Active branch: `codex/tubecut-double-chuck-production-log`, based on production `main` at `17e6ee1`.
-- Purpose: record the verified production deployment of the first Double Chuck image update.
+- Active branch: `codex/tubecut-double-chuck-gallery`, based on `origin/main` at `ffafa89`.
+- Purpose: publish the complete rebranded Double Chuck image set, transparent homepage/mega-menu image, and dedicated product gallery.
 - Pre-existing work: `assets/powercut-guide/` is untracked and is not part of this branch.
-- Production branch: `main` at `17e6ee1`; the Double Chuck image update is live at `wavlonlasers.com`.
-- Supplied machine render: stored as `assets/tubecut-double-chuck-hero.png` and used on the homepage card and Double Chuck page hero.
+- Product commit: `5e93c19`; collaboration-record commit follows.
+- GitHub: branch pushed; draft PR #4 is open.
+- Vercel preview: deployment `dpl_4VnWSbb9KvHCic5NNAJC8qMyr4nB` is `Ready` at `https://wavlon-lasers-website-9l9iecph7-infinara.vercel.app`.
+- Production branch: `main` at `ffafa89`; production remains unchanged until PR #4 is merged.
+- New image assets: `assets/tubecut-double-chuck-view-01.png` through `assets/tubecut-double-chuck-view-07.png`, all 1672×941 RGBA with transparent backgrounds.
+- Homepage and shared mega menu use `assets/tubecut-double-chuck-view-07.png`; the Double Chuck page contains a seven-view selectable gallery.
+- Shared partials now use current Double/Triple Chuck links. `build.js` consumes existing cookie-consent tags during sync, preventing duplicates.
 - Brand reference logo for future manufacturer-image edits: `C:\Users\Karta\OneDrive - Rise Tek Inc\Wavlon Lasers\Marketing Department\Design Space\Wavlon Logo\wavlon_lasers_full_logo_transparent.png`.
 - Triple Chuck: deliberately unchanged; waiting for user-supplied source pictures.
-- Review: GitHub PR #2 was squash-merged as `17e6ee1`.
-- Production: Vercel deployment `dpl_DHuzNyadjNqkE9tAFUbEVodHzPPo` is `Ready`; live HTML and image delivery were verified.
 
-## What is on production main (live at wavlonlasers.com)
+## Production state
 
-Claude product changes merged to `main` before the collaboration workflow existed:
-
-| Commit | Date | Summary |
-|--------|------|---------|
-| `0d20ccb` | 2026-06-16 | Remove street address; add FAQ chips + CTA buttons to chat |
-| `ff03eb5` | 2026-06-22 | Sitemap update (TubeCut pages, remove stale laser-head URLs) |
-| `81aaaef` | 2026-06-24 | UltraCut spec WUC badge |
-| `3818de0` | 2026-07-02 | Chat widget full Intercom-style redesign |
-| `8b39c2d` | 2026-07-09 | Fix: FAQ chip click was closing the chat panel |
-
-Codex changes also on `main` (on top of the above):
-
-| Commit | Date | Summary |
-|--------|------|---------|
-| `b56a30c`–`75f6a0c` | 2026-07-09 | ProCut quote/catalog templates, image fixes, dynamic title page, Customer Requirements page |
+- `main` is at `ffafa89` and `https://wavlonlasers.com` still serves the earlier approved Double Chuck hero update.
+- PR #4 is preview-only until reviewed and merged; a merge to `main` triggers the production Vercel deployment.
 
 ## What the next assistant must do
 
-1. Read `AGENTS.md` and `CHANGELOG.md` before editing.
+1. Read `AGENTS.md` and the newest `CHANGELOG.md` entry before editing.
 2. Run `git status --short --branch` and confirm `assets/powercut-guide/` remains untracked.
-3. Review the latest Double Chuck changelog entry and preserve the supplied render unless the user requests a revision.
-4. For each new manufacturer image, remove manufacturer wording, recolor blue machine panels to white, and apply the supplied Wavlon logo while preserving machine geometry and realism.
+3. Review PR #4 and its Vercel preview. Do not regenerate or overwrite the seven approved Double Chuck views unless the user requests revisions.
+4. If the user approves production, merge PR #4 and verify the resulting production deployment, homepage image, mega-menu image, and gallery asset delivery; then log the deployment in `CHANGELOG.md` and refresh this handoff.
 5. Do not start Triple Chuck imagery until the user provides its source pictures.
 
 ## Access notes
 
 - GitHub remote: `https://github.com/KartarC/wavlon-lasers-website.git`.
 - GitHub CLI authenticated for `KartarC` on 2026-07-20.
-- Vercel CLI authenticated for `kartarc` on 2026-07-20. No local `.vercel/project.json` present before deployment.
+- Vercel CLI authenticated for `kartarc` in team `infinara` on 2026-07-20.
 - `https://wavlonlasers.com` returns `200 OK` from Vercel; `https://www.wavlonlasers.com` returns `307` redirect to apex domain.
