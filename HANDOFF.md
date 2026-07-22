@@ -39,7 +39,7 @@ Every spec and company claim in the new copy was traced to an existing page — 
    **Nav note:** the Resources dropdown reuses the `nav-supp-drop`/`supp-panel` CSS-hover pattern (no JS). If you add more nav items, that pattern is the template. Verify the dropdown visually on the live site — the local file:// preview can't exercise hover.
 4. **Blocked, needs the owner:**
    - Legacy S/P/X labels remain in `applications/` (incl. a material capability table with S/P/X columns), `industries/`, and both automation pages. Link targets are already correct; only labels are stale. The old ranges (S 1–6kW, P 6–20kW, X 20–30kW+) do **not** map onto ProCut/PowerCut/UltraCut (3–12 / 3–12 / 3–20kW+) — get real figures, or drop the power columns. Do not interpolate.
-   - ProCut still submits `source: 's-series-page'`, mislabelling its leads in the CRM.
+   - ~~ProCut submits `source: 's-series-page'`~~ — FIXED, now `pro-cut-series-page`. Historical CRM rows still carry the old value; update any saved report keyed on `s-series-page`.
 5. **Known pre-existing bug:** `--bg-light` is used on 7 pages but never defined in `shared.css`, so those backgrounds fall back to transparent. Affects `.ssm-item` and `.series-card-visual`. Worth a small separate PR.
 
 ## Access notes
