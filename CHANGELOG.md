@@ -2,6 +2,16 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-22 — Claude — Fix ProCut lead source label
+
+- Scope: The ProCut quote form submitted `source: 's-series-page'`, a leftover from the S-Series→ProCut rename, so ProCut leads were mislabelled in the CRM. Changed to `pro-cut-series-page`, matching the sibling convention (`power-cut-series-page`, `ultra-cut-series-page`). One line in `machines/fiber-laser-sheet-cutting/pro-cut-series/index.html`.
+- Files: `machines/fiber-laser-sheet-cutting/pro-cut-series/index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Table routing unchanged — `submit-form.js` routes by substring, and both the old and new value fall to the default `Wavlon_Quote_Requests` (neither is `contact-page` nor contains financing/parts/brochure/chat). The form's `machine_interest` field already sent "ProCut", so leads were always identifiable by machine; only the `source` tag was wrong. Site-wide grep confirms no `s-series-page` references remain. No sync needed (page-body edit, not a partial).
+- Git: `claude/fix-procut-source`; not yet committed.
+- Remote/deploy: PR pending.
+- **CRM note:** existing rows already stored with `source = 's-series-page'` are historical ProCut leads. From this deploy forward new ProCut leads carry `pro-cut-series-page`, so any saved report/filter keyed on `s-series-page` should be updated to include or migrate to the new value.
+- Follow-up: Remaining open items — legacy S/P/X labels in `applications/`/automation need confirmed power ranges; `--bg-light` undefined in `shared.css`.
+
 ### 2026-07-22 — Claude — Resources center + nav discoverability
 
 - Scope: The content guides existed but were undiscoverable — no nav entry, only a footer link. (1) New `/resources/` hub page: a featured buyer's-guide card plus a card grid linking all four guides (Canada pillar, sheet, tube, welding), financing, service, and parts, with `ItemList` schema. (2) Added a **Resources** dropdown to the desktop header between Financing and Support, cloning the existing `nav-supp-drop`/`supp-panel` pattern (pure CSS hover — no JS or CSS changes needed), linking Resources Center + Buyer's Guide. (3) Added a matching **Resources** section to the mobile drawer (`mobile-nav-btn`/`mobile-sub` pattern) with all five guide links. (4) Repointed the footer Company-column link from the single buyer's guide to the Resources Center. Added `/resources/` to `sitemap.xml` and `llms.txt`.
