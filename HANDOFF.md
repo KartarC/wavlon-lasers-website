@@ -1,6 +1,6 @@
 # Current Handoff
 
-Last updated: 2026-07-22 by Claude (SEO content — sheet cutting hub guide)
+Last updated: 2026-07-22 by Claude (Resources center + nav)
 
 ## Current state
 
@@ -31,10 +31,12 @@ Every spec and company claim in the new copy was traced to an existing page — 
 
 1. Read `AGENTS.md`, `CLAUDE.md`, and the newest `CHANGELOG.md` entry before editing.
 2. Run `git status --short --branch` and confirm `assets/powercut-guide/` remains untracked.
-3. **Continue the content phase.** Done: pillar page (`/fiber-laser-cutting-canada/`), and guide sections on all four category hubs (welding, tube, sheet). Remaining targets:
+3. **Content phase status.** Done: pillar page (`/fiber-laser-cutting-canada/`), guide sections on the sheet/tube/welding hubs, and a `/resources/` center now surfaced in the header (Resources dropdown), mobile drawer, and footer. Remaining optional targets:
    - Meta descriptions on the individual ProCut / PowerCut / UltraCut product pages to work in "laser cutter metal sheet" naturally
-   - Link the pillar page from the homepage body, not just the footer
-   - Automation hub (`/machines/fiber-laser-automation/`) is the last hub without a guide layer — lower search value, but completes the set
+   - Link the pillar page or /resources/ from the homepage body
+   - Automation hub (`/machines/fiber-laser-automation/`) is the last hub without a guide layer — lower search value
+
+   **Nav note:** the Resources dropdown reuses the `nav-supp-drop`/`supp-panel` CSS-hover pattern (no JS). If you add more nav items, that pattern is the template. Verify the dropdown visually on the live site — the local file:// preview can't exercise hover.
 4. **Blocked, needs the owner:**
    - Legacy S/P/X labels remain in `applications/` (incl. a material capability table with S/P/X columns), `industries/`, and both automation pages. Link targets are already correct; only labels are stale. The old ranges (S 1–6kW, P 6–20kW, X 20–30kW+) do **not** map onto ProCut/PowerCut/UltraCut (3–12 / 3–12 / 3–20kW+) — get real figures, or drop the power columns. Do not interpolate.
    - ProCut still submits `source: 's-series-page'`, mislabelling its leads in the CRM.
