@@ -33,6 +33,7 @@ input, textarea, select { font-family: inherit; }
   --green:   #16a34a;
   --bg:      #fff;
   --bg-alt:  #f8f9fa;
+  --bg-light: var(--bg-alt);   /* alias — several pages use --bg-light for light-grey panels/fills */
   --bg-dark: #0d1b2a;
   --border:  #e9ecef;
   --border2: #dee2e6;
