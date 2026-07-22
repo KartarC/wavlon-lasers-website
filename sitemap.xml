@@ -161,6 +161,12 @@
 
   <!-- Guides -->
   <url>
+    <loc>https://wavlonlasers.com/resources/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://wavlonlasers.com/fiber-laser-cutting-canada/</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>

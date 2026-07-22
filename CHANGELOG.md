@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-22 — Claude — Resources center + nav discoverability
+
+- Scope: The content guides existed but were undiscoverable — no nav entry, only a footer link. (1) New `/resources/` hub page: a featured buyer's-guide card plus a card grid linking all four guides (Canada pillar, sheet, tube, welding), financing, service, and parts, with `ItemList` schema. (2) Added a **Resources** dropdown to the desktop header between Financing and Support, cloning the existing `nav-supp-drop`/`supp-panel` pattern (pure CSS hover — no JS or CSS changes needed), linking Resources Center + Buyer's Guide. (3) Added a matching **Resources** section to the mobile drawer (`mobile-nav-btn`/`mobile-sub` pattern) with all five guide links. (4) Repointed the footer Company-column link from the single buyer's guide to the Resources Center. Added `/resources/` to `sitemap.xml` and `llms.txt`.
+- Files: `resources/index.html` (new); `_partials/header.html`; `_partials/footer.html`; `sitemap.xml`; `llms.txt`; all pages refreshed by `npm run sync`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Sitemap 37 URLs, all resolve. Resources page JSON-LD parses (`BreadcrumbList` + `ItemList`); all 10 internal links resolve. Nav dropdown reuses the byte-identical class scaffolding as the working Support dropdown, so hover behaviour is inherited — no new CSS. `npm run sync` clean at 37/37; Resources nav item confirmed on all 38 pages, footer link on all 38. Resources page body rendered and confirmed (featured card + three guide sections). NOTE: the header dropdown's hover state could not be visually exercised — the harness's file:// preview does not expose a live DOM (read_page/screenshot return empty), and the launch.json dev server serves the wrong directory. Visual confirmation of the dropdown deferred to live deploy.
+- Git: `claude/resources-center`; not yet committed.
+- Remote/deploy: PR pending.
+- Follow-up: Unchanged — legacy S/P/X labels need power ranges; ProCut `source: 's-series-page'`; `--bg-light` undefined.
+
 ### 2026-07-22 — Claude — SEO content: sheet cutting hub guide
 
 - Scope: Content phase, sheet category. Unlike the welding and tube hubs (which were thin), the sheet hub was already 719 words of product/comparison/material content — so this adds the *informational* layer it lacked, targeting "laser cutter metal sheet" (SD 21, 170/mo CA) and "fiber laser sheet cutting". New guide section between the "Why Wavlon" strip and the CTA (719 → 1,326 words): how fiber sheet cutting works, an assist-gas table (oxygen/nitrogen/compressed air — the page's biggest knowledge gap), bed formats decoded (3015 = 3,000×1,500mm etc., which the page used but never defined), and choosing power vs enclosure mapped to the three series. Added three-Product `ItemList` JSON-LD, a full OG set (the hub had none), and the guide to `llms.txt`.
