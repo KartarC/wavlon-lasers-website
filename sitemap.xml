@@ -159,6 +159,14 @@
     <priority>0.65</priority>
   </url>
 
+  <!-- Guides -->
+  <url>
+    <loc>https://wavlonlasers.com/fiber-laser-cutting-canada/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Marketing pages -->
   <url>
     <loc>https://wavlonlasers.com/industries/</loc>
