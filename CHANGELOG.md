@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-21 — Claude — SEO OG tags + internal cross-links (tube cutting)
+
+- Scope: Technical SEO sprint items 2 & 3 — (1) Fixed `og:image` on homepage (was `favicon-192.png` 192×192; now `tubecut-double-chuck-hero.png` 1672×941, proper social preview); added `og:title`, `og:image`, `og:url` to Triple Chuck, ProCut Series, and Air-Cooled W-Series pages which were missing social preview images; (2) Added "Also Consider" cross-link cards between the two tube cutting product pages so Google can discover the full series and users are nudged to the alternative.
+- Files: `index.html`; `machines/fiber-laser-tube-cutting/double-chuck/index.html`; `machines/fiber-laser-tube-cutting/triple-chuck/index.html`; `machines/fiber-laser-sheet-cutting/pro-cut-series/index.html`; `machines/fiber-laser-welding/air-cooled-series/index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: OG image URLs verified against known asset filenames; cross-link card markup matches existing brand tokens (`--blue`, `--border`, `--text`, `--text2`); no external requests introduced.
+- Git: `claude/seo-og-links`; not yet committed.
+- Remote/deploy: PR pending.
+- Follow-up: Sitemap.xml review (remaining technical item); content phase — "fiber laser cutter Canada" pillar page; W-Series content for "laser welding machine" (SD 44, vol 1,300/mo).
+
 ### 2026-07-21 — Claude — SEO technical: llms.txt, T-Series schema, title tag optimisation
 
 - Scope: Technical SEO sprint — (1) Created `/llms.txt` at repo root for AI search crawlers (ChatGPT, Perplexity, Bing Copilot, Googlebot); (2) Added Product + BreadcrumbList JSON-LD schema to `machines/fiber-laser-tube-cutting/t-series/index.html` — the only machine page missing structured data; (3) Shortened and keyword-optimised `<title>` tags on all 7 key machine pages to under 65 characters, eliminating SERP truncation on Double Chuck (82→62 chars) and Triple Chuck (91→62 chars), and naturalising "Fiber Laser Cutter" and "Fiber Laser Tube Cutter" as keyword variants across the series.

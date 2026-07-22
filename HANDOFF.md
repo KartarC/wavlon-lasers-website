@@ -1,42 +1,39 @@
 # Current Handoff
 
-Last updated: 2026-07-21 by Claude (SEO technical sprint)
+Last updated: 2026-07-21 by Claude (SEO OG tags + internal cross-links)
 
 ## Current state
 
-- Active branch: `claude/seo-technical`, branched from `origin/main` at `e0fedf9`.
-- Purpose: SEO technical sprint — llms.txt creation, T-Series schema, title tag optimisation across all machine pages.
+- Active branch: `claude/seo-og-links`, branched from `origin/main` (after PR #10 merged).
+- Purpose: SEO technical sprint items 2 & 3 — Open Graph image fixes + internal cross-linking between tube cutting product pages.
 - Pre-existing work: `assets/powercut-guide/` is untracked and is not part of this branch.
-- Production `main` is at `e0fedf9` (Triple Chuck gallery, both image sets, shared menu all live).
+- Production `main` is at the merge commit of PR #10 (llms.txt, T-Series schema, title tags).
 
-### Changes on this branch (not yet merged)
+### Changes on this branch
 
 | File | Change |
 |------|--------|
-| `llms.txt` | New — AI search crawler declaration (ChatGPT, Perplexity, Bing Copilot) |
-| `machines/fiber-laser-tube-cutting/t-series/index.html` | Added Product + BreadcrumbList JSON-LD schema; shortened title to 56 chars |
-| `machines/fiber-laser-sheet-cutting/pro-cut-series/index.html` | Title 67→55 chars: "ProCut Series Fiber Laser Cutter 3–12kW \| Wavlon Lasers" |
-| `machines/fiber-laser-sheet-cutting/power-cut-series/index.html` | Title 69→57 chars: "PowerCut Series Fiber Laser Cutter 3–12kW \| Wavlon Lasers" |
-| `machines/fiber-laser-sheet-cutting/ultra-cut-series/index.html` | Title 69→57 chars: "UltraCut Series Fiber Laser Cutter 3–20kW \| Wavlon Lasers" |
-| `machines/fiber-laser-tube-cutting/double-chuck/index.html` | Title 82→62 chars: "TubeCut Double Chuck Fiber Laser Tube Cutter \| Wavlon Lasers" |
-| `machines/fiber-laser-tube-cutting/triple-chuck/index.html` | Title 91→62 chars: "TubeCut Triple Chuck Fiber Laser Tube Cutter \| Wavlon Lasers" |
-| `machines/fiber-laser-welding/air-cooled-series/index.html` | Title 75→63 chars: "W-Series Air-Cooled Fiber Laser Welding Machine \| Wavlon Lasers" |
+| `index.html` | `og:image` changed from `favicon-192.png` (192×192 icon) → `tubecut-double-chuck-hero.png` (1672×941) |
+| `machines/fiber-laser-tube-cutting/triple-chuck/index.html` | `og:title` updated; `og:image` + `og:url` added; "Also Consider → Double Chuck" cross-link section added before footer |
+| `machines/fiber-laser-tube-cutting/double-chuck/index.html` | "Also Consider → Triple Chuck" cross-link section added before footer |
+| `machines/fiber-laser-sheet-cutting/pro-cut-series/index.html` | `og:title` updated; `og:image` + `og:url` added |
+| `machines/fiber-laser-welding/air-cooled-series/index.html` | `og:title` updated; `og:image` + `og:url` added |
 
 ## Production state
 
-- `main` is at `e0fedf9`; Double Chuck and Triple Chuck image sets, homepage cards, site-wide mega-menu images, and selectable galleries are live at `https://wavlonlasers.com`.
-- `claude/seo-technical` branch is pending review and PR.
+- `main` is at PR #10 merge; `llms.txt`, T-Series schema, and all 7 machine title tags are live at `https://wavlonlasers.com`.
+- `claude/seo-og-links` branch is pending commit/push/PR.
 
 ## What the next assistant must do
 
 1. Read `AGENTS.md` and the newest `CHANGELOG.md` entry before editing.
 2. Run `git status --short --branch` and confirm `assets/powercut-guide/` remains untracked.
-3. Preserve the seven approved Double Chuck views and five Triple Chuck views unless the user requests revisions.
-4. Continue the SEO content phase after this PR merges:
+3. **Remaining SEO technical item**: review `sitemap.xml` — check that all current product pages are listed, `lastmod` dates are reasonable, and no defunct URLs (old S/P/X-Series paths if those were renamed) are included.
+4. **Content SEO phase** (after sitemap):
    - Write a "fiber laser cutter Canada" pillar page targeting SD 21 keyword "laser cutter metal sheet"
+   - Expand W-Series Air-Cooled page body copy to target "laser welding machine" (SD 44, vol 1,300/mo — highest volume keyword)
    - Improve ProCut/PowerCut/UltraCut meta descriptions to include "laser cutter metal sheet" naturally
-   - Build internal link structure from homepage → machine category → product pages
-   - Target "laser welding machine canada" content for Air-Cooled W-Series (SD 44, highest volume 1,300/mo)
+5. **Product line note**: tube cutting = ONLY Double Chuck + Triple Chuck. T-Series and S-Series are not current products. Do not build new content or links targeting them.
 
 ## Access notes
 
