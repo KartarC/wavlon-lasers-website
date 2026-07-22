@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-22 — Claude — SEO content: sheet cutting hub guide
+
+- Scope: Content phase, sheet category. Unlike the welding and tube hubs (which were thin), the sheet hub was already 719 words of product/comparison/material content — so this adds the *informational* layer it lacked, targeting "laser cutter metal sheet" (SD 21, 170/mo CA) and "fiber laser sheet cutting". New guide section between the "Why Wavlon" strip and the CTA (719 → 1,326 words): how fiber sheet cutting works, an assist-gas table (oxygen/nitrogen/compressed air — the page's biggest knowledge gap), bed formats decoded (3015 = 3,000×1,500mm etc., which the page used but never defined), and choosing power vs enclosure mapped to the three series. Added three-Product `ItemList` JSON-LD, a full OG set (the hub had none), and the guide to `llms.txt`.
+- Files: `machines/fiber-laser-sheet-cutting/index.html`; `llms.txt`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Machine specs (power ranges, 35/40mm mild steel, bed formats, MAX/FSCUT/Cypcut, 100–120 m/min) traced to the hub's own comparison table and the three product pages. Assist-gas behaviour and bed-code decoding are standard fiber-laser process facts, not company claims — written as general education. Company claims from `service/` and `financing/`. All three schema images (`procut-hero.png`, `wlf-shop-floor.png`, `ultracut-shop-floor.jpg`) confirmed present. Both JSON-LD blocks parse (`BreadcrumbList`, `ItemList` of three Products). All 7 internal links resolve. Every new CSS token defined in `shared.css`. `npm run sync` clean at 36/36. Rendered; heading order and assist-gas table confirmed, section alternation correct.
+- Git: `claude/seo-sheet-guide`; not yet committed.
+- Remote/deploy: PR pending.
+- Follow-up: Content phase now covers all three cutting categories + welding + the Canada pillar. Same open items: legacy S/P/X labels need confirmed power ranges; ProCut `source: 's-series-page'`; `--bg-light` undefined in `shared.css`.
+
 ### 2026-07-22 — Claude — SEO content: tube cutting hub guide
 
 - Scope: Content-phase follow-up. Expanded the tube cutting hub `/machines/fiber-laser-tube-cutting/` from ~230 to 968 words of `<main>` targeting "fiber laser tube cutting" (SD 5, 110/mo — low-difficulty quick win, and the hub was already rebuilt). Added a guide section below the existing lineup: how tube cutting works, a tube-laser-vs-saw-and-drill comparison table, what profiles it cuts, sizing by diameter/length/power (in that priority order), a load-weight callout, why the third chuck matters, a Double-vs-Triple comparison table, and Canadian buying notes. Added two-Product `ItemList` JSON-LD and the guide to `llms.txt`. Title/description/OG were already correct from the T-Series PR — left as-is.

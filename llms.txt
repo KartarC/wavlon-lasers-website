@@ -18,6 +18,7 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting and weldi
 - [Buying a Fiber Laser Cutter in Canada](https://wavlonlasers.com/fiber-laser-cutting-canada/) — how to choose laser power, sheet vs tube cutting, Canadian 600V electrical requirements, CAD financing, and what local service should include
 - [Fiber Laser Welding Machines](https://wavlonlasers.com/machines/fiber-laser-welding/) — how laser welding compares with MIG/TIG, materials and thickness, why air-cooled matters
 - [Fiber Laser Tube Cutting Machines](https://wavlonlasers.com/machines/fiber-laser-tube-cutting/) — how tube cutting works, tube laser vs saw and drill, sizing by diameter/length/power, Double Chuck vs Triple Chuck
+- [Fiber Laser Sheet Cutting Machines](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/) — how sheet cutting works, assist gas (oxygen/nitrogen/air), bed formats explained, choosing power and enclosure across ProCut/PowerCut/UltraCut
 
 ## Technologies
 
