@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-22 — Claude — Define missing --bg-light CSS token
+
+- Scope: `--bg-light` was referenced 10 times across 7 served pages (`.ssm-item` spec pills, `.series-card-visual`, `.about-story-visual`, `.model-table` zebra rows, `.service-info-box`) but defined nowhere, so all those light-grey panel backgrounds silently fell back to `transparent`. Added `--bg-light: var(--bg-alt);` (aliased to the existing #f8f9fa light grey) to the `:root` token block in `shared.css` — a single-point fix that resolves every current and future usage.
+- Files: `shared.css`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Per-page audit — every `var(--token)` used on any served page is now defined in either `shared.css` or that page's own `<style>`; `--bg-light` was the last global gap. Aliased rather than hard-coded so it tracks `--bg-alt` if the light grey ever changes. No sync needed — `shared.css` is linked, not injected. NOTE: two orphan fragment files under `_components/` (`exchange-section.html`, `reel-section.html`) still reference an older token vocabulary (`--ink`, `--display`, etc.), but they are not served — `machine-showcase/index.html` carries its own adapted inline copy — so they are out of scope and left untouched.
+- Git: `claude/fix-bg-light-token`; not yet committed.
+- Remote/deploy: PR pending.
+- Follow-up: Only remaining open item — legacy S/P/X labels in `applications/` and the automation pages need confirmed power ranges (blocked on the owner).
+
 ### 2026-07-22 — Claude — Fix ProCut lead source label
 
 - Scope: The ProCut quote form submitted `source: 's-series-page'`, a leftover from the S-Series→ProCut rename, so ProCut leads were mislabelled in the CRM. Changed to `pro-cut-series-page`, matching the sibling convention (`power-cut-series-page`, `ultra-cut-series-page`). One line in `machines/fiber-laser-sheet-cutting/pro-cut-series/index.html`.
