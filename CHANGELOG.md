@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-21 — Claude — SEO technical: llms.txt, T-Series schema, title tag optimisation
+
+- Scope: Technical SEO sprint — (1) Created `/llms.txt` at repo root for AI search crawlers (ChatGPT, Perplexity, Bing Copilot, Googlebot); (2) Added Product + BreadcrumbList JSON-LD schema to `machines/fiber-laser-tube-cutting/t-series/index.html` — the only machine page missing structured data; (3) Shortened and keyword-optimised `<title>` tags on all 7 key machine pages to under 65 characters, eliminating SERP truncation on Double Chuck (82→62 chars) and Triple Chuck (91→62 chars), and naturalising "Fiber Laser Cutter" and "Fiber Laser Tube Cutter" as keyword variants across the series.
+- Files: `llms.txt` (new); `machines/fiber-laser-tube-cutting/t-series/index.html`; `machines/fiber-laser-sheet-cutting/pro-cut-series/index.html`; `machines/fiber-laser-sheet-cutting/power-cut-series/index.html`; `machines/fiber-laser-sheet-cutting/ultra-cut-series/index.html`; `machines/fiber-laser-tube-cutting/double-chuck/index.html`; `machines/fiber-laser-tube-cutting/triple-chuck/index.html`; `machines/fiber-laser-welding/air-cooled-series/index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Schema JSON-LD verified manually against double-chuck template; title lengths measured (<65 chars all); `llms.txt` follows llms.txt spec with product, technology, and company sections.
+- Git: `claude/seo-technical`; not yet committed.
+- Remote/deploy: Branch pushed to GitHub; draft PR to follow.
+- Follow-up: Content SEO phase — write a "fiber laser cutter Canada" pillar page, optimize ProCut/PowerCut meta descriptions with "laser cutter metal sheet" keyword, build internal link structure from homepage to machine pages.
+
 ### 2026-07-20 18:00 EDT — Codex — Publish Triple Chuck gallery to production
 
 - Scope: Merged the reviewed Triple Chuck image update through PR #8 and verified its Vercel production deployment and live website output.
