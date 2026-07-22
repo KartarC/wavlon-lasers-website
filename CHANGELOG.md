@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-07-22 — Claude — SEO content: tube cutting hub guide
+
+- Scope: Content-phase follow-up. Expanded the tube cutting hub `/machines/fiber-laser-tube-cutting/` from ~230 to 968 words of `<main>` targeting "fiber laser tube cutting" (SD 5, 110/mo — low-difficulty quick win, and the hub was already rebuilt). Added a guide section below the existing lineup: how tube cutting works, a tube-laser-vs-saw-and-drill comparison table, what profiles it cuts, sizing by diameter/length/power (in that priority order), a load-weight callout, why the third chuck matters, a Double-vs-Triple comparison table, and Canadian buying notes. Added two-Product `ItemList` JSON-LD and the guide to `llms.txt`. Title/description/OG were already correct from the T-Series PR — left as-is.
+- Files: `machines/fiber-laser-tube-cutting/index.html`; `llms.txt`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Every spec traced to the Double Chuck / Triple Chuck spec tables — diameters (360/680mm), square (360/570mm), bed lengths (6,000/12,000mm), loads (250/1,500kg), power (1.5–12 / 6–30kW), accuracy (±0.05mm), model names — no invented figures. Company claims taken from `service/` and `financing/`. Both JSON-LD blocks parse (`BreadcrumbList`, `ItemList` of two Products). All 6 internal links resolve. `npm run sync` clean at 36/36. Page rendered; heading hierarchy and both comparison tables confirmed.
+- Git: `claude/seo-tube-guide`; not yet committed.
+- Remote/deploy: PR pending.
+- Follow-up: Same open items — legacy S/P/X labels need confirmed power ranges; ProCut `source: 's-series-page'`; `--bg-light` undefined in `shared.css`.
+
 ### 2026-07-22 — Claude — SEO content phase: Canadian buyer's guide + welding hub expansion
 
 - Scope: First content-phase work after the technical sprint. (1) **New pillar page** `/fiber-laser-cutting-canada/` (1,212 words) targeting "fiber laser cutter Canada" / "laser cutter metal sheet" — a buyer's guide covering power selection, sheet vs tube, Canadian-specific concerns (600V three-phase pre-configuration, CAD financing and exchange-rate exposure, who performs service), the full range as a comparison table, financing, and what support should include. Deep-links every product page, both category hubs, `/applications/`, `/financing/`, `/service/`, and `/contact/#quote`. (2) **Welding hub expanded** from 2,846 to ~13,000 bytes of `<main>` (714 words) targeting "laser welding machine" (SD 44, 1,300/mo — the highest-volume term on the list); the page previously held one paragraph and one product card. Added what laser welding is, a MIG/TIG comparison table, materials and thickness, why air-cooled matters, applications, and Canadian buying notes; retitled to lead with "Laser Welding Machines" and given a full OG set plus `Product` schema. (3) Added the pillar page to `sitemap.xml`, `llms.txt`, and the shared footer (site-wide internal link). (4) Fixed the stale series names in the `about/` positioning paragraph — naming only, no power figures involved.

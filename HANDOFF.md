@@ -1,6 +1,6 @@
 # Current Handoff
 
-Last updated: 2026-07-22 by Claude (SEO content phase — pillar page + welding hub)
+Last updated: 2026-07-22 by Claude (SEO content — tube cutting hub guide)
 
 ## Current state
 
@@ -31,9 +31,9 @@ Every spec and company claim in the new copy was traced to an existing page — 
 
 1. Read `AGENTS.md`, `CLAUDE.md`, and the newest `CHANGELOG.md` entry before editing.
 2. Run `git status --short --branch` and confirm `assets/powercut-guide/` remains untracked.
-3. **Continue the content phase.** Sensible next targets, in rough priority order:
+3. **Continue the content phase.** Done so far: pillar page (`/fiber-laser-cutting-canada/`), welding hub expansion, tube hub guide. Sensible next targets:
    - Meta descriptions on ProCut / PowerCut / UltraCut to work in "laser cutter metal sheet" naturally
-   - A tube-cutting guide section or page targeting "fiber laser tube cutting" (SD 5, 110/mo — low difficulty, quick win)
+   - A guide section on the sheet cutting hub (`/machines/fiber-laser-sheet-cutting/`) — parallels the tube and welding hubs, and sheet is the highest-value category
    - Link the pillar page from the homepage body, not just the footer
 4. **Blocked, needs the owner:**
    - Legacy S/P/X labels remain in `applications/` (incl. a material capability table with S/P/X columns), `industries/`, and both automation pages. Link targets are already correct; only labels are stale. The old ranges (S 1–6kW, P 6–20kW, X 20–30kW+) do **not** map onto ProCut/PowerCut/UltraCut (3–12 / 3–12 / 3–20kW+) — get real figures, or drop the power columns. Do not interpolate.
