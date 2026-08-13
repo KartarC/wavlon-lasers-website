@@ -254,11 +254,11 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .hero-three-canvas{position:absolute;inset:0;z-index:2;width:100%;height:100%;pointer-events:none;opacity:.22}.hero-grid{display:none}
 .hero-copy{position:absolute;z-index:8;left:50%;top:clamp(122px,14%,166px);width:min(92%,980px);transform:translateX(-50%);text-align:center}
 .hero-overline{justify-content:center;font:600 clamp(13px,1vw,18px) var(--body);color:rgba(255,255,255,.92);margin:0 0 clamp(8px,1vw,16px);text-shadow:0 2px 14px rgba(8,28,47,.42)}.hero-overline:before{display:none}
-.hero-h1{font-family:var(--display);font-size:clamp(2.6rem,4.5vw,5.6rem);line-height:.98;font-weight:760;letter-spacing:-.045em;color:#fff;text-shadow:0 3px 28px rgba(8,28,47,.38);margin:0 0 clamp(14px,1.5vw,24px);white-space:nowrap}.hero-h1 .hw{display:inline}.hero-h1 .blue{color:#fff}
+.hero-h1{font-family:var(--display);font-size:clamp(2.6rem,4.5vw,5.6rem);line-height:.98;font-weight:760;letter-spacing:-.045em;color:#fff;text-shadow:0 3px 28px rgba(8,28,47,.38);margin:0 0 clamp(14px,1.5vw,24px);white-space:nowrap}.hero-h1 .hw{display:inline-block;transform-origin:50% 100%;backface-visibility:hidden}.hero-h1 .blue{color:#fff}
 .hero-body{display:flex;flex-direction:column;align-items:center;gap:12px}.hero-scene-kicker,.hero-scene-copy{display:none}.hero-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .hero-cta .btn-primary,.hero-cta .btn-ghost{padding:11px 22px;border-radius:999px;font:700 12px var(--body)}.hero-cta .btn-primary{background:#fff;color:#142239;border:1px solid #fff}.hero-cta .btn-ghost{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(8px)}
 .hero-scenes{position:absolute;inset:0;z-index:3}.hero-scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}.hero-scene.is-active{opacity:1;visibility:visible}
-.hero-scene-art{width:100%;height:100%;display:block;object-fit:cover;object-position:center;opacity:0;transform:translate3d(5%,0,0) scale(1.012)}.hero-scene.is-active .hero-scene-art{animation:heroSceneIn .58s cubic-bezier(.2,.9,.24,1) both}@keyframes heroSceneIn{to{opacity:1;transform:none}}
+.hero-scene-art{width:100%;height:100%;display:block;object-fit:cover;object-position:center bottom;opacity:0;transform:translate3d(5%,0,0) scale(1.012)}.hero-scene.is-active .hero-scene-art{animation:heroSceneIn .58s cubic-bezier(.2,.9,.24,1) both}@keyframes heroSceneIn{to{opacity:1;transform:none}}
 .hero-scene-tag{position:absolute;right:clamp(20px,2.2vw,40px);top:calc(var(--header-h) + 20px);z-index:8;display:flex;gap:9px;color:rgba(255,255,255,.82);font:9px var(--mono);letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 8px #000}.hero-scene-tag:before{content:"";width:7px;height:7px;border-radius:50%;background:#0b5be7}
 .hero-gallery-nav{position:absolute;z-index:9;left:50%;bottom:clamp(16px,2vw,34px);transform:translateX(-50%);display:flex;align-items:center;gap:12px}.hero-gallery-arrow{width:40px;height:40px;border:1px solid rgba(255,255,255,.6);border-radius:50%;color:#fff;background:rgba(13,36,58,.32);backdrop-filter:blur(10px)}.hero-gallery-arrow:hover{background:#0b5be7}
 .hero-gallery-dots{display:flex;gap:7px}.hero-gallery-dot{position:relative;width:38px;height:3px;overflow:hidden;border:0;background:rgba(255,255,255,.42)}.hero-gallery-dot:after{content:"";position:absolute;inset:0;background:#0b5be7;transform:scaleX(0);transform-origin:left}.hero-gallery-dot.is-active:after{animation:heroProgress 5.6s linear forwards}@keyframes heroProgress{to{transform:scaleX(1)}}.hero-counter{color:rgba(255,255,255,.72);font:10px var(--mono)}.hero-counter strong{color:#fff}
@@ -866,16 +866,17 @@ function heroIntro() {
     var overline = document.querySelector('.hero-overline');
     if (!h1) return;
 
-    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.fromTo('.hw',
-        { opacity: 0, y: 28 },
-        { opacity: 1, y: 0, stagger: 0.08, duration: 0.58 }, 0.08)
-      .fromTo(overline,
-        { opacity: 0, x: -18 },
-        { opacity: 1, x: 0, duration: 0.5 }, 0.18)
+    gsap.set(h1, { perspective: 900 });
+    var tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+    tl.fromTo(overline,
+        { opacity: 0, x: -70, filter: 'blur(7px)' },
+        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.68 }, 0.02)
+      .fromTo('.hw',
+        { opacity: 0, x: function(i) { return i % 2 ? 105 : -105; }, y: 22, rotationY: function(i) { return i % 2 ? 18 : -18; }, filter: 'blur(10px)' },
+        { opacity: 1, x: 0, y: 0, rotationY: 0, filter: 'blur(0px)', stagger: 0.13, duration: 0.92 }, 0.12)
       .fromTo(heroBody,
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.62 }, 0.28);
+        { opacity: 0, y: 38, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.68 }, 0.52);
 
   } catch (err) {
     // Failsafe: if animation throws, ensure all hero elements are visible
