@@ -12,7 +12,8 @@
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://wavlonlasers.com/"/>
 <link rel="preload" href="/wavlon_lasers_full_logo_transparent.png" as="image"/>
-<link rel="preload" href="/assets/machine-floor.png" as="image"/>
+<link rel="preload" href="/assets/Wavlon%20ProCut%20Front.-transparentpng.png" as="image"/>
+<link rel="preload" href="/assets/UltraCut%20Serie%20_%20Transparent.png" as="image"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -235,29 +236,57 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   text-transform: uppercase; color: rgba(255,255,255,0.2);
 }
 
-/* ── Hero ───────────────────────────────────────────────────── */
-.hero { position: relative; min-height: 100vh; background: var(--bg-dark); padding-top: var(--header-h); color: #fff; overflow: hidden; display: flex; flex-direction: column; }
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-bg img { position: absolute; width: 100%; height: 125%; top: -25%; left: 0; object-fit: cover; object-position: center 40%; opacity: 0.18; will-change: transform; }
-.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(170deg, rgba(10,11,12,0.72) 0%, rgba(10,11,12,0.55) 50%, rgba(10,11,12,0.88) 100%); }
-.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 40%, transparent 90%); pointer-events: none; z-index: 1; }
-.hero-inner { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; padding: clamp(40px, 6vh, 80px) var(--pad-x) clamp(56px, 8vh, 100px); max-width: 1440px; margin: 0 auto; width: 100%; gap: 0; }
-/* Overline label */
-.hero-overline { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
-.hero-overline::before { content: ""; width: 28px; height: 1px; background: rgba(255,255,255,0.25); flex-shrink: 0; }
-/* Big animated heading */
-.hero-h1 { font-family: var(--display); font-size: clamp(5rem, 13vw, 15rem); line-height: 0.88; font-weight: 800; letter-spacing: -0.045em; color: #fff; text-transform: uppercase; transform-origin: left top; will-change: transform; margin-bottom: clamp(36px, 5vh, 64px); }
+/* ── Hero: 16:9 machine portfolio carousel ──────────────────── */
+.hero { position: relative; background: #070b12; padding-top: var(--header-h); color: #fff; overflow: hidden; }
+.hero-inner { position: relative; width: 100%; max-width: 1760px; margin: 0 auto; padding: clamp(18px, 2.4vw, 42px) var(--pad-x) clamp(32px, 5vw, 72px); }
+.hero-showcase { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; isolation: isolate; border: 1px solid rgba(255,255,255,.12); border-radius: clamp(14px, 1.6vw, 26px); background: radial-gradient(circle at 72% 40%, rgba(24,73,216,.22), transparent 34%), linear-gradient(135deg, #0d1727 0%, #080b12 52%, #05070b 100%); box-shadow: 0 34px 100px rgba(0,0,0,.52), inset 0 0 0 1px rgba(255,255,255,.025); }
+.hero-showcase::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(5,8,14,.94) 0%, rgba(5,8,14,.78) 31%, rgba(5,8,14,.16) 61%, rgba(5,8,14,.4) 100%); }
+.hero-showcase::after { content: ""; position: absolute; inset: 0; z-index: 6; pointer-events: none; box-shadow: inset 0 0 120px rgba(0,0,0,.62); }
+.hero-three-canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; opacity: .9; }
+.hero-grid { position: absolute; inset: 0; z-index: 1; pointer-events: none; background-image: linear-gradient(rgba(111,161,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(111,161,255,.055) 1px, transparent 1px); background-size: clamp(38px,4vw,70px) clamp(38px,4vw,70px); mask-image: linear-gradient(90deg, transparent 0%, #000 35%, #000 100%); }
+.hero-copy { position: absolute; z-index: 8; left: clamp(28px, 4.7vw, 84px); top: 50%; width: min(41%, 620px); transform: translateY(-50%); }
+.hero-overline { font-family: var(--mono); font-size: clamp(9px,.75vw,12px); letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.58); margin-bottom: clamp(14px,1.4vw,24px); display: flex; align-items: center; gap: 13px; }
+.hero-overline::before { content: ""; width: 34px; height: 2px; background: var(--blue-light); box-shadow: 0 0 16px rgba(77,132,255,.8); flex-shrink: 0; }
+.hero-h1 { font-family: var(--display); font-size: clamp(3.25rem, 6.2vw, 7.2rem); line-height: .88; font-weight: 800; letter-spacing: -.052em; color: #fff; text-transform: uppercase; margin: 0 0 clamp(18px,2vw,32px); text-wrap: balance; }
 .hero-h1 .hw { display: block; will-change: opacity, transform; }
-.hero-h1 .blue { color: var(--blue-light); }
-/* Video + CTA block */
-.hero-body { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; will-change: opacity, transform; }
-.hero-video-wrap { position: relative; width: 100%; max-width: 900px; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.13); background: #000; box-shadow: 0 40px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(24,73,216,0.18); }
-.hero-video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
-.hero-cta .btn-primary { background: var(--blue); color: #fff; padding: 15px 34px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid var(--blue); transition: background 0.2s, border-color 0.2s; }
-.hero-cta .btn-primary:hover { background: var(--blue-2); border-color: var(--blue-2); }
-.hero-cta .btn-ghost { background: transparent; color: rgba(255,255,255,0.75); padding: 15px 34px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); transition: border-color 0.2s, color 0.2s; }
-.hero-cta .btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
+.hero-h1 .blue { color: #5d8cff; text-shadow: 0 0 34px rgba(59,111,255,.28); }
+.hero-body { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(20px,2vw,30px); max-width: 590px; will-change: opacity, transform; }
+.hero-scene-kicker { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #80a7ff; }
+.hero-scene-copy { max-width: 50ch; margin: 0; font-size: clamp(13px,1.05vw,17px); line-height: 1.65; color: rgba(255,255,255,.67); }
+.hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-cta .btn-primary, .hero-cta .btn-ghost { padding: 13px 22px; font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; transition: background .2s,border-color .2s,color .2s,transform .2s; }
+.hero-cta .btn-primary { background: var(--blue); color: #fff; border: 1px solid var(--blue); }
+.hero-cta .btn-primary:hover { background: var(--blue-2); border-color: var(--blue-2); transform: translateY(-2px); }
+.hero-cta .btn-ghost { background: rgba(255,255,255,.035); color: rgba(255,255,255,.78); border: 1px solid rgba(255,255,255,.2); backdrop-filter: blur(8px); }
+.hero-cta .btn-ghost:hover { border-color: rgba(255,255,255,.55); color: #fff; transform: translateY(-2px); }
+.hero-scenes { position: absolute; inset: 0; z-index: 3; }
+.hero-scene { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .28s ease, visibility .28s ease; }
+.hero-scene.is-active { opacity: 1; visibility: visible; }
+.hero-machine { position: absolute; display: block; object-fit: contain; filter: drop-shadow(0 28px 28px rgba(0,0,0,.62)); opacity: 0; will-change: transform,opacity; }
+.hero-scene.is-active .hero-machine { animation: heroMachineIn .62s cubic-bezier(.2,.9,.24,1) both; }
+.hero-scene.is-active .hero-machine:nth-child(2) { animation-delay: .07s; }
+.hero-scene.is-active .hero-machine:nth-child(3) { animation-delay: .14s; }
+@keyframes heroMachineIn { from { opacity:0; transform:translate3d(18%,0,0) scale(.9); } to { opacity:1; transform:translate3d(0,0,0) scale(1); } }
+.hero-scene[data-scene="portfolio"] .machine-procut { width: 34%; right: 22%; bottom: 7%; z-index: 3; }
+.hero-scene[data-scene="portfolio"] .machine-ultracut { width: 43%; right: 1%; bottom: 18%; z-index: 2; }
+.hero-scene[data-scene="portfolio"] .machine-tube { width: 39%; right: 2%; bottom: 0; z-index: 4; }
+.hero-scene[data-scene="sheet"] .machine-procut { width: 35%; right: 18%; bottom: 4%; z-index: 4; }
+.hero-scene[data-scene="sheet"] .machine-powercut { width: 40%; right: 17%; bottom: 26%; z-index: 2; }
+.hero-scene[data-scene="sheet"] .machine-ultracut { width: 42%; right: 1%; bottom: 4%; z-index: 3; }
+.hero-scene[data-scene="tube"] .machine-double { width: 42%; right: 14%; bottom: 12%; z-index: 3; }
+.hero-scene[data-scene="tube"] .machine-triple { width: 52%; right: 0; bottom: 2%; z-index: 2; }
+.hero-scene-tag { position: absolute; right: clamp(22px,2.4vw,42px); top: clamp(20px,2.2vw,38px); z-index: 8; display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.52); }
+.hero-scene-tag::before { content:""; width:7px; height:7px; border-radius:50%; background:#4c7fff; box-shadow:0 0 15px #4c7fff; }
+.hero-gallery-nav { position: absolute; z-index: 9; right: clamp(22px,2.4vw,42px); bottom: clamp(20px,2.2vw,38px); display: flex; align-items: center; gap: 12px; }
+.hero-gallery-arrow { width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.17); border-radius: 50%; color: #fff; background: rgba(5,8,14,.44); backdrop-filter: blur(10px); cursor: pointer; display: grid; place-items: center; font-size: 18px; transition: background .2s,border-color .2s,transform .2s; }
+.hero-gallery-arrow:hover { background: var(--blue); border-color: var(--blue); transform: scale(1.06); }
+.hero-gallery-dots { display: flex; align-items: center; gap: 7px; }
+.hero-gallery-dot { position: relative; width: 34px; height: 3px; overflow: hidden; border: 0; background: rgba(255,255,255,.2); cursor: pointer; padding: 0; }
+.hero-gallery-dot::after { content:""; position:absolute; inset:0; background:#5d8cff; transform:scaleX(0); transform-origin:left; }
+.hero-gallery-dot.is-active::after { animation: heroProgress 5.6s linear forwards; }
+@keyframes heroProgress { to { transform:scaleX(1); } }
+.hero-counter { min-width: 44px; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; color: rgba(255,255,255,.55); }
+.hero-counter strong { color:#fff; font-weight:600; }
 
 /* ── Our Machines ───────────────────────────────────────────── */
 .hp-machines { background: var(--bg-2); border-top: 1px solid var(--line); padding: clamp(80px, 12vh, 140px) var(--pad-x); }
@@ -377,10 +406,28 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hp-components-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
-  .hero-h1 { font-size: clamp(2.4rem, 10.5vw, 8rem); }
-  .hero-video-wrap { max-width: 100%; }
+  .hero-inner { padding: 12px 12px 28px; }
+  .hero-showcase { aspect-ratio: 9 / 16; min-height: 680px; max-height: none; border-radius: 14px; }
+  .hero-showcase::before { background: linear-gradient(180deg, rgba(5,8,14,.3) 0%, rgba(5,8,14,.22) 36%, rgba(5,8,14,.94) 66%, #05080e 100%); }
+  .hero-copy { left: 22px; right: 22px; top: auto; bottom: 78px; width: auto; transform: none; }
+  .hero-overline { margin-bottom: 12px; }
+  .hero-h1 { font-size: clamp(2.65rem, 13vw, 4.25rem); margin-bottom: 16px; }
+  .hero-scene-copy { font-size: 13px; line-height: 1.5; }
+  .hero-machine { max-height: 42%; }
+  .hero-scene[data-scene="portfolio"] .machine-procut { width: 57%; right: 42%; bottom: 47%; }
+  .hero-scene[data-scene="portfolio"] .machine-ultracut { width: 68%; right: -8%; bottom: 52%; }
+  .hero-scene[data-scene="portfolio"] .machine-tube { width: 65%; right: -4%; bottom: 39%; }
+  .hero-scene[data-scene="sheet"] .machine-procut { width: 62%; right: 40%; bottom: 46%; }
+  .hero-scene[data-scene="sheet"] .machine-powercut { width: 70%; right: -10%; bottom: 56%; }
+  .hero-scene[data-scene="sheet"] .machine-ultracut { width: 72%; right: -10%; bottom: 42%; }
+  .hero-scene[data-scene="tube"] .machine-double { width: 70%; right: 32%; bottom: 50%; }
+  .hero-scene[data-scene="tube"] .machine-triple { width: 90%; right: -20%; bottom: 39%; }
+  .hero-scene-tag { top: 18px; right: 18px; }
+  .hero-gallery-nav { right: 18px; bottom: 20px; }
+  .hero-gallery-arrow { width: 36px; height: 36px; }
+  .hero-gallery-dot { width: 22px; }
   .hero-cta { flex-direction: column; }
-  .hero-cta a { text-align: center; }
+  .hero-cta a { text-align: center; justify-content: center; }
   .cypcut-features { grid-template-columns: 1fr; }
   .hp-machines-grid { grid-template-columns: 1fr; }
   .hp-components-grid { grid-template-columns: 1fr; }
@@ -388,7 +435,12 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hp-cta-btns a { text-align: center; }
 }
 @media (max-width: 400px) {
-  .hero-h1 { font-size: clamp(2rem, 9.5vw, 2.4rem); }
+  .hero-showcase { min-height: 640px; }
+  .hero-h1 { font-size: clamp(2.45rem, 12.5vw, 3.2rem); }
+  .hero-cta .btn-primary, .hero-cta .btn-ghost { padding: 11px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scene.is-active .hero-machine, .hero-gallery-dot.is-active::after { animation: none; }
 }
 </style>
 </head>
@@ -553,27 +605,51 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 
 <!-- ── Hero ───────────────────────────────────────────────────── -->
 <section class="hero" id="hero">
-  <div class="hero-bg"><img src="/assets/machine-floor.png" alt="" aria-hidden="true" /></div>
-  <div class="hero-grid"></div>
   <div class="hero-inner">
-    <p class="hero-overline">Wavlon Lasers &middot; Industrial Fiber Laser Systems</p>
-    <h1 class="hero-h1" id="heroH1">
-      <span class="hw">Engineered</span>
-      <span class="hw">to <span class="blue">Cut.</span></span>
-    </h1>
-    <div class="hero-body" id="heroBody">
-      <div class="hero-video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/aacp89PSXo8?rel=0&modestbranding=1&color=white&showinfo=0"
-          title="Wavlon PowerCut Series WL-3015F Fiber Laser Cutting Machine"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+    <div class="hero-showcase" id="heroShowcase" role="region" aria-roledescription="carousel" aria-label="Wavlon laser machine portfolio">
+      <canvas class="hero-three-canvas" id="heroThreeCanvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-scenes" aria-live="polite">
+        <div class="hero-scene is-active" data-scene="portfolio" data-kicker="Complete Machine Portfolio" data-three-text="BUILT FOR PRODUCTION" data-copy="Sheet, tube, and high-power laser systems brought together in one Canadian-supported machine portfolio.">
+          <img class="hero-machine machine-procut" src="/assets/Wavlon%20ProCut%20Front.-transparentpng.png" alt="Wavlon ProCut open-bed fiber laser" fetchpriority="high"/>
+          <img class="hero-machine machine-ultracut" src="/assets/UltraCut%20Serie%20_%20Transparent.png" alt="Wavlon UltraCut enclosed fiber laser" fetchpriority="high"/>
+          <img class="hero-machine machine-tube" src="/assets/tubecut-triple-chuck-view-01.png" alt="Wavlon TubeCut triple-chuck tube laser" fetchpriority="high"/>
+        </div>
+        <div class="hero-scene" data-scene="sheet" data-kicker="Sheet Cutting Systems" data-three-text="SHEET CUTTING" data-copy="From the open-bed ProCut to fully enclosed PowerCut and dual-table UltraCut platforms, scale from daily cutting to continuous production.">
+          <img class="hero-machine machine-procut" src="/assets/Wavlon%20ProCut%20Front.-transparentpng.png" alt="Wavlon ProCut Series" loading="lazy"/>
+          <img class="hero-machine machine-powercut" src="/assets/machine-left.png" alt="Wavlon enclosed sheet laser" loading="lazy"/>
+          <img class="hero-machine machine-ultracut" src="/assets/UltraCut%20Serie%20_%20Transparent.png" alt="Wavlon UltraCut Series" loading="lazy"/>
+        </div>
+        <div class="hero-scene" data-scene="tube" data-kicker="Tube Cutting Systems" data-three-text="TUBE CUTTING" data-copy="Double- and triple-chuck platforms cover agile profile processing through heavy-duty 12-metre structural tube production.">
+          <img class="hero-machine machine-double" src="/assets/tubecut-double-chuck-view-07.png" alt="Wavlon TubeCut Double Chuck" loading="lazy"/>
+          <img class="hero-machine machine-triple" src="/assets/tubecut-triple-chuck-view-01.png" alt="Wavlon TubeCut Triple Chuck" loading="lazy"/>
+        </div>
       </div>
-      <div class="hero-cta">
-        <a href="/contact/#quote" class="btn-primary">Request a Quote &rarr;</a>
-        <a href="/machine-showcase/" class="btn-ghost">Machine Showcase</a>
-        <a href="/machines/" class="btn-ghost">View All Machines</a>
+      <div class="hero-copy">
+        <p class="hero-overline">Wavlon Lasers &middot; Industrial Fiber Laser Systems</p>
+        <h1 class="hero-h1" id="heroH1">
+          <span class="hw">Engineered</span>
+          <span class="hw">to <span class="blue">Cut.</span></span>
+        </h1>
+        <div class="hero-body" id="heroBody">
+          <div class="hero-scene-kicker" id="heroSceneKicker">Complete Machine Portfolio</div>
+          <p class="hero-scene-copy" id="heroSceneCopy">Sheet, tube, and high-power laser systems brought together in one Canadian-supported machine portfolio.</p>
+          <div class="hero-cta">
+            <a href="/contact/#quote" class="btn-primary">Request a Quote &rarr;</a>
+            <a href="/machines/" class="btn-ghost">Explore Machines</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scene-tag"><span id="heroSceneTag">Portfolio</span></div>
+      <div class="hero-gallery-nav" aria-label="Hero gallery controls">
+        <button class="hero-gallery-arrow" id="heroPrev" type="button" aria-label="Previous machine scene">&#8592;</button>
+        <div class="hero-gallery-dots" role="tablist" aria-label="Choose machine scene">
+          <button class="hero-gallery-dot is-active" type="button" role="tab" aria-label="Complete portfolio" aria-selected="true"></button>
+          <button class="hero-gallery-dot" type="button" role="tab" aria-label="Sheet cutting systems" aria-selected="false"></button>
+          <button class="hero-gallery-dot" type="button" role="tab" aria-label="Tube cutting systems" aria-selected="false"></button>
+        </div>
+        <div class="hero-counter"><strong id="heroCurrent">01</strong> / 03</div>
+        <button class="hero-gallery-arrow" id="heroNext" type="button" aria-label="Next machine scene">&#8594;</button>
       </div>
     </div>
   </div>
@@ -803,6 +879,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="/nav.js"></script>
+<script src="/assets/home-hero.js" defer></script>
 
 <!-- ── Page logic ─────────────────────────────────────────────── -->
 <script>
@@ -825,35 +902,16 @@ function heroIntro() {
     var overline = document.querySelector('.hero-overline');
     if (!h1) return;
 
-    var SCALE = 2.7;
-    // Measure BEFORE any GSAP transforms are applied (elements are at natural CSS state)
-    var rect    = h1.getBoundingClientRect();
-    var vh      = window.innerHeight || document.documentElement.clientHeight || 800;
-    // Place visual centre of scaled h1 at 40% of viewport height
-    var yOffset = (vh * 0.40) - (rect.top + (rect.height * SCALE) / 2);
-
-    /* Use fromTo() — transforms are applied only at the START of each tween
-       (async, inside requestAnimationFrame), so ScrollTrigger measurements
-       taken synchronously after heroIntro() see the unmodified DOM.       */
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-    // 1. Words appear while h1 is big and centred
     tl.fromTo('.hw',
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, stagger: 0.14, duration: 0.65 }, 0.05)
-    // 2. h1 shrinks and settles to its natural top-left position
-      .fromTo(h1,
-        { scale: SCALE, y: yOffset, transformOrigin: 'left top' },
-        { scale: 1, y: 0, duration: 1.35, ease: 'power4.inOut',
-          clearProps: 'transform,transformOrigin' }, 0.05)
-    // 3. Overline fades in
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, stagger: 0.08, duration: 0.58 }, 0.08)
       .fromTo(overline,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.55 }, 1.55)
-    // 4. Video + CTA slide up and fade in
+        { opacity: 0, x: -18 },
+        { opacity: 1, x: 0, duration: 0.5 }, 0.18)
       .fromTo(heroBody,
-        { opacity: 0, y: 36 },
-        { opacity: 1, y: 0, duration: 0.85 }, 1.65);
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.62 }, 0.28);
 
   } catch (err) {
     // Failsafe: if animation throws, ensure all hero elements are visible
@@ -928,12 +986,12 @@ function setupCypcut() {
 
 /* ── Parallax ───────────────────────────────────────────────── */
 function setupParallax() {
-  // 1. Hero background image drifts upward as user scrolls out of the hero.
-  //    yPercent: 0 → 20 creates a slow depth-layer separation.
-  gsap.fromTo('.hero-bg img',
-    { yPercent: 0 },
+  // 1. The 16:9 showcase recedes subtly as the hero leaves the viewport.
+  gsap.fromTo('.hero-showcase',
+    { scale: 1, yPercent: 0 },
     {
-      yPercent: 20,
+      scale: .975,
+      yPercent: 4,
       ease: 'none',
       scrollTrigger: {
         trigger: '#hero',
