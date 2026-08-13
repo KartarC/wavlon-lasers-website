@@ -8,7 +8,7 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Files: `index.html`; this collaboration record updates `CHANGELOG.md` and `HANDOFF.md`.
 - Validation: `npm.cmd run sync` completed and verified 37 shared headers and footers. Focused diff reviewed; `git diff --check` passes.
 - Git: `codex/full-width-homepage-hero`; publishing pending.
-- Remote/deploy: Pending.
+- Remote/deploy: Vercel preview Ready, then production deployment Ready at https://wavlonlasers.com.
 - Follow-up: Confirm the live full-width hero after deployment; do not stage the pre-existing untracked `assets/powercut-guide/` directory.
 ### 2026-07-22 — Claude — Define missing --bg-light CSS token
 
