@@ -135,19 +135,19 @@
     var particleGeometry = new THREE.BufferGeometry();
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     var particles = new THREE.Points(particleGeometry, new THREE.PointsMaterial({
-      color: 0x5d8cff,
-      size: 0.025,
+      color: 0x416b98,
+      size: 0.02,
       transparent: true,
-      opacity: 0.48,
+      opacity: 0.22,
       depthWrite: false
     }));
     scene.add(particles);
 
-    var floor = new THREE.GridHelper(18, 34, 0x2859cc, 0x13284f);
+    var floor = new THREE.GridHelper(18, 34, 0x8795a3, 0xaab4be);
     floor.position.set(1.7, -2.55, -1.4);
     floor.rotation.x = Math.PI * 0.42;
     floor.material.transparent = true;
-    floor.material.opacity = 0.22;
+    floor.material.opacity = 0.08;
     scene.add(floor);
 
     var beams = new THREE.Group();
@@ -157,9 +157,9 @@
         new THREE.Vector3(2.4 + b * 1.2, 3.5, -2.5)
       ]);
       var beam = new THREE.Line(beamGeometry, new THREE.LineBasicMaterial({
-        color: b % 2 ? 0x2b6cff : 0x7ba1ff,
+        color: b % 2 ? 0x416b98 : 0x8ca4bb,
         transparent: true,
-        opacity: 0.09
+        opacity: 0.035
       }));
       beams.add(beam);
     }
@@ -172,7 +172,7 @@
     var textTexture = new THREE.CanvasTexture(textCanvas);
     textTexture.colorSpace = THREE.SRGBColorSpace;
     textTexture.minFilter = THREE.LinearFilter;
-    var textMaterial = new THREE.SpriteMaterial({ map: textTexture, transparent: true, opacity: 0.16, depthWrite: false });
+    var textMaterial = new THREE.SpriteMaterial({ map: textTexture, transparent: true, opacity: 0.08, depthWrite: false });
     var textSprite = new THREE.Sprite(textMaterial);
     textSprite.scale.set(8.2, 1.33, 1);
     textSprite.position.set(2.05, 2.1, -1.8);
@@ -184,10 +184,10 @@
       textContext.textAlign = 'center';
       textContext.textBaseline = 'middle';
       textContext.letterSpacing = '9px';
-      textContext.strokeStyle = 'rgba(111,161,255,.75)';
+      textContext.strokeStyle = 'rgba(31,76,124,.42)';
       textContext.lineWidth = 2;
       textContext.strokeText(label.toUpperCase(), 800, 132);
-      textContext.fillStyle = 'rgba(111,161,255,.055)';
+      textContext.fillStyle = 'rgba(31,76,124,.025)';
       textContext.fillText(label.toUpperCase(), 800, 132);
       textTexture.needsUpdate = true;
       textSprite.position.x = 4.6;
@@ -237,7 +237,7 @@
       floor.position.x += ((1.7 + pointerX * 1.2) - floor.position.x) * 0.018;
       textSprite.position.x += (2.05 - textSprite.position.x) * 0.075;
       textSprite.position.y = 2.1 + Math.sin(t * 0.55) * 0.06;
-      textMaterial.opacity += (0.16 - textMaterial.opacity) * 0.065;
+      textMaterial.opacity += (0.08 - textMaterial.opacity) * 0.065;
       renderer.render(scene, camera);
     }
     render();
