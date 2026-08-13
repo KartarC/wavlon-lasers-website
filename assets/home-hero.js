@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   var showcase = document.getElementById('heroShowcase');
@@ -9,13 +9,17 @@
   var prev = document.getElementById('heroPrev');
   var next = document.getElementById('heroNext');
   var kicker = document.getElementById('heroSceneKicker');
+  var overline = document.getElementById('heroOverline');
+  var titleOne = document.getElementById('heroTitleOne');
+  var titleTwo = document.getElementById('heroTitleTwo');
+  var total = document.getElementById('heroTotal');
   var copy = document.getElementById('heroSceneCopy');
   var tag = document.getElementById('heroSceneTag');
   var counter = document.getElementById('heroCurrent');
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var current = 0;
   var timer = null;
-  var ROTATE_MS = 5600;
+  var ROTATE_MS = 6800;
 
   function sceneLabel(scene) {
     var raw = scene.getAttribute('data-scene') || 'portfolio';
@@ -23,15 +27,14 @@
   }
 
   function animateCopy() {
-    if (reducedMotion || !kicker || !copy || !kicker.animate) return;
-    kicker.animate([
-      { opacity: 0, transform: 'translateY(8px)' },
-      { opacity: 1, transform: 'translateY(0)' }
-    ], { duration: 310, easing: 'cubic-bezier(.2,.9,.24,1)' });
-    copy.animate([
-      { opacity: 0, transform: 'translateY(10px)' },
-      { opacity: 1, transform: 'translateY(0)' }
-    ], { duration: 390, delay: 45, easing: 'cubic-bezier(.2,.9,.24,1)', fill: 'both' });
+    if (reducedMotion) return;
+    [overline, titleOne, titleTwo].forEach(function (element, index) {
+      if (!element || !element.animate) return;
+      element.animate([
+        { opacity: 0, transform: index === 1 ? 'translate3d(-90px,18px,0)' : 'translate3d(90px,18px,0)', filter: 'blur(8px)' },
+        { opacity: 1, transform: 'translate3d(0,0,0)', filter: 'blur(0)' }
+      ], { duration: index ? 760 : 520, delay: index * 80, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'both' });
+    });
   }
 
   function restartProgress(activeDot) {
@@ -58,6 +61,9 @@
     current = index;
 
     if (kicker) kicker.textContent = incoming.getAttribute('data-kicker') || '';
+    if (overline) overline.textContent = incoming.getAttribute('data-overline') || '';
+    if (titleOne) titleOne.textContent = incoming.getAttribute('data-title-one') || '';
+    if (titleTwo) titleTwo.textContent = incoming.getAttribute('data-title-two') || '';
     if (copy) copy.textContent = incoming.getAttribute('data-copy') || '';
     if (tag) tag.textContent = sceneLabel(incoming);
     if (counter) counter.textContent = String(index + 1).padStart(2, '0');
@@ -98,6 +104,7 @@
   showcase.addEventListener('mouseenter', function () { window.clearInterval(timer); });
   showcase.addEventListener('mouseleave', restartTimer);
   document.addEventListener('visibilitychange', restartTimer);
+  if (total) total.textContent = String(scenes.length).padStart(2, '0');
   restartProgress(dots[0]);
   restartTimer();
 

@@ -261,7 +261,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .hero-scene-art{width:100%;height:100%;display:block;object-fit:cover;object-position:center bottom;opacity:0;transform:translate3d(5%,0,0) scale(1.012)}.hero-scene.is-active .hero-scene-art{animation:heroSceneIn .58s cubic-bezier(.2,.9,.24,1) both}@keyframes heroSceneIn{to{opacity:1;transform:none}}
 .hero-scene-tag{display:none;position:absolute;right:clamp(20px,2.2vw,40px);top:calc(var(--header-h) + 20px);z-index:8;gap:9px;color:rgba(255,255,255,.82);font:9px var(--mono);letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 8px #000}.hero-scene-tag:before{content:"";width:7px;height:7px;border-radius:50%;background:#0b5be7}
 .hero-gallery-nav{position:absolute;z-index:9;left:50%;bottom:clamp(16px,2vw,34px);transform:translateX(-50%);display:flex;align-items:center;gap:12px}.hero-gallery-arrow{width:40px;height:40px;border:1px solid rgba(255,255,255,.6);border-radius:50%;color:#fff;background:rgba(13,36,58,.32);backdrop-filter:blur(10px)}.hero-gallery-arrow:hover{background:#0b5be7}
-.hero-gallery-dots{display:flex;gap:7px}.hero-gallery-dot{position:relative;width:38px;height:3px;overflow:hidden;border:0;background:rgba(255,255,255,.42)}.hero-gallery-dot:after{content:"";position:absolute;inset:0;background:#0b5be7;transform:scaleX(0);transform-origin:left}.hero-gallery-dot.is-active:after{animation:heroProgress 5.6s linear forwards}@keyframes heroProgress{to{transform:scaleX(1)}}.hero-counter{color:rgba(255,255,255,.72);font:10px var(--mono)}.hero-counter strong{color:#fff}
+.hero-gallery-dots{display:flex;gap:7px}.hero-gallery-dot{position:relative;width:38px;height:3px;overflow:hidden;border:0;background:rgba(255,255,255,.42)}.hero-gallery-dot:after{content:"";position:absolute;inset:0;background:#0b5be7;transform:scaleX(0);transform-origin:left}.hero-gallery-dot.is-active:after{animation:heroProgress 6.8s linear forwards}@keyframes heroProgress{to{transform:scaleX(1)}}.hero-counter{color:rgba(255,255,255,.72);font:10px var(--mono)}.hero-counter strong{color:#fff}
 /* ── Our Machines ───────────────────────────────────────────── */
 .hp-machines { background: var(--bg-2); border-top: 1px solid var(--line); padding: clamp(80px, 12vh, 140px) var(--pad-x); }
 .hp-machines-inner { max-width: 1680px; margin: 0 auto; }
@@ -394,7 +394,8 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hero-scene-tag { display: none; }
   .hero-gallery-nav { bottom: 18px; gap: 9px; }
   .hero-gallery-arrow { width: 36px; height: 36px; }
-  .hero-gallery-dot { width: 22px; }
+  .hero-gallery-dot { width:15px; }
+  .hero-gallery-dots { gap:4px; }
   .hero-cta { flex-direction: row; }
   .hero-cta a { text-align: center; justify-content: center; }
   .cypcut-features { grid-template-columns: 1fr; }
@@ -579,21 +580,36 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
       <canvas class="hero-three-canvas" id="heroThreeCanvas" aria-hidden="true"></canvas>
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-scenes" aria-live="polite">
-        <div class="hero-scene is-active" data-scene="portfolio" data-kicker="Complete Machine Portfolio" data-three-text="FULL MACHINE RANGE" data-copy="Sheet, tube, and high-power laser systems brought together in one Canadian-supported machine portfolio.">
-<img class="hero-scene-art" src="/assets/hero-scene-portfolio.webp" alt="Wavlon laser machine portfolio in a clean industrial showroom" fetchpriority="high"/>
-</div>
-<div class="hero-scene" data-scene="sheet" data-kicker="Sheet Cutting Systems" data-three-text="SHEET CUTTING" data-copy="From the open-bed ProCut to fully enclosed PowerCut and dual-table UltraCut platforms, scale from daily cutting to continuous production.">
-<img class="hero-scene-art" src="/assets/hero-scene-sheet.webp" alt="Wavlon sheet laser systems in a clean industrial showroom" loading="lazy"/>
-</div>
-<div class="hero-scene" data-scene="tube" data-kicker="Tube Cutting Systems" data-three-text="TUBE CUTTING" data-copy="Double- and triple-chuck platforms cover agile profile processing through heavy-duty 12-metre structural tube production.">
-<img class="hero-scene-art" src="/assets/hero-scene-tube.webp" alt="Wavlon TubeCut systems in a clean industrial showroom" loading="lazy"/>
-</div>
+        <div class="hero-scene is-active" data-scene="portfolio" data-overline="Full Range of Industrial Laser Solutions" data-title-one="Wavlon Laser" data-title-two="Cutting Machines" data-three-text="FULL MACHINE RANGE">
+          <img class="hero-scene-art" src="/assets/hero-scene-portfolio.webp" alt="Wavlon laser machine portfolio in a clean industrial showroom" fetchpriority="high"/>
+        </div>
+        <div class="hero-scene" data-scene="sheet" data-overline="Sheet Cutting Systems" data-title-one="ProCut. PowerCut." data-title-two="UltraCut." data-three-text="SHEET CUTTING">
+          <img class="hero-scene-art" src="/assets/hero-scene-sheet.webp" alt="Wavlon sheet laser systems in a clean industrial showroom" loading="lazy"/>
+        </div>
+        <div class="hero-scene" data-scene="tube" data-overline="Double &amp; Triple Chuck Platforms" data-title-one="Tube Cutting." data-title-two="Built To Scale." data-three-text="TUBE CUTTING">
+          <img class="hero-scene-art" src="/assets/hero-scene-tube.webp" alt="Wavlon TubeCut systems in a clean industrial showroom" loading="lazy"/>
+        </div>
+        <div class="hero-scene" data-scene="customizable" data-overline="Configured Around Your Production" data-title-one="Built To Your" data-title-two="Standards." data-three-text="CONFIGURABLE PLATFORM">
+          <img class="hero-scene-art" src="/assets/hero-ai/customizable.webp" alt="Configurable Wavlon fiber laser platform in a modular industrial showroom" loading="lazy"/>
+        </div>
+        <div class="hero-scene" data-scene="laser-options" data-overline="Customizable Laser Heads &amp; Sources" data-title-one="Choose The Right" data-title-two="Laser Package." data-three-text="LASER OPTIONS">
+          <img class="hero-scene-art" src="/assets/hero-ai/laser-options.webp" alt="Wavlon laser machine with configurable laser head and fiber source options" loading="lazy"/>
+        </div>
+        <div class="hero-scene" data-scene="components" data-overline="North American-Compliant Electrical Architecture" data-title-one="Serviceable." data-title-two="Locally Supported." data-three-text="LOCAL COMPONENT SUPPORT">
+          <img class="hero-scene-art" src="/assets/hero-ai/components.webp" alt="Wavlon machine with North American-ready electrical components, motors and drives" loading="lazy"/>
+        </div>
+        <div class="hero-scene" data-scene="software" data-overline="Windows-Based CypCut Control" data-title-one="Powerful Software." data-title-two="Easy To Learn." data-three-text="CYPCUT CONTROL">
+          <img class="hero-scene-art" src="/assets/hero-ai/cypcut.webp" alt="Wavlon laser machine with an approachable CypCut operator control environment" loading="lazy"/>
+        </div>
+        <div class="hero-scene" data-scene="iot" data-overline="Connected Machine Intelligence" data-title-one="IoT Equipped." data-title-two="Production Ready." data-three-text="CONNECTED PRODUCTION">
+          <img class="hero-scene-art" src="/assets/hero-ai/iot.webp" alt="IoT-equipped Wavlon laser machine with connected production monitoring" loading="lazy"/>
+        </div>
       </div>
       <div class="hero-copy">
-        <p class="hero-overline">Full Range of Industrial Laser Solutions</p>
+        <p class="hero-overline" id="heroOverline">Full Range of Industrial Laser Solutions</p>
         <h1 class="hero-h1" id="heroH1">
-          <span class="hw">Wavlon Laser</span>
-          <span class="hw"> <span class="blue">Cutting Machines</span></span>
+          <span class="hw" id="heroTitleOne">Wavlon Laser</span>
+          <span class="hw blue" id="heroTitleTwo">Cutting Machines</span>
         </h1>
         <div class="hero-body" id="heroBody">
           <div class="hero-scene-kicker" id="heroSceneKicker">Complete Machine Portfolio</div>
@@ -608,11 +624,16 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
       <div class="hero-gallery-nav" aria-label="Hero gallery controls">
         <button class="hero-gallery-arrow" id="heroPrev" type="button" aria-label="Previous machine scene">&#8592;</button>
         <div class="hero-gallery-dots" role="tablist" aria-label="Choose machine scene">
-          <button class="hero-gallery-dot is-active" type="button" role="tab" aria-label="Complete portfolio" aria-selected="true"></button>
+          <button class="hero-gallery-dot is-active" type="button" role="tab" aria-label="Complete machine portfolio" aria-selected="true"></button>
           <button class="hero-gallery-dot" type="button" role="tab" aria-label="Sheet cutting systems" aria-selected="false"></button>
           <button class="hero-gallery-dot" type="button" role="tab" aria-label="Tube cutting systems" aria-selected="false"></button>
+          <button class="hero-gallery-dot" type="button" role="tab" aria-label="Fully customizable machine platform" aria-selected="false"></button>
+          <button class="hero-gallery-dot" type="button" role="tab" aria-label="Custom laser heads and sources" aria-selected="false"></button>
+          <button class="hero-gallery-dot" type="button" role="tab" aria-label="North American-ready components" aria-selected="false"></button>
+          <button class="hero-gallery-dot" type="button" role="tab" aria-label="Easy-to-learn CypCut software" aria-selected="false"></button>
+          <button class="hero-gallery-dot" type="button" role="tab" aria-label="IoT-equipped machine monitoring" aria-selected="false"></button>
         </div>
-        <div class="hero-counter"><strong id="heroCurrent">01</strong> / 03</div>
+        <div class="hero-counter"><strong id="heroCurrent">01</strong> / <span id="heroTotal">08</span></div>
         <button class="hero-gallery-arrow" id="heroNext" type="button" aria-label="Next machine scene">&#8594;</button>
       </div>
     </div>
