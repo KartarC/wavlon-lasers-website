@@ -1,51 +1,26 @@
 # Current Handoff
 
-Last updated: 2026-07-22 by Claude (Resources center + nav)
+Last updated: 2026-08-13 16:20 EDT by Codex
 
 ## Current state
 
-- Active branch: `claude/seo-content-phase`, branched from `origin/main` after PR #13.
-- Purpose: First content-phase work — a Canadian buyer's-guide pillar page and a substantive expansion of the welding hub.
-- Pre-existing work: `assets/powercut-guide/` is untracked and is not part of this branch.
-
-### Product line
-
-Read the Product Line section at the top of `CLAUDE.md` before writing any content. Short version: the line is ProCut / PowerCut / UltraCut (sheet), TubeCut Double Chuck / Triple Chuck (tube), Tower Storage System, Air-Cooled W-Series. S/P/X/T-Series are retired redirect stubs. `BLT T-Series` is a BOCI head name and stays.
-
-### Changes on this branch
-
-| File | Change |
-|------|--------|
-| `fiber-laser-cutting-canada/index.html` | **New** pillar page, 1,212 words — targets "fiber laser cutter Canada" / "laser cutter metal sheet" |
-| `machines/fiber-laser-welding/index.html` | Expanded from 1 paragraph to 714 words targeting "laser welding machine"; retitled, full OG set, `Product` schema |
-| `about/index.html` | Stale series names in the positioning paragraph → current names |
-| `_partials/footer.html` | Added "Canadian Buyer's Guide" to the Company column (site-wide link to the pillar page) |
-| `sitemap.xml` | 35 → 36 URLs |
-| `llms.txt` | New Guides section |
-
-### Sourcing rule used
-
-Every spec and company claim in the new copy was traced to an existing page — the W-Series spec table, the product cards, `service/`, or `financing/`. Nothing was invented. Keep this up: the site's credibility problem is not thin content, it is claims that do not match the spec sheets.
+- Active branch: `codex/full-width-homepage-hero`, created from up-to-date `origin/main`.
+- Purpose: Make the homepage machine-carousel hero use the full browser width with a professional machine-floor background.
+- Homepage implementation: `index.html` removes the former outer card framing and uses a full-bleed hero scene. The existing `assets/machine-floor.png` provides the showroom background; dark gradient overlays and a subtle vignette preserve headline/CTA contrast. Desktop copy is left-aligned inside the scene, and the mobile layout remains centered and responsive.
+- No product copy, machine specifications, shared navigation, Vercel configuration, or backend behaviour changed.
+- Pre-existing work: `assets/powercut-guide/` remains untracked and must not be staged or modified.
+- Validation completed: `npm.cmd run sync` refreshed and verified 37 inline shared headers/footers; `git diff --check` passes.
 
 ## What the next assistant must do
 
-1. Read `AGENTS.md`, `CLAUDE.md`, and the newest `CHANGELOG.md` entry before editing.
-2. Run `git status --short --branch` and confirm `assets/powercut-guide/` remains untracked.
-3. **Content phase status.** Done: pillar page (`/fiber-laser-cutting-canada/`), guide sections on the sheet/tube/welding hubs, and a `/resources/` center now surfaced in the header (Resources dropdown), mobile drawer, and footer. Remaining optional targets:
-   - Meta descriptions on the individual ProCut / PowerCut / UltraCut product pages to work in "laser cutter metal sheet" naturally
-   - Link the pillar page or /resources/ from the homepage body
-   - Automation hub (`/machines/fiber-laser-automation/`) is the last hub without a guide layer — lower search value
-
-   **Nav note:** the Resources dropdown reuses the `nav-supp-drop`/`supp-panel` CSS-hover pattern (no JS). If you add more nav items, that pattern is the template. Verify the dropdown visually on the live site — the local file:// preview can't exercise hover.
-4. **Blocked, needs the owner:**
-   - Legacy S/P/X labels remain in `applications/` (incl. a material capability table with S/P/X columns), `industries/`, and both automation pages. Link targets are already correct; only labels are stale. The old ranges (S 1–6kW, P 6–20kW, X 20–30kW+) do **not** map onto ProCut/PowerCut/UltraCut (3–12 / 3–12 / 3–20kW+) — get real figures, or drop the power columns. Do not interpolate.
-   - ~~ProCut submits `source: 's-series-page'`~~ — FIXED, now `pro-cut-series-page`. Historical CRM rows still carry the old value; update any saved report keyed on `s-series-page`.
-5. ~~`--bg-light` undefined in `shared.css`~~ — FIXED, aliased to `--bg-alt` in `:root`. (Orphan `_components/*.html` fragments still use an older token set but aren't served — machine-showcase has its own inline copy.)
+1. Before editing, read `AGENTS.md`, `CLAUDE.md`, the newest `CHANGELOG.md` entry, and this file.
+2. Run `git status --short --branch`; preserve the untracked `assets/powercut-guide/` directory.
+3. If continuing this task, verify the live hero's edge-to-edge layout and readability after the pending branch is merged and Vercel finishes its production deployment.
+4. Record every completed Claude or Codex change in `CHANGELOG.md`, then refresh this file to describe only the current state.
 
 ## Access notes
 
 - GitHub remote: `https://github.com/KartarC/wavlon-lasers-website.git`.
-- GitHub CLI authenticated for `KartarC` on 2026-07-20.
-- Vercel CLI authenticated for `kartarc` in team `infinara` on 2026-07-20.
-- `https://wavlonlasers.com` returns `200 OK`; `www` 307-redirects to apex. Vercel `trailingSlash: false`, so directory URLs 308 to the non-slash form — follow redirects when verifying with curl.
-- Local preview: `.claude/launch.json` runs `npx serve`, but the harness launches it with cwd = `Desktop` and `serve` v14 rejects `-p`, so it serves the wrong directory. Verify via `file://` URLs instead.
+- GitHub CLI is authenticated for `KartarC`.
+- Vercel CLI is authenticated for `kartarc` in team `infinara`.
+- Production URL: `https://wavlonlasers.com`; Vercel is configured with `trailingSlash: false`.

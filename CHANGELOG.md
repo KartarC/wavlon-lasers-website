@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-13 16:20 EDT — Codex — Make homepage hero full-bleed
+
+- Scope: Converted the homepage machine carousel from a padded showroom card to a true edge-to-edge hero. It now uses the existing `assets/machine-floor.png` as the environmental background, with layered gradients and a vignette for readable copy while retaining the existing carousel, CTAs, and mobile composition.
+- Files: `index.html`; this collaboration record updates `CHANGELOG.md` and `HANDOFF.md`.
+- Validation: `npm.cmd run sync` completed and verified 37 shared headers and footers. Focused diff reviewed; `git diff --check` passes.
+- Git: `codex/full-width-homepage-hero`; publishing pending.
+- Remote/deploy: Pending.
+- Follow-up: Confirm the live full-width hero after deployment; do not stage the pre-existing untracked `assets/powercut-guide/` directory.
 ### 2026-07-22 — Claude — Define missing --bg-light CSS token
 
 - Scope: `--bg-light` was referenced 10 times across 7 served pages (`.ssm-item` spec pills, `.series-card-visual`, `.about-story-visual`, `.model-table` zebra rows, `.service-info-box`) but defined nowhere, so all those light-grey panel backgrounds silently fell back to `transparent`. Added `--bg-light: var(--bg-alt);` (aliased to the existing #f8f9fa light grey) to the `:root` token block in `shared.css` — a single-point fix that resolves every current and future usage.
