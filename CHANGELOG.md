@@ -7,8 +7,8 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Scope: Converted the homepage machine carousel from a padded showroom card to a true edge-to-edge hero. It now uses the existing `assets/machine-floor.png` as the environmental background, with layered gradients and a vignette for readable copy while retaining the existing carousel, CTAs, and mobile composition.
 - Files: `index.html`; this collaboration record updates `CHANGELOG.md` and `HANDOFF.md`.
 - Validation: `npm.cmd run sync` completed and verified 37 shared headers and footers. Focused diff reviewed; `git diff --check` passes.
-- Git: `codex/full-width-homepage-hero`; publishing pending.
-- Remote/deploy: Pending.
+- Git: Committed as `b348b85` on `codex/full-width-homepage-hero`; merged through PR #20 as `9c79a17`.
+- Remote/deploy: Vercel preview Ready, then production deployment Ready at https://wavlonlasers.com.
 - Follow-up: Confirm the live full-width hero after deployment; do not stage the pre-existing untracked `assets/powercut-guide/` directory.
 ### 2026-07-22 — Claude — Define missing --bg-light CSS token
 
