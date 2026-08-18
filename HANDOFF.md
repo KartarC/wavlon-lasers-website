@@ -4,7 +4,7 @@ Last updated: 2026-08-18 12:24 EDT by Codex
 
 ## Current state
 
-- Production branch: `main` at `1162947` (PR #24, Recompose homepage hero product scenes).
+- Homepage product deployment: `1162947` (PR #24, Recompose homepage hero product scenes); the final deployment record was merged through PR #25.
 - Homepage hero artwork: the first three live scenes use versioned product-showcase images. Portfolio has a controlled five-machine lineup, Sheet Lasers has a three-system family composition, and Tube Lasers contains only the double-chuck and triple-chuck platforms.
 - Art direction: all three scenes share a premium bright industrial showroom, consistent perspective and floor contact, believable relative scale, a dominant foreground product, and clean dark negative space on the left for the existing HTML copy.
 - Performance: the live 1672×941 WebP assets are 65,868 bytes, 58,564 bytes, and 74,080 bytes.
