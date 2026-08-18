@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 14:49 EDT — Codex — Publish corrected portfolio hero staging
+
+- Scope: Merged the reviewed portfolio correction through PR #27 and verified the production homepage now serves the rebalanced v3 artwork with both tube systems visibly grounded on the showroom floor and improved Wavlon branding.
+- Files: No product files changed in this deployment-record step; `CHANGELOG.md` and `HANDOFF.md` record the verified final state.
+- Validation: Vercel reported success for product commit `1ea8cf5`; the live homepage returned 200 and referenced `/assets/hero-scene-portfolio-v3.webp`; the live asset returned 200 as `image/webp` at 75,886 bytes.
+- Git: PR #27 squash-merged to `main` as `1ea8cf5`; this deployment record follows on `codex/hero-portfolio-deployment-log`.
+- Remote/deploy: Vercel production check passed at https://vercel.com/infinara/wavlon-lasers-website/BkdSYmXgm1ychjVvbBvUwLsCovyj; live at https://wavlonlasers.com.
+- Follow-up: None unless the owner requests another focused visual adjustment.
+
 ### 2026-08-18 14:46 EDT — Codex — Correct portfolio hero floor placement and branding
 
 - Scope: Re-edited the homepage portfolio hero after the rear tube laser appeared mounted on the showroom wall. Repositioned both tube systems onto a clearly visible shared floor plane with support legs and contact shadows, rebalanced the five-machine foreground/midground arrangement, and used the official Wavlon logo as the branding reference. Preserved the clean left copy zone and retained the prior v2 asset for rollback.
