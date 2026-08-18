@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 15:24 EDT — Codex — Publish accurate three-product sheet hero
+
+- Scope: Merged the sheet-lineup correction through PR #31 and verified production. The Sheet Lasers hero now presents one tracked real render for each advertised family: ProCut, PowerCut/WL-F, and UltraCut.
+- Files: No product files changed in this deployment-record step; `CHANGELOG.md` and `HANDOFF.md` record the verified final state.
+- Validation: Vercel reported success for product commit `1ccb52e`; the production homepage returned 200 and referenced `/assets/hero-scene-sheet-v4.webp` exactly once; the live asset returned 200 as `image/webp` at the expected 85,712 bytes.
+- Git: PR #31 squash-merged to `main` as `1ccb52e`; this deployment record follows on `codex/hero-sheet-accuracy-deployment-log`.
+- Remote/deploy: Vercel production check passed at https://vercel.com/infinara/wavlon-lasers-website/5eih5rJwMDpkEtXQW4AAZdadrMpd; live at https://wavlonlasers.com.
+- Follow-up: Preserve the one-product-per-family lineup and the real tracked renders in future art-direction work.
 ### 2026-08-18 15:22 EDT — Codex — Correct sheet hero product lineup
 
 - Scope: Replaced the duplicate UltraCut front view in the real-image Sheet Lasers hero with the tracked transparent PowerCut/WL-F render. The scene now accurately presents one ProCut, one PowerCut, and one UltraCut system, all grounded on the same showroom floor; no generative machine imagery is used.
