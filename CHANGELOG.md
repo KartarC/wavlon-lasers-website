@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 15:22 EDT — Codex — Correct sheet hero product lineup
+
+- Scope: Replaced the duplicate UltraCut front view in the real-image Sheet Lasers hero with the tracked transparent PowerCut/WL-F render. The scene now accurately presents one ProCut, one PowerCut, and one UltraCut system, all grounded on the same showroom floor; no generative machine imagery is used.
+- Files: `assets/hero-scene-sheet-v4.webp`; `index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Visually reviewed the corrected three-product lineup; confirmed the WebP is 1672×941 and 85,712 bytes; focused asset, reference, eight-scene, and `git diff --check` checks passed.
+- Git: `codex/hero-sheet-product-accuracy`; commit follows with this record.
+- Remote/deploy: Pending branch push, pull request, and Vercel verification.
+- Follow-up: Merge after the preview passes, then verify the live v4 sheet asset.
+
 ### 2026-08-18 15:18 EDT — Codex — Publish real-machine homepage hero scenes
 
 - Scope: Merged the reviewed real-machine hero rebuild through PR #29 and verified production. The portfolio, Sheet Lasers, and Tube Lasers scenes now use tracked real Wavlon product cutouts; AI is limited to the empty showroom plate, and every machine is visibly grounded below the wall/floor junction.
