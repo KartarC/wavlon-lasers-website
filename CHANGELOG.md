@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 12:17 EDT — Codex — Recompose homepage hero product scenes
+
+- Scope: Rebuilt the first three homepage hero artworks as one premium product-showcase family. The portfolio scene now uses a deliberate five-machine depth composition; the sheet scene presents three systems as a coherent lineup; and the tube scene presents only the double-chuck and triple-chuck systems. All scenes use consistent showroom perspective, grounded contact shadows, clear product scale, and an uncluttered dark copy zone on the left. The original hero assets remain untouched for rollback.
+- Files: `assets/hero-scene-portfolio-v2.webp`; `assets/hero-scene-sheet-v2.webp`; `assets/hero-scene-tube-v2.webp`; `index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Visually reviewed all three generated compositions; confirmed each optimized WebP is 1672×941; confirmed exactly three new homepage references and all eight carousel scenes remain present; ran `git diff --check`.
+- Git: `codex/hero-product-art-direction`; commit follows with this record.
+- Remote/deploy: Pending branch push and Vercel preview.
+- Follow-up: Review the Vercel preview, then merge through the pull request and verify production.
+
 ### 2026-08-18 11:58 EDT — Codex — Redesign homepage hero hierarchy and scene messaging
 
 - Scope: Rebuilt the homepage hero into an editorial split composition with a stable dark copy zone and an unobstructed machine stage. Removed the decorative Three.js canvas to eliminate visual overlap and reduce unnecessary loading. Added dedicated overlines, headings, supporting copy, category labels, and destination links for all eight scenes; the sheet and tube scenes now explicitly say Sheet Laser Cutting Systems and Tube Laser Cutting Systems. Refined the homepage-only navigation so it remains transparent over the hero and becomes white on hover, keyboard focus, or scroll. Added responsive mobile composition and reduced-motion support.
