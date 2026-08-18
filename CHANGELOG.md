@@ -7,9 +7,9 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Scope: Rebuilt the homepage hero into an editorial split composition with a stable dark copy zone and an unobstructed machine stage. Removed the decorative Three.js canvas to eliminate visual overlap and reduce unnecessary loading. Added dedicated overlines, headings, supporting copy, category labels, and destination links for all eight scenes; the sheet and tube scenes now explicitly say Sheet Laser Cutting Systems and Tube Laser Cutting Systems. Refined the homepage-only navigation so it remains transparent over the hero and becomes white on hover, keyboard focus, or scroll. Added responsive mobile composition and reduced-motion support.
 - Files: index.html; assets/home-hero.js; CHANGELOG.md; HANDOFF.md.
 - Validation: JavaScript syntax passed; eight scenes match eight controls; all eight scene assets resolve; every scene includes its required content and link attributes; CSS braces balance 235/235; git diff --check passed.
-- Git: codex/homepage-hero-redesign; not yet committed.
-- Remote/deploy: Pending.
-- Follow-up: Publish through a focused PR, confirm the Vercel preview, then merge and verify production.
+- Git: Committed as e372176 on codex/homepage-hero-redesign; merged through PR #22 as 6037e79.
+- Remote/deploy: Vercel preview Ready, then production deployment dpl_F2FehXBSUhp98F5iwtXC5hr6bDGU reached Ready and was aliased to https://wavlonlasers.com.
+- Follow-up: Review the live hero visually during normal browsing and log any requested art-direction refinements as a separate change.
 
 ### 2026-08-18 — Observed — Human homepage hero scene expansion after the previous handoff
 
