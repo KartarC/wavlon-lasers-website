@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 15:18 EDT — Codex — Publish real-machine homepage hero scenes
+
+- Scope: Merged the reviewed real-machine hero rebuild through PR #29 and verified production. The portfolio, Sheet Lasers, and Tube Lasers scenes now use tracked real Wavlon product cutouts; AI is limited to the empty showroom plate, and every machine is visibly grounded below the wall/floor junction.
+- Files: No product files changed in this deployment-record step; `CHANGELOG.md` and `HANDOFF.md` record the verified final state.
+- Validation: Vercel reported success for product commit `fdddb6e`; the production homepage returned 200 and referenced each new asset exactly once; all three live WebPs returned 200 as `image/webp` with the expected 107,936, 85,360, and 107,298-byte sizes.
+- Git: PR #29 squash-merged to `main` as `fdddb6e`; this deployment record follows on `codex/hero-real-machine-deployment-log`.
+- Remote/deploy: Vercel production check passed at https://vercel.com/infinara/wavlon-lasers-website/BYgMt1GCM92hwYF2srHuT5UGVbDA; live at https://wavlonlasers.com.
+- Follow-up: For future art direction, preserve the real machine cutouts and adjust only scale, order, or placement unless the owner supplies replacement renders.
 ### 2026-08-18 15:12 EDT — Codex — Rebuild hero scenes from real machine renders
 
 - Scope: Replaced the first three homepage hero artworks with deterministic composites made from the actual transparent Wavlon ProCut, UltraCut, TubeCut Double Chuck, and TubeCut Triple Chuck renders. AI was used only for an empty showroom background plate; no machine body, geometry, logo, or product text was generated. All machines now sit below a clear wall/floor junction with contact shadows and consistent showroom perspective.
