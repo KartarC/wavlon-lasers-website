@@ -2,6 +2,21 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 11:58 EDT — Codex — Redesign homepage hero hierarchy and scene messaging
+
+- Scope: Rebuilt the homepage hero into an editorial split composition with a stable dark copy zone and an unobstructed machine stage. Removed the decorative Three.js canvas to eliminate visual overlap and reduce unnecessary loading. Added dedicated overlines, headings, supporting copy, category labels, and destination links for all eight scenes; the sheet and tube scenes now explicitly say Sheet Laser Cutting Systems and Tube Laser Cutting Systems. Refined the homepage-only navigation so it remains transparent over the hero and becomes white on hover, keyboard focus, or scroll. Added responsive mobile composition and reduced-motion support.
+- Files: index.html; assets/home-hero.js; CHANGELOG.md; HANDOFF.md.
+- Validation: JavaScript syntax passed; eight scenes match eight controls; all eight scene assets resolve; every scene includes its required content and link attributes; CSS braces balance 235/235; git diff --check passed.
+- Git: codex/homepage-hero-redesign; not yet committed.
+- Remote/deploy: Pending.
+- Follow-up: Publish through a focused PR, confirm the Vercel preview, then merge and verify production.
+
+### 2026-08-18 — Observed — Human homepage hero scene expansion after the previous handoff
+
+- Scope: Observed newer main-branch commits that were not reflected in the 2026-08-13 handoff: 6e9f8b0 centered the hero typography, 89fca8e added five AI-generated capability scenes and carousel behavior, and f265423 replaced the first hero scenes with sheet and tube lineups. No ownership claimed by Codex.
+- Files observed: index.html; assets/home-hero.js; assets/hero-scene-portfolio.webp; assets/hero-scene-sheet.webp; assets/hero-scene-tube.webp; tracked assets/hero-ai/*.webp.
+- Git: Already committed on main as 6e9f8b0, 89fca8e, and f265423.
+- Workspace note: Untracked assets/hero-ai/*-bg.png source images and assets/powercut-guide/ were preserved and are outside this redesign.
 ### 2026-08-13 16:20 EDT — Codex — Make homepage hero full-bleed
 
 - Scope: Converted the homepage machine carousel from a padded showroom card to a true edge-to-edge hero. It now uses the existing `assets/machine-floor.png` as the environmental background, with layered gradients and a vignette for readable copy while retaining the existing carousel, CTAs, and mobile composition.

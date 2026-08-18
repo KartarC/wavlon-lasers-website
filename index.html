@@ -236,32 +236,34 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   text-transform: uppercase; color: rgba(255,255,255,0.2);
 }
 
-/* ── Homepage header: transparent over hero, white on interaction ── */
+/* â”€â”€ Homepage header: transparent over hero, white on interaction â”€â”€ */
 @media (min-width:901px){
-#site-header .header-nav{background:linear-gradient(180deg,rgba(10,28,46,.42),rgba(10,28,46,.14));border-bottom-color:rgba(255,255,255,.16);box-shadow:none;backdrop-filter:blur(3px);transition:background .24s,border-color .24s,box-shadow .24s}
+#site-header .header-topbar{background:rgba(7,20,34,.72);backdrop-filter:blur(10px)}
+#site-header .header-nav{background:transparent;border-bottom-color:rgba(255,255,255,.14);box-shadow:none;backdrop-filter:none;transition:background .24s,border-color .24s,box-shadow .24s,backdrop-filter .24s}
 #site-header .header-logo img{filter:brightness(0) invert(1);transition:filter .24s}
-#site-header .nav-link{color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.32)}
-#site-header .btn-inquiry{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.68);backdrop-filter:blur(8px)}
-#site-header .header-nav:hover,#site-header .header-nav:focus-within,#site-header .header-nav.scrolled{background:#fff;border-bottom-color:var(--border);box-shadow:0 8px 28px rgba(14,31,48,.1);backdrop-filter:none}
+#site-header .nav-link{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.42)}
+#site-header .btn-inquiry{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.62);backdrop-filter:blur(10px)}
+#site-header .header-nav:hover,#site-header .header-nav:focus-within,#site-header .header-nav.scrolled{background:#fff;border-bottom-color:var(--border);box-shadow:0 10px 32px rgba(14,31,48,.12);backdrop-filter:none}
 #site-header .header-nav:hover .header-logo img,#site-header .header-nav:focus-within .header-logo img,#site-header .header-nav.scrolled .header-logo img{filter:none}
 #site-header .header-nav:hover .nav-link,#site-header .header-nav:focus-within .nav-link,#site-header .header-nav.scrolled .nav-link{color:var(--text2);text-shadow:none}
 #site-header .header-nav:hover .btn-inquiry,#site-header .header-nav:focus-within .btn-inquiry,#site-header .header-nav.scrolled .btn-inquiry{background:var(--blue);color:#fff;border-color:var(--blue)}
 }
-/* ── Hero: fixed 16:9 showroom compositions ────────────────── */
-.hero{position:relative;background:#dfe7ec;padding-top:0;color:#15233a;overflow:hidden}.hero-inner{position:relative;width:100%;margin:0;padding:0}
-.hero-showcase{position:relative;width:100%;aspect-ratio:16/9;min-height:680px;max-height:calc(100vh - var(--topbar-h));overflow:hidden;isolation:isolate;background:#dfe7ec url('/assets/hero-showroom-clean.webp') center/cover no-repeat}
-.hero-showcase:before{content:"";position:absolute;inset:0;z-index:4;background:linear-gradient(180deg,rgba(8,28,47,.38),rgba(8,28,47,.08) 31%,transparent 52%,rgba(9,27,43,.12));pointer-events:none}.hero-showcase:after{content:"";position:absolute;inset:0;z-index:6;box-shadow:inset 0 0 90px rgba(13,34,54,.16);pointer-events:none}
-.hero-three-canvas{position:absolute;inset:0;z-index:2;width:100%;height:100%;pointer-events:none;opacity:.22}.hero-grid{display:none}
-.hero-copy{position:absolute;z-index:8;left:0;right:0;top:clamp(122px,14%,166px);width:100%;padding:0 clamp(24px,4vw,84px);box-sizing:border-box;text-align:center}
-.hero-overline{justify-content:center;font:600 clamp(13px,1vw,18px) var(--body);color:rgba(255,255,255,.92);margin:0 0 clamp(8px,1vw,16px);text-shadow:0 2px 14px rgba(8,28,47,.42)}.hero-overline:before{display:none}
-.hero-h1{font-family:var(--display);font-size:clamp(2.6rem,3.75vw,5rem);line-height:.98;font-weight:760;letter-spacing:-.045em;color:#fff;text-shadow:0 3px 28px rgba(8,28,47,.38);margin:0 0 clamp(14px,1.5vw,24px);white-space:nowrap;max-width:100%;margin-left:auto;margin-right:auto}.hero-h1 .hw{display:inline-block;transform-origin:50% 100%;backface-visibility:hidden}.hero-h1 .blue{color:#fff}
-.hero-body{display:flex;flex-direction:column;align-items:center;gap:12px}.hero-scene-kicker,.hero-scene-copy{display:none}.hero-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.hero-cta .btn-primary,.hero-cta .btn-ghost{padding:11px 22px;border-radius:999px;font:700 12px var(--body)}.hero-cta .btn-primary{background:#fff;color:#142239;border:1px solid #fff}.hero-cta .btn-ghost{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(8px)}
-.hero-scenes{position:absolute;inset:0;z-index:3}.hero-scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}.hero-scene.is-active{opacity:1;visibility:visible}
-.hero-scene-art{width:100%;height:100%;display:block;object-fit:cover;object-position:center bottom;opacity:0;transform:translate3d(5%,0,0) scale(1.012)}.hero-scene.is-active .hero-scene-art{animation:heroSceneIn .58s cubic-bezier(.2,.9,.24,1) both}@keyframes heroSceneIn{to{opacity:1;transform:none}}
-.hero-scene-tag{display:none;position:absolute;right:clamp(20px,2.2vw,40px);top:calc(var(--header-h) + 20px);z-index:8;gap:9px;color:rgba(255,255,255,.82);font:9px var(--mono);letter-spacing:.18em;text-transform:uppercase;text-shadow:0 1px 8px #000}.hero-scene-tag:before{content:"";width:7px;height:7px;border-radius:50%;background:#0b5be7}
-.hero-gallery-nav{position:absolute;z-index:9;left:50%;bottom:clamp(16px,2vw,34px);transform:translateX(-50%);display:flex;align-items:center;gap:12px}.hero-gallery-arrow{width:40px;height:40px;border:1px solid rgba(255,255,255,.6);border-radius:50%;color:#fff;background:rgba(13,36,58,.32);backdrop-filter:blur(10px)}.hero-gallery-arrow:hover{background:#0b5be7}
-.hero-gallery-dots{display:flex;gap:7px}.hero-gallery-dot{position:relative;width:38px;height:3px;overflow:hidden;border:0;background:rgba(255,255,255,.42)}.hero-gallery-dot:after{content:"";position:absolute;inset:0;background:#0b5be7;transform:scaleX(0);transform-origin:left}.hero-gallery-dot.is-active:after{animation:heroProgress 6.8s linear forwards}@keyframes heroProgress{to{transform:scaleX(1)}}.hero-counter{color:rgba(255,255,255,.72);font:10px var(--mono)}.hero-counter strong{color:#fff}
+/* â”€â”€ Hero: editorial machine showcase â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.hero{position:relative;background:#081827;padding-top:0;color:#fff;overflow:hidden}.hero-inner{position:relative;width:100%;margin:0;padding:0}
+.hero-showcase{position:relative;width:100%;height:clamp(720px,100svh,980px);min-height:720px;overflow:hidden;isolation:isolate;background:#081827}
+.hero-showcase:before{content:"";position:absolute;inset:0;z-index:4;background:linear-gradient(90deg,rgba(5,16,28,.97) 0%,rgba(5,16,28,.91) 23%,rgba(5,16,28,.7) 38%,rgba(5,16,28,.18) 62%,rgba(5,16,28,.05) 100%),linear-gradient(180deg,rgba(5,16,28,.38) 0%,transparent 34%,transparent 70%,rgba(5,16,28,.66) 100%);pointer-events:none}
+.hero-showcase:after{content:"";position:absolute;inset:0;z-index:6;border-bottom:1px solid rgba(255,255,255,.14);box-shadow:inset 0 -140px 180px rgba(3,12,22,.24);pointer-events:none}
+.hero-three-canvas,.hero-grid{display:none}
+.hero-copy{position:absolute;z-index:8;left:clamp(36px,7vw,132px);top:51%;width:min(600px,42vw);transform:translateY(-44%);box-sizing:border-box;text-align:left}
+.hero-overline{display:flex;align-items:center;justify-content:flex-start;gap:12px;font:700 clamp(10px,.7vw,12px) var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.76);margin:0 0 22px;text-shadow:none}.hero-overline:before{display:block;content:"";width:36px;height:2px;background:var(--blue-light);box-shadow:0 0 14px rgba(60,137,255,.6)}
+.hero-h1{font-family:var(--display);font-size:clamp(3.2rem,5vw,6.2rem);line-height:.9;font-weight:780;letter-spacing:-.055em;color:#fff;text-shadow:0 8px 34px rgba(0,0,0,.26);margin:0 0 26px;max-width:100%}.hero-h1 .hw{display:block;transform-origin:0 100%;backface-visibility:hidden}.hero-h1 .blue{color:#80adff}
+.hero-body{display:flex;flex-direction:column;align-items:flex-start;gap:14px}.hero-scene-kicker{display:block;font:700 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#80adff}.hero-scene-copy{display:block;margin:0;max-width:48ch;font:400 clamp(14px,1vw,17px)/1.65 var(--body);color:rgba(255,255,255,.74)}.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-start;margin-top:10px}
+.hero-cta .btn-primary,.hero-cta .btn-ghost{min-height:46px;padding:12px 22px;border-radius:4px;font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}.hero-cta .btn-primary{background:#fff;color:#10233a;border:1px solid #fff}.hero-cta .btn-primary:hover{background:#dfe9f6;border-color:#dfe9f6}.hero-cta .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.46);backdrop-filter:none}.hero-cta .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.hero-scenes{position:absolute;inset:0;z-index:3}.hero-scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;background:#10263a}.hero-scene.is-active{opacity:1;visibility:visible}
+.hero-scene-art{width:100%;height:100%;display:block;object-fit:cover;object-position:62% center;opacity:0;transform:translate3d(2.5%,0,0) scale(1.015);filter:saturate(.9) contrast(1.02)}.hero-scene.is-active .hero-scene-art{animation:heroSceneIn .8s cubic-bezier(.16,1,.3,1) both}@keyframes heroSceneIn{to{opacity:1;transform:none}}
+.hero-scene-tag{display:flex;position:absolute;right:clamp(24px,3vw,54px);top:calc(var(--header-h) + 26px);z-index:8;align-items:center;gap:10px;color:rgba(255,255,255,.74);font:700 9px var(--mono);letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.45)}.hero-scene-tag:before{content:"";width:8px;height:8px;border-radius:50%;background:#4f8eff;box-shadow:0 0 14px rgba(79,142,255,.7)}
+.hero-gallery-nav{position:absolute;z-index:9;left:clamp(36px,7vw,132px);bottom:clamp(24px,4vw,54px);display:flex;align-items:center;gap:12px}.hero-gallery-arrow{display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.36);border-radius:50%;color:#fff;background:rgba(7,21,35,.26);backdrop-filter:blur(10px);transition:background .2s,border-color .2s}.hero-gallery-arrow:hover,.hero-gallery-arrow:focus-visible{background:#0b5be7;border-color:#0b5be7}
+.hero-gallery-dots{display:flex;gap:6px}.hero-gallery-dot{position:relative;width:28px;height:4px;overflow:hidden;border:0;background:rgba(255,255,255,.3)}.hero-gallery-dot:after{content:"";position:absolute;inset:0;background:#70a2ff;transform:scaleX(0);transform-origin:left}.hero-gallery-dot.is-active:after{animation:heroProgress 6.8s linear forwards}@keyframes heroProgress{to{transform:scaleX(1)}}.hero-counter{min-width:46px;color:rgba(255,255,255,.58);font:10px var(--mono);letter-spacing:.08em}.hero-counter strong{color:#fff}
 /* ── Our Machines ───────────────────────────────────────────── */
 .hp-machines { background: var(--bg-2); border-top: 1px solid var(--line); padding: clamp(80px, 12vh, 140px) var(--pad-x); }
 .hp-machines-inner { max-width: 1680px; margin: 0 auto; }
@@ -382,21 +384,25 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 @media (max-width: 700px) {
   .hero-inner { padding: 0; }
   .hero { padding-top:var(--header-h); }
-  .hero-showcase { aspect-ratio:4/5; min-height:580px; max-height:none; }
-  .hero-copy { left:18px; right:18px; top:7%; width:auto; transform:none; text-align:center; }
-  .hero-overline { margin-bottom: 10px; font-size: 12px; }
-  .hero-h1 { font-size: clamp(2.25rem, 11vw, 3.25rem); line-height: .96; margin-bottom: 16px; white-space: normal; }
+  .hero-showcase { height:min(760px,calc(100svh - var(--header-h))); min-height:660px; }
+  .hero-showcase:before { background:linear-gradient(180deg,rgba(5,16,28,.82) 0%,rgba(5,16,28,.58) 34%,rgba(5,16,28,.08) 58%,rgba(5,16,28,.84) 100%); }
+  .hero-copy { left:22px; right:22px; top:42px; width:auto; transform:none; text-align:left; }
+  .hero-overline { justify-content:flex-start; margin-bottom:14px; font-size:10px; line-height:1.45; }
+  .hero-overline:before { width:24px; }
+  .hero-h1 { font-size: clamp(2.65rem, 12vw, 4rem); line-height: .9; margin-bottom: 18px; max-width:100%; }
   .hero-h1 .hw { display: block; }
-  .hero-body { align-items: center; }
-  .hero-cta { justify-content: center; }
-  .hero-cta .btn-primary,.hero-cta .btn-ghost { padding: 10px 16px; font-size: 11px; }
-  .hero-scene-art { object-fit:contain; object-position:center bottom; }
+  .hero-body { align-items:flex-start; gap:10px; }
+  .hero-scene-copy { max-width:34ch; font-size:13px; line-height:1.5; }
+  .hero-cta { justify-content:flex-start; margin-top:6px; }
+  .hero-cta .btn-primary,.hero-cta .btn-ghost { min-height:42px; padding:10px 14px; font-size:9px; }
+  .hero-scene-art { object-fit:cover; object-position:center bottom; }
   .hero-scene-tag { display: none; }
-  .hero-gallery-nav { bottom: 18px; gap: 9px; }
-  .hero-gallery-arrow { width: 36px; height: 36px; }
-  .hero-gallery-dot { width:15px; }
+  .hero-gallery-nav { left:22px; bottom:18px; gap:9px; }
+  .hero-gallery-arrow { width:40px; height:40px; }
+  .hero-gallery-dot { width:14px; }
   .hero-gallery-dots { gap:4px; }
-  .hero-cta { flex-direction: row; }
+  .hero-counter { min-width:38px; }
+  .hero-cta { flex-direction:row; }
   .hero-cta a { text-align: center; justify-content: center; }
   .cypcut-features { grid-template-columns: 1fr; }
   .hp-machines-grid { grid-template-columns: 1fr; }
@@ -405,9 +411,10 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
   .hp-cta-btns a { text-align: center; }
 }
 @media (max-width: 400px) {
-  .hero-showcase { min-height:540px; }
-  .hero-h1 { font-size: clamp(2.1rem, 10.8vw, 2.8rem); }
-  .hero-cta .btn-primary,.hero-cta .btn-ghost { padding: 9px 13px; }
+  .hero-showcase { min-height:640px; }
+  .hero-h1 { font-size: clamp(2.4rem, 11.5vw, 3.15rem); }
+  .hero-scene-copy { display:none; }
+  .hero-cta .btn-primary,.hero-cta .btn-ghost { padding:9px 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-scene.is-active .hero-scene-art, .hero-gallery-dot.is-active::after { animation:none; }
@@ -577,46 +584,44 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 <section class="hero" id="hero">
   <div class="hero-inner">
     <div class="hero-showcase" id="heroShowcase" role="region" aria-roledescription="carousel" aria-label="Wavlon laser machine portfolio">
-      <canvas class="hero-three-canvas" id="heroThreeCanvas" aria-hidden="true"></canvas>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-scenes" aria-live="polite">
-        <div class="hero-scene is-active" data-scene="portfolio" data-overline="Full Range of Industrial Laser Solutions" data-title-one="Wavlon Laser" data-title-two="Cutting Machines" data-three-text="FULL MACHINE RANGE">
+            <div class="hero-scenes" aria-live="polite">
+        <div class="hero-scene is-active" data-scene="portfolio" data-tag="Portfolio" data-overline="Canadian-Supported Industrial Laser Systems" data-title-one="Industrial Laser" data-title-two="Systems." data-kicker="Complete machine portfolio" data-copy="Sheet, tube, automation, and welding platforms configured for demanding production environments." data-link-label="Explore All Machines" data-link-href="/machines/">
           <img class="hero-scene-art" src="/assets/hero-scene-portfolio.webp" alt="Wavlon laser machine portfolio in a clean industrial showroom" fetchpriority="high"/>
         </div>
-        <div class="hero-scene" data-scene="sheet" data-overline="Sheet Cutting Systems" data-title-one="ProCut. PowerCut." data-title-two="UltraCut." data-three-text="SHEET CUTTING">
+        <div class="hero-scene" data-scene="sheet" data-tag="Sheet Lasers" data-overline="ProCut Â· PowerCut Â· UltraCut" data-title-one="Sheet Laser" data-title-two="Cutting Systems." data-kicker="Fiber laser sheet cutting" data-copy="Three production-ready platforms spanning open-bed flexibility, enclosed cutting, and high-power exchange tables." data-link-label="Explore Sheet Lasers" data-link-href="/machines/fiber-laser-sheet-cutting/">
           <img class="hero-scene-art" src="/assets/hero-scene-sheet.webp" alt="Wavlon sheet laser systems in a clean industrial showroom" loading="lazy"/>
         </div>
-        <div class="hero-scene" data-scene="tube" data-overline="Double &amp; Triple Chuck Platforms" data-title-one="Tube Cutting." data-title-two="Built To Scale." data-three-text="TUBE CUTTING">
+        <div class="hero-scene" data-scene="tube" data-tag="Tube Lasers" data-overline="Double Chuck Â· Triple Chuck" data-title-one="Tube Laser" data-title-two="Cutting Systems." data-kicker="Fiber laser tube cutting" data-copy="Double- and triple-chuck platforms engineered for round, square, rectangular, and structural profiles." data-link-label="Explore Tube Lasers" data-link-href="/machines/fiber-laser-tube-cutting/">
           <img class="hero-scene-art" src="/assets/hero-scene-tube.webp" alt="Wavlon TubeCut systems in a clean industrial showroom" loading="lazy"/>
         </div>
-        <div class="hero-scene" data-scene="customizable" data-overline="Configured Around Your Production" data-title-one="Built To Your" data-title-two="Standards." data-three-text="CONFIGURABLE PLATFORM">
+        <div class="hero-scene" data-scene="customizable" data-tag="Configurable Platform" data-overline="Configured Around Your Production" data-title-one="Built Around" data-title-two="Your Workflow." data-kicker="Configurable machine platform" data-copy="Power, bed format, automation, and component packages selected around your materials, throughput, and facility." data-link-label="Plan Your Configuration" data-link-href="/contact/#quote">
           <img class="hero-scene-art" src="/assets/hero-ai/customizable.webp" alt="Configurable Wavlon fiber laser platform in a modular industrial showroom" loading="lazy"/>
         </div>
-        <div class="hero-scene" data-scene="laser-options" data-overline="Customizable Laser Heads &amp; Sources" data-title-one="Choose The Right" data-title-two="Laser Package." data-three-text="LASER OPTIONS">
+        <div class="hero-scene" data-scene="laser-options" data-tag="Laser Options" data-overline="Laser Heads &amp; Fiber Sources" data-title-one="The Right" data-title-two="Laser Package." data-kicker="Matched cutting technology" data-copy="Select the cutting head and fiber source combination that fits your power range, materials, and process goals." data-link-label="Explore Laser Technology" data-link-href="/technologies/laser-heads/">
           <img class="hero-scene-art" src="/assets/hero-ai/laser-options.webp" alt="Wavlon laser machine with configurable laser head and fiber source options" loading="lazy"/>
         </div>
-        <div class="hero-scene" data-scene="components" data-overline="North American-Compliant Electrical Architecture" data-title-one="Serviceable." data-title-two="Locally Supported." data-three-text="LOCAL COMPONENT SUPPORT">
+        <div class="hero-scene" data-scene="components" data-tag="Local Support" data-overline="North American-Ready Architecture" data-title-one="Serviceable." data-title-two="Locally Supported." data-kicker="Production support close to home" data-copy="Accessible electrical architecture, stocked components, and Canadian service keep maintenance practical." data-link-label="Explore Service Support" data-link-href="/service/">
           <img class="hero-scene-art" src="/assets/hero-ai/components.webp" alt="Wavlon machine with North American-ready electrical components, motors and drives" loading="lazy"/>
         </div>
-        <div class="hero-scene" data-scene="software" data-overline="Windows-Based CypCut Control" data-title-one="Powerful Software." data-title-two="Easy To Learn." data-three-text="CYPCUT CONTROL">
+        <div class="hero-scene" data-scene="software" data-tag="CypCut Control" data-overline="Windows-Based CypCut Control" data-title-one="Powerful Control." data-title-two="Easy To Learn." data-kicker="Operator-focused software" data-copy="A familiar control environment makes job setup, nesting, monitoring, and daily production easier to manage." data-link-label="Explore Controllers" data-link-href="/technologies/laser-heads/controllers/">
           <img class="hero-scene-art" src="/assets/hero-ai/cypcut.webp" alt="Wavlon laser machine with an approachable CypCut operator control environment" loading="lazy"/>
         </div>
-        <div class="hero-scene" data-scene="iot" data-overline="Connected Machine Intelligence" data-title-one="IoT Equipped." data-title-two="Production Ready." data-three-text="CONNECTED PRODUCTION">
+        <div class="hero-scene" data-scene="iot" data-tag="Connected Production" data-overline="Connected Machine Intelligence" data-title-one="Connected." data-title-two="Production Ready." data-kicker="Visibility across production" data-copy="Monitor machine activity and production performance with connected tools designed for a modern shop floor." data-link-label="Discuss Connected Systems" data-link-href="/contact/">
           <img class="hero-scene-art" src="/assets/hero-ai/iot.webp" alt="IoT-equipped Wavlon laser machine with connected production monitoring" loading="lazy"/>
         </div>
       </div>
       <div class="hero-copy">
-        <p class="hero-overline" id="heroOverline">Full Range of Industrial Laser Solutions</p>
+        <p class="hero-overline" id="heroOverline">Canadian-Supported Industrial Laser Systems</p>
         <h1 class="hero-h1" id="heroH1">
-          <span class="hw" id="heroTitleOne">Wavlon Laser</span>
-          <span class="hw blue" id="heroTitleTwo">Cutting Machines</span>
+          <span class="hw" id="heroTitleOne">Industrial Laser</span>
+          <span class="hw blue" id="heroTitleTwo">Systems.</span>
         </h1>
         <div class="hero-body" id="heroBody">
           <div class="hero-scene-kicker" id="heroSceneKicker">Complete Machine Portfolio</div>
-          <p class="hero-scene-copy" id="heroSceneCopy">Sheet, tube, and high-power laser systems brought together in one Canadian-supported machine portfolio.</p>
+          <p class="hero-scene-copy" id="heroSceneCopy">Sheet, tube, automation, and welding platforms configured for demanding production environments.</p>
           <div class="hero-cta">
             <a href="/contact/#quote" class="btn-primary">Request a Quote &rarr;</a>
-            <a href="/machines/" class="btn-ghost">Explore Machines</a>
+            <a href="/machines/" class="btn-ghost" id="heroExploreCta">Explore All Machines</a>
           </div>
         </div>
       </div>
