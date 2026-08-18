@@ -12,6 +12,7 @@
   var overline = document.getElementById('heroOverline');
   var titleOne = document.getElementById('heroTitleOne');
   var titleTwo = document.getElementById('heroTitleTwo');
+  var exploreCta = document.getElementById('heroExploreCta');
   var total = document.getElementById('heroTotal');
   var copy = document.getElementById('heroSceneCopy');
   var tag = document.getElementById('heroSceneTag');
@@ -22,7 +23,7 @@
   var ROTATE_MS = 6800;
 
   function sceneLabel(scene) {
-    var raw = scene.getAttribute('data-scene') || 'portfolio';
+    var raw = scene.getAttribute('data-tag') || scene.getAttribute('data-scene') || 'Portfolio';
     return raw.charAt(0).toUpperCase() + raw.slice(1);
   }
 
@@ -64,6 +65,10 @@
     if (overline) overline.textContent = incoming.getAttribute('data-overline') || '';
     if (titleOne) titleOne.textContent = incoming.getAttribute('data-title-one') || '';
     if (titleTwo) titleTwo.textContent = incoming.getAttribute('data-title-two') || '';
+    if (exploreCta) {
+      exploreCta.textContent = incoming.getAttribute('data-link-label') || 'Explore All Machines';
+      exploreCta.setAttribute('href', incoming.getAttribute('data-link-href') || '/machines/');
+    }
     if (copy) copy.textContent = incoming.getAttribute('data-copy') || '';
     if (tag) tag.textContent = sceneLabel(incoming);
     if (counter) counter.textContent = String(index + 1).padStart(2, '0');
