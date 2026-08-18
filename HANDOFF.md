@@ -1,22 +1,23 @@
 # Current Handoff
 
-Last updated: 2026-08-18 14:49 EDT by Codex
+Last updated: 2026-08-18 15:12 EDT by Codex
 
 ## Current state
 
-- Homepage portfolio correction product commit: `1ea8cf5` (PR #27, Correct portfolio hero staging and branding).
-- Homepage portfolio hero: the live v3 artwork places both tube-cutting systems on a clearly visible showroom floor plane with support legs and contact shadows, balances all five machines across foreground and midground, and preserves the dark left copy zone.
-- Branding: prominent machine panels follow the official `wavlon_lasers_full_logo_transparent.png` reference; small panels avoid invented wordmarks.
-- Performance: the live 1672×941 WebP is 75,886 bytes.
-- Existing hero layout, copy, transparent navigation behavior, Sheet Laser scene, Tube Laser scene, and five capability scenes are unchanged.
-- Deployment: Vercel production check passed for `1ea8cf5`; https://wavlonlasers.com returned 200 and references `/assets/hero-scene-portfolio-v3.webp`; the live asset returned 200 as `image/webp`.
+- Active product branch: `codex/hero-real-machine-composites` from `origin/main` at `40853ce`.
+- Homepage hero: the portfolio, Sheet Lasers, and Tube Lasers scenes have been rebuilt from actual transparent Wavlon product renders on one empty showroom background plate.
+- Product integrity: AI generated only the empty architectural backdrop. Machine bodies, proportions, Wavlon logos, control panels, rails, chucks, and support legs come directly from tracked real product assets and were not generatively altered.
+- Floor placement: every machine is fully below the wall/floor junction with deterministic contact shadows; no tube system is mounted on or blended into the wall.
+- New assets: `hero-scene-portfolio-v4.webp`, `hero-scene-sheet-v3.webp`, and `hero-scene-tube-v3.webp`, all 1672×941 WebP files.
+- Homepage references: `index.html` now targets the three new versioned assets while preserving the existing hero layout, copy, transparent navigation behavior, carousel controls, and five capability scenes.
+- Deployment: pending focused validation, commit, GitHub pull request, and Vercel verification.
 - Preserved work: generated-page line-ending changes, untracked `assets/hero-ai/*-bg.png` source files, and `assets/powercut-guide/` remain outside this task.
 
 ## What the next assistant must do
 
 1. Read `AGENTS.md`, `CLAUDE.md`, the newest `CHANGELOG.md` entry, and this file before editing.
 2. Run `git status --short --branch` and preserve all unrelated modified and untracked files.
-3. Treat any further visual adjustment as a new focused change and update both collaboration records.
+3. Do not replace the real machine cutouts with generated machine imagery; future adjustments should change only scale, order, or placement unless the owner supplies new real renders.
 4. Record every completed Claude or Codex change in `CHANGELOG.md` and refresh this handoff.
 
 ## Access notes
@@ -24,4 +25,4 @@ Last updated: 2026-08-18 14:49 EDT by Codex
 - GitHub remote: https://github.com/KartarC/wavlon-lasers-website.git.
 - GitHub CLI is authenticated for KartarC.
 - Production URL: https://wavlonlasers.com.
-- Vercel production check: https://vercel.com/infinara/wavlon-lasers-website/BkdSYmXgm1ychjVvbBvUwLsCovyj.
+- Vercel deploys from the GitHub `main` branch; deployment verification is still pending for this product update.
