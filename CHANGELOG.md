@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 15:40 EDT — Codex — Publish decluttered and restored hero scenes
+
+- Scope: Merged the approved hero decluttering through PR #33 and verified production. Slide 1 now shows only one real ProCut and one real TubeCut Triple Chuck; slides 2 and 3 use the restored v2 artwork; slides 4–8 use their background-only source plates without the added foreground machines.
+- Files: No product files changed in this deployment-record step; `CHANGELOG.md` and `HANDOFF.md` record the verified final state.
+- Validation: Vercel reported success for product commit `ef026a5`; the production homepage returned 200 and referenced each of the eight intended assets exactly once; all eight live assets returned 200 as `image/webp` with the expected byte sizes.
+- Git: PR #33 squash-merged to `main` as `ef026a5`; this deployment record follows on `codex/hero-declutter-deployment-log`.
+- Remote/deploy: Vercel production check passed at https://vercel.com/infinara/wavlon-lasers-website/DpPAqBc3P5cfGmZS9JkAYUpBDV3o; live at https://wavlonlasers.com.
+- Follow-up: Keep slides 2 and 3 on the approved v2 artwork and slides 4–8 free of added foreground machines unless the owner explicitly changes direction.
 ### 2026-08-18 15:37 EDT — Codex — Declutter hero and restore approved scenes
 
 - Scope: Simplified slide 1 from four foreground machines to two real tracked product renders: one ProCut sheet laser and one TubeCut Triple Chuck. Restored the previously approved v2 Sheet Lasers and Tube Lasers artwork for slides 2 and 3. Removed the added foreground hero equipment from slides 4–8 by switching them to optimized copies of the existing background-only source plates.
