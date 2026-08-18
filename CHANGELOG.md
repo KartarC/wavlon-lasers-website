@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 15:37 EDT — Codex — Declutter hero and restore approved scenes
+
+- Scope: Simplified slide 1 from four foreground machines to two real tracked product renders: one ProCut sheet laser and one TubeCut Triple Chuck. Restored the previously approved v2 Sheet Lasers and Tube Lasers artwork for slides 2 and 3. Removed the added foreground hero equipment from slides 4–8 by switching them to optimized copies of the existing background-only source plates.
+- Files: `assets/hero-scene-portfolio-v5.webp`; five new `assets/hero-ai/*-background.webp` files; `index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Preserved sources: The untracked `assets/hero-ai/*-bg.png` source plates remain untouched and uncommitted; the approved v2 sheet and tube assets were reused without modification.
+- Validation: Visually reviewed the two-machine slide 1 composition and all five background-only source plates; confirmed all eight referenced hero assets are 1672×941, every intended reference appears exactly once, all eight carousel scenes remain, and `git diff --check` passes.
+- Git: `codex/hero-declutter-restore-scenes`; commit follows with this record.
+- Remote/deploy: Pending branch push, pull request, and Vercel verification.
+- Follow-up: Merge after the preview passes, then verify the live homepage references the restored and background-only assets.
 ### 2026-08-18 15:24 EDT — Codex — Publish accurate three-product sheet hero
 
 - Scope: Merged the sheet-lineup correction through PR #31 and verified production. The Sheet Lasers hero now presents one tracked real render for each advertised family: ProCut, PowerCut/WL-F, and UltraCut.
