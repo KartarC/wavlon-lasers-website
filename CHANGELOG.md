@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 14:46 EDT — Codex — Correct portfolio hero floor placement and branding
+
+- Scope: Re-edited the homepage portfolio hero after the rear tube laser appeared mounted on the showroom wall. Repositioned both tube systems onto a clearly visible shared floor plane with support legs and contact shadows, rebalanced the five-machine foreground/midground arrangement, and used the official Wavlon logo as the branding reference. Preserved the clean left copy zone and retained the prior v2 asset for rollback.
+- Files: `assets/hero-scene-portfolio-v3.webp`; `index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Visually reviewed the corrected composition and logo placements; confirmed the optimized WebP is 1672×941 and 75,886 bytes; confirmed the homepage uses the v3 reference and retains all eight carousel scenes; focused `git diff --check` passed.
+- Git: `codex/hero-portfolio-floor-branding`; commit follows with this record.
+- Remote/deploy: Pending branch push and Vercel preview.
+- Follow-up: Merge after the preview passes, then verify the live homepage and v3 asset.
+
 ### 2026-08-18 12:24 EDT — Codex — Publish refined homepage hero product scenes
 
 - Scope: Merged the reviewed first-three hero artwork update through PR #24 and verified the exact production output.
