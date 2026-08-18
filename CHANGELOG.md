@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 15:12 EDT — Codex — Rebuild hero scenes from real machine renders
+
+- Scope: Replaced the first three homepage hero artworks with deterministic composites made from the actual transparent Wavlon ProCut, UltraCut, TubeCut Double Chuck, and TubeCut Triple Chuck renders. AI was used only for an empty showroom background plate; no machine body, geometry, logo, or product text was generated. All machines now sit below a clear wall/floor junction with contact shadows and consistent showroom perspective.
+- Files: `assets/hero-scene-portfolio-v4.webp`; `assets/hero-scene-sheet-v3.webp`; `assets/hero-scene-tube-v3.webp`; `index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Source renders: `Wavlon ProCut Front.-transparentpng.png`; `UltraCut Serie _ Transparent.png`; `ultracut-machine-front.webp`; `tubecut-double-chuck-view-01.png`; `tubecut-triple-chuck-view-01.png`.
+- Validation: Visually reviewed all three final compositions; confirmed each WebP is 1672×941; confirmed the homepage references exactly the three new versioned assets and retains all eight carousel scenes; focused asset checks and `git diff --check` passed.
+- Git: `codex/hero-real-machine-composites`; commit follows with this record.
+- Remote/deploy: Pending branch push, pull request, and Vercel verification.
+- Follow-up: Merge after the Vercel preview passes, then verify the production homepage and all three live assets.
 ### 2026-08-18 14:49 EDT — Codex — Publish corrected portfolio hero staging
 
 - Scope: Merged the reviewed portfolio correction through PR #27 and verified the production homepage now serves the rebalanced v3 artwork with both tube systems visibly grounded on the showroom floor and improved Wavlon branding.
