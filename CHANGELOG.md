@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-18 12:24 EDT — Codex — Publish refined homepage hero product scenes
+
+- Scope: Merged the reviewed first-three hero artwork update through PR #24 and verified the exact production output.
+- Files: No product files changed in this deployment-record step; `CHANGELOG.md` and `HANDOFF.md` record the final GitHub/Vercel state.
+- Validation: Vercel reported success for production commit `1162947`; the live homepage returned 200 and referenced all three versioned hero assets; each live asset returned 200 as `image/webp` with the expected 65,868, 58,564, and 74,080-byte sizes.
+- Git: PR #24 squash-merged to `main` as `1162947`; this deployment record is on `codex/hero-product-art-deployment-log`.
+- Remote/deploy: Vercel production check passed at https://vercel.com/infinara/wavlon-lasers-website/4nhqguqw1szqXbejdZjQZZKCSWhm; live at https://wavlonlasers.com.
+- Follow-up: Review the live hero during normal browsing and treat any further art-direction request as a separate focused change.
+
 ### 2026-08-18 12:17 EDT — Codex — Recompose homepage hero product scenes
 
 - Scope: Rebuilt the first three homepage hero artworks as one premium product-showcase family. The portfolio scene now uses a deliberate five-machine depth composition; the sheet scene presents three systems as a coherent lineup; and the tube scene presents only the double-chuck and triple-chuck systems. All scenes use consistent showroom perspective, grounded contact shadows, clear product scale, and an uncluttered dark copy zone on the left. The original hero assets remain untouched for rollback.
