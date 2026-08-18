@@ -1,6 +1,6 @@
 # Current Handoff
 
-Last updated: 2026-08-18 15:18 EDT by Codex
+Last updated: 2026-08-18 15:22 EDT by Codex
 
 ## Current state
 
@@ -8,9 +8,10 @@ Last updated: 2026-08-18 15:18 EDT by Codex
 - Homepage hero: the live portfolio, Sheet Lasers, and Tube Lasers scenes are deterministic composites of actual transparent Wavlon machine renders on one empty showroom background plate.
 - Product integrity: AI generated only the empty architectural backdrop. Machine bodies, proportions, Wavlon logos, control panels, rails, chucks, and support legs come directly from tracked real product assets and were not generatively altered.
 - Floor placement: every machine is fully below the wall/floor junction with contact shadows; no tube system is mounted on or blended into the wall.
-- Live assets: `/assets/hero-scene-portfolio-v4.webp` (107,936 bytes), `/assets/hero-scene-sheet-v3.webp` (85,360 bytes), and `/assets/hero-scene-tube-v3.webp` (107,298 bytes), all 1672×941 WebPs.
+- Live assets: `/assets/hero-scene-portfolio-v4.webp` (107,936 bytes), `/assets/hero-scene-sheet-v4.webp` (85,712 bytes), and `/assets/hero-scene-tube-v3.webp` (107,298 bytes), all 1672×941 WebPs.
+- Sheet product lineup: ProCut, PowerCut/WL-F, and UltraCut are each represented once with their real tracked transparent render.
 - Existing hero layout, copy, transparent navigation behavior, carousel controls, and five capability scenes are unchanged.
-- Deployment: Vercel production check passed for `fdddb6e`; https://wavlonlasers.com returned 200 and referenced each new asset exactly once; every live asset returned 200 as `image/webp` with the expected size.
+- Deployment: the real-machine hero family is live at `fdddb6e`; the focused PowerCut lineup correction is pending validation and deployment.
 - Preserved work: generated-page line-ending changes, untracked `assets/hero-ai/*-bg.png` source files, and `assets/powercut-guide/` remain outside this task.
 
 ## What the next assistant must do
