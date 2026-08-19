@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-19 12:49 EDT — Codex — Publish single-machine slide 1
+
+- Scope: Merged the one-machine slide 1 revision through PR #35 and verified production. The hero now presents a single real tracked UltraCut on the showroom floor with no overlapping foreground equipment; slides 2–8 remain unchanged.
+- Files: No product files changed in this deployment-record step; `CHANGELOG.md` and `HANDOFF.md` record the verified final state.
+- Validation: Vercel reported success for product commit `7b2d57b`; the production homepage returned 200, referenced `/assets/hero-scene-portfolio-v6.webp` exactly once and v5 zero times, and served the live v6 asset as `image/webp` at the expected 75,488 bytes.
+- Git: PR #35 squash-merged to `main` as `7b2d57b`; this deployment record follows on `codex/hero-slide1-single-deployment-log`.
+- Remote/deploy: Vercel production check passed at https://vercel.com/infinara/wavlon-lasers-website/7ewFW3ou46jZMbiN2tk3AiHzufAH; live at https://wavlonlasers.com.
+- Follow-up: Keep slide 1 to one foreground machine unless the owner explicitly requests another composition.
 ### 2026-08-19 12:46 EDT — Codex — Reduce slide 1 to one flagship machine
 
 - Scope: Removed the remaining two-machine overlap from homepage slide 1 and replaced it with one real tracked UltraCut render positioned on the right side of the existing showroom floor. Increased negative space and preserved the dark copy zone. Slides 2–8 are unchanged.
