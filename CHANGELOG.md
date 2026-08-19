@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-19 12:46 EDT — Codex — Reduce slide 1 to one flagship machine
+
+- Scope: Removed the remaining two-machine overlap from homepage slide 1 and replaced it with one real tracked UltraCut render positioned on the right side of the existing showroom floor. Increased negative space and preserved the dark copy zone. Slides 2–8 are unchanged.
+- Files: `assets/hero-scene-portfolio-v6.webp`; `index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Visually reviewed the single-machine composition; confirmed the WebP is 1672×941 and 75,488 bytes; confirmed one v6 reference and all eight carousel scenes; `git diff --check` passed.
+- Git: `codex/hero-slide1-single-machine`; commit follows with this record.
+- Remote/deploy: Pending branch push, pull request, and Vercel verification.
+- Follow-up: Merge after the preview passes, then verify the live homepage uses the v6 slide 1 asset.
 ### 2026-08-18 15:40 EDT — Codex — Publish decluttered and restored hero scenes
 
 - Scope: Merged the approved hero decluttering through PR #33 and verified production. Slide 1 now shows only one real ProCut and one real TubeCut Triple Chuck; slides 2 and 3 use the restored v2 artwork; slides 4–8 use their background-only source plates without the added foreground machines.
