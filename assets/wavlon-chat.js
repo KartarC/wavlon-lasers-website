@@ -105,7 +105,9 @@
     }
     .wlc-home-link:hover { border-color:#0066cc; }
     .wlc-home-link-text {}
-    .wlc-home-link-title { font-size:13px; font-weight:700; color:#1a1a2e; margin-bottom:2px; }
+    .wlc-home-link-title { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700; color:#1a1a2e; margin-bottom:2px; }
+    .wlc-title-icon { width:17px; height:17px; color:#0066cc; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; flex:none; }
+    .wlc-greeting-icon { width:22px; height:22px; margin-left:6px; vertical-align:-4px; fill:none; stroke:#9ac8ff; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
     .wlc-home-link-sub { font-size:12px; color:#868e96; }
     .wlc-home-link-icon { color:#adb5bd; font-size:18px; }
 
@@ -230,7 +232,7 @@
   // ── Nudge ─────────────────────────────────────────────────────────
   var nudge = document.createElement('div');
   nudge.id = 'wlc-nudge';
-  nudge.innerHTML = '<button id="wlc-nudge-close" aria-label="Dismiss">&times;</button><p>Ask our Wavlon AI ✦</p><span>Specs, pricing &amp; lead times — answered instantly.</span>';
+  nudge.innerHTML = '<button id="wlc-nudge-close" aria-label="Dismiss">&times;</button><p>Ask our Wavlon AI <svg class="wlc-title-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3Z"/></svg></p><span>Specs, pricing &amp; lead times — answered instantly.</span>';
 
   // ── Bubble ────────────────────────────────────────────────────────
   var bubble = document.createElement('button');
@@ -257,7 +259,7 @@
           <div class="wlc-home-av" style="background:rgba(0,50,120,.6);">AI</div>
           <div class="wlc-home-av" style="background:rgba(0,30,90,.55);">CA</div>
         </div>
-        <div class="wlc-home-greeting">Hi there 👋</div>
+        <div class="wlc-home-greeting">Hi there <svg class="wlc-greeting-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg></div>
         <div class="wlc-home-greeting-sub">How can we help? Our AI answers instantly — or send a message and our team responds within a few hours.</div>
       </div>
       <div class="wlc-home-body">
@@ -272,21 +274,21 @@
         </div>
         <a class="wlc-home-link" href="/contact/#quote">
           <div class="wlc-home-link-text">
-            <div class="wlc-home-link-title">💬 Get a Custom Quote</div>
+            <div class="wlc-home-link-title"><svg class="wlc-title-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a3 3 0 0 1-3 3H8l-5 3V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v9Z"/><path d="M8 8h8M8 12h5"/></svg>Get a Custom Quote</div>
             <div class="wlc-home-link-sub">Response within 24 business hours</div>
           </div>
           <div class="wlc-home-link-icon">›</div>
         </a>
         <a class="wlc-home-link" href="/financing/">
           <div class="wlc-home-link-text">
-            <div class="wlc-home-link-title">💳 Equipment Financing</div>
+            <div class="wlc-home-link-title"><svg class="wlc-title-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>Equipment Financing</div>
             <div class="wlc-home-link-sub">$0 down &middot; Canadian terms &middot; 48-hr approval</div>
           </div>
           <div class="wlc-home-link-icon">›</div>
         </a>
         <a class="wlc-home-link" href="/machines/">
           <div class="wlc-home-link-text">
-            <div class="wlc-home-link-title">⚙️ View All Machines</div>
+            <div class="wlc-home-link-title"><svg class="wlc-title-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>View All Machines</div>
             <div class="wlc-home-link-sub">Sheet cutting, tube cutting, welding</div>
           </div>
           <div class="wlc-home-link-icon">›</div>
@@ -405,7 +407,7 @@
     if (isOpen && !panel.contains(e.target) && !bubble.contains(e.target) && !nudge.contains(e.target)) closePanel();
   });
 
-  // ── Home ↔ Chat navigation ────────────────────────────────────────
+  // ── Home / Chat navigation ────────────────────────────────────────
   function goChat() {
     homeEl.style.display = 'none';
     chatEl.classList.add('show');
@@ -413,8 +415,8 @@
       chatReady = true;
       var first = (userInfo && userInfo.name) ? userInfo.name.split(' ')[0] : null;
       var g = first
-        ? 'Hi ' + first + '! 👋 I\'m the Wavlon AI.\n\nAsk me anything about our fiber laser machines — specs, cutting thickness, power options, lead times, or financing.'
-        : 'Hello 👋 How can I help you today?\n\nI can answer questions about our fiber laser machines — specs, materials, pricing, lead times, and more.';
+        ? 'Hi ' + first + '! I\'m the Wavlon AI.\n\nAsk me anything about our fiber laser machines — specs, cutting thickness, power options, lead times, or financing.'
+        : 'Hello! How can I help you today?\n\nI can answer questions about our fiber laser machines — specs, materials, pricing, lead times, and more.';
       appendMsg(g, 'bot');
       renderQR();
       if (userInfo && userInfo.email) {
