@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-20 12:18 EDT — Codex — Fix slide 1 framing on ultra-wide screens
+
+- Scope: Added a slide-specific large-screen framing rule so homepage slide 1 remains a large product showcase while anchoring the UltraCut to the showroom floor on displays 1800 px and wider. This prevents the machine from being cropped at the bottom without shrinking it or changing the composition on ordinary desktop screens.
+- Files: `index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Preserved: The existing `hero-scene-portfolio-v6.webp` artwork, slides 2–8, hero copy, navigation, carousel behavior, and all unrelated modified or untracked work remain unchanged.
+- Validation: Simulated the slide 1 crop at the supplied ultra-wide aspect ratio and visually confirmed the full machine and floor remain visible; confirmed one scoped responsive rule, one v6 asset reference, eight unique scene definitions, balanced CSS braces, and a clean scoped diff.
+- Git: `codex/hero-ultrawide-framing`; commit follows with this record.
+- Remote/deploy: Pending branch push, pull request, and Vercel verification.
+- Follow-up: Merge after Vercel passes, then verify the production homepage serves the responsive rule and the existing v6 asset.
 ### 2026-08-19 12:49 EDT — Codex — Publish single-machine slide 1
 
 - Scope: Merged the one-machine slide 1 revision through PR #35 and verified production. The hero now presents a single real tracked UltraCut on the showroom floor with no overlapping foreground equipment; slides 2–8 remain unchanged.
