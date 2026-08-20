@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-08-20 12:24 EDT — Codex — Publish ultra-wide slide 1 framing fix
+
+- Scope: Merged the slide 1 ultra-wide framing correction through PR #37 and verified production. On displays 1800 px and wider, the existing UltraCut artwork remains large but anchors to the showroom floor so the complete machine is visible instead of being cropped at the bottom.
+- Files: No product files changed in this deployment-record step; `CHANGELOG.md` and `HANDOFF.md` record the verified final state.
+- Preserved: The v6 slide 1 asset, slides 2–8, hero copy, navigation, carousel behavior, and all unrelated modified or untracked work remain unchanged.
+- Validation: Vercel reported success for product commit `eb1daea`; the production homepage returned 200, contained the scoped ultra-wide rule exactly once, referenced `/assets/hero-scene-portfolio-v6.webp` exactly once, and served the live asset as `image/webp` at 75,488 bytes.
+- Git: PR #37 squash-merged to `main` as `eb1daea`; this deployment record follows on `codex/hero-ultrawide-deployment-log`.
+- Remote/deploy: Vercel production check passed at https://vercel.com/infinara/wavlon-lasers-website/8fvCRqGjCec1FQHNbDjaHZbPYyv4; live at https://wavlonlasers.com.
+- Follow-up: Keep the slide 1 ultra-wide bottom anchor unless the hero artwork is replaced or the owner requests a different large-screen composition.
 ### 2026-08-20 12:18 EDT — Codex — Fix slide 1 framing on ultra-wide screens
 
 - Scope: Added a slide-specific large-screen framing rule so homepage slide 1 remains a large product showcase while anchoring the UltraCut to the showroom floor on displays 1800 px and wider. This prevents the machine from being cropped at the bottom without shrinking it or changing the composition on ordinary desktop screens.
