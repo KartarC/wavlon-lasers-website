@@ -23,6 +23,10 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting and weldi
 
 ## Technologies
 
+- [Laser Source Hub](https://wavlonlasers.com/technologies/laser-sources/) — MAX Photonics Elite Series and IPG Photonics industrial CW sources, model-level reference specifications and configuration guidance
+- [Compare Laser Sources](https://wavlonlasers.com/technologies/laser-sources/compare/) — manual side-by-side comparison for up to four MAX or IPG source variants
+- [MAX Photonics Elite Series](https://wavlonlasers.com/technologies/laser-sources/max-photonics/) — 15 reviewed products from 500 W to 85 kW with exact certification and warranty wording
+- [IPG Photonics CW Fiber Lasers](https://wavlonlasers.com/technologies/laser-sources/ipg-photonics/) — YLR, YLS, YLS-U-ECO and YLS-ECO representative variants
 - [Laser Heads and Controllers](https://wavlonlasers.com/technologies/laser-heads/)
 - [Tube Cutting Heads](https://wavlonlasers.com/technologies/laser-heads/tube-cutting-heads/)
 - [FSCUT Controllers](https://wavlonlasers.com/technologies/laser-heads/controllers/)
