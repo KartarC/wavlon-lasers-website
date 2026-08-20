@@ -394,3 +394,12 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Git: codex/laser-source-hub; not yet committed in this entry.
 - Remote/deploy: GitHub push, pull request and Vercel deployment pending.
 - Follow-up: Commit the reviewed scope, push the feature branch, merge through a pull request, verify the Vercel production deployment, then append the production record.
+
+### 2026-08-20 14:25 EDT — Codex — Publish laser-source hub to production
+
+- Scope: Published the reviewed laser-source hub, brand/model pages, comparison tool, shared navigation updates, static catalog, Supabase migration, media library, and audit workbook.
+- Files: Production scope is the complete Build laser-source knowledge hub change recorded above. This entry updates CHANGELOG.md and HANDOFF.md with the final GitHub/Vercel state.
+- Validation: GitHub/Vercel checks passed; Vercel production deployment dpl_9DwxdKv5edNsfrwU57g5KTRfpJek reached READY; the public hub and comparison routes returned HTTP 200; the public JSON catalog returned 40 models as application/json; the homepage contains the laser-source hub link; the hub contains both brands and the approved Rise Tek service statement; Vercel reported no runtime errors in the post-deploy scan.
+- Git: Squash-merged pull request #39 to main as d8ffb076bff4e1bb84556b2083df79e517a09481.
+- Remote/deploy: Live at https://wavlonlasers.com/technologies/laser-sources/; comparison tool at https://wavlonlasers.com/technologies/laser-sources/compare/.
+- Follow-up: Product content is live. For future catalog changes, refresh from official sources, preserve model-level certification wording, regenerate the static snapshot/pages/migration, run the shared-content sync, and repeat the validation checklist.
