@@ -27,7 +27,10 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting and weldi
 - [Compare Laser Sources](https://wavlonlasers.com/technologies/laser-sources/compare/) — manual side-by-side comparison for up to four MAX or IPG source variants
 - [MAX Photonics Elite Series](https://wavlonlasers.com/technologies/laser-sources/max-photonics/) — 15 reviewed products from 500 W to 85 kW with exact certification and warranty wording
 - [IPG Photonics CW Fiber Lasers](https://wavlonlasers.com/technologies/laser-sources/ipg-photonics/) — YLR, YLS, YLS-U-ECO and YLS-ECO representative variants
-- [Laser Heads and Controllers](https://wavlonlasers.com/technologies/laser-heads/)
+- [Laser Heads and Controllers](https://wavlonlasers.com/technologies/laser-heads/) — BOCI BLT and Precitec ProCutter options with Bochu control systems
+- [Precitec Laser Heads](https://wavlonlasers.com/technologies/laser-heads/precitec/) — ProCutter Thunder and ProCutter 2.0 factory-fit options
+- [Precitec ProCutter Thunder](https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-thunder/) — 6.6–12 kW for 2D, tube/profile and 3D cutting
+- [Precitec ProCutter 2.0](https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-2-0/) — automated high-power flatbed, tube and bevel cutting up to 85 kW
 - [Tube Cutting Heads](https://wavlonlasers.com/technologies/laser-heads/tube-cutting-heads/)
 - [FSCUT Controllers](https://wavlonlasers.com/technologies/laser-heads/controllers/)
 

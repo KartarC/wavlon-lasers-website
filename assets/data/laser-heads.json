@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "retrievedAt": "2026-08-20",
+  "publicationPolicy": "Manufacturer specifications are reference values. Wavlon must validate the complete source, head, controller, cooling and machine configuration.",
+  "brands": [
+    {
+      "id": "boci-bochu",
+      "name": "BOCI / Bochu",
+      "hub": "/technologies/laser-heads/2d-cutting-heads/",
+      "controllerHub": "/technologies/laser-heads/controllers/"
+    },
+    {
+      "id": "precitec",
+      "name": "Precitec",
+      "website": "https://www.precitec.com/laser-cutting/products/laser-cutting-head/",
+      "logo": "/assets/laser-heads/precitec/precitec-logo.svg"
+    }
+  ],
+  "products": [
+    {
+      "id": "precitec-procutter-thunder",
+      "brand": "Precitec",
+      "name": "ProCutter Thunder",
+      "slug": "procutter-thunder",
+      "tagline": "Stable, economical 2D and 3D cutting in the medium-power range.",
+      "power": "6.6–12 kW",
+      "applications": [
+        "2D flatbed cutting",
+        "Tube and profile cutting",
+        "3D free-form cutting"
+      ],
+      "collimation": "100 mm",
+      "focus": "2D: 150 / 200 mm · 3D: 200 mm",
+      "numericalAperture": "0.12 max.",
+      "dimensions": "116 × 113 mm (W × D)",
+      "weight": "Not published on the reviewed product page",
+      "wavelength": "Confirm for selected laser-source configuration",
+      "primaryImage": "/assets/laser-heads/precitec/procutter-thunder/thunder-product.webp",
+      "heroImage": "/assets/laser-heads/precitec/procutter-thunder/thunder-hero.webp",
+      "sourceUrl": "https://www.precitec.com/laser-cutting/products/laser-cutting-head/procutter-thunder/",
+      "features": [
+        [
+          "Stable distance sensing",
+          "A low-drift distance sensor supports clean, reproducible cuts during high machine acceleration."
+        ],
+        [
+          "Tool-free service access",
+          "Protective lenses are designed for quick access and tool-free replacement to reduce service time."
+        ],
+        [
+          "Flexible machine integration",
+          "One platform supports flatbed, tube, profile and 3D free-form cutting configurations."
+        ],
+        [
+          "CutBox Pro connectivity",
+          "Fieldbus communication brings focus control and process-data signals into the machine PLC environment."
+        ],
+        [
+          "Integrated cooling",
+          "Cooling and process-protection-glass monitoring support stable results during continuous operation."
+        ],
+        [
+          "Dynamic focus drive",
+          "The focus system is designed for short non-productive time across defined industrial processes."
+        ]
+      ],
+      "images": [
+        [
+          "/assets/laser-heads/precitec/procutter-thunder/thunder-hero.webp",
+          "ProCutter Thunder in an industrial cutting application"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-thunder/thunder-product.webp",
+          "ProCutter Thunder product view"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-thunder/thunder-benefits.webp",
+          "ProCutter Thunder feature overview"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-thunder/cutbox-pro.webp",
+          "CutBox Pro fieldbus control unit"
+        ]
+      ],
+      "sourceImages": [
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-thunder/Thunder_4_1920x480.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-thunder/ProCutter_Thunder_12kW_768x792.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-thunder/ProCutter_Thunder_792x600.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/CutBox-Pro/CutBox_Pro_Overview_792x600.jpg"
+      ]
+    },
+    {
+      "id": "precitec-procutter-2-0",
+      "brand": "Precitec",
+      "name": "ProCutter 2.0",
+      "slug": "procutter-2-0",
+      "tagline": "Automated high-power cutting for flatbed, tube and bevel systems.",
+      "power": "Up to 85 kW",
+      "applications": [
+        "2D flatbed cutting",
+        "Tube cutting",
+        "Bevel cutting"
+      ],
+      "collimation": "100 mm",
+      "focus": "150 / 200 / 250 / 300 mm by power level",
+      "numericalAperture": "0.13 / 0.16",
+      "dimensions": "96 × 134 mm (W × D)",
+      "weight": "6.9 kg (M 3.0)",
+      "wavelength": "1030–1090 nm",
+      "primaryImage": "/assets/laser-heads/precitec/procutter-2-0/procutter-product.webp",
+      "heroImage": "/assets/laser-heads/precitec/procutter-2-0/procutter-hero.webp",
+      "sourceUrl": "https://www.precitec.com/laser-cutting/products/laser-cutting-head/pro-cutter/",
+      "features": [
+        [
+          "Up to 85 kW",
+          "A high-load thermal and optical design supports industrial cutting configurations up to 85 kW."
+        ],
+        [
+          "Consistent cut quality",
+          "The optical and sensor platform is designed for around-the-clock cutting at high laser power."
+        ],
+        [
+          "Intelligent sensors",
+          "Integrated monitoring tracks critical components and process parameters for planned maintenance."
+        ],
+        [
+          "PierceTec support",
+          "Automated piercing control is designed to improve hole quality and reduce cycle time and rework."
+        ],
+        [
+          "Broad source compatibility",
+          "Precitec states compatibility with laser sources in the field; Wavlon validates the final source-head pairing."
+        ],
+        [
+          "Connected diagnostics",
+          "Status and error information can be surfaced through the ProCutter app and machine integration."
+        ]
+      ],
+      "images": [
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-hero.webp",
+          "ProCutter 2.0 in a high-power cutting application"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-product.webp",
+          "ProCutter 2.0 product view"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-detail-01.webp",
+          "ProCutter 2.0 production detail 01"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-detail-02.webp",
+          "ProCutter 2.0 production detail 02"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-detail-03.webp",
+          "ProCutter 2.0 production detail 03"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-detail-04.webp",
+          "ProCutter 2.0 production detail 04"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-detail-06.webp",
+          "ProCutter 2.0 production detail 06"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-detail-07.webp",
+          "ProCutter 2.0 production detail 07"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-detail-08.webp",
+          "ProCutter 2.0 production detail 08"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-detail-09.webp",
+          "ProCutter 2.0 production detail 09"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/procutter-app.webp",
+          "ProCutter app overview"
+        ],
+        [
+          "/assets/laser-heads/precitec/procutter-2-0/cutbox-pro-distance.webp",
+          "CutBox Pro EtherCAT distance measurement"
+        ]
+      ],
+      "sourceImages": [
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_HEADER_ProCutter_20_02.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/ProCutter_2.0_50kW_320x767.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_ProCutter_20_01.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_ProCutter_20_02.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_ProCutter_20_03.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_ProCutter_20_04.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_ProCutter_20_06.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_ProCutter_20_07.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_ProCutter_20_08.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/Laserschneiden_Produkte_Detail_ProCutter_20_09.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/procutter-2.0/explanation_ProCutter_APP.jpg",
+        "https://www.precitec.com/fileadmin/products/laser-cutting/CutBox-Pro/Distance_Measurement_with_CutBox_Pro_Ethercat_1200x792.jpg"
+      ]
+    }
+  ]
+}
