@@ -412,3 +412,11 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Git: `codex/precitec-laser-heads`; commit, push, pull request, and deployment pending in this entry.
 - Remote/deploy: Pending GitHub review and the Git-integrated Vercel deployment.
 - Follow-up: Publish the reviewed branch, verify the Vercel preview and production routes, then update this record with the final commit and deployment state.
+### 2026-08-20 15:24 EDT — Codex — Publish Precitec laser-head catalog to production
+
+- Scope: Published the reviewed BOCI/Precitec laser-head hub, Precitec brand page, ProCutter Thunder and ProCutter 2.0 product pages, official media library, shared navigation updates, catalog data, and repeatable build tooling.
+- Files: Production scope is the complete Precitec laser-head change recorded above. This entry and `HANDOFF.md` record the final GitHub/Vercel state for Claude.
+- Validation: GitHub and Vercel checks passed; Vercel production deployment `dpl_8brMBybn7HxG9GVkj4B7TQXcgq1g` reached READY; all four live laser-head routes, the public JSON catalog, and representative WebP media returned HTTP 200; both product pages contain their expected product names; the homepage contains the new Precitec navigation path; and Vercel reported no runtime errors in the post-deploy 15-minute scan.
+- Git: Pull request #40 was squash-merged to `main` as `515c5474cf10f9987b81ee72a2cdbce722df66e3`.
+- Remote/deploy: Live at `https://wavlonlasers.com/technologies/laser-heads/`, with Precitec at `/technologies/laser-heads/precitec/` and dedicated Thunder and ProCutter 2.0 routes.
+- Follow-up: The product content is live. Future edits must preserve official-source specifications, refresh the provenance manifest, regenerate pages, sync shared navigation, and repeat the validation checklist.
