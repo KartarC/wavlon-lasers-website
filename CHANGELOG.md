@@ -438,3 +438,12 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Git: `codex/remove-homepage-laser-head-section`; commit, pull request, and deployment pending in this entry.
 - Remote/deploy: Pending GitHub review and Git-integrated Vercel deployment.
 - Follow-up: Publish the focused branch, verify the homepage deployment, and record the final production state in the pull request.
+
+### 2026-08-26 13:51 EDT — Codex — Separate ProCutter 2.0 hero layers
+
+- Scope: Fixed the ProCutter 2.0 hero overlap by giving that tall portrait product image a model-specific containment layout, reserved bottom clearance, and a specification rail that sits below the visual instead of being pulled over it. Added smaller-screen sizing and spacing so the separation remains intact on mobile. ProCutter Thunder and other laser-head layouts are unchanged.
+- Files: `assets/laser-heads.css`, `technologies/laser-heads/precitec/procutter-2-0/index.html`, `tools/laser-heads/build-precitec-pages.mjs`, `CHANGELOG.md`, and `HANDOFF.md`.
+- Validation: Regenerated the Precitec pages from source; `npm.cmd run sync` verified 59 shared headers and footers with zero drift; the generator passed `node --check`; the rendered ProCutter 2.0 page contains the model-specific hero class; desktop and mobile rules both keep the specification rail at a positive separation; and `git diff --check` passed apart from repository line-ending notices.
+- Git: `codex/fix-procutter-2-hero-overlap`; commit, pull request, and deployment pending in this entry.
+- Remote/deploy: Pending GitHub review and Git-integrated Vercel deployment.
+- Follow-up: Publish the focused branch, verify the public ProCutter 2.0 route, and record the final production state in the pull request.
