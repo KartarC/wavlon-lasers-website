@@ -429,3 +429,12 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Git: `codex/technology-visual-refresh`; commit, pull request, and deployment pending in this entry.
 - Remote/deploy: Pending GitHub review and Git-integrated Vercel deployment.
 - Follow-up: Publish the reviewed branch, verify the preview and production routes, then update this record and `HANDOFF.md` with the final commit and deployment state.
+
+### 2026-08-26 13:29 EDT — Codex — Remove homepage laser-head showcase
+
+- Scope: Removed the standalone BOCI BLT310 laser-head showcase from the homepage, including its four-step pinned presentation and side-navigation marker. Removed the section's now-unused homepage CSS, JavaScript, parallax behavior, and initialization code. The shared Technologies navigation, optional-components card, and dedicated BOCI/Precitec laser-head pages remain unchanged and available.
+- Files: `index.html`, `CHANGELOG.md`, and `HANDOFF.md`.
+- Validation: Confirmed the homepage contains zero references to the removed section or its behavior; all three remaining inline scripts parse successfully; reviewed the focused diff; and `git diff --check` passed apart from the repository's existing line-ending notice.
+- Git: `codex/remove-homepage-laser-head-section`; commit, pull request, and deployment pending in this entry.
+- Remote/deploy: Pending GitHub review and Git-integrated Vercel deployment.
+- Follow-up: Publish the focused branch, verify the homepage deployment, and record the final production state in the pull request.
