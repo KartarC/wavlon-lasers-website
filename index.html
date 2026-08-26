@@ -291,43 +291,6 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 .hp-components { background: var(--bg); border-top: 1px solid var(--line); padding: clamp(80px, 12vh, 140px) var(--pad-x); }
 .hp-components-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
 
-/* ── BOCHU ──────────────────────────────────────────────────── */
-.bochu { background: var(--bg); border-top: 1px solid var(--line); }
-.bochu-head-block { padding: clamp(100px, 14vh, 180px) var(--pad-x) clamp(40px, 6vh, 80px); max-width: 1680px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: end; }
-.bochu-brand { display: flex; flex-direction: column; gap: 24px; }
-.bochu-mark { font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.03em; line-height: 0.9; text-transform: uppercase; }
-.bochu-mark .by { display: block; font-size: 0.22em; font-family: var(--mono); font-weight: 500; letter-spacing: 0.24em; color: var(--ink-faint); margin-top: 12px; }
-.bochu-head-block h2 { font-size: clamp(2.8rem, 5.5vw, 5.5rem); line-height: 0.9; }
-.bochu-head-block h2 .blue { color: var(--blue); }
-.bochu-stage-track { position: relative; }
-.bochu-pin { height: calc(100vh - var(--header-h)); display: grid; grid-template-columns: 480px 1fr; align-items: stretch; gap: 0; padding: 0 var(--pad-x); max-width: 1680px; margin: 0 auto; overflow-x: hidden; background: var(--bg); }
-.bochu-text { position: relative; padding-right: 40px; display: flex; align-items: center; overflow: hidden; }
-.bochu-text-frames-wrap { position: relative; width: 100%; height: clamp(480px, 72vh, 640px); }
-/* All frames are always position:absolute — no layout thrash when switching */
-.bochu-text-frame { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 20px; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); overflow: visible; }
-.bochu-text-frame.is-active { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.bochu-text-frame .step-num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); }
-.bochu-text-frame h3 { font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase; }
-.bochu-text-frame h3 em { font-style: normal; color: transparent; -webkit-text-stroke: 1.2px var(--ink); }
-.bochu-text-frame p { font-size: 15px; line-height: 1.55; color: var(--ink-dim); max-width: 42ch; }
-.bochu-text-frame ul { list-style: none; display: flex; flex-direction: column; gap: 0; margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
-.bochu-text-frame ul li { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; padding: 7px 0; border-bottom: 1px dashed var(--line); }
-.bochu-text-frame ul li span { color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.16em; font-size: 10px; }
-.bochu-text-frame ul li b { color: var(--ink); font-weight: 500; }
-.bochu-stage { position: relative; height: calc(100vh - var(--header-h) - 40px); margin: 20px 0; background: radial-gradient(80% 60% at 50% 50%, var(--bg-2), var(--bg) 70%); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; isolation: isolate; }
-.bochu-stage::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(10,11,12,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(10,11,12,0.04) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
-.bochu-frame { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transition: opacity 0.5s var(--ease); }
-.bochu-frame.is-active { opacity: 1; }
-.bochu-frame img { max-width: 70%; max-height: 80%; object-fit: contain; will-change: transform; }
-.bochu-stage-label { position: absolute; top: 18px; left: 18px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); z-index: 5; }
-.bochu-stage-label b { color: var(--ink); font-weight: 500; margin-left: 6px; }
-.bochu-stage-meta { position: absolute; bottom: 18px; right: 18px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); z-index: 5; }
-.bochu-stage-meta b { color: var(--blue); font-weight: 500; }
-.bochu-stage-progress { position: absolute; top: 18px; right: 18px; display: flex; gap: 6px; z-index: 5; }
-.bochu-stage-progress .pip { width: 24px; height: 3px; background: var(--line); transition: background 0.4s var(--ease); }
-.bochu-stage-progress .pip.is-active { background: var(--blue); }
-.bochu-stage-progress .pip.is-done { background: var(--ink); }
-
 /* ── Cypcut ─────────────────────────────────────────────────── */
 .cypcut { background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .cypcut-inner { padding: clamp(100px, 14vh, 180px) var(--pad-x); max-width: 1680px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
@@ -375,9 +338,6 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1100px) {
-  .bochu-head-block { grid-template-columns: 1fr; gap: 32px; }
-  .bochu-pin { grid-template-columns: 1fr; padding: 0 var(--pad-x); }
-  .bochu-text { display: none; }
   .cypcut-inner { grid-template-columns: 1fr; gap: 48px; }
   .hp-machines-grid { grid-template-columns: repeat(2, 1fr); }
   .hp-components-grid { grid-template-columns: repeat(2, 1fr); }
@@ -576,9 +536,6 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
     <div class="page-toc-item" data-section="machines">
       <a href="#machines"><span class="page-toc-label">Our Machines</span><span class="page-toc-dot"></span></a>
     </div>
-    <div class="page-toc-item" data-section="bochu-section">
-      <a href="#bochu-section"><span class="page-toc-label">Laser Head</span><span class="page-toc-dot"></span></a>
-    </div>
     <div class="page-toc-item" data-section="components">
       <a href="#components"><span class="page-toc-label">Optional Components</span><span class="page-toc-dot"></span></a>
     </div>
@@ -713,66 +670,6 @@ h1 em, h2 em, h3 em { font-style: normal; color: transparent; -webkit-text-strok
     </div>
     <div class="hp-machines-cta">
       <a href="/machines/">View All Machine Series</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── BOCHU Head ─────────────────────────────────────────────── -->
-<section class="bochu" id="bochu-section">
-  <div class="bochu-head-block">
-    <div class="bochu-brand">
-      <div class="tag">Section 04 · Cutting Head</div>
-      <div class="bochu-mark">BOCI · BLT310<span class="by">Manufactured by Bochu Electronic Technology — a Bochu Group brand.</span></div>
-    </div>
-    <div>
-      <h2>The brain of<br/>the <span class="blue">beam.</span></h2>
-      <p class="body-copy" style="margin-top:24px;">BOCI's BLT family is the industry reference for high-power fiber cutting heads — scaled from 3 kW workhorses up to ultra-high-power 120 kW and 3D-capable variants. The BLT310 we fit to the WD-3015E delivers adaptive standoff, sealed modular optics, and field-serviceable lens cassettes. Scroll to take it apart.</p>
-    </div>
-  </div>
-  <div class="bochu-stage-track" id="bochuTrack">
-    <div class="bochu-pin">
-      <div class="bochu-text">
-        <div class="bochu-text-frames-wrap">
-          <div class="bochu-text-frame is-active" data-text="0">
-            <div class="step-num">Step 01 / 04 · Whole assembly</div>
-            <h3>Compact, <em>sealed</em>, sensor-laden.</h3>
-            <p>The BLT310 ships as a sealed assembly: collimator on top, focus module in the middle, capacitive sensor ring at the nozzle. Standoff is monitored at 1 kHz; the head can hold ±50 µm even as 6 mm stainless warps under cut load.</p>
-            <ul><li><span>Power band</span><b>3 — 15 kW</b></li><li><span>Focus stroke</span><b>±25 mm</b></li><li><span>Standoff</span><b>±50 µm</b></li><li><span>Sensor rate</span><b>1 kHz</b></li></ul>
-          </div>
-          <div class="bochu-text-frame" data-text="1">
-            <div class="step-num">Step 02 / 04 · Mounting + Nozzle</div>
-            <h3>Tool-free <em>nozzle</em> swap.</h3>
-            <p>The mounting block carries the capacitive sensor, gas inlet, and the auto-positioning rails. Nozzles change in under five seconds via the quick-lock collar — no tools, no realignment, no test cuts.</p>
-            <ul><li><span>Nozzle change</span><b>&lt; 5 s</b></li><li><span>Gas inlets</span><b>N₂ · O₂ · Air</b></li><li><span>Max pressure</span><b>25 bar</b></li><li><span>Mount</span><b>Quick-lock</b></li></ul>
-          </div>
-          <div class="bochu-text-frame" data-text="2">
-            <div class="step-num">Step 03 / 04 · Exploded view</div>
-            <h3>Modular <em>service</em> internals.</h3>
-            <p>Open the head and every consumable lifts out as an indexed cassette: cover slide, focus lens, collimator, beam splitter. Each cassette has its own seals — the rest of the head never sees ambient air.</p>
-            <ul><li><span>Modules</span><b>4 cassettes</b></li><li><span>Seal class</span><b>IP55 / dry-N₂</b></li><li><span>Cover slide</span><b>Auto-replace</b></li><li><span>Service time</span><b>&lt; 10 min</b></li></ul>
-          </div>
-          <div class="bochu-text-frame" data-text="3">
-            <div class="step-num">Step 04 / 04 · Focus optics</div>
-            <h3>The lens is <em>everything.</em></h3>
-            <p>At the focus stage, a fused-silica plano-convex lens condenses the collimated beam to an 80-micron focal spot. The retainer is a precision-machined nickel-plated bezel that drops out of the cassette and re-seats to ±2 µm tilt accuracy.</p>
-            <ul><li><span>Lens material</span><b>Fused silica</b></li><li><span>Focal length</span><b>150 mm</b></li><li><span>Focal spot</span><b>Ø 80 µm</b></li><li><span>Re-seat tol.</span><b>±2 µm</b></li></ul>
-          </div>
-        </div>
-      </div>
-      <div class="bochu-stage" id="bochuStage">
-        <div class="bochu-stage-label"><span>BOCI BLT310</span> <b id="bochuStepLabel">01 / 04</b></div>
-        <div class="bochu-stage-progress">
-          <span class="pip is-active" data-pip="0"></span>
-          <span class="pip" data-pip="1"></span>
-          <span class="pip" data-pip="2"></span>
-          <span class="pip" data-pip="3"></span>
-        </div>
-        <div class="bochu-stage-meta">BOCHU GROUP · <b>15 kW class</b></div>
-        <div class="bochu-frame is-active" data-bframe="0"><img src="/assets/bochu-head-1.png" alt="BOCI BLT310 — full assembly" /></div>
-        <div class="bochu-frame" data-bframe="1"><img src="/assets/bochu-head-2.webp" alt="BOCI BLT310 — mount detail" /></div>
-        <div class="bochu-frame" data-bframe="2"><img src="/assets/bochu-head-3-exploded.webp" alt="BOCI BLT310 — exploded optics" /></div>
-        <div class="bochu-frame" data-bframe="3"><img src="/assets/bochu-head-4-lens.webp" alt="BOCI BLT310 — focus lens" /></div>
-      </div>
     </div>
   </div>
 </section>
@@ -923,48 +820,6 @@ function heroIntro() {
   }
 }
 
-/* ── BOCHU ──────────────────────────────────────────────────── */
-function setupBochu() {
-  var bochuPin   = document.querySelector('.bochu-pin');
-  var textFrames = document.querySelectorAll('.bochu-text-frame');
-  var bFrames    = document.querySelectorAll('.bochu-frame');
-  var pips       = document.querySelectorAll('.bochu-stage-progress .pip');
-  var stepLabel  = document.getElementById('bochuStepLabel');
-  var total      = bFrames.length;
-  var current    = 0;
-
-  if (!bochuPin || !bFrames.length) return;
-
-  function goTo(idx) {
-    if (idx === current) return;
-    // images
-    bFrames[current].classList.remove('is-active');
-    bFrames[idx].classList.add('is-active');
-    // pips
-    pips.forEach(function(p, i) {
-      p.classList.toggle('is-active', i === idx);
-      p.classList.toggle('is-done', i < idx);
-    });
-    // text
-    if (textFrames[current]) textFrames[current].classList.remove('is-active');
-    if (textFrames[idx])     textFrames[idx].classList.add('is-active');
-    current = idx;
-    if (stepLabel) stepLabel.textContent = String(idx + 1).padStart(2, '0') + ' / 04';
-  }
-
-  // GSAP pin — adds exact scroll space; no trailing white space after unpin
-  ScrollTrigger.create({
-    trigger: bochuPin,
-    pin: true,
-    start: 'top top+=' + HEADER_H,
-    end: '+=' + (window.innerHeight * 4),
-    onUpdate: function(self) {
-      var idx = Math.min(total - 1, Math.floor(self.progress * total));
-      goTo(idx);
-    }
-  });
-}
-
 /* ── Cypcut ─────────────────────────────────────────────────── */
 function setupCypcut() {
   var section = document.getElementById('cypcut');
@@ -1016,31 +871,11 @@ function setupParallax() {
     }
   );
 
-  // 3. BOCHU frame images: subtle scale-out scrubbed to the GSAP-pinned element
-  var bochuPin = document.querySelector('.bochu-pin');
-  if (bochuPin) {
-    document.querySelectorAll('.bochu-frame img').forEach(function(img) {
-      gsap.fromTo(img,
-        { scale: 1.06 },
-        {
-          scale: 1.0,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: bochuPin,
-            start: 'top top+=' + HEADER_H,
-            end: '+=' + (window.innerHeight * 4),
-            scrub: 0.6
-          }
-        }
-      );
-    });
-  }
-
 }
 
 /* ── Section heads ──────────────────────────────────────────── */
 function setupSectionHeads() {
-  document.querySelectorAll('.hp-section-head, .bochu-head-block').forEach(function(el) {
+  document.querySelectorAll('.hp-section-head').forEach(function(el) {
     gsap.from(el.children, {
       scrollTrigger: { trigger: el, start: 'top 80%', toggleActions: 'play none none none' },
       opacity: 0, y: 20, stagger: 0.08, duration: 0.7, ease: 'power3.out'
@@ -1062,7 +897,7 @@ function setupSectionHeads() {
 /* ── Side TOC — scroll-position tracker ────────────────────── */
 (function() {
   var tocItems   = document.querySelectorAll('.page-toc-item');
-  var sectionIds = ['hero', 'machines', 'bochu-section', 'components', 'cypcut'];
+  var sectionIds = ['hero', 'machines', 'components', 'cypcut'];
 
   // Build a live reference array (looked up after DOM is ready)
   var sections = [];
@@ -1129,7 +964,6 @@ function setupSectionHeads() {
 function init() {
   // 1. Create all ScrollTriggers FIRST — at this point the DOM is unmodified,
   //    so getBoundingClientRect / offsetTop measurements are accurate.
-  setupBochu();
   setupCypcut();
   setupSectionHeads();
   setupParallax();
