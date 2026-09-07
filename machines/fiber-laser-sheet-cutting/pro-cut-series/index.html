@@ -1328,31 +1328,32 @@ document.getElementById('sqForm').addEventListener('submit', async function(e) {
 <!-- ═══ FORM HANDLERS ═══ -->
 <script>
 (function() {
-  var sqUL = document.getElementById(‘sqULForm’);
-  if (sqUL) sqUL.addEventListener(‘submit’, async function(e) {
+  var sqUL = document.getElementById('sqULForm');
+  if (sqUL) sqUL.addEventListener('submit', async function(e) {
     e.preventDefault();
-    var btn = this.querySelector(‘.form-submit’);
-    btn.textContent = ‘Sending…’; btn.disabled = true;
+    var btn = this.querySelector('.form-submit');
+    btn.textContent = 'Sending…'; btn.disabled = true;
     try {
-      await fetch(‘/api/submit-form’, {
-        method: ‘POST’,
-        headers: {‘Content-Type’:’application/json’},
+      var response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
-          name:             document.getElementById(‘squl_name’).value,
-          email:            document.getElementById(‘squl_email’).value,
-          phone:            document.getElementById(‘squl_phone’).value,
-          company:          document.getElementById(‘squl_company’).value,
-          machine_interest: ‘ProCut UL — ‘ + document.getElementById(‘squl_power’).value,
-          material:         document.getElementById(‘squl_material’).value,
-          message:          document.getElementById(‘squl_message’).value,
-          source:           ‘procut-ul-page’
+          name:             document.getElementById('squl_name').value,
+          email:            document.getElementById('squl_email').value,
+          phone:            document.getElementById('squl_phone').value,
+          company:          document.getElementById('squl_company').value,
+          machine_interest: 'ProCut UL — ' + document.getElementById('squl_power').value,
+          material:         document.getElementById('squl_material').value,
+          message:          document.getElementById('squl_message').value,
+          source:           'pro-cut-series-ul-page'
         })
       });
-      document.getElementById(‘sqULFormWrap’).style.display = ‘none’;
-      document.getElementById(‘sqULSuccess’).style.display  = ‘block’;
+      if (!response.ok) throw new Error('Quote request failed');
+      document.getElementById('sqULFormWrap').style.display = 'none';
+      document.getElementById('sqULSuccess').style.display  = 'block';
     } catch(err) {
-      btn.textContent = ‘Send Quote Request’; btn.disabled = false;
-      alert(‘Error sending. Please email sales@wavlonlasers.com directly.’);
+      btn.textContent = 'Send Quote Request'; btn.disabled = false;
+      alert('Error sending. Please email sales@wavlonlasers.com directly.');
     }
   });
 }());
