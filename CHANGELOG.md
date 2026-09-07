@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-07 16:09 EDT — Codex — Publish large gallery and shared-menu image optimization
+
+- Scope: Merged the reviewed large-gallery and shared-menu image optimization through PR #47 and verified the connected production deployment. This record adds no further product changes.
+- Performance: Forty-two browser-delivery assets now total 3,625,014 bytes instead of 81,002,711 bytes, a 95.5% reduction. The repository audit still reports zero customer-visible raster references larger than 1 MB.
+- Validation: Both Vercel pull-request checks passed; the production deployment reached Ready; the live homepage, ProCut, PowerCut, and laser-head controller routes returned HTTP 200 and referenced the optimized WebP assets; three representative live assets returned HTTP 200 with the expected `image/webp` content type.
+- Git: PR #47 merged as `37c4670`; product commit `c0cc57e`.
+- Remote/deploy: Live at https://wavlonlasers.com. Vercel deployment: https://wavlon-lasers-website-cc3e9z92f-infinara.vercel.app.
+- Follow-up: The next self-contained priority is an accessibility and mobile conversion pass. GA4 activation and the W-Series product render still require owner-provided inputs.
+
 ### 2026-09-07 16:06 EDT — Codex — Complete large gallery and shared-menu image optimization
 
 - Scope: Created 42 right-sized WebP delivery assets and replaced every customer-visible PNG/JPEG reference larger than 1 MB across the homepage, shared mega menu, machine hubs, ProCut and PowerCut galleries, TubeCut Double Chuck hero, machine showcase, BOCI/controller technology pages, and reusable component fragments.
