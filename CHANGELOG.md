@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-07 16:37 EDT — Codex — Publish accessibility and mobile conversion improvements
+
+- Scope: Merged the reviewed accessibility and mobile-conversion pass through PR #49 and verified the connected production deployment. This record adds no further product changes.
+- Validation: Both Vercel pull-request checks passed; the production deployment reached Ready and received the `wavlonlasers.com` alias; the live homepage, contact, financing, and ProCut routes returned HTTP 200 with the expected skip landmark, mobile conversion dock, labelled form, FAQ accordion, and accessible dismiss controls; the live shared CSS and navigation JavaScript returned HTTP 200 with the new behavior; the deployment error-log scan was clean.
+- Git: PR #49 merged as `d6a12c5`; product commit `9c71eff`.
+- Remote/deploy: Live at https://wavlonlasers.com. Vercel deployment: https://wavlon-lasers-website-4hqh2ip3u-infinara.vercel.app.
+- Follow-up: The next self-contained priority is retired model-name cleanup where replacements are already verified. GA4 activation and the W-Series product render still require owner-provided inputs.
+
 ### 2026-09-07 16:34 EDT — Codex — Improve accessibility and mobile conversion paths
 
 - Scope: Upgraded the shared site shell and lead forms for keyboard, screen-reader, reduced-motion, and mobile visitors without redesigning product content or changing machine specifications.

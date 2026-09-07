@@ -1,13 +1,13 @@
 # Current Handoff
 
-Last updated: 2026-09-07 16:34 EDT by Codex
+Last updated: 2026-09-07 16:37 EDT by Codex
 
 ## Current state
 
 - PR #44 merged to `main` as `b67cfe4`; the credibility and conversion sprint is live.
 - PR #45 merged to `main` as `78a10b9`; the homepage and technology image-delivery improvements are live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
 - PR #47 merged to `main` as `37c4670`; the large gallery and shared-menu image optimization is live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
-- The accessibility and mobile-conversion pass is complete on `codex/accessibility-mobile-conversion` and is pending commit, pull request, and production deployment.
+- PR #49 merged to `main` as `d6a12c5`; the accessibility and mobile-conversion pass is live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
 - Every shared page now has a skip link, a verified `main#main-content` landmark, keyboard-operable desktop and mobile navigation, visible focus styling, improved muted-text contrast, and reduced-motion support.
 - Mobile pages now provide a persistent Call / Get a Quote dock. Product-specific sticky quote bars supersede the global dock while visible and use accessible SVG dismiss controls.
 - All 11 lead forms now use native required/email validation, associated labels, stable field names, contact autocomplete hints, and live success announcements. The financing FAQ now uses accessible accordion semantics.
@@ -27,7 +27,7 @@ Last updated: 2026-09-07 16:34 EDT by Codex
 5. Do not reactivate analytics with a placeholder ID. Obtain the real GA4 Measurement ID and retain the existing consent gate.
 6. Replace the W-Series application image only when a real product render is available, and update its alternative text.
 7. Record every Claude or Codex change in `CHANGELOG.md` and refresh this handoff.
-8. Publish and verify the completed accessibility/mobile pass. After that, retired model-name cleanup is the next self-contained improvement, but change only names whose current replacements are already verified and never invent replacement specifications.
+8. The next self-contained improvement is retired model-name cleanup, but change only names whose current replacements are already verified and never invent replacement specifications.
 
 ## Validation completed
 
@@ -40,12 +40,13 @@ Last updated: 2026-09-07 16:34 EDT by Codex
 - For the current pass, 42 new WebP assets and 267 browser references were verified, all 64 changed HTML files parsed, all 59 sitemap routes and 42 new assets returned HTTP 200 locally, and no browser-visible raster reference over 1 MB remains.
 - In production, the homepage, ProCut, PowerCut, and laser-head controller routes returned HTTP 200 and referenced optimized WebP files. The sampled menu, ProCut, and PowerCut assets returned HTTP 200 as `image/webp`.
 - Accessibility/mobile validation: shared sync verified 59 headers, 59 main landmarks, and 59 footers with zero drift; JavaScript syntax checks passed; a static audit verified 11 forms, 75 labelled and named controls, 1,665 images with alternative text, 717 named buttons, unique IDs, and valid ARIA references; all 59 sitemap URLs returned HTTP 200 locally; `git diff --check` passed apart from line-ending notices.
+- Production accessibility validation: the PR checks passed; Vercel deployment `wavlon-lasers-website-4hqh2ip3u-infinara.vercel.app` reached Ready with the production aliases; the live homepage, contact, financing, ProCut, shared CSS, and navigation JavaScript returned HTTP 200 with the expected new markers; the deployment error-log scan was clean.
 
 ## Access notes
 
 - GitHub remote: `https://github.com/KartarC/wavlon-lasers-website.git`.
-- Published pull requests: `https://github.com/KartarC/wavlon-lasers-website/pull/44`, `https://github.com/KartarC/wavlon-lasers-website/pull/45`, and `https://github.com/KartarC/wavlon-lasers-website/pull/47`.
-- Production deployment: `https://wavlon-lasers-website-cc3e9z92f-infinara.vercel.app`.
+- Published pull requests: `https://github.com/KartarC/wavlon-lasers-website/pull/44`, `https://github.com/KartarC/wavlon-lasers-website/pull/45`, `https://github.com/KartarC/wavlon-lasers-website/pull/47`, and `https://github.com/KartarC/wavlon-lasers-website/pull/49`.
+- Production deployment: `https://wavlon-lasers-website-4hqh2ip3u-infinara.vercel.app`.
 - Production URL: `https://wavlonlasers.com`.
-- Active branch: `codex/accessibility-mobile-conversion` (implementation complete; publishing pending).
+- Active branch: `codex/accessibility-deployment-record` (documentation-only production record).
 - Active worktree: `C:/Users/Karta/Documents/Codex/2026-07-20/referenced-chatgpt-conversation-this-is-untrusted/wavlon-laser-source-worktree`.
