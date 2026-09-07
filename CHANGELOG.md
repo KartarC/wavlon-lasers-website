@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-07 15:28 EDT — Codex — Publish homepage and technology image improvements
+
+- Scope: Merged the reviewed image-delivery improvement through PR #45 and verified the connected production deployment. This record adds no further product changes.
+- Validation: Both Vercel pull-request checks passed. The production deployment reached Ready, `wavlonlasers.com` returned HTTP 200 with the correct hero preload and no stale machine-image preloads, the live 3D controller page referenced the optimized WebP, and the live asset returned HTTP 200 as `image/webp` at 127,264 bytes.
+- Git: PR #45 merged as `78a10b9`; product commit `d0e179f`.
+- Remote/deploy: Live at https://wavlonlasers.com. Vercel deployment: https://wavlon-lasers-website-dktxvhkqb-infinara.vercel.app.
+- Follow-up: Continue optimizing the remaining large gallery assets in measured groups; obtain the real GA4 Measurement ID and W-Series product render before completing those two blocked enhancements.
+
 ### 2026-09-07 15:24 EDT — Codex — Improve homepage and technology image delivery
 
 - Scope: Replaced two stale homepage machine-image preloads with the actual first hero scene, added intrinsic dimensions and asynchronous decoding to all three hero images, and served four oversized technology illustrations as right-sized WebP assets.
