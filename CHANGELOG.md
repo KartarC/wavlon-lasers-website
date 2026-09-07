@@ -2,6 +2,19 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-07 16:34 EDT — Codex — Improve accessibility and mobile conversion paths
+
+- Scope: Upgraded the shared site shell and lead forms for keyboard, screen-reader, reduced-motion, and mobile visitors without redesigning product content or changing machine specifications.
+- Navigation: Added a skip link and verified `main` landmark target to every shared page; synchronized expanded, hidden, control, and accessible-label states across desktop mega menus, support/resource dropdowns, the mobile drawer, and mobile accordions; added Escape, Arrow Down, focus-exit, outside-click, and resize behavior.
+- Mobile conversion: Added a persistent, safe-area-aware Call / Get a Quote dock on mobile. Existing product quote bars now take priority while visible, use compact 44 px controls, and have SVG dismiss icons with accessible names.
+- Forms and content: Re-enabled native required/email validation across all lead forms; associated labels, stable field names, contact autocomplete hints, and live success announcements; converted the financing FAQ to an accessible button/region accordion.
+- Visual accessibility: Added high-contrast focus indicators, improved muted-text contrast, larger navigation targets, anchored in-page focus targets below the fixed header, and a reduced-motion mode.
+- Files: `_partials/header.html`; `_partials/footer.html`; `shared.css`; `nav.js`; `build.js`; 59 regenerated pages; the 10 pages containing lead forms; `financing/index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Shared sync verified 59 headers, 59 main landmarks, and 59 footers with zero drift; JavaScript syntax checks passed; a static audit verified 59 pages, 11 forms, 75 labelled and named controls, 1,665 images with alternative text, 717 named buttons, unique IDs, and valid ARIA references; all 59 sitemap URLs returned HTTP 200 locally; `git diff --check` passed apart from repository line-ending notices.
+- Git: `codex/accessibility-mobile-conversion`; commit and push follow with this record.
+- Remote/deploy: Production remains on the previously verified deployment until this focused branch is reviewed and merged.
+- Follow-up: Publish this pass, verify the production routes and shared accessibility assets, then continue with retired model-name cleanup only where current replacement facts are already verified. GA4 activation and the W-Series product render still require owner-provided inputs.
+
 ### 2026-09-07 16:09 EDT — Codex — Publish large gallery and shared-menu image optimization
 
 - Scope: Merged the reviewed large-gallery and shared-menu image optimization through PR #47 and verified the connected production deployment. This record adds no further product changes.
