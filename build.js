@@ -44,6 +44,7 @@ const files = walkHtml(ROOT);
 let synced = 0;
 let headersVerified = 0;
 let footersVerified = 0;
+let mainLandmarksVerified = 0;
 const INLINE_HEADER_PATTERN = /<!--[^>]*HEADER[^>]*inline copy[^>]*-->\s*(<header[\s\S]*?<\/header>)/;
 // Must capture exactly the span the footer replacer below rewrites: the footer
 // element plus the optional cookie-consent script that _partials/footer.html
@@ -73,6 +74,22 @@ for (const file of files) {
   }
   if (inlineHeader) headersVerified++;
 
+  // Every shared-header page needs a single, named main landmark so the
+  // shared skip link works without JavaScript and assistive technology can
+  // move directly to the page content.
+  const mainElements = html.match(/<main\b[^>]*>/gi) || [];
+  if (inlineHeader && mainElements.length !== 1) {
+    throw new Error(`Expected one main landmark in ${path.relative(ROOT, file)}; found ${mainElements.length}.`);
+  }
+  if (mainElements.length === 1 && !/\bid=["']main-content["']/i.test(mainElements[0])) {
+    html = html.replace(/<main\b/i, '<main id="main-content"');
+    changed = true;
+  }
+  if (inlineHeader && !/<main\b[^>]*\bid=["']main-content["']/i.test(html)) {
+    throw new Error(`Missing main-content skip target in ${path.relative(ROOT, file)}.`);
+  }
+  if (inlineHeader) mainLandmarksVerified++;
+
   // Replace footer: matches both plain and decorated comment variants
   const newHtml2 = html.replace(
     /<!--[^>]*FOOTER[^>]*inline copy[^>]*-->[\s\S]*?<\/footer>(?:\s*<script src="\/assets\/cookie-consent\.js" defer><\/script>)*/,
@@ -100,4 +117,4 @@ for (const file of files) {
   }
 }
 
-console.log(`\nDone. Synced header/footer into ${synced} pages. Verified ${headersVerified} shared headers and ${footersVerified} shared footers.`);
+console.log(`\nDone. Synced header/footer into ${synced} pages. Verified ${headersVerified} shared headers, ${mainLandmarksVerified} main landmarks, and ${footersVerified} shared footers.`);
