@@ -2,6 +2,17 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-07 03:02 EDT — Codex — Improve homepage focus, product credibility, and quote reliability
+
+- Scope: Reduced the homepage carousel from eight messages to three buyer-focused machine scenes (portfolio, sheet lasers, and tube lasers); preserved the approved real-machine artwork; corrected homepage encoding artifacts and retired WD-3015E copy; replaced the unrelated laser-head image on the W-Series card with an honest laser-welding application image.
+- Credibility: Removed the unsupported 160 kW UltraCut claim from the machines hub, UltraCut hero, product callout, comparison table, and quote selector. Standard UltraCut coverage now remains 3–20 kW, while non-standard requests are explicitly subject to engineering review. Replaced conflicting generic BOCI IP65/IP67 and “World #1” language with model-specific, configuration-dependent wording.
+- Lead handling: Repaired the secondary ProCut form’s invalid smart-quote JavaScript and assigned its current-series source value. Added HTTP failure checks to the UltraCut, TubeCut Double Chuck, TubeCut Triple Chuck, W-Series, and Tower System quote forms so a failed API request can no longer display a false success state. Updated `CLAUDE.md` to reflect the current ProCut source values and preserve historical reporting context.
+- Files: `index.html`; `machines/index.html`; `technologies/index.html`; current machine pages for ProCut, UltraCut, TubeCut Double Chuck, TubeCut Triple Chuck, W-Series, and Tower System; `CLAUDE.md`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: `npm.cmd run sync` verified 59 shared headers and footers with zero drift; all affected inline JavaScript parsed successfully; all nine affected routes plus the replacement welding image returned HTTP 200 from a local static server; the homepage has exactly three scenes, three controls, and a 03 total; scoped unsupported/malformed claims returned zero matches; `git diff --check` passed apart from repository line-ending notices.
+- Git: `codex/credibility-conversion-sprint`; commit and push follow with this record.
+- Remote/deploy: Production is unchanged. Feature-branch push, pull request, and Vercel preview verification are pending.
+- Follow-up: Supply the real GA4 Measurement ID before enabling consent-based analytics. Replace the W-Series application photo with a real Wavlon product render when one is available.
+
 ### 2026-08-20 12:24 EDT — Codex — Publish ultra-wide slide 1 framing fix
 
 - Scope: Merged the slide 1 ultra-wide framing correction through PR #37 and verified production. On displays 1800 px and wider, the existing UltraCut artwork remains large but anchors to the showroom floor so the complete machine is visible instead of being cropped at the bottom.

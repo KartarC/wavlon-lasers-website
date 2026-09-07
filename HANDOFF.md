@@ -1,28 +1,39 @@
 # Current Handoff
 
-Last updated: 2026-08-26 13:51 EDT by Codex
+Last updated: 2026-09-07 03:02 EDT by Codex
 
 ## Current state
 
-- The ProCutter 2.0 hero overlap is fixed on `codex/fix-procutter-2-hero-overlap`.
-- The portrait product image now has a dedicated contained hero layout with protected bottom clearance. Its specification rail uses positive separation instead of overlapping the image card.
-- A mobile rule reduces the image and maintains the same layer separation below 720 px.
-- The fix is deliberately model-specific. ProCutter Thunder, the shared laser-head hub, product content, navigation, and official imagery remain unchanged.
-- The repeatable generator now emits the ProCutter 2.0 modifier class, so future page regeneration preserves the correction.
-- Validation passes: generator run, 59 shared header/footer checks, generator syntax, model-class verification, desktop/mobile separation rules, and focused diff checks.
-- The branch is based on production `origin/main` at `f3f317a`. The original OneDrive Desktop checkout remains untouched.
+- The first credibility and conversion sprint is complete on `codex/credibility-conversion-sprint`, based on current `origin/main` at `e99b21e`.
+- The homepage hero now contains only the approved portfolio, sheet-laser, and tube-laser scenes. The existing real-machine artwork and responsive framing remain unchanged.
+- The W-Series homepage card uses a laser-welding application image instead of an unrelated BOCI cutting head. A real Wavlon W-Series product render is still preferred when available.
+- UltraCut is consistently presented as 3–20 kW standard; non-standard configurations require engineering review. The unsupported 160 kW public claim has been removed from the affected product and hub surfaces.
+- Generic BOCI ranking and conflicting ingress-protection claims were replaced with model-specific configuration language.
+- The ProCut primary and secondary forms now use `pro-cut-series-page` and `pro-cut-series-ul-page`. Historical `s-series-page` records should remain untouched and may be normalized in reporting.
+- The affected machine quote forms now verify the API response before displaying success.
+- Consent-based analytics remains inactive because no production GA4 Measurement ID is stored in the repository.
 
 ## What Claude or the next assistant must do
 
 1. Read `AGENTS.md`, `CLAUDE.md`, the newest `CHANGELOG.md` entry, and this file before editing.
-2. Preserve the `lh2-detail-hero--procutter-2-0` modifier and its contained visual/specification spacing when regenerating the Precitec pages.
-3. Continue to use `tools/laser-heads/build-precitec-pages.mjs` for generated Precitec page changes, followed by `npm.cmd run sync` when shared partials are touched.
-4. Record every Claude or Codex change in `CHANGELOG.md` and refresh this handoff.
-5. Complete the normal pull-request/Vercel workflow and use the pull-request status comment as the authoritative final deployment record.
+2. Preserve the three-scene homepage hero and the approved real-machine artwork unless the owner requests a new composition.
+3. Preserve the engineering-review language for non-standard UltraCut configurations until an owner-approved specification is documented.
+4. Do not reactivate analytics with a placeholder ID. Obtain the real GA4 Measurement ID and retain the existing consent gate.
+5. When a real W-Series product render becomes available, replace the current application image and update its alternative text.
+6. Record every Claude or Codex change in `CHANGELOG.md` and refresh this handoff.
+7. Complete the normal pull-request/Vercel workflow; production remains unchanged until the reviewed branch is merged.
+
+## Validation completed
+
+- Shared-content sync verified 59 headers and 59 footers with zero drift.
+- Inline JavaScript parsed on all affected pages.
+- Nine affected routes and the replacement image returned HTTP 200 locally.
+- Homepage scene/control count is three and the public-facing 160 kW, WD-3015E, “World #1,” and conflicting generic IP claims are absent from the scoped pages.
+- `git diff --check` passed apart from existing Windows line-ending notices.
 
 ## Access notes
 
 - GitHub remote: `https://github.com/KartarC/wavlon-lasers-website.git`.
 - Production URL: `https://wavlonlasers.com`.
-- Target route: `https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-2-0/`.
+- Active branch: `codex/credibility-conversion-sprint`.
 - Active worktree: `C:/Users/Karta/Documents/Codex/2026-07-20/referenced-chatgpt-conversation-this-is-untrusted/wavlon-laser-source-worktree`.

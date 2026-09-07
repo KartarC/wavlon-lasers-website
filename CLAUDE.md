@@ -154,7 +154,8 @@ Table names are capitalised and prefixed (`Wavlon_Quote_Requests`, `Wavlon_Leads
 | `contact/` | `contact-page` |
 | `financing/` | `financing-page` |
 | `parts/` | `parts-page` |
-| `pro-cut-series/` | `s-series-page` ⚠️ **stale — see below** |
+| `pro-cut-series/` | `pro-cut-series-page` |
+| `pro-cut-series/` secondary configuration form | `pro-cut-series-ul-page` |
 | `power-cut-series/` | `power-cut-series-page` |
 | `ultra-cut-series/` | `ultra-cut-series-page` |
 | `double-chuck/` | `tubecut-double-chuck-page` |
@@ -162,7 +163,7 @@ Table names are capitalised and prefixed (`Wavlon_Quote_Requests`, `Wavlon_Leads
 | `tower-system/` | `tower-system-page` |
 | `air-cooled-series/` | `w-series-page` |
 
-⚠️ The ProCut page still submits `s-series-page`, left over from the rename, so its leads are mislabelled in the CRM. Changing it is a one-line fix but will split historical reporting — confirm with the owner before touching it. The homepage has no form.
+The ProCut page uses distinct current-series source values for its primary and secondary configuration forms. Historical records may still contain the retired `s-series-page` value; preserve those records and normalize them only in reporting. The homepage has no form.
 
 ## Mega Menu Structure
 
