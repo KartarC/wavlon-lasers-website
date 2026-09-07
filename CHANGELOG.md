@@ -2,6 +2,25 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-07 15:24 EDT — Codex — Improve homepage and technology image delivery
+
+- Scope: Replaced two stale homepage machine-image preloads with the actual first hero scene, added intrinsic dimensions and asynchronous decoding to all three hero images, and served four oversized technology illustrations as right-sized WebP assets.
+- Performance: The four technology images referenced by the 3D cutting, 3D controller, tube cutting head, and tube controller pages fall from 28,335,306 bytes to 280,912 bytes in total, a 99.0% reduction. The homepage no longer eagerly downloads 2,595,725 bytes of below-the-fold card art and instead preloads its 75,488-byte LCP hero image.
+- Files: `index.html`; the affected BOCI/controller technology pages; four new `assets/*-optimized.webp` files; `CHANGELOG.md`; `HANDOFF.md`.
+- Preserved: Original source PNG files remain available, product copy and visual composition are unchanged, and deferred hero slides remain lazy-loaded.
+- Validation: `npm.cmd run sync` verified 59 shared headers and footers with zero drift; inline JavaScript and JSON-LD parsed on all five affected pages; stale high-cost references returned zero matches; the five pages and five optimized assets returned HTTP 200 locally; `git diff --check` passed apart from repository line-ending notices.
+- Git: `codex/technology-image-performance`; commit and push follow with this record.
+- Remote/deploy: Production still serves the already-published PR #44 changes. This performance sprint is pending branch push, pull request, and Vercel preview.
+- Follow-up: Review the preview, then merge the focused performance PR to publish it.
+
+### 2026-09-07 15:20 EDT — Codex — Publish credibility and conversion sprint
+
+- Scope: Merged approved PR #44 to `main`, triggering the connected production deployment. No additional product changes were made in this deployment record.
+- Validation: Both pull-request checks passed; Vercel reported the production deployment Ready and attached the `wavlonlasers.com` production alias.
+- Git: PR #44 merged as `b67cfe4`.
+- Remote/deploy: Live at https://wavlonlasers.com. Vercel deployment: https://wavlon-lasers-website-i2qkoj0zc-infinara.vercel.app.
+- Follow-up: Continue with the next self-contained improvement that does not require a missing analytics ID or new W-Series render.
+
 ### 2026-09-07 03:06 EDT — Codex — Publish first improvement sprint preview
 
 - Scope: Published the completed credibility and conversion sprint to a focused GitHub review branch and opened PR #44. No additional product changes were made in this publishing record.
