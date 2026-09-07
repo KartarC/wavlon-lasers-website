@@ -2,6 +2,17 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-07 16:06 EDT — Codex — Complete large gallery and shared-menu image optimization
+
+- Scope: Created 42 right-sized WebP delivery assets and replaced every customer-visible PNG/JPEG reference larger than 1 MB across the homepage, shared mega menu, machine hubs, ProCut and PowerCut galleries, TubeCut Double Chuck hero, machine showcase, BOCI/controller technology pages, and reusable component fragments.
+- Performance: The 42 replaced delivery images fall from 81,002,711 bytes to 3,625,014 bytes in total, a 95.5% reduction. The three shared mega-menu machine images now total 138,026 bytes instead of 4,806,497 bytes and are consistently injected into all 59 shared headers.
+- Files: 42 new `assets/*-optimized.webp` files; `_partials/header.html`; `header.html`; 59 regenerated shared-header pages; affected machine, gallery, technology, internal quotation, and component HTML; `CHANGELOG.md`; `HANDOFF.md`.
+- Preserved: Every original PNG remains available as a source master. Existing product composition, copy, galleries, Open Graph images, and structured-data image URLs are unchanged; only browser-visible delivery references changed.
+- Validation: Sampled the optimized ProCut, PowerCut, and BOCI artwork visually; verified all 42 images have valid metadata and a maximum width of 1,600 px; parsed inline JavaScript and JSON-LD on all 64 changed HTML files; verified 267 optimized references resolve; confirmed zero remaining customer-visible raster references over 1 MB; shared sync verified 59 headers and footers; all 59 sitemap routes and 42 new assets returned HTTP 200 locally; `git diff --check` passed apart from repository line-ending notices.
+- Git: `codex/gallery-image-performance-2`; commit and push follow with this record.
+- Remote/deploy: Pending feature-branch push, pull request, and Vercel preview. Production remains on the previously verified deployment.
+- Follow-up: After preview approval, publish this performance pass. The next self-contained priority is an accessibility and mobile conversion pass; GA4 and the W-Series render still require owner-provided inputs.
+
 ### 2026-09-07 15:28 EDT — Codex — Publish homepage and technology image improvements
 
 - Scope: Merged the reviewed image-delivery improvement through PR #45 and verified the connected production deployment. This record adds no further product changes.
