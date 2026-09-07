@@ -5,6 +5,7 @@ Last updated: 2026-09-07 03:02 EDT by Codex
 ## Current state
 
 - The first credibility and conversion sprint is complete on `codex/credibility-conversion-sprint`, based on current `origin/main` at `e99b21e`.
+- Product commit `a024696` is pushed and PR #44 is open. Both Vercel checks passed; production is unchanged.
 - The homepage hero now contains only the approved portfolio, sheet-laser, and tube-laser scenes. The existing real-machine artwork and responsive framing remain unchanged.
 - The W-Series homepage card uses a laser-welding application image instead of an unrelated BOCI cutting head. A real Wavlon W-Series product render is still preferred when available.
 - UltraCut is consistently presented as 3–20 kW standard; non-standard configurations require engineering review. The unsupported 160 kW public claim has been removed from the affected product and hub surfaces.
@@ -21,7 +22,7 @@ Last updated: 2026-09-07 03:02 EDT by Codex
 4. Do not reactivate analytics with a placeholder ID. Obtain the real GA4 Measurement ID and retain the existing consent gate.
 5. When a real W-Series product render becomes available, replace the current application image and update its alternative text.
 6. Record every Claude or Codex change in `CHANGELOG.md` and refresh this handoff.
-7. Complete the normal pull-request/Vercel workflow; production remains unchanged until the reviewed branch is merged.
+7. Review PR #44 and merge it when approved; production remains unchanged until the reviewed branch is merged.
 
 ## Validation completed
 
@@ -34,6 +35,8 @@ Last updated: 2026-09-07 03:02 EDT by Codex
 ## Access notes
 
 - GitHub remote: `https://github.com/KartarC/wavlon-lasers-website.git`.
+- Pull request: `https://github.com/KartarC/wavlon-lasers-website/pull/44`.
+- Vercel preview: `https://wavlon-lasers-website-git-codex-credibility-con-04cd73-infinara.vercel.app` (Vercel authentication protected).
 - Production URL: `https://wavlonlasers.com`.
 - Active branch: `codex/credibility-conversion-sprint`.
 - Active worktree: `C:/Users/Karta/Documents/Codex/2026-07-20/referenced-chatgpt-conversation-this-is-untrusted/wavlon-laser-source-worktree`.

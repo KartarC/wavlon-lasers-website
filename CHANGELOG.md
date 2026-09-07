@@ -2,6 +2,15 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-07 03:06 EDT — Codex — Publish first improvement sprint preview
+
+- Scope: Published the completed credibility and conversion sprint to a focused GitHub review branch and opened PR #44. No additional product changes were made in this publishing record.
+- Files: `CHANGELOG.md` and `HANDOFF.md` record the review state; the product scope remains commit `a024696`.
+- Validation: Both GitHub/Vercel checks passed and the Vercel deployment reached Ready. The preview alias is protected by Vercel authentication, so public command-line content inspection was not available; the local route and content validations in the implementation record remain authoritative.
+- Git: `codex/credibility-conversion-sprint`; product commit `a024696`; PR #44.
+- Remote/deploy: Branch pushed to GitHub. Review at https://github.com/KartarC/wavlon-lasers-website/pull/44. Vercel preview is Ready at https://wavlon-lasers-website-git-codex-credibility-con-04cd73-infinara.vercel.app. Production is unchanged.
+- Follow-up: Review and merge PR #44 when approved. The merge to `main` will trigger the production deployment.
+
 ### 2026-09-07 03:02 EDT — Codex — Improve homepage focus, product credibility, and quote reliability
 
 - Scope: Reduced the homepage carousel from eight messages to three buyer-focused machine scenes (portfolio, sheet lasers, and tube lasers); preserved the approved real-machine artwork; corrected homepage encoding artifacts and retired WD-3015E copy; replaced the unrelated laser-head image on the W-Series card with an honest laser-welding application image.
