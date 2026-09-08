@@ -2,6 +2,16 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-08 02:00 EDT — Codex — Remove laser welder from homepage lineup
+
+- Scope: Removed the Air-Cooled W-Series laser-welder card from the homepage machine grid at the owner's request.
+- Preserved: The W-Series product page, welding hub, navigation entries, footer link, applications content, and product assets remain available; this is a homepage-only removal so the product can be restored later without rebuilding it.
+- Files: `index.html`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Shared sync verified 59 headers, 59 main landmarks, and 59 footers with zero drift; the homepage now contains five machine-lineup cards and no W-Series machine card; inline JavaScript and JSON-LD parse successfully; `git diff --check` passed apart from the repository line-ending notice.
+- Git: `codex/remove-homepage-welder`; commit and push follow with this record.
+- Remote/deploy: Production remains unchanged until the focused pull request is merged.
+- Follow-up: Publish this homepage-only removal, then resume the planned technical SEO sprint.
+
 ### 2026-09-07 16:37 EDT — Codex — Publish accessibility and mobile conversion improvements
 
 - Scope: Merged the reviewed accessibility and mobile-conversion pass through PR #49 and verified the connected production deployment. This record adds no further product changes.
