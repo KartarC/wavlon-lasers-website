@@ -2,6 +2,18 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-08 02:44 EDT — Codex — Retire legacy public product names and connect partner solutions
+
+- Scope: Replaced the former Wavlon S-Series, P-Series, X-Series, and T-Series references across public pages, forms, application recommendations, automation compatibility content, buyer resources, chat knowledge, structured data, and reusable components with the current ProCut, PowerCut, UltraCut, TubeCut Double Chuck, and TubeCut Triple Chuck names.
+- Welding: Removed the W-Series / laser-welder offering from public navigation, forms, application cards, resources, chat knowledge, `llms.txt`, and `sitemap.xml`. The two existing welding pages remain available as dormant reference pages with `noindex,follow` so they can be restored deliberately later.
+- Partner solutions: Added a shared Secondary Solutions mega-menu panel and responsive Machines-hub section for Rise Tek Machinery press brakes and Machinists' Vault consumables/tooling. Added the destinations to mobile navigation and the shared footer, and linked the parts catalogue directly to Machinists' Vault's fiber-laser consumables collection.
+- Accuracy: Preserved genuine BOCI BLT T-Series cutting-head names, which are component model names rather than retired Wavlon machine names. Replaced unsupported legacy thickness/compatibility claims with configuration-review language.
+- Files: Shared header/footer partials and their 59 generated page copies; machine, application, industry, contact, financing, parts, resources, buyer-guide, about, automation, chat, structured-data, sitemap, instruction, and component files; `CLAUDE.md`; `CHANGELOG.md`; `HANDOFF.md`.
+- Validation: Shared sync verified 59 headers, 59 main landmarks, and 59 footers; JavaScript syntax checks passed; 32 inline scripts and 67 JSON-LD blocks parsed across 81 HTML files; all 57 sitemap routes resolve locally; the sitemap, `llms.txt`, shared header, and shared footer contain no public welding references; both dormant welding pages retain `noindex,follow`; retired-name audit found only legitimate BOCI BLT T-Series references; `git diff --check` passed apart from line-ending notices.
+- Git: `codex/current-products-secondary-solutions`; commit, pull request, and production deployment follow with this record.
+- Remote/deploy: Production remains unchanged until the reviewed branch is merged.
+- Follow-up: After publishing, begin the next technical SEO unit with high-impact title/description improvements and redirect/canonical review for retired model URLs.
+
 ### 2026-09-08 02:03 EDT — Codex — Publish homepage laser-welder removal
 
 - Scope: Merged the reviewed homepage-only Air-Cooled W-Series card removal through PR #51 and verified the connected production deployment. This record adds no further product changes.

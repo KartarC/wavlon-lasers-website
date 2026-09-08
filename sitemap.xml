@@ -77,20 +77,6 @@
     <priority>0.75</priority>
   </url>
 
-  <!-- Welding -->
-  <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-welding/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-welding/air-cooled-series/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <!-- Technologies -->
   <url>
     <loc>https://wavlonlasers.com/technologies/</loc>
