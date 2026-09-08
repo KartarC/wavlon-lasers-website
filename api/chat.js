@@ -76,12 +76,6 @@ Help customers understand which Wavlon machine fits their application, answer te
 - Lights-out operation capability
 - Automated sheet retrieval, loading, sorting
 
-### Air-Cooled W-Series — Fiber laser welding
-- Power: 1.5kW, 2kW, 3kW
-- Handheld welding torch, air-cooled
-- Materials: Carbon steel, stainless, aluminum, galvanized
-- Best for: Stainless fabrication, aluminum welding, repair work
-
 ## Cutting capabilities by material and power
 Carbon steel: 3kW→8mm | 6kW→16mm | 12kW→25mm | 20kW→40mm
 Stainless steel: 3kW→5mm | 6kW→12mm | 12kW→20mm | 20kW→30mm

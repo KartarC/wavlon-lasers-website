@@ -33,7 +33,7 @@ module.exports = async function handler(req, res) {
     table = 'Wavlon_Leads';
   } else {
     // Catches: homepage, pro-cut-series, procut-ul, power-cut-series,
-    //          ultra-cut-series, t-series, tower-system, w-series, and any future pages
+    //          ultra-cut-series, TubeCut pages, tower-system, and any future pages
     table = 'Wavlon_Quote_Requests';
   }
 

@@ -289,7 +289,7 @@
         <a class="wlc-home-link" href="/machines/">
           <div class="wlc-home-link-text">
             <div class="wlc-home-link-title"><svg class="wlc-title-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>View All Machines</div>
-            <div class="wlc-home-link-sub">Sheet cutting, tube cutting, welding</div>
+            <div class="wlc-home-link-sub">Sheet cutting, tube cutting, automation</div>
           </div>
           <div class="wlc-home-link-icon">›</div>
         </a>

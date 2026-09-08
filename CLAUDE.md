@@ -10,7 +10,7 @@ Brand new company. Sells industrial fiber laser cutting machines from entry-leve
 
 ## Product Line — READ THIS FIRST
 
-The current machines are **ProCut**, **PowerCut**, **UltraCut** (sheet), **TubeCut Double Chuck**, **TubeCut Triple Chuck** (tube), **Tower Storage System** (automation), and **Air-Cooled W-Series** (welding).
+The current public machines are **ProCut**, **PowerCut**, **UltraCut** (sheet), **TubeCut Double Chuck**, **TubeCut Triple Chuck** (tube), and **Tower Storage System** (automation). The former Air-Cooled W-Series pages are retained as dormant, `noindex` files only and must not be linked from public navigation, forms, sitemaps, guides, or catalogs unless the owner explicitly restores that product.
 
 **S-Series, P-Series, X-Series, and T-Series are retired.** Never write new content, links, nav entries, or schema for them. Their URLs are redirect stubs (meta-refresh + JS + canonical):
 
@@ -110,8 +110,8 @@ All 35 live URLs are listed in `sitemap.xml` — treat that file as the canonica
     …/triple-chuck/                              → TubeCut Triple Chuck (6–30kW, TTC)
 /machines/fiber-laser-automation/                → automation hub
     …/tower-system/                              → Tower Storage System
-/machines/fiber-laser-welding/                   → welding hub
-    …/air-cooled-series/                         → Air-Cooled W-Series (1.5–3kW)
+/machines/fiber-laser-welding/                   → dormant noindex page; do not publicly link
+    …/air-cooled-series/                         → dormant noindex page; do not publicly link
 /technologies/                                   → technologies hub
 /technologies/laser-heads/                       → laser heads hub
     …/2d-cutting-heads/  …/3d-cutting-heads/  …/tube-cutting-heads/
@@ -161,7 +161,7 @@ Table names are capitalised and prefixed (`Wavlon_Quote_Requests`, `Wavlon_Leads
 | `double-chuck/` | `tubecut-double-chuck-page` |
 | `triple-chuck/` | `tubecut-triple-chuck-page` |
 | `tower-system/` | `tower-system-page` |
-| `air-cooled-series/` | `w-series-page` |
+| dormant `air-cooled-series/` | historical `w-series-page`; do not add new public forms |
 
 The ProCut page uses distinct current-series source values for its primary and secondary configuration forms. Historical records may still contain the retired `s-series-page` value; preserve those records and normalize them only in reporting. The homepage has no form.
 
@@ -169,11 +169,11 @@ The ProCut page uses distinct current-series source values for its primary and s
 
 Three mega menus, all driven by `data-panel` on `.mega-cat-btn`, switched in `nav.js`.
 
-**Machines** — `sheet` → ProCut, PowerCut, UltraCut · `tube` → TubeCut Double Chuck, TubeCut Triple Chuck · `auto` → Tower Storage System · `weld` → Air-Cooled W-Series
+**Machines** — `sheet` → ProCut, PowerCut, UltraCut · `tube` → TubeCut Double Chuck, TubeCut Triple Chuck · `auto` → Tower Storage System · `partners` → Rise Tek press brakes and Machinists' Vault consumables
 
 **Technologies** — `tech-heads` → 2D Cutting Heads, Tube Cutting Heads, Controllers · `tech-chillers`, `tech-resonators`, `tech-servos` → "coming soon" placeholders linking to `/contact/`
 
-**Industries** — `ind-industries` → Automotive, Structural Steel, HVAC & Mechanical, Aerospace & Defence, Agricultural Equipment, Custom Fabrication · `ind-applications` → Sheet Metal Cutting, Tube & Profile Cutting, Decorative & Panel, Laser Welding
+**Industries** — `ind-industries` → Automotive, Structural Steel, HVAC & Mechanical, Aerospace & Defence, Agricultural Equipment, Custom Fabrication · `ind-applications` → Sheet Metal Cutting, Tube & Profile Cutting, Decorative & Panel
 
 ## Rules — ALWAYS FOLLOW
 1. **Never delete** `index.html`, `header.html`, `footer.html`, `shared.css`, `nav.js`, or `wavlon_lasers_full_logo_transparent.png`
