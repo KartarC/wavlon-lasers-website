@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-08 02:03 EDT — Codex — Publish homepage laser-welder removal
+
+- Scope: Merged the reviewed homepage-only Air-Cooled W-Series card removal through PR #51 and verified the connected production deployment. This record adds no further product changes.
+- Validation: Both Vercel pull-request checks passed; the production deployment reached Ready and received the `wavlonlasers.com` alias; the live homepage contains five machine-lineup cards and no W-Series card; the preserved W-Series product page returns HTTP 200; the deployment error-log scan was clean.
+- Git: PR #51 merged as `c47629c`; product commit `e637f97`.
+- Remote/deploy: Live at https://wavlonlasers.com. Vercel deployment: https://wavlon-lasers-website-3b3p8q2e4-infinara.vercel.app.
+- Follow-up: Resume the technical SEO sprint, beginning with malformed internal links, sitemap/indexing conflicts, duplicate metadata, and high-impact title/description improvements.
+
 ### 2026-09-08 02:00 EDT — Codex — Remove laser welder from homepage lineup
 
 - Scope: Removed the Air-Cooled W-Series laser-welder card from the homepage machine grid at the owner's request.
