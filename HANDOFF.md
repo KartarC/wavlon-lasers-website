@@ -1,6 +1,6 @@
 # Current Handoff
 
-Last updated: 2026-09-08 02:44 EDT by Codex
+Last updated: 2026-09-08 02:53 EDT by Codex
 
 ## Current state
 
@@ -9,6 +9,7 @@ Last updated: 2026-09-08 02:44 EDT by Codex
 - PR #47 merged to `main` as `37c4670`; the large gallery and shared-menu image optimization is live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
 - PR #49 merged to `main` as `d6a12c5`; the accessibility and mobile-conversion pass is live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
 - PR #51 merged to `main` as `c47629c`; the Air-Cooled W-Series card removal is live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
+- PR #53 merged to `main` as `7a06891`; current Wavlon naming, public welding retirement, and secondary partner solutions are live at `https://wavlonlasers.com`. Vercel deployment `wavlon-lasers-website-ljza0kkga-infinara.vercel.app` is Ready and aliased to production.
 - Current public machine names are ProCut, PowerCut, UltraCut, TubeCut Double Chuck, and TubeCut Triple Chuck. Former Wavlon S-Series, P-Series, X-Series, T-Series, WD-3015, and W-Series names have been removed from customer-facing discovery paths.
 - The W-Series welding hub and product page remain as dormant reference pages with `noindex,follow`, but they are absent from navigation, forms, applications, resources, chat knowledge, `llms.txt`, and the sitemap.
 - Genuine BOCI BLT T-Series laser-head names remain intentionally; these are active component model names and must not be rewritten as Wavlon TubeCut machine names.
@@ -49,12 +50,13 @@ Last updated: 2026-09-08 02:44 EDT by Codex
 - Homepage welder-card validation: shared sync completed with zero drift; the homepage contains five machine-lineup cards and no W-Series machine card; inline JavaScript and JSON-LD parse successfully; `git diff --check` passed apart from the line-ending notice.
 - Production welder-card validation: both PR checks passed; Vercel deployment `wavlon-lasers-website-3b3p8q2e4-infinara.vercel.app` reached Ready with the production aliases; the live homepage contains five machine-lineup cards and no W-Series card; the preserved W-Series product page returns HTTP 200; the deployment error-log scan was clean.
 - Current-name and partner validation: shared sync verified 59 headers, 59 main landmarks, and 59 footers; JavaScript syntax checks passed; 32 inline scripts and 67 JSON-LD blocks parsed across 81 HTML files; all 57 sitemap routes resolve locally; public discovery files contain no welding routes or W-Series references; both dormant welding pages retain `noindex,follow`; retired-name audit found only legitimate BOCI BLT T-Series component references; `git diff --check` passed apart from line-ending notices.
+- Production validation for PR #53: both pull-request checks passed; the production deployment cloned merge `7a06891`, completed without build errors, reached Ready, and received the production aliases; live checks returned HTTP 200 for the homepage, Machines, Contact, Financing, Applications, Resources, Parts, sitemap, `llms.txt`, and both dormant welding routes; current-name and partner markers were present; retired-name exclusions passed; both dormant pages retained `noindex,follow`.
 
 ## Access notes
 
 - GitHub remote: `https://github.com/KartarC/wavlon-lasers-website.git`.
-- Published pull requests: `https://github.com/KartarC/wavlon-lasers-website/pull/44`, `https://github.com/KartarC/wavlon-lasers-website/pull/45`, `https://github.com/KartarC/wavlon-lasers-website/pull/47`, `https://github.com/KartarC/wavlon-lasers-website/pull/49`, and `https://github.com/KartarC/wavlon-lasers-website/pull/51`.
-- Production deployment: `https://wavlon-lasers-website-3b3p8q2e4-infinara.vercel.app`.
+- Published pull requests: `https://github.com/KartarC/wavlon-lasers-website/pull/44`, `https://github.com/KartarC/wavlon-lasers-website/pull/45`, `https://github.com/KartarC/wavlon-lasers-website/pull/47`, `https://github.com/KartarC/wavlon-lasers-website/pull/49`, `https://github.com/KartarC/wavlon-lasers-website/pull/51`, and `https://github.com/KartarC/wavlon-lasers-website/pull/53`.
+- Production deployment: `https://wavlon-lasers-website-ljza0kkga-infinara.vercel.app`.
 - Production URL: `https://wavlonlasers.com`.
-- Active branch: `codex/current-products-secondary-solutions` (product-name cleanup and partner-solution integration).
+- Active branch: `codex/current-products-deployment-record` (documentation-only production record).
 - Active worktree: `C:/Users/Karta/Documents/Codex/2026-07-20/referenced-chatgpt-conversation-this-is-untrusted/wavlon-laser-source-worktree`.
