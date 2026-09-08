@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-08 02:53 EDT — Codex — Publish current product naming and partner solutions
+
+- Scope: Merged the retired-name cleanup and secondary partner-solution integration through PR #53 and verified the connected production deployment. This record adds no further product changes.
+- Validation: Both Vercel pull-request checks passed; production reached Ready and received the `wavlonlasers.com` alias; the homepage, Machines, Contact, Financing, Applications, Resources, Parts, sitemap, `llms.txt`, and both dormant welding routes returned HTTP 200; live markers confirmed the current machine names and partner links; retired public product-name and welding-route exclusions passed; the dormant welding pages retain `noindex,follow`; deployment logs were clean.
+- Git: PR #53 merged as `7a06891`; product commit `28194bd`.
+- Remote/deploy: Live at https://wavlonlasers.com. Vercel deployment: https://wavlon-lasers-website-ljza0kkga-infinara.vercel.app.
+- Follow-up: Continue the technical SEO sprint with high-impact titles/descriptions and redirect/canonical review for retired model URLs.
+
 ### 2026-09-08 02:44 EDT — Codex — Retire legacy public product names and connect partner solutions
 
 - Scope: Replaced the former Wavlon S-Series, P-Series, X-Series, and T-Series references across public pages, forms, application recommendations, automation compatibility content, buyer resources, chat knowledge, structured data, and reusable components with the current ProCut, PowerCut, UltraCut, TubeCut Double Chuck, and TubeCut Triple Chuck names.
