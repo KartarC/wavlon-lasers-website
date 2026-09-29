@@ -6,7 +6,8 @@ Last updated: 2026-09-29 by Codex
 
 - Production baseline: main at 8c00e80 (PR #54, production-record merge); product changes from PR #53 remain the latest recorded release.
 - Current work: codex/technical-seo in C:/Users/Karta/Documents/Codex/2026-09-08/ca/work/wavlon-seo. This isolated checkout preserves the previous workspace.
-- The SEO pass is ready for a pull-request preview. Production has not been changed by this pass.
+- PR #55 is open: https://github.com/KartarC/wavlon-lasers-website/pull/55. Product commit: 03ef778. Both Vercel checks passed and product preview dpl_8MbwbvivFvGDcJ45Vf9HEnKc6boo is Ready. Production has not been changed by this pass.
+- Preview: https://wavlon-lasers-website-git-codex-technical-seo-infinara.vercel.app (requires Vercel login). Direct and connected authenticated fetches returned the authentication redirect, so deployed HTML inspection remains unverified. Local content checks and deployment state are verified.
 - Canonical, social and structured-data absolute page URLs now match the live slashless routing policy. The sitemap has 54 indexable URLs; legal and dormant welding pages remain excluded.
 - Sixteen long titles and 21 descriptions were refined. MFSC 6000 cabinet metadata is distinct. The UltraCut laser-head link and the selection-guide model anchor are fixed.
 - Fourteen existing HTML redirect pages point at the final destination without a slash-normalization hop. They are still HTML redirects, not server-side permanent redirects.
