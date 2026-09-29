@@ -4,16 +4,17 @@ Last updated: 2026-09-29 by Codex
 
 ## Current state
 
-- Production baseline: main at 8c00e80 (PR #54, production-record merge); product changes from PR #53 remain the latest recorded release.
-- Current work: codex/technical-seo in C:/Users/Karta/Documents/Codex/2026-09-08/ca/work/wavlon-seo. This isolated checkout preserves the previous workspace.
-- PR #55 is open: https://github.com/KartarC/wavlon-lasers-website/pull/55. Product commit: 03ef778. Both Vercel checks passed and product preview dpl_8MbwbvivFvGDcJ45Vf9HEnKc6boo is Ready. Production has not been changed by this pass.
-- Preview: https://wavlon-lasers-website-git-codex-technical-seo-infinara.vercel.app (requires Vercel login). Direct and connected authenticated fetches returned the authentication redirect, so deployed HTML inspection remains unverified. Local content checks and deployment state are verified.
-- Canonical, social and structured-data absolute page URLs now match the live slashless routing policy. The sitemap has 54 indexable URLs; legal and dormant welding pages remain excluded.
-- Sixteen long titles and 21 descriptions were refined. MFSC 6000 cabinet metadata is distinct. The UltraCut laser-head link and the selection-guide model anchor are fixed.
-- Fourteen existing HTML redirect pages point at the final destination without a slash-normalization hop. They are still HTML redirects, not server-side permanent redirects.
-- Generator normalization, sitemap-presence checks and tools/check-seo.mjs preserve and verify the changes.
+- PR #55 merged to main as d14f067 on 2026-09-29. The technical SEO pass is live at https://wavlonlasers.com.
+- Vercel production deployment dpl_4HJ941TNpPzRnNDW73dAJJYDMBnR is Ready and has the production domain aliases. Deployment URL: https://wavlon-lasers-website-a61qbjkts-infinara.vercel.app.
+- Production validation matched titles, descriptions and canonical URLs on all 54 sitemap pages to the reviewed local files. The sitemap matches the revised 54-URL inventory. The repaired link and section anchor were verified live.
+- Legal pages and both dormant welding pages remain noindex and absent from the sitemap.
+- Fourteen retained HTML redirects now target final slashless URLs. They remain HTML redirects, not server-side permanent redirects.
+- Source/head generators retain the URL policy and distinct cabinet metadata. tools/check-seo.mjs provides repeatable checks.
+- Current branch: codex/seo-production-record, a documentation-only record of the verified release, in C:/Users/Karta/Documents/Codex/2026-09-08/ca/work/wavlon-seo.
 
 ## Validation completed
+
+- Post-release: all 54 sitemap pages returned HTTP 200 with matching titles, descriptions and canonical URLs; live sitemap matched; all five noindex exclusions passed. Deployment metadata confirms main merge d14f067 is Ready with production aliases.
 
 - All 54 proposed canonical URLs returned HTTP 200 directly on production; all 14 slashless retired URLs returned HTTP 200 with HTML refresh redirects.
 - SEO checker passed: 54 sitemap routes, all public internal links/anchors, 81 HTML files, 14 redirect targets, 67 JSON-LD blocks and 32 inline scripts.
@@ -23,7 +24,7 @@ Last updated: 2026-09-29 by Codex
 
 ## Next action
 
-1. Review the technical-seo pull-request preview and checks; obtain release authorization before merging to main, then verify production and record the deployment.
+1. The SEO release is complete. Review/merge the documentation-only production record through the usual PR workflow.
 2. Consider true permanent redirects for retired routes as a separate hosting change. AGENTS.md requires an explicit request to modify vercel.json.
 3. Consider normalizing internal navigation links to remove remaining slash-normalization hops.
 4. Verify Search Console indexing and submit the sitemap when access is available. Analytics still needs a real production GA4 Measurement ID.
