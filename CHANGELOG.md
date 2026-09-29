@@ -2,6 +2,14 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-29 — Codex — Publish and verify technical SEO changes
+
+- Scope: Published PR #55 following explicit owner authorization. This record changes documentation only.
+- Git: PR #55 merged as d14f0673c6bb4bf2701fa404c436cf9647d0c71a.
+- Deployment: Vercel production dpl_4HJ941TNpPzRnNDW73dAJJYDMBnR is Ready, built from the merge commit, and aliased to wavlonlasers.com.
+- Validation: All 54 live sitemap pages returned HTTP 200 and matched reviewed titles, descriptions and canonical URLs. Live sitemap matches the 54-URL inventory. The repaired UltraCut link and model anchor passed. Privacy, terms, cookies and both dormant welding pages retain noindex and remain excluded.
+- Follow-up: Permanent server redirects remain a separately authorized hosting change. Search Console verification and GA4 activation remain dependent on access/inputs.
+
 ### 2026-09-29 — Codex — Align SEO metadata and canonical URLs
 
 - Scope: Aligned absolute canonical, Open Graph and structured-data page URLs with Vercel's existing slashless routes; excluded three noindex legal pages from the sitemap, leaving 54 indexable URLs; shortened 16 long titles and refreshed 21 descriptions; distinguished the MFSC 6000 cabinet variant; repaired one retired internal link and one missing section anchor; aligned 14 HTML redirect destinations.
