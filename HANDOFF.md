@@ -1,62 +1,42 @@
 # Current Handoff
 
-Last updated: 2026-09-08 02:53 EDT by Codex
+Last updated: 2026-09-29 by Codex
 
 ## Current state
 
-- PR #44 merged to `main` as `b67cfe4`; the credibility and conversion sprint is live.
-- PR #45 merged to `main` as `78a10b9`; the homepage and technology image-delivery improvements are live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
-- PR #47 merged to `main` as `37c4670`; the large gallery and shared-menu image optimization is live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
-- PR #49 merged to `main` as `d6a12c5`; the accessibility and mobile-conversion pass is live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
-- PR #51 merged to `main` as `c47629c`; the Air-Cooled W-Series card removal is live at `https://wavlonlasers.com` and Vercel reports the deployment Ready.
-- PR #53 merged to `main` as `7a06891`; current Wavlon naming, public welding retirement, and secondary partner solutions are live at `https://wavlonlasers.com`. Vercel deployment `wavlon-lasers-website-ljza0kkga-infinara.vercel.app` is Ready and aliased to production.
-- Current public machine names are ProCut, PowerCut, UltraCut, TubeCut Double Chuck, and TubeCut Triple Chuck. Former Wavlon S-Series, P-Series, X-Series, T-Series, WD-3015, and W-Series names have been removed from customer-facing discovery paths.
-- The W-Series welding hub and product page remain as dormant reference pages with `noindex,follow`, but they are absent from navigation, forms, applications, resources, chat knowledge, `llms.txt`, and the sitemap.
-- Genuine BOCI BLT T-Series laser-head names remain intentionally; these are active component model names and must not be rewritten as Wavlon TubeCut machine names.
-- A shared Secondary Solutions panel, mobile links, footer links, and Machines-hub section now connect customers to Rise Tek Machinery press brakes and Machinists' Vault consumables/tooling.
-- Every shared page now has a skip link, a verified `main#main-content` landmark, keyboard-operable desktop and mobile navigation, visible focus styling, improved muted-text contrast, and reduced-motion support.
-- Mobile pages now provide a persistent Call / Get a Quote dock. Product-specific sticky quote bars supersede the global dock while visible and use accessible SVG dismiss controls.
-- All 11 lead forms now use native required/email validation, associated labels, stable field names, contact autocomplete hints, and live success announcements. The financing FAQ now uses accessible accordion semantics.
-- The homepage now preloads the actual first hero scene instead of two below-the-fold product-card PNGs. All three hero images have intrinsic dimensions and asynchronous decoding; the inactive scenes remain lazy-loaded.
-- Forty-six browser-delivery images across both performance passes now use right-sized WebP files. The current pass replaces 42 large images and reduces their combined weight from 81,002,711 bytes to 3,625,014 bytes.
-- The shared mega menu uses the same optimized ProCut, PowerCut, and UltraCut images across all 59 pages. A repository audit reports zero remaining customer-visible PNG/JPEG references larger than 1 MB.
-- The original PNG source files remain in the asset library for future editing.
-- Consent-based analytics remains inactive because no production GA4 Measurement ID is stored in the repository.
-
-## What Claude or the next assistant must do
-
-1. Read `AGENTS.md`, `CLAUDE.md`, the newest `CHANGELOG.md` entries, and this file before editing.
-2. Preserve the homepage's three approved real-machine scenes and the new LCP preload unless the owner requests new artwork.
-3. Preserve the `*-optimized.webp` browser references and shared-menu images; use the retained PNG files only as source masters or social/structured-data images.
-4. Preserve the engineering-review language for non-standard UltraCut configurations until an owner-approved specification is documented.
-5. Do not reactivate analytics with a placeholder ID. Obtain the real GA4 Measurement ID and retain the existing consent gate.
-6. Keep W-Series welding pages dormant and non-indexable until the owner explicitly requests a deliberate relaunch; do not add them back to navigation, forms, resources, chat knowledge, or the sitemap by accident.
-7. Record every Claude or Codex change in `CHANGELOG.md` and refresh this handoff.
-8. Preserve the verified partner destinations: Rise Tek's press-brake page and Machinists' Vault's fiber-laser-parts collection. Keep external links marked `target="_blank" rel="noopener"`.
-9. Continue the technical SEO sprint with high-impact title/description improvements and redirect/canonical review for retired model URLs without inventing replacement specifications.
+- Production baseline: main at 8c00e80 (PR #54, production-record merge); product changes from PR #53 remain the latest recorded release.
+- Current work: codex/technical-seo in C:/Users/Karta/Documents/Codex/2026-09-08/ca/work/wavlon-seo. This isolated checkout preserves the previous workspace.
+- The SEO pass is ready for a pull-request preview. Production has not been changed by this pass.
+- Canonical, social and structured-data absolute page URLs now match the live slashless routing policy. The sitemap has 54 indexable URLs; legal and dormant welding pages remain excluded.
+- Sixteen long titles and 21 descriptions were refined. MFSC 6000 cabinet metadata is distinct. The UltraCut laser-head link and the selection-guide model anchor are fixed.
+- Fourteen existing HTML redirect pages point at the final destination without a slash-normalization hop. They are still HTML redirects, not server-side permanent redirects.
+- Generator normalization, sitemap-presence checks and tools/check-seo.mjs preserve and verify the changes.
 
 ## Validation completed
 
-- Production deployments for PR #44, PR #45, and PR #47 are Ready and aliased to `wavlonlasers.com`.
-- New WebP metadata was verified: the optimized assets are 1,600 px wide and retain the expected aspect ratios.
-- Shared-content sync verified 59 headers and footers with zero drift.
-- Inline JavaScript and JSON-LD parsed on all five affected pages; stale high-cost references returned zero matches.
-- The five affected pages and five optimized images returned HTTP 200 locally; `git diff --check` passed apart from repository line-ending notices.
-- The live homepage returned HTTP 200 with the intended hero preload and no stale card-image preloads. The live optimized 3D controller asset returned HTTP 200 as `image/webp` at 127,264 bytes.
-- For the current pass, 42 new WebP assets and 267 browser references were verified, all 64 changed HTML files parsed, all 59 sitemap routes and 42 new assets returned HTTP 200 locally, and no browser-visible raster reference over 1 MB remains.
-- In production, the homepage, ProCut, PowerCut, and laser-head controller routes returned HTTP 200 and referenced optimized WebP files. The sampled menu, ProCut, and PowerCut assets returned HTTP 200 as `image/webp`.
-- Accessibility/mobile validation: shared sync verified 59 headers, 59 main landmarks, and 59 footers with zero drift; JavaScript syntax checks passed; a static audit verified 11 forms, 75 labelled and named controls, 1,665 images with alternative text, 717 named buttons, unique IDs, and valid ARIA references; all 59 sitemap URLs returned HTTP 200 locally; `git diff --check` passed apart from line-ending notices.
-- Production accessibility validation: the PR checks passed; Vercel deployment `wavlon-lasers-website-4hqh2ip3u-infinara.vercel.app` reached Ready with the production aliases; the live homepage, contact, financing, ProCut, shared CSS, and navigation JavaScript returned HTTP 200 with the expected new markers; the deployment error-log scan was clean.
-- Homepage welder-card validation: shared sync completed with zero drift; the homepage contains five machine-lineup cards and no W-Series machine card; inline JavaScript and JSON-LD parse successfully; `git diff --check` passed apart from the line-ending notice.
-- Production welder-card validation: both PR checks passed; Vercel deployment `wavlon-lasers-website-3b3p8q2e4-infinara.vercel.app` reached Ready with the production aliases; the live homepage contains five machine-lineup cards and no W-Series card; the preserved W-Series product page returns HTTP 200; the deployment error-log scan was clean.
-- Current-name and partner validation: shared sync verified 59 headers, 59 main landmarks, and 59 footers; JavaScript syntax checks passed; 32 inline scripts and 67 JSON-LD blocks parsed across 81 HTML files; all 57 sitemap routes resolve locally; public discovery files contain no welding routes or W-Series references; both dormant welding pages retain `noindex,follow`; retired-name audit found only legitimate BOCI BLT T-Series component references; `git diff --check` passed apart from line-ending notices.
-- Production validation for PR #53: both pull-request checks passed; the production deployment cloned merge `7a06891`, completed without build errors, reached Ready, and received the production aliases; live checks returned HTTP 200 for the homepage, Machines, Contact, Financing, Applications, Resources, Parts, sitemap, `llms.txt`, and both dormant welding routes; current-name and partner markers were present; retired-name exclusions passed; both dormant pages retained `noindex,follow`.
+- All 54 proposed canonical URLs returned HTTP 200 directly on production; all 14 slashless retired URLs returned HTTP 200 with HTML refresh redirects.
+- SEO checker passed: 54 sitemap routes, all public internal links/anchors, 81 HTML files, 14 redirect targets, 67 JSON-LD blocks and 32 inline scripts.
+- Shared sync verified 59 headers, 59 main landmarks and 59 footers.
+- Source/head generators ran successfully in a scratch copy; generated canonicals were normalized, cabinet metadata was distinct, and sitemap still contained 54 unique URLs.
+- Edited generator syntax and git diff checks passed. vercel.json remains unchanged.
 
-## Access notes
+## Next action
 
-- GitHub remote: `https://github.com/KartarC/wavlon-lasers-website.git`.
-- Published pull requests: `https://github.com/KartarC/wavlon-lasers-website/pull/44`, `https://github.com/KartarC/wavlon-lasers-website/pull/45`, `https://github.com/KartarC/wavlon-lasers-website/pull/47`, `https://github.com/KartarC/wavlon-lasers-website/pull/49`, `https://github.com/KartarC/wavlon-lasers-website/pull/51`, and `https://github.com/KartarC/wavlon-lasers-website/pull/53`.
-- Production deployment: `https://wavlon-lasers-website-ljza0kkga-infinara.vercel.app`.
-- Production URL: `https://wavlonlasers.com`.
-- Active branch: `codex/current-products-deployment-record` (documentation-only production record).
-- Active worktree: `C:/Users/Karta/Documents/Codex/2026-07-20/referenced-chatgpt-conversation-this-is-untrusted/wavlon-laser-source-worktree`.
+1. Review the technical-seo pull-request preview and checks; obtain release authorization before merging to main, then verify production and record the deployment.
+2. Consider true permanent redirects for retired routes as a separate hosting change. AGENTS.md requires an explicit request to modify vercel.json.
+3. Consider normalizing internal navigation links to remove remaining slash-normalization hops.
+4. Verify Search Console indexing and submit the sitemap when access is available. Analytics still needs a real production GA4 Measurement ID.
+
+## Preserve
+
+- Current public machines: ProCut, PowerCut, UltraCut, TubeCut Double Chuck and TubeCut Triple Chuck; tower automation remains separate.
+- Dormant W-Series welding pages stay noindex and excluded from public discovery. Genuine BOCI BLT T-Series cutting-head names remain valid.
+- Preserve the three approved homepage hero scenes, image preload and optimized WebP references.
+- Preserve engineering review for non-standard configurations, partner links to Rise Tek and Machinists' Vault, accessibility/mobile improvements, and the consent gate for analytics.
+- Read AGENTS.md, CLAUDE.md and the newest CHANGELOG.md before editing; stage only explicit paths and preserve unrelated work.
+
+## Access
+
+- Repository: https://github.com/KartarC/wavlon-lasers-website
+- Production: https://wavlonlasers.com
+- Detailed audit: documentation/seo/2026-09-29-audit.md

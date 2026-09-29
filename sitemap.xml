@@ -4,367 +4,349 @@
   <!-- Homepage -->
   <url>
     <loc>https://wavlonlasers.com/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Machines hub -->
   <url>
-    <loc>https://wavlonlasers.com/machines/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Sheet Cutting -->
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/pro-cut-series/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/pro-cut-series</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/power-cut-series/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/power-cut-series</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/ultra-cut-series/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/ultra-cut-series</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Tube Cutting -->
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/double-chuck/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/double-chuck</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/triple-chuck/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-tube-cutting/triple-chuck</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Automation -->
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-automation/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-automation</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machines/fiber-laser-automation/tower-system/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machines/fiber-laser-automation/tower-system</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <!-- Technologies -->
   <url>
-    <loc>https://wavlonlasers.com/technologies/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/2d-cutting-heads/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/2d-cutting-heads</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/3d-cutting-heads/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/3d-cutting-heads</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/tube-cutting-heads/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/tube-cutting-heads</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/features/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/features</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/selection-guide/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/selection-guide</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers/2d/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers/2d</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers/3d/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers/3d</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers/tube/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/controllers/tube</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
 
   <!-- Precitec Laser Heads -->
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/precitec/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/precitec</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-thunder/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-thunder</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-2-0/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-2-0</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
 
   <!-- Guides -->
   <url>
-    <loc>https://wavlonlasers.com/resources/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://wavlonlasers.com/resources</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/fiber-laser-cutting-canada/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://wavlonlasers.com/fiber-laser-cutting-canada</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <!-- Marketing pages -->
   <url>
-    <loc>https://wavlonlasers.com/industries/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/industries</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/applications/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/applications</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/financing/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/financing</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/machine-showcase/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/machine-showcase</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Support -->
   <url>
-    <loc>https://wavlonlasers.com/service/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/service</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/parts/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/parts</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
 
   <!-- Company -->
   <url>
-    <loc>https://wavlonlasers.com/about/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/about</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/contact/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <loc>https://wavlonlasers.com/contact</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Legal -->
-  <url>
-    <loc>https://wavlonlasers.com/privacy/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://wavlonlasers.com/terms/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://wavlonlasers.com/cookies/</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 
   <!-- Laser Sources -->
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/ipg-photonics/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/ipg-photonics</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/compare/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/compare</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-500/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-500</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-1000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-1000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-2000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-2000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-3000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-3000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-4000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-4000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-6000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-6000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-6000-cabinet/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-6000-cabinet</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-12000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfsc-12000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-20000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-20000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-30000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-30000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-40000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-40000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-50000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-50000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-60000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-60000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-80000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-80000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-85000/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <loc>https://wavlonlasers.com/technologies/laser-sources/max-photonics/elite-series/elite-mfmc-85000</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

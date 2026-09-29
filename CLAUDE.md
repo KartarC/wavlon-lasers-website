@@ -24,7 +24,7 @@ The current public machines are **ProCut**, **PowerCut**, **UltraCut** (sheet), 
 
 `BLT T-Series` on the laser-head pages is a genuine BOCI cutting-head product name — unrelated to the retired machine. Do not rename it.
 
-Some body copy still carries retired names (`about/`, `applications/`, `industries/`, the automation pages, `parts/`). Link targets are already correct; only labels are stale. The old power ranges (S 1–6kW, P 6–20kW, X 20–30kW+) do **not** map onto ProCut/PowerCut/UltraCut (3–12 / 3–12 / 3–20kW+) — get real figures before rewriting any comparison table rather than interpolating.
+The September 8 public naming pass removed retired machine labels from discovery paths. Historical power ranges do not map directly onto current products; use documented current configurations and engineering-review language rather than inferring replacement specifications.
 
 ## Tech Stack
 - **Frontend**: Static multi-page HTML — `shared.css` + `nav.js` shared across all pages. No framework, no bundler.
@@ -96,7 +96,7 @@ All internal references use `/` prefix: `/shared.css`, `/nav.js`, `/wavlon_laser
 
 ## Full Site Map
 
-All 35 live URLs are listed in `sitemap.xml` — treat that file as the canonical index and keep it in step when adding or retiring a page.
+The sitemap lists 54 indexable URLs. Legal pages and dormant welding pages retain `noindex,follow` and stay outside it. Keep the sitemap in step when adding or retiring a page.
 
 ```
 /                                                → homepage
@@ -186,11 +186,13 @@ Three mega menus, all driven by `data-panel` on `.mega-cat-btn`, switched in `na
 8. **Never write content for retired series** (S/P/X/T) — see Product Line above
 
 ## SEO Requirements (series/machine pages)
+
+Use slashless absolute page URLs in canonical tags, sitemap, social metadata and structured data, except for the homepage. This matches the existing Vercel policy. Generators use `tools/seo-urls.mjs`. Run `node tools/check-seo.mjs` after SEO changes.
 - `<link rel="canonical" href="https://wavlonlasers.com/machines/..."/>` on every page
 - JSON-LD `Product` schema on machine series pages
 - JSON-LD `BreadcrumbList` on all inner pages
 - `<nav class="breadcrumbs">` visible HTML breadcrumbs
-- `<title>` under 65 characters or it truncates in Google results
+- Aim for concise, descriptive titles (normally under 65 characters); actual search-result display length varies.
 - Full OG set on product pages: `og:title`, `og:description`, `og:type`, `og:image`, `og:url`. `og:image` must be a real product image — never a favicon.
 - Add new pages to `sitemap.xml`; redirect stubs stay out of it
 - `llms.txt` at the repo root lists current products for AI crawlers — keep it in step with the product line

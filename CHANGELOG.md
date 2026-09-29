@@ -2,6 +2,16 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-09-29 — Codex — Align SEO metadata and canonical URLs
+
+- Scope: Aligned absolute canonical, Open Graph and structured-data page URLs with Vercel's existing slashless routes; excluded three noindex legal pages from the sitemap, leaving 54 indexable URLs; shortened 16 long titles and refreshed 21 descriptions; distinguished the MFSC 6000 cabinet variant; repaired one retired internal link and one missing section anchor; aligned 14 HTML redirect destinations.
+- Maintenance: Added a shared URL normalizer and SEO checker; updated source/head generators and sitemap-presence checks; corrected stale CLAUDE and build-script guidance. Audit details are in documentation/seo/2026-09-29-audit.md.
+- Validation: All 54 proposed canonical URLs return HTTP 200 directly on production. SEO checks pass for 54 sitemap routes, 81 HTML files, 14 redirects, 67 JSON-LD blocks and 32 inline scripts. Shared sync verifies 59 headers/main landmarks/footers. Scratch generator runs retain normalized canonical URLs, distinct cabinet metadata and 54 unique sitemap entries. Syntax and diff checks pass.
+- Preserved: Hosting configuration, approved hero artwork, machine specifications, public product lineup, dormant welding exclusions and consent-gated analytics.
+- Git: codex/technical-seo, based on origin/main 8c00e80. Commit and review preview follow this record.
+- Remote/deploy: Production has not been changed by this pass. Publish through a reviewed PR after release authorization.
+- Follow-up: Review preview, then publish and verify. Permanent server redirects require a separately authorized vercel.json change. Search Console verification and GA4 activation remain dependent on access/inputs.
+
 ### 2026-09-08 02:53 EDT — Codex — Publish current product naming and partner solutions
 
 - Scope: Merged the retired-name cleanup and secondary partner-solution integration through PR #53 and verified the connected production deployment. This record adds no further product changes.

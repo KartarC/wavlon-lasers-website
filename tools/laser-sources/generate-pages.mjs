@@ -1,3 +1,4 @@
+import { normalizeSiteUrls } from "../seo-urls.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 
@@ -106,14 +107,15 @@ for (const model of maxModels) {
     ["Certifications / safety", model.certifications], ["Warranty", model.warranty], ["Efficiency", model.efficiency],
   ];
   const body = `<section class="source-hero" style="padding:78px 0 70px"><div class="source-shell source-hero-grid"><div><img class="source-brand-hero-logo source-brand-hero-logo--max" src="/assets/laser-sources/max/max-logo.svg" alt="MAX Photonics"><p class="source-eyebrow">Elite Series · ${esc(model.nominalPowerLabel)}</p><h1 class="source-title">${esc(model.displayName)}.</h1><p class="source-lede">${esc(model.description)}</p>${actions("/contact/#quote", `${compareRoute}?models=${model.id}`, "Compare this model")}</div><div class="source-detail-image"><img src="${model.primaryImage}" alt="${esc(model.displayName)} fiber laser source"></div></div></section><section class="source-section"><div class="source-shell source-detail-grid"><div><p class="source-kicker">Published specification</p><h2 class="source-h2">Integration profile.</h2><p class="source-intro" style="margin-top:18px">${esc(model.compatibilityNote)}</p><div class="source-warning"><div class="source-warning-icon">!</div><div><strong>Engineering validation required.</strong>Power is only one selection input. Confirm machine, head, fiber, chiller, controls, utilities and delivered regional compliance together.</div></div></div><dl class="source-spec-grid">${specs.map(([label, value]) => `<div class="source-spec"><dt>${esc(label)}</dt><dd>${esc(value || "Confirm by configuration")}</dd></div>`).join("")}</dl></div></section><section class="source-section source-section--soft"><div class="source-shell"><div class="source-section-head"><div><p class="source-kicker">Official references</p><h2 class="source-h2">Source trail.</h2></div><p class="source-intro">The catalog preserves the product page and original manufacturer image location for repeatable review.</p></div><ul class="source-source-list">${model.sourceUrls.map((url) => `<li><a href="${esc(url)}" rel="noopener" target="_blank">${esc(url)}</a></li>`).join("")}<li><a href="${esc(model.sourceImageUrl)}" rel="noopener" target="_blank">Official image origin: ${esc(model.sourceImageUrl)}</a></li></ul><p class="source-fineprint">Retrieved ${esc(model.retrievedAt)}. Specifications, certifications, availability and warranty are subject to manufacturer revision and selected configuration.</p></div></section>${serviceSection()}<section class="source-section"><div class="source-shell"><div class="source-cta"><div><h2>Configure ${esc(model.displayName)}.</h2><p>Wavlon will validate the complete source, machine and application package before quotation.</p></div><a class="source-btn source-btn--primary" href="/contact/#quote">Start configuration →</a></div></div></section>`;
-  await writePage(route, pageShell({ title: `${model.displayName} MAX Elite | Wavlon Lasers`, description: `${model.displayName} MAX Photonics Elite Series fiber laser source specifications, controls, cooling, certifications, warranty and Wavlon compatibility screening.`, route, image: model.primaryImage, crumbs, body }));
+  const seoName = model.id === "max-elite-mfsc-6000-cabinet" ? `${model.displayName} Cabinet` : model.displayName;
+  await writePage(route, pageShell({ title: `${seoName} MAX Elite | Wavlon Lasers`, description: `${seoName} MAX Photonics Elite Series fiber laser source specifications, controls, cooling, certifications, warranty and Wavlon compatibility screening.`, route, image: model.primaryImage, crumbs, body }));
 }
 
 async function writePage(route, html) {
   const relative = route.replace(/^\//, "");
   const dir = path.join(root, relative);
   await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(path.join(dir, "index.html"), html);
+  await fs.writeFile(path.join(dir, "index.html"), normalizeSiteUrls(html));
 }
 
 console.log(JSON.stringify({ hub: 1, brandPages: 2, comparePages: 1, maxDetailPages: maxModels.length }));

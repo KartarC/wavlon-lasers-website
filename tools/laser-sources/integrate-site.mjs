@@ -1,9 +1,10 @@
+import { normalizeSiteUrls } from "../seo-urls.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..", "..");
 const read = (file) => fs.readFile(path.join(root, file), "utf8");
-const write = (file, value) => fs.writeFile(path.join(root, file), value);
+const write = (file, value) => fs.writeFile(path.join(root, file), normalizeSiteUrls(value));
 
 const sourcePanel = `<div class="mega-panel" id="panel-tech-resonators"><p class="mega-panel-label">Laser Sources</p><div class="mega-products-grid"><a href="/technologies/laser-sources/max-photonics/" class="mega-prod-card"><div class="mega-prod-img" style="background:#f7f8fa;padding:18px;overflow:hidden;"><img src="/assets/laser-sources/max/max-logo.svg" alt="MAX Photonics Elite Series" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">MAX Elite Series</div><div class="mega-prod-spec">0.5–85kW · 15 reviewed products</div></div></a><a href="/technologies/laser-sources/ipg-photonics/" class="mega-prod-card"><div class="mega-prod-img" style="background:#f7f8fa;padding:18px;overflow:hidden;"><img src="/assets/laser-sources/ipg/ipg-logo.svg" alt="IPG Photonics CW Fiber Lasers" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div><div class="mega-prod-info"><div class="mega-prod-name">IPG Industrial CW</div><div class="mega-prod-spec">YLR · YLS · ECO</div></div></a><a href="/technologies/laser-sources/compare/" class="mega-prod-card"><div class="mega-prod-img" style="background:linear-gradient(145deg,#0d1b2a,#183a59);padding:22px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-weight:900;">A ↔ B</div><div class="mega-prod-info"><div class="mega-prod-name">Compare Sources</div><div class="mega-prod-spec">Choose up to four models</div></div></a></div></div>`;
 
@@ -41,7 +42,7 @@ if (!technologies.includes('MAX Elite &amp; IPG Industrial CW')) throw new Error
 await write("technologies/index.html", technologies);
 
 let sitemap = await read("sitemap.xml");
-if (!sitemap.includes('https://wavlonlasers.com/technologies/laser-sources/')) {
+if (!/https:\/\/wavlonlasers\.com\/technologies\/laser-sources\/?<\/loc>/.test(sitemap)) {
   const routes = [
     "/technologies/laser-sources/",
     "/technologies/laser-sources/max-photonics/",
