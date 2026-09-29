@@ -1,3 +1,4 @@
+import { normalizeSiteUrls } from "../seo-urls.mjs";
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -105,7 +106,7 @@ const read = (relative) => fs.readFile(path.join(root, relative), 'utf8');
 const write = async (relative, contents) => {
   const target = path.join(root, relative);
   await fs.mkdir(path.dirname(target), { recursive: true });
-  await fs.writeFile(target, `${contents.trim()}\n`, 'utf8');
+  await fs.writeFile(target, `${normalizeSiteUrls(contents).trim()}\n`, 'utf8');
 };
 
 const header = await read('_partials/header.html');
@@ -335,8 +336,8 @@ technologies = technologies.replace('The components that power every Wavlon fibe
 await write('technologies/index.html', technologies);
 
 let sitemap = await read('sitemap.xml');
-sitemap = sitemap.replace(/(<loc>https:\/\/wavlonlasers\.com\/technologies\/laser-heads\/<\/loc>\s*<lastmod>)[^<]+/, `$1${today}`);
-if (!sitemap.includes('/technologies/laser-heads/precitec/')) {
+sitemap = sitemap.replace(/(<loc>https:\/\/wavlonlasers\.com\/technologies\/laser-heads\/?<\/loc>\s*<lastmod>)[^<]+/, `$1${today}`);
+if (!/https:\/\/wavlonlasers\.com\/technologies\/laser-heads\/precitec\/?<\/loc>/.test(sitemap)) {
   const routes = ['/technologies/laser-heads/precitec/', '/technologies/laser-heads/precitec/procutter-thunder/', '/technologies/laser-heads/precitec/procutter-2-0/'];
   const xml = routes.map((route) => `  <url>\n    <loc>https://wavlonlasers.com${route}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>${route.endsWith('/precitec/') ? '0.7' : '0.65'}</priority>\n  </url>`).join('\n');
   sitemap = sitemap.replace('  <!-- Guides -->', `  <!-- Precitec Laser Heads -->\n${xml}\n\n  <!-- Guides -->`);

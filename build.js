@@ -5,12 +5,12 @@
  * into every HTML page on the site. Run manually or auto-triggered by Vercel.
  *
  * Usage:  node build.js
- * Vercel: automatically runs via package.json "build" script on every deploy.
+ * package.json exposes this as the manual "sync" script.
  *
  * To update the header/footer across all pages:
  *   1. Edit _partials/header.html or _partials/footer.html
  *   2. Run:  node build.js
- *   3. git add . && git commit && git push origin main
+ *   3. Review the diff, stage explicit files, and publish a focused pull request.
  */
 
 const fs = require('fs');
