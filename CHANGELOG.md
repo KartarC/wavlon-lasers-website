@@ -591,3 +591,11 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Validation: YouTube oEmbed confirms the supplied title and Wavlon Lasers channel. SEO checker passes 57 sitemap routes. Browser checks at 1440px and 390px cover eight pages, video activation and no-JavaScript fallback; representative screenshots reviewed. Playback itself depends on YouTube availability. Shared sync verifies 62 headers/main landmarks/footers.
 - Git: codex/ultracut-video-blog based on current origin/main d14f067. Commit and publishing pending in this entry.
 - Deployment: User requested publication across the website; publish through the pull-request workflow and verify production.
+
+### 2026-10-04 — Codex — Verify UltraCut video publication
+
+- Published PR #57 via squash merge b3d94ba36498943f7a9c610ddae8f8c02629b619.
+- Vercel production deployment F8pvLqoAiUDBw8fwVwywAvjah8m2 reports success.
+- Live verification: Blog index, category, article, homepage, sheet hub, UltraCut, machine showcase, Resources, player script, and blog stylesheet all return HTTP 200 and expected update markers.
+- The five live video placements reference the supplied z6HYC59Ine8 video through the shared click-to-load player. Local desktop/mobile and fallback checks passed before release.
+- This documentation-only release record follows on codex/ultracut-video-blog; product changes are already merged and live.
