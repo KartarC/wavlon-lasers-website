@@ -598,3 +598,9 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Added regional discovery to the Canadian guide, Resources, Service, original dual-table article and Blog; added focused UltraCut FAQs. Updated sitemap and llms.txt. No invented offices, response times, reviews, prices or ranking guarantees.
 - Based on origin/main b3d94ba (published UltraCut PR #57). Branch codex/canadian-regional-search. Validation and publishing pending.
 - Validation completed: 60 sitemap routes, 82 JSON-LD blocks, 65 shared page layouts; desktop/mobile browser checks on eight routes; visible FAQ/schema parity for 12 questions; screenshot review and diff checks passed. Publishing through a reviewed pull request.
+
+### 2026-10-04 — Codex — Verify Canadian regional content publication
+
+- PR #58 merged as 835ebaff97b8c6e1f86e2418f3a383b414c8f428. Vercel production deployment 4geySPcjX6iatDTcty4s7T2rrvvi reports success.
+- All eight checked public routes return HTTP 200 with regional content markers. Product scope is live; this documentation-only record follows on the feature branch.
+
