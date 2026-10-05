@@ -1,5 +1,49 @@
+/* Consent-gated GA4 measurement. Set only a verified Wavlon web-stream ID. */
+(function () {
+  'use strict';
+  var measurementId = 'G-1DD05NEHH7'; // Verified Wavlon Lasers Website stream.
+  var enabled = false;
+  var sent = Object.create(null);
+  var forms = ['sqForm','sqULForm','pqForm','xqForm','dcqForm','tcqForm','tsqForm'];
+  function pageUrl() { return location.origin + location.pathname; }
+  function safeReferrer() {
+    try { return document.referrer ? new URL(document.referrer).origin + '/' : ''; }
+    catch (e) { return ''; }
+  }
+  function event(name, params) {
+    if (!enabled || typeof window.gtag !== 'function') return;
+    try { window.gtag('event', name, Object.assign({page_location:pageUrl()},params)); } catch(e) {}
+  }
+  window.WavlonAnalytics = {
+    enable: function () {
+      if (enabled || !/^G-[A-Z0-9]+$/.test(measurementId) || measurementId === 'G-XXXXXXXXXX') return;
+      enabled = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+      window.gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+      window.gtag('js',new Date());
+      window.gtag('config',measurementId,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:pageUrl(),page_referrer:safeReferrer()});
+      event('page_view',{page_referrer:safeReferrer()});
+      var script=document.createElement('script'); script.async=true;
+      script.src='https://www.googletagmanager.com/gtag/js?id='+measurementId;
+      document.head.appendChild(script);
+    },
+    quoteSuccess: function (formId) {
+      if (!enabled || forms.indexOf(formId) === -1 || sent[formId]) return;
+      sent[formId] = true;
+      event('generate_lead',{form_id:formId,lead_type:'machine_quote'});
+    }
+  };
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href]'); if(!a)return;
+    var href=a.getAttribute('href') || '';
+    if(/^tel:/i.test(href))event('contact_click',{contact_method:'phone'});
+    if(/^mailto:/i.test(href))event('contact_click',{contact_method:'email'});
+  });
+})();
+
 /* Wavlon Lasers — Cookie Consent Banner
-   PIPEDA-compliant. Pre-wired for Facebook Pixel + Google Analytics (inactive until IDs configured).
+   Google Analytics requires consent. Facebook Pixel remains inactive.
    Saves choice to localStorage under 'wavlon_cookie_consent'. */
 (function () {
   'use strict';
@@ -8,12 +52,7 @@
 
   // ── Activate tracking once consent is confirmed ───────────────────────
   function activateAnalytics() {
-    // Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID
-    // (function(){ var s=document.createElement('script'); s.async=true;
-    //   s.src='https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-    //   document.head.appendChild(s); })();
-    // window.dataLayer = window.dataLayer || [];
-    // function gtag(){dataLayer.push(arguments);} gtag('js',new Date()); gtag('config','G-XXXXXXXXXX');
+    window.WavlonAnalytics.enable();
   }
 
   function activateMarketing() {
@@ -30,8 +69,8 @@
   try {
     var existing = JSON.parse(localStorage.getItem(KEY) || 'null');
     if (existing) {
-      if (existing.analytics)  activateAnalytics();
-      if (existing.marketing)  activateMarketing();
+      if (existing.analytics === true)  activateAnalytics();
+      if (existing.marketing === true)  activateMarketing();
       return; // banner already answered — don't show again
     }
   } catch(e) {}
@@ -79,7 +118,7 @@
   var bar = document.createElement('div');
   bar.id = 'wl-cookie-bar';
   bar.innerHTML = `
-    <p>We use cookies to improve your experience, analyse site traffic, and for marketing. By clicking <strong>"Accept All"</strong>, you consent to our use of analytics and advertising cookies (including future Facebook Pixel and Google Analytics integration). See our <a href="/cookies/">Cookie Policy</a> and <a href="/privacy/">Privacy Policy</a>.</p>
+    <p>We use essential cookies to operate this website. By clicking <strong>"Accept All"</strong>, you also allow Google Analytics to measure visits and enquiries. Advertising tracking is currently inactive. See our <a href="/cookies/">Cookie Policy</a> and <a href="/privacy/">Privacy Policy</a>.</p>
     <div class="wl-cookie-btns">
       <button class="wl-cookie-btn essential" id="wl-cookie-ess">Essential Only</button>
       <button class="wl-cookie-btn accept"    id="wl-cookie-all">Accept All</button>

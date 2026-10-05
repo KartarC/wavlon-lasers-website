@@ -1329,6 +1329,7 @@ document.getElementById('sqForm').addEventListener('submit', async function(e) {
       message: document.getElementById('sq_message').value,
       source: 'pro-cut-series-page'
     });
+    if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('sqForm');
     document.getElementById('sqFormWrap').style.display = 'none';
     document.getElementById('sqSuccess').style.display = 'block';
   } catch(err) {
@@ -1364,7 +1365,8 @@ document.getElementById('sqForm').addEventListener('submit', async function(e) {
         })
       });
       if (!response.ok) throw new Error('Quote request failed');
-      document.getElementById('sqULFormWrap').style.display = 'none';
+      if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('sqULForm');
+    document.getElementById('sqULFormWrap').style.display = 'none';
       document.getElementById('sqULSuccess').style.display  = 'block';
     } catch(err) {
       btn.textContent = 'Send Quote Request'; btn.disabled = false;

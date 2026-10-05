@@ -760,6 +760,7 @@ document.getElementById('pqForm').addEventListener('submit', async function(e) {
       })
     });
     if (!res.ok) throw new Error('Server error');
+    if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('pqForm');
     document.getElementById('pqFormWrap').style.display = 'none';
     document.getElementById('pqSuccess').style.display = 'block';
   } catch(err) {
