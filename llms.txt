@@ -58,3 +58,8 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines,
 - [Wavlon Blog](https://wavlonlasers.com/blog): Fiber laser articles and videos.
 - [Dual Exchange Tables](https://wavlonlasers.com/blog/category/dual-exchange-tables): Sheet handling and cutting workflow category.
 - [Dual Exchange Table Workflow](https://wavlonlasers.com/blog/dual-exchange-table-fiber-laser-cutting): Practical guide with the UltraCut video.
+
+## Canadian purchasing guidance
+- [Canadian Buyers](https://wavlonlasers.com/blog/category/canadian-buyers): Regional installation and quotation planning.
+- [Ontario, Montréal, Vancouver and Calgary](https://wavlonlasers.com/blog/fiber-laser-buying-guide-canadian-regions): Buyer questions for Canadian sites; region names do not establish branch offices.
+- [Canadian quotation checklist](https://wavlonlasers.com/blog/fiber-laser-quote-checklist-canada): Compare equipment, logistics, training, consumables and service scope.

@@ -591,3 +591,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Validation: YouTube oEmbed confirms the supplied title and Wavlon Lasers channel. SEO checker passes 57 sitemap routes. Browser checks at 1440px and 390px cover eight pages, video activation and no-JavaScript fallback; representative screenshots reviewed. Playback itself depends on YouTube availability. Shared sync verifies 62 headers/main landmarks/footers.
 - Git: codex/ultracut-video-blog based on current origin/main d14f067. Commit and publishing pending in this entry.
 - Deployment: User requested publication across the website; publish through the pull-request workflow and verify production.
+
+### 2026-10-04 — Codex — Expand Canadian search and answer content
+
+- Added two original buyer guides and a Canadian Buyers category covering Ontario, Montréal, Vancouver, Calgary and national quote comparisons. Visible quick answers and FAQs use matching FAQPage markup; article metadata identifies Wavlon and publication date.
+- Added regional discovery to the Canadian guide, Resources, Service, original dual-table article and Blog; added focused UltraCut FAQs. Updated sitemap and llms.txt. No invented offices, response times, reviews, prices or ranking guarantees.
+- Based on origin/main b3d94ba (published UltraCut PR #57). Branch codex/canadian-regional-search. Validation and publishing pending.
+- Validation completed: 60 sitemap routes, 82 JSON-LD blocks, 65 shared page layouts; desktop/mobile browser checks on eight routes; visible FAQ/schema parity for 12 questions; screenshot review and diff checks passed. Publishing through a reviewed pull request.

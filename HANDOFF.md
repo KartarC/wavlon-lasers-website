@@ -1,23 +1,10 @@
 # Current Handoff
 
-Last updated: 2026-10-04 by Codex
+Updated 2026-10-04 by Codex.
 
-## Current state
-
-- Branch: codex/ultracut-video-blog, based on origin/main d14f067.
-- UltraCut video z6HYC59Ine8 added to homepage, sheet-cutting hub, UltraCut, machine showcase and a new blog article.
-- New routes: /blog, /blog/category/dual-exchange-tables, /blog/dual-exchange-table-fiber-laser-cutting. Shared Resources navigation and footer link to the blog.
-- Click-to-load player uses youtube-nocookie.com; direct YouTube fallback remains available.
-- SEO and desktop/mobile browser checks pass; shared sync verifies 62 pages.
-- Publication requested by user. Next: commit, push, review PR, merge and verify live routes and video assets.
-
-## Preserve
-
-- Current product naming, existing hero imagery, quote forms, consent-gated analytics, and slashless canonical policy.
-- No hosting configuration or credentials changed.
-- Future shared navigation edits must update _partials and run node build.js.
-
-## Access
-
-- Repository: https://github.com/KartarC/wavlon-lasers-website
-- Production: https://wavlonlasers.com
+- Branch codex/canadian-regional-search, based on current origin/main b3d94ba.
+- Prior UltraCut video update PR #57 is live.
+- Added Canadian Buyers category, regional purchasing guide, quotation checklist, focused UltraCut FAQs and relevant internal links.
+- Regional targets: Canada, Ontario, Montréal, Vancouver and Calgary. Region names describe buyer planning, not branch locations.
+- Validation passed: shared sync, 60-route SEO check, 12 FAQ/schema matches, eight desktop/mobile pages and screenshot review. Next: publish through a reviewed PR and verify live pages.
+- Preserve current products, original imagery, existing forms, hosting configuration and consent behavior.
