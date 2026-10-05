@@ -583,3 +583,11 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Git: `codex/fix-procutter-2-hero-overlap`; commit, pull request, and deployment pending in this entry.
 - Remote/deploy: Pending GitHub review and Git-integrated Vercel deployment.
 - Follow-up: Publish the focused branch, verify the public ProCutter 2.0 route, and record the final production state in the pull request.
+
+### 2026-10-04 — Codex — Add UltraCut video and dual exchange table blog
+
+- Scope: Added the supplied YouTube film z6HYC59Ine8 to the homepage, sheet-cutting hub, UltraCut page, machine showcase, and new workflow article. Added the Blog index, Dual Exchange Tables category, Resources promotion, shared desktop/mobile/footer discovery, sitemap entries, and llms links.
+- Implementation: First-party image posters with click-to-load privacy-enhanced YouTube players, keyboard controls and direct YouTube fallbacks. Article includes a workflow comparison and explicitly illustrative timing example. Corrected an absolute downtime claim and pre-existing UltraCut specification/form overflow.
+- Validation: YouTube oEmbed confirms the supplied title and Wavlon Lasers channel. SEO checker passes 57 sitemap routes. Browser checks at 1440px and 390px cover eight pages, video activation and no-JavaScript fallback; representative screenshots reviewed. Playback itself depends on YouTube availability. Shared sync verifies 62 headers/main landmarks/footers.
+- Git: codex/ultracut-video-blog based on current origin/main d14f067. Commit and publishing pending in this entry.
+- Deployment: User requested publication across the website; publish through the pull-request workflow and verify production.

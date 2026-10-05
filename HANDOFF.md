@@ -1,43 +1,23 @@
 # Current Handoff
 
-Last updated: 2026-09-29 by Codex
+Last updated: 2026-10-04 by Codex
 
 ## Current state
 
-- Production baseline: main at 8c00e80 (PR #54, production-record merge); product changes from PR #53 remain the latest recorded release.
-- Current work: codex/technical-seo in C:/Users/Karta/Documents/Codex/2026-09-08/ca/work/wavlon-seo. This isolated checkout preserves the previous workspace.
-- PR #55 is open: https://github.com/KartarC/wavlon-lasers-website/pull/55. Product commit: 03ef778. Both Vercel checks passed and product preview dpl_8MbwbvivFvGDcJ45Vf9HEnKc6boo is Ready. Production has not been changed by this pass.
-- Preview: https://wavlon-lasers-website-git-codex-technical-seo-infinara.vercel.app (requires Vercel login). Direct and connected authenticated fetches returned the authentication redirect, so deployed HTML inspection remains unverified. Local content checks and deployment state are verified.
-- Canonical, social and structured-data absolute page URLs now match the live slashless routing policy. The sitemap has 54 indexable URLs; legal and dormant welding pages remain excluded.
-- Sixteen long titles and 21 descriptions were refined. MFSC 6000 cabinet metadata is distinct. The UltraCut laser-head link and the selection-guide model anchor are fixed.
-- Fourteen existing HTML redirect pages point at the final destination without a slash-normalization hop. They are still HTML redirects, not server-side permanent redirects.
-- Generator normalization, sitemap-presence checks and tools/check-seo.mjs preserve and verify the changes.
-
-## Validation completed
-
-- All 54 proposed canonical URLs returned HTTP 200 directly on production; all 14 slashless retired URLs returned HTTP 200 with HTML refresh redirects.
-- SEO checker passed: 54 sitemap routes, all public internal links/anchors, 81 HTML files, 14 redirect targets, 67 JSON-LD blocks and 32 inline scripts.
-- Shared sync verified 59 headers, 59 main landmarks and 59 footers.
-- Source/head generators ran successfully in a scratch copy; generated canonicals were normalized, cabinet metadata was distinct, and sitemap still contained 54 unique URLs.
-- Edited generator syntax and git diff checks passed. vercel.json remains unchanged.
-
-## Next action
-
-1. Review the technical-seo pull-request preview and checks; obtain release authorization before merging to main, then verify production and record the deployment.
-2. Consider true permanent redirects for retired routes as a separate hosting change. AGENTS.md requires an explicit request to modify vercel.json.
-3. Consider normalizing internal navigation links to remove remaining slash-normalization hops.
-4. Verify Search Console indexing and submit the sitemap when access is available. Analytics still needs a real production GA4 Measurement ID.
+- Branch: codex/ultracut-video-blog, based on origin/main d14f067.
+- UltraCut video z6HYC59Ine8 added to homepage, sheet-cutting hub, UltraCut, machine showcase and a new blog article.
+- New routes: /blog, /blog/category/dual-exchange-tables, /blog/dual-exchange-table-fiber-laser-cutting. Shared Resources navigation and footer link to the blog.
+- Click-to-load player uses youtube-nocookie.com; direct YouTube fallback remains available.
+- SEO and desktop/mobile browser checks pass; shared sync verifies 62 pages.
+- Publication requested by user. Next: commit, push, review PR, merge and verify live routes and video assets.
 
 ## Preserve
 
-- Current public machines: ProCut, PowerCut, UltraCut, TubeCut Double Chuck and TubeCut Triple Chuck; tower automation remains separate.
-- Dormant W-Series welding pages stay noindex and excluded from public discovery. Genuine BOCI BLT T-Series cutting-head names remain valid.
-- Preserve the three approved homepage hero scenes, image preload and optimized WebP references.
-- Preserve engineering review for non-standard configurations, partner links to Rise Tek and Machinists' Vault, accessibility/mobile improvements, and the consent gate for analytics.
-- Read AGENTS.md, CLAUDE.md and the newest CHANGELOG.md before editing; stage only explicit paths and preserve unrelated work.
+- Current product naming, existing hero imagery, quote forms, consent-gated analytics, and slashless canonical policy.
+- No hosting configuration or credentials changed.
+- Future shared navigation edits must update _partials and run node build.js.
 
 ## Access
 
 - Repository: https://github.com/KartarC/wavlon-lasers-website
 - Production: https://wavlonlasers.com
-- Detailed audit: documentation/seo/2026-09-29-audit.md
