@@ -2,6 +2,12 @@
 
 Append one entry per completed unit of work. Newest entries go first. This file records both assistant and human changes without replacing Git history.
 
+### 2026-10-05 — Codex — Prepare consent-gated GA4 and quote tracking
+
+- Verified G-1DD05NEHH7 against Wavlon property 557408052 and wavlonlasers.com web stream. Installed in shared consent script.
+- Seven quote forms emit generate_lead after server success. Phone/email clicks use a separate event. Explicit payloads exclude form values and query strings; advertising remains disabled.
+- Updated cookie/privacy notices. Six mocked browser scenarios and 60-route SEO validation pass.
+- Production activation, enhanced-measurement review, key-event setup and Search Console verification remain unconfirmed. See documentation/analytics/week-one-2026-10-05.md.
 ### 2026-09-29 — Codex — Align SEO metadata and canonical URLs
 
 - Scope: Aligned absolute canonical, Open Graph and structured-data page URLs with Vercel's existing slashless routes; excluded three noindex legal pages from the sitemap, leaving 54 indexable URLs; shortened 16 long titles and refreshed 21 descriptions; distinguished the MFSC 6000 cabinet variant; repaired one retired internal link and one missing section anchor; aligned 14 HTML redirect destinations.
@@ -598,3 +604,4 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Added regional discovery to the Canadian guide, Resources, Service, original dual-table article and Blog; added focused UltraCut FAQs. Updated sitemap and llms.txt. No invented offices, response times, reviews, prices or ranking guarantees.
 - Based on origin/main b3d94ba (published UltraCut PR #57). Branch codex/canadian-regional-search. Validation and publishing pending.
 - Validation completed: 60 sitemap routes, 82 JSON-LD blocks, 65 shared page layouts; desktop/mobile browser checks on eight routes; visible FAQ/schema parity for 12 questions; screenshot review and diff checks passed. Publishing through a reviewed pull request.
+
