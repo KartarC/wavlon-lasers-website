@@ -613,3 +613,8 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Validation: 63 sitemap URLs, 90 HTML files, 88 JSON-LD blocks, 32 inline scripts; 68 synchronized page layouts. Sixteen desktop/mobile route checks and no-JavaScript education navigation pass.
 - Based on current origin/main 3eb28c5, which contains merged Analytics PR #59. The older workspace's uncommitted release notes were observed and left intact.
 - Branch codex/education-center-guides. Commit/push and review preview pending at this entry; production not changed. See documentation/education-center-2026-10-10.md.
+
+### 2026-10-10 — Codex — Verify Education Center preview
+
+- PR #60, content commit 21bdce3 pushed. Vercel preview deployment checks passed. Authenticated preview requests return HTTP 200 and expected HTML for /resources and all three guides.
+- Reviewed desktop/mobile screenshots and confirmed 60 other changed pages contain navigation-only updates outside shared headers/footers. Next: publish the reviewed change and verify production.
