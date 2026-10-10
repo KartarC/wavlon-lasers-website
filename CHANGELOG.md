@@ -605,3 +605,16 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Based on origin/main b3d94ba (published UltraCut PR #57). Branch codex/canadian-regional-search. Validation and publishing pending.
 - Validation completed: 60 sitemap routes, 82 JSON-LD blocks, 65 shared page layouts; desktop/mobile browser checks on eight routes; visible FAQ/schema parity for 12 questions; screenshot review and diff checks passed. Publishing through a reviewed pull request.
 
+
+### 2026-10-10 — Codex — Expand blogs and Education Center
+
+- Refreshed the existing Resources URL as an Education Center with machine selection, cutting-process and ownership paths. Added three original guides: laser power selection, nitrogen/oxygen/air and double-versus-triple-chuck tube lasers.
+- Updated Blog, relevant machine hubs, quote-checklist links, shared navigation labels, sitemap and llms.txt. All other page changes are synchronized navigation labels. Preserved forms, consent scripts, hosting configuration and product specifications.
+- Validation: 63 sitemap URLs, 90 HTML files, 88 JSON-LD blocks, 32 inline scripts; 68 synchronized page layouts. Sixteen desktop/mobile route checks and no-JavaScript education navigation pass.
+- Based on current origin/main 3eb28c5, which contains merged Analytics PR #59. The older workspace's uncommitted release notes were observed and left intact.
+- Branch codex/education-center-guides. Commit/push and review preview pending at this entry; production not changed. See documentation/education-center-2026-10-10.md.
+
+### 2026-10-10 — Codex — Verify Education Center preview
+
+- PR #60, content commit 21bdce3 pushed. Vercel preview deployment checks passed. Authenticated preview requests return HTTP 200 and expected HTML for /resources and all three guides.
+- Reviewed desktop/mobile screenshots and confirmed 60 other changed pages contain navigation-only updates outside shared headers/footers. Next: publish the reviewed change and verify production.
