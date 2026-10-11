@@ -69,3 +69,8 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines,
 - [How to Choose Fiber Laser Power](https://wavlonlasers.com/blog/how-to-choose-fiber-laser-power): Choose fiber laser power around your material mix, finished-part quality and production target. Use a practical trial checklist to compare configurations.
 - [Nitrogen vs Oxygen vs Air for Fiber Laser Cutting](https://wavlonlasers.com/blog/nitrogen-oxygen-air-fiber-laser-cutting): Compare nitrogen, oxygen and compressed air for fiber laser cutting. Understand edge requirements, gas supply and the checks to include in a cutting trial.
 - [Double vs Triple Chuck Tube Lasers: How to Choose](https://wavlonlasers.com/blog/double-vs-triple-chuck-tube-laser): Compare double- and triple-chuck tube lasers by stock length, profile size, support and part handling. Use Wavlon model ranges and a practical sample checklist.
+
+## Drawing, installation and sample preparation
+- [Preparing DXF and STEP Files for Laser Cutting](https://wavlonlasers.com/blog/prepare-dxf-step-files-laser-cutting): Prepare a laser cutting drawing pack with correct units, revision control, clean contours and clear material requirements. Use the file handoff checklist.
+- [Fiber Laser Site Preparation Checklist](https://wavlonlasers.com/blog/fiber-laser-site-preparation-checklist): Plan receiving, floor space, utilities, extraction and training before a fiber laser arrives. Assign responsibilities with a practical site-readiness checklist.
+- [How to Evaluate a Laser-Cut Sample](https://wavlonlasers.com/blog/laser-cut-sample-inspection-checklist): Evaluate laser-cut samples using agreed dimensions, edge quality, downstream fit and complete cycle time. Keep a clear inspection record for each trial.
