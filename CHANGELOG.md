@@ -625,3 +625,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Reviewed HARSLE documentation hub and relevant CAD, installation and precision guides for content gaps; no copied competitor imagery or machine-specific instructions.
 - Validation: 66 sitemap routes, 93 HTML files, 94 JSON-LD blocks, 32 inline scripts and 71 synchronized layouts. Sixteen responsive route checks and no-JavaScript navigation pass; screenshots reviewed.
 - Branch codex/drawing-installation-quality from origin/main a17c414 (merged PR #60). Commit, review and deployment pending. Separate checkout release notes preserved.
+
+### 2026-10-12 — Codex — Add ownership education and audit competitor links
+
+- Added service request, consumables identification and operator training/handover guides with original illustrations. Updated Education Center, Blog, Service, Parts, site preparation, sitemap and llms discovery.
+- No HARSLE/Harsel links found across 66 live sitemap pages or current public source. Removed four outgoing competitor links from the saved review outside the website repository at the user's request.
+- Validation: 69 sitemap routes, 96 HTML files, 100 JSON-LD blocks, 32 inline scripts, 74 shared layouts, 16 responsive page checks and no-JavaScript navigation pass. Screenshots and content reviewed.
+- Branch codex/ownership-education from current origin/main 7fda505. Commit, preview and publication pending. Existing checkout notes preserved.

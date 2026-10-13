@@ -74,3 +74,8 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines,
 - [Preparing DXF and STEP Files for Laser Cutting](https://wavlonlasers.com/blog/prepare-dxf-step-files-laser-cutting): Prepare a laser cutting drawing pack with correct units, revision control, clean contours and clear material requirements. Use the file handoff checklist.
 - [Fiber Laser Site Preparation Checklist](https://wavlonlasers.com/blog/fiber-laser-site-preparation-checklist): Plan receiving, floor space, utilities, extraction and training before a fiber laser arrives. Assign responsibilities with a practical site-readiness checklist.
 - [How to Evaluate a Laser-Cut Sample](https://wavlonlasers.com/blog/laser-cut-sample-inspection-checklist): Evaluate laser-cut samples using agreed dimensions, edge quality, downstream fit and complete cycle time. Keep a clear inspection record for each trial.
+
+## Machine ownership guides
+- [Fiber Laser Service Request Checklist](https://wavlonlasers.com/blog/fiber-laser-service-request-checklist): Prepare a fiber laser service request with machine details, alarm text and a clear issue history. Use the checklist to organize support information.
+- [How to Identify Fiber Laser Consumables](https://wavlonlasers.com/blog/identify-fiber-laser-consumables): Identify fiber laser consumables using the installed head, part reference and approved documentation before requesting a replacement or spare.
+- [Fiber Laser Operator Training & Handover](https://wavlonlasers.com/blog/fiber-laser-operator-training-handover): Plan fiber laser operator training with role assignments, current manuals, supervised tasks and a clear handover record for your production team.
