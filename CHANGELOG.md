@@ -639,3 +639,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Added table-specific API payloads, contact quote routing, company preservation, contact/parts/financing lead measurement and funnel events. Improved contact errors and optional details; fixed service phone, mobile grids/tables and removed homepage artificial loader.
 - GA4 records only 3 sessions / 8 views through October 13 with consent-limited collection created October 5. Search Console unverified/403; owner tag requested. No recent records in four lead tables.
 - Branch codex/lead-conversion-audit based on origin/main 63b82e9. Tests and publication details in documentation/lead-audit-2026-10-14.md. Website commit/preview pending; production DB correction already applied and verified. Prior checkout notes preserved.
+
+### 2026-10-14 — Codex — Align quote-only schema with actual sales flow
+
+- Replaced unsupported Product/Offer markup on 11 public pages with descriptive WebPage and ItemList markup. Retained organization and breadcrumb data, canonical URLs, real images, visible specifications and quote forms. Removed the Tower system InStock claim.
+- Updated Precitec generator and documented quote-only markup policy. Extended SEO checks to prevent unsupported shopping markup returning. Updated lastmod only for changed public pages.
+- Validation: 69 sitemap URLs, 96 HTML files, 100 JSON-LD blocks and 31 inline scripts pass; schema-only page changes reviewed. Prior local audit notes remain in the previous worktree.
+- Branch codex/quote-schema-indexing from current origin/main abbf12e. Commit/preview/publication pending. Search Console API owner access works; browser sign-in requested for individual indexing requests.

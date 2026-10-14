@@ -267,17 +267,12 @@ for (const product of products) {
     '@graph': [
       breadcrumbSchema(rendered.crumbs),
       {
-        '@type': 'Product',
+        '@type': 'WebPage',
         name: `Precitec ${product.name}`,
         description: product.tagline,
-        brand: { '@type': 'Brand', name: 'Precitec' },
+        about: { '@type': 'Thing', name: `Precitec ${product.name}` },
         image: product.images.map(([image]) => `https://wavlonlasers.com${image}`),
-        url: canonical,
-        additionalProperty: [
-          { '@type': 'PropertyValue', name: 'Laser power', value: product.power },
-          { '@type': 'PropertyValue', name: 'Applications', value: product.applications.join(', ') },
-          { '@type': 'PropertyValue', name: 'Maximum numerical aperture', value: product.numericalAperture }
-        ]
+        url: canonical
       }
     ]
   };
