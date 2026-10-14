@@ -661,3 +661,13 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Validation: 69-route SEO check, 74 shared layouts, five quote-selection, five lead API and four analytics tests; desktop and 390px browser checks. Final diff reviewed. Details in documentation/buyer-conversion-2026-10-14.md.
 - User identifies Kartar and Kulwant for CRM follow-up; approved public customer evidence still needed. No outbound alert changes or production test leads in this batch.
 - Based on main 8067d5b. Commit, PR and deployment verification pending; prior worktree notes preserved.
+
+
+### 2026-10-14 — Codex — Add U.S. buyer pages and CRM email alerts
+
+- Added U.S. installation/USD buying page and CAD/USD cost guide, with the first 12 planned buyer answers across eight pages. Owner confirmed Great Neck, Long Island offices and appointment-only visits. Updated discovery, sitemap, shared Canada/USA topbar and footer.
+- Applied wavlon_email_alert_outbox migration and deployed a token-authenticated queued email worker for Kartar and Kulwant, using Rise Tek's verified sender. Added automatic schedule, idempotency, leases, retries and restricted access. No public API or form behavior change.
+- Validation: 71-route SEO checks, 76 shared layouts, 16 responsive browser checks, 14 existing tests and worker auth/retry tests pass. Live test quote saved; Resend confirms delivery to both recipients. Automated enquiry check and website publication pending.
+- Based on main fca847b; prior worktree notes preserved. See documentation/us-buyers-and-alerts-2026-10-14.md.
+
+- Automatic schedule enquiry test also delivered to both recipients; timeout recovery observed with no duplicate sends. Public worker returns 401 without its token. New outbox/config and claim RPC deny public/user access. Final website publication pending.

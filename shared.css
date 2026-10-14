@@ -744,3 +744,6 @@ a.footer-contact-item:hover { color: #fff; }
     scroll-behavior: auto !important;
   }
 }
+
+/* Shared buyer answers and U.S./cost guides. */
+.buyer-answers .container{max-width:980px}.buyer-answer{padding:25px 0;border-bottom:1px solid #dce3ea}.buyer-answer:last-child{border-bottom:0}.buyer-answer h3{font-size:22px;line-height:1.35;margin:0 0 14px}.buyer-answer p{line-height:1.75;color:#495057;margin:0 0 12px}.buyer-answer a{color:#0066cc;text-decoration:underline;text-underline-offset:3px}

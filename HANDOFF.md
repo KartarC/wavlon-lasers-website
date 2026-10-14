@@ -2,8 +2,8 @@
 
 October 14, 2026 — Codex
 
-- Prior PR65 is live (main 8067d5b): GA4/GTM lead tracking verified with two labelled test leads. Tests remain in CRM; exclude from sales results.
-- Current branch codex/buyer-conversion-paths adds buyer comparisons, preserved quote selection, component-to-machine links and mobile/chat fixes. Checks and local browser validation pass; next: commit, PR, deployment, live verification.
-- User named Kartar and Kulwant as CRM follow-up owners. Notification recipients and approved customer evidence are not yet provided. Do not invent proof or send alerts without authorization.
-- Earlier schema fixes live; sitemap submitted. Individual Google indexing requests previously failed; no success claimed.
-- See documentation/buyer-conversion-2026-10-14.md. Preserve local notes in other worktrees.
+- Branch codex/us-buyer-answers-alerts from main fca847b contains U.S. buying and cost pages plus first 12 buyer answers. 71-route SEO, 76-layout sync and 16 responsive browser checks pass.
+- Production Supabase outbox, authenticated worker and minute schedule are configured for kartar.c@risetekmachinery.com and info@risetekmachinery.com. Labelled quote and automatically scheduled enquiry tests delivered to both recipients. Two internal test records remain; exclude from sales.
+- Website commit, reviewed PR and live verification pending. Preserve separate worktree release notes.
+- Owner says offices in Great Neck, Long Island, New York; visits by appointment only. Do not invent street address or ongoing on-site response times.
+- See documentation/us-buyers-and-alerts-2026-10-14.md for implementation, safeguards, tests and rollback.
