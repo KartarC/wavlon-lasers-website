@@ -679,3 +679,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Validation: 71-route SEO, 76-layout sync, 22 responsive checks, exact answer IDs, quote navigation, no-JavaScript visibility, five existing lead API tests and diff check pass. Content and mobile screenshot reviewed.
 - Search Console owner access works but individual indexing submissions are returning Google's submission error. No successful request is claimed. See documentation/buyer-answers-wave-two-2026-10-14.md.
 - Branch codex/buyer-answers-wave-two from b7a1579. Commit, reviewed PR, production verification and updated sitemap submission pending.
+
+### 2026-10-14 — Codex — Complete the planned buyer answers
+
+- Added final 14 answers (19, 26–35, 37–39), two process/ownership comparison guides, discovery links and sitemap entries. All 40 planned answers implemented.
+- Qualified contradictory service-page warranty, installation and response-time promises; preserved support contacts and section anchors. No forms/API/alerts/tracking changes.
+- SEO validates 73 routes/100 HTML/108 JSON-LD; 78 layout sync; 24 responsive checks, exact final IDs, quote navigation and no-JavaScript visibility pass. New guide and service screenshots reviewed.
+- Branch codex/buyer-answers-final from 08334e5. Publication pending. Google cost/U.S. retries return submission errors; remaining two retries underway. Details in documentation/buyer-answers-final-2026-10-14.md.

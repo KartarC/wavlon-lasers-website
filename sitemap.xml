@@ -182,7 +182,7 @@
   <!-- Marketing pages -->
   <url>
     <loc>https://wavlonlasers.com/industries</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -208,13 +208,13 @@
   <!-- Support -->
   <url>
     <loc>https://wavlonlasers.com/service</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wavlonlasers.com/parts</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
@@ -359,12 +359,14 @@
   <url><loc>https://wavlonlasers.com/blog/how-to-choose-fiber-laser-power</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://wavlonlasers.com/blog/nitrogen-oxygen-air-fiber-laser-cutting</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://wavlonlasers.com/blog/double-vs-triple-chuck-tube-laser</loc><lastmod>2026-10-14</lastmod></url>
-  <url><loc>https://wavlonlasers.com/blog/prepare-dxf-step-files-laser-cutting</loc></url>
+  <url><loc>https://wavlonlasers.com/blog/prepare-dxf-step-files-laser-cutting</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://wavlonlasers.com/blog/fiber-laser-site-preparation-checklist</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://wavlonlasers.com/blog/laser-cut-sample-inspection-checklist</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://wavlonlasers.com/blog/fiber-laser-service-request-checklist</loc></url>
   <url><loc>https://wavlonlasers.com/blog/identify-fiber-laser-consumables</loc></url>
-  <url><loc>https://wavlonlasers.com/blog/fiber-laser-operator-training-handover</loc></url>
+  <url><loc>https://wavlonlasers.com/blog/fiber-laser-operator-training-handover</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://wavlonlasers.com/fiber-laser-cutting-usa</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://wavlonlasers.com/blog/fiber-laser-machine-cost</loc><lastmod>2026-10-14</lastmod></url>
+<url><loc>https://wavlonlasers.com/blog/fiber-laser-vs-plasma</loc><lastmod>2026-10-14</lastmod></url>
+<url><loc>https://wavlonlasers.com/blog/fiber-laser-buy-vs-outsource</loc><lastmod>2026-10-14</lastmod></url>
 </urlset>

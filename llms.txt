@@ -83,3 +83,7 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines,
 ## U.S. buying and cost planning
 - [U.S. buyer guide](https://wavlonlasers.com/fiber-laser-cutting-usa): Offices in Great Neck, Long Island, New York; visits by appointment only; nationwide installation and USD quotations.
 - [Machine cost planning](https://wavlonlasers.com/blog/fiber-laser-machine-cost): CAD/USD configuration and installation cost factors.
+
+- [Fiber Laser vs Plasma: A Buyer’s Comparison](https://wavlonlasers.com/blog/fiber-laser-vs-plasma): Compare fiber laser and plasma using your materials, drawings, accepted-part quality and complete production costs. Plan a practical cutting trial.
+
+- [Buy a Fiber Laser or Outsource Cutting?](https://wavlonlasers.com/blog/fiber-laser-buy-vs-outsource): Compare in-house fiber laser cutting with outsourcing using real demand, operating costs and conservative utilization. Build a transparent payback estimate.
