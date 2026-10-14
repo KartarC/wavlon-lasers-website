@@ -79,3 +79,7 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines,
 - [Fiber Laser Service Request Checklist](https://wavlonlasers.com/blog/fiber-laser-service-request-checklist): Prepare a fiber laser service request with machine details, alarm text and a clear issue history. Use the checklist to organize support information.
 - [How to Identify Fiber Laser Consumables](https://wavlonlasers.com/blog/identify-fiber-laser-consumables): Identify fiber laser consumables using the installed head, part reference and approved documentation before requesting a replacement or spare.
 - [Fiber Laser Operator Training & Handover](https://wavlonlasers.com/blog/fiber-laser-operator-training-handover): Plan fiber laser operator training with role assignments, current manuals, supervised tasks and a clear handover record for your production team.
+
+## U.S. buying and cost planning
+- [U.S. buyer guide](https://wavlonlasers.com/fiber-laser-cutting-usa): Offices in Great Neck, Long Island, New York; visits by appointment only; nationwide installation and USD quotations.
+- [Machine cost planning](https://wavlonlasers.com/blog/fiber-laser-machine-cost): CAD/USD configuration and installation cost factors.
