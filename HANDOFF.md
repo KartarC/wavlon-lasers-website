@@ -2,8 +2,9 @@
 
 October 14, 2026 — Codex
 
-- Branch codex/us-buyer-answers-alerts from main fca847b contains U.S. buying and cost pages plus first 12 buyer answers. 71-route SEO, 76-layout sync and 16 responsive browser checks pass.
-- Production Supabase outbox, authenticated worker and minute schedule are configured for kartar.c@risetekmachinery.com and info@risetekmachinery.com. Labelled quote and automatically scheduled enquiry tests delivered to both recipients. Two internal test records remain; exclude from sales.
-- Website commit, reviewed PR and live verification pending. Preserve separate worktree release notes.
-- Owner says offices in Great Neck, Long Island, New York; visits by appointment only. Do not invent street address or ongoing on-site response times.
-- See documentation/us-buyers-and-alerts-2026-10-14.md for implementation, safeguards, tests and rollback.
+- Branch codex/buyer-answers-wave-two from main b7a1579: 14 new buyer answers across 11 existing pages, 26 of 40 planned answers now implemented. Remaining IDs: 19, 26–35, 37–39.
+- Qualified unconfirmed finance terms and fixed financing mobile layout. Static content only; no API, CRM alert or analytics changes. Validation passes; commit/PR/publication pending.
+- Owner Search Console access works. ProCut, UltraCut and U.S. indexing submissions return Google submission errors; cost guide returned the same error. All four attempted; none accepted. Do not claim accepted requests. Resubmit updated sitemap after publication.
+- Prior U.S. pages and alert work merged via PR67 (b7a1579). Email alerts delivered to Kartar and Kulwant; preserve prior worktree release notes and exclude its two labelled internal CRM test records from sales.
+- Great Neck, Long Island offices; appointment-only visits. No invented street address, demo availability or ongoing service response guarantees.
+- Details: documentation/buyer-answers-wave-two-2026-10-14.md.
