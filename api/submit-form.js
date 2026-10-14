@@ -11,18 +11,19 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const data = req.body;
-  if (!data || !data.email) {
+  if (!data || typeof data !== 'object' || typeof data.email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) {
     return res.status(400).json({ error: 'Missing required field: email' });
   }
 
-  const source = (data.source || '').toLowerCase();
+  const source = typeof data.source === 'string' ? data.source.toLowerCase() : '';
+  const contactQuote = source === 'contact-page' && typeof data.subject === 'string' && data.subject.startsWith('Quote Request');
 
   // ── Route to correct Wavlon table ────────────────────────────
   // Wavlon_Contact_Messages  → contact page enquiries
   // Wavlon_Leads             → financing, parts, brochure, chat widget leads
   // Wavlon_Quote_Requests    → all machine quote forms
   let table;
-  if (source === 'contact-page') {
+  if (source === 'contact-page' && !contactQuote) {
     table = 'Wavlon_Contact_Messages';
   } else if (
     source.includes('financing') ||
@@ -47,17 +48,23 @@ module.exports = async function handler(req, res) {
 
   // Build payload — strip undefined/empty values, never send extra keys Supabase rejects
   const payload = {
-    status: data.status || 'new'
+    status: 'new'
   };
-  const allowedFields = [
-    'name','email','phone','company','machine_interest','machine_id',
-    'material','thickness','budget','message','source',
-    'subject',          // contact form
-    'session_id',       // chat widget
-  ];
+  // Each destination has a different schema. An unsupported key rejects the entire insert.
+  const commonFields = ['name','email','phone','message','source'];
+  const allowedFields = commonFields.concat(table === 'Wavlon_Contact_Messages'
+    ? ['subject']
+    : ['company','machine_interest','machine_id','budget'].concat(
+      table === 'Wavlon_Leads' ? ['session_id'] : ['material','thickness']));
   allowedFields.forEach(k => {
-    if (data[k] !== undefined && data[k] !== null) payload[k] = data[k];
+    if (typeof data[k] === 'string') payload[k] = data[k].trim();
   });
+  if (table === 'Wavlon_Contact_Messages' && typeof data.company === 'string' && data.company.trim()) {
+    payload.message = `Company: ${data.company.trim()}\n\n${payload.message || ''}`;
+  }
+  if (contactQuote) {
+    payload.machine_interest = data.subject.replace(/^Quote Request\s*[—-]?\s*/, '').trim() || 'Help me choose';
+  }
 
   // Helper — single Supabase insert
   async function insertRow(targetTable, row) {
@@ -75,8 +82,9 @@ module.exports = async function handler(req, res) {
       }
     );
     if (!r.ok) {
-      const err = await r.text();
-      throw new Error(`${targetTable}: ${err}`);
+      // Log status/code, not database errors that may contain submitted personal data.
+      const err = await r.json().catch(() => ({}));
+      throw new Error(`${targetTable}: HTTP ${r.status} (${err.code || 'unknown'})`);
     }
   }
 

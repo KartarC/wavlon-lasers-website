@@ -385,6 +385,15 @@
   .procut-series-switcher-inner { padding: 0 16px; }
   .power-grid[style*="repeat(4"] { grid-template-columns: 1fr 1fr !important; }
 }
+/* Keep the quote and detail columns usable on narrow screens. */
+.pc-gallery-inner > * { min-width:0; }
+.gallery-thumbs { max-width:100%; overflow-x:auto; }
+.procut-body-slide .spec-table-wrap { overflow-x:auto; max-width:100%; }
+.procut-body-slide [style*="grid-template-columns"] > * { min-width:0; }
+@media(max-width:768px){
+ .procut-body-slide div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:minmax(0,1fr)!important;gap:28px!important;}
+ .quote-form-card{min-width:0;}
+}
 </style>
 </head>
 <body>

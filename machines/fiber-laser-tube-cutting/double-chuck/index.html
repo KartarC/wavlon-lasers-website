@@ -47,6 +47,8 @@
 @media(max-width:1024px){.machine-hero-inner{grid-template-columns:1fr;gap:36px;}.machine-hero-visual{max-width:900px;}}
 @media(max-width:768px){.machine-hero{padding:56px 0 48px;}.machine-hero-inner{padding:0 20px;}.machine-hero-visual{border-radius:12px;}.model-table{font-size:12.5px;}.model-table th,.model-table td{padding:9px 8px;}.product-gallery{grid-template-columns:1fr;}.product-gallery-main{min-height:320px;}.product-gallery-thumbs{grid-template-columns:repeat(4,1fr);}}
 @media(max-width:480px){.product-gallery-main{min-height:240px;}.product-gallery-thumbs{grid-template-columns:repeat(3,1fr);}}
+main div[style*="grid-template-columns"] > *{min-width:0;}
+@media(max-width:768px){main div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:minmax(0,1fr)!important;gap:28px!important;}}
 </style>
 </head>
 <body>
@@ -189,13 +191,13 @@
 <section class="section" id="models">
   <div class="container">
     <div class="section-head"><span class="eyebrow">Model Lineup</span><h2>Four Models, Two Tiers</h2><p>Entry tier for first-time tube laser buyers, Intermediate tier for shops scaling diameter capacity and throughput.</p></div>
-    <table class="model-table">
+    <div role="region" aria-label="Machine model comparison" tabindex="0" style="overflow-x:auto;max-width:100%;"><table class="model-table">
       <tr><th>Model</th><th>Tier</th><th>Max ⌀ Round</th><th>Max ⌀ Square</th><th>Power Options</th><th>Bed Length</th></tr>
       <tr><td>TDC-120</td><td>Entry</td><td>120mm</td><td>120mm</td><td>1.5 / 2 / 3 kW</td><td>6,000mm</td></tr>
       <tr class="popular"><td>TDC-160 <span class="badge-pop">Popular</span></td><td>Entry</td><td>160mm</td><td>160mm</td><td>2 / 3 / 4 / 6 kW</td><td>6,000mm</td></tr>
       <tr class="popular"><td>TDC-240 <span class="badge-pop">Popular</span></td><td>Intermediate</td><td>240mm</td><td>240mm</td><td>4 / 6 / 8 kW</td><td>6,000mm</td></tr>
       <tr><td>TDC-360</td><td>Intermediate</td><td>360mm</td><td>360mm</td><td>6 / 8 / 12 kW</td><td>6,000mm</td></tr>
-    </table>
+    </table></div>
   </div>
 </section>
 

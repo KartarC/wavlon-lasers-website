@@ -147,7 +147,7 @@
           <!-- Quote Form -->
           <div class="quote-form-card" id="quote">
             <div id="cqFormWrap">
-              <div class="quote-form-head"><h3>Get a Quote / Send a Message</h3><p>For quotes, include your machine interest and material details.</p></div>
+              <div class="quote-form-head"><h3>Get a Quote / Send a Message</h3><p>Not sure which machine fits? Select “Help me choose.” Share material and thickness if you know them.</p></div>
               <form id="cqForm">
                 <div class="quote-form-grid">
                   <div class="form-group"><label for="cq_name">Full Name *</label><input type="text" id="cq_name" required placeholder="Jane Smith" name="name" autocomplete="name"></div>
@@ -156,7 +156,7 @@
                   <div class="form-group"><label for="cq_phone">Phone</label><input type="tel" id="cq_phone" placeholder="+1 (416) 000-0000" name="tel" autocomplete="tel" inputmode="tel"></div>
                   <div class="form-group span-2"><label for="cq_subject">Subject *</label>
                     <select id="cq_subject" required name="cq_subject">
-                      <option value="">— Select subject —</option>
+                      <option value="">— Select subject —</option><option>Quote Request — Help me choose</option>
                       <option>Quote Request — ProCut Series (3–12kW)</option>
                       <option>Quote Request — PowerCut Series (3–12kW)</option>
                       <option>Quote Request — UltraCut Series (3–20kW+)</option>
@@ -169,9 +169,9 @@
                       <option>General Question</option>
                     </select>
                   </div>
-                  <div class="form-group span-2"><label for="cq_message">Message *</label><textarea id="cq_message" rows="5" required placeholder="Tell us about your application — material, thickness, production volume, or your question…" name="cq_message"></textarea></div>
+                  <div class="form-group span-2"><label for="cq_message">Application details (optional)</label><textarea id="cq_message" rows="5" placeholder="Tell us about your application — material, thickness, production volume, or your question…" name="cq_message"></textarea></div>
                 </div>
-                <button type="submit" class="form-submit">Send Message</button>
+                <button type="submit" class="form-submit">Send Request</button><p id="cqError" role="alert" tabindex="-1" hidden style="margin-top:16px;color:#a32222;">Your request was not sent. Please try again, <a href="mailto:sales@wavlonlasers.com">email sales@wavlonlasers.com</a> or <a href="tel:+18882776144">call (888) 277-6144</a>.</p>
               </form>
             </div>
             <div class="form-success" id="cqSuccess" role="status" aria-live="polite" tabindex="-1"><h4>&#10003; Message Sent!</h4><p>Thank you! Our team will respond within 24 business hours.</p></div>
@@ -206,9 +206,11 @@
 
 <script src="/nav.js"></script>
 <script>
+if (location.hash === '#quote') document.getElementById('cq_subject').value = 'Quote Request — Help me choose';
 document.getElementById('cqForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('.form-submit');
+  document.getElementById('cqError').hidden = true;
   btn.textContent = 'Sending…'; btn.disabled = true;
   try {
     const res = await fetch('/api/submit-form', {
@@ -224,12 +226,17 @@ document.getElementById('cqForm').addEventListener('submit', async function(e) {
         source:  'contact-page'
       })
     });
-    if (!res.ok) throw new Error('Server error');
+    const result = await res.json();
+    if (!res.ok || result.success !== true) throw new Error('Server error');
+    if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('cqForm', document.getElementById('cq_subject').value.indexOf('Quote Request') === 0 ? 'machine_quote' : 'contact_enquiry');
     document.getElementById('cqFormWrap').style.display = 'none';
     document.getElementById('cqSuccess').style.display = 'block';
+    document.getElementById('cqSuccess').focus();
   } catch(err) {
-    btn.textContent = 'Send Message'; btn.disabled = false;
-    alert('Error sending. Please email sales@wavlonlasers.com directly.');
+    btn.textContent = 'Send Request'; btn.disabled = false;
+    if(window.WavlonAnalytics)window.WavlonAnalytics.formError('cqForm');
+    document.getElementById('cqError').hidden = false;
+    document.getElementById('cqError').focus();
   }
 });
 </script>

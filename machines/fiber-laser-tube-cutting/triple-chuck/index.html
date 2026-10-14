@@ -45,6 +45,8 @@
 .product-gallery-thumb.is-active{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue);}
 @media(max-width:768px){.model-table{font-size:12.5px;}.model-table th,.model-table td{padding:9px 8px;}.product-gallery{grid-template-columns:1fr;}.product-gallery-main{min-height:320px;}.product-gallery-thumbs{grid-template-columns:repeat(4,1fr);}}
 @media(max-width:480px){.product-gallery-main{min-height:240px;}.product-gallery-thumbs{grid-template-columns:repeat(3,1fr);}}
+main div[style*="grid-template-columns"] > *{min-width:0;}
+@media(max-width:768px){main div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:minmax(0,1fr)!important;gap:28px!important;}}
 </style>
 </head>
 <body>
@@ -180,12 +182,12 @@
 <section class="section" id="models">
   <div class="container">
     <div class="section-head"><span class="eyebrow">Model Lineup</span><h2>Three Models, One Heavy Duty Tier</h2><p>From the most popular 360mm/520mm workhorses up to the 680mm round / 570mm square flagship.</p></div>
-    <table class="model-table">
+    <div role="region" aria-label="Machine model comparison" tabindex="0" style="overflow-x:auto;max-width:100%;"><table class="model-table">
       <tr><th>Model</th><th>Tier</th><th>Max ⌀ Round</th><th>Max ⌀ Square</th><th>Power Options</th><th>Bed Length</th></tr>
       <tr class="popular"><td>TTC-360 <span class="badge-pop">Popular</span></td><td>Heavy Duty</td><td>360mm</td><td>360mm</td><td>6 / 8 / 12 kW</td><td>12,000mm</td></tr>
       <tr class="popular"><td>TTC-520 <span class="badge-pop">Popular</span></td><td>Heavy Duty</td><td>520mm</td><td>520mm</td><td>12 / 16 / 20 kW</td><td>12,000mm</td></tr>
       <tr><td>TTC-680/570</td><td>Heavy Duty (Max)</td><td>680mm</td><td>570mm</td><td>20 / 24 / 30 kW</td><td>12,000mm</td></tr>
-    </table>
+    </table></div>
   </div>
 </section>
 

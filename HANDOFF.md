@@ -1,10 +1,8 @@
 # Current Handoff
 
-Updated October 12, 2026 by Codex.
+October 14, 2026 — Codex
 
-- Branch codex/ownership-education, based on production main 7fda505 (PR #61).
-- Three ownership guides ready: service requests, consumables identification and operator handover, with illustrations and discovery links.
-- Competitor outgoing link audit complete: no links in the current public source or 66 live sitemap pages. Four links removed from the local research deliverable outside this repository.
-- SEO, responsive browser, no-JavaScript navigation and shared layout checks pass. See documentation/ownership-education-2026-10-12.md.
-- Next: publish via reviewed PR, verify preview and production. Existing forms, analytics and machine specifications unchanged.
-- Other worktrees and their uncommitted notes remain intact.
+- Critical quote/contact database notification constraint fixed in production via migration fix_wavlon_notification_types. No RLS or privilege changes. Rollback-only insert verification passes.
+- Branch codex/lead-conversion-audit based on 63b82e9 contains website/API, tracking, mobile and contact-flow fixes. See documentation/lead-audit-2026-10-14.md.
+- GA4: 3 recorded sessions and 8 page views through October 13; collection began October 5 and requires consent. Search Console unverified; owner verification tag pending. GA4 generate_lead key-event setting still needs authenticated UI access.
+- Next: finish browser tests, review, create PR, verify preview, publish and verify live behavior. No new email alerts configured.

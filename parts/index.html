@@ -324,9 +324,11 @@ document.getElementById('partsForm').addEventListener('submit',async function(e)
       })
     });
     if (!res.ok) throw new Error('Server error');
+    if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('partsForm');
     document.getElementById('partsFormWrap').style.display = 'none';
     document.getElementById('partsSuccess').style.display = 'block';
   } catch(err) {
+    if(window.WavlonAnalytics)window.WavlonAnalytics.formError('partsForm');
     btn.textContent = 'Submit Parts Request'; btn.disabled = false;
     alert('Error. Please email sales@wavlonlasers.com');
   }
