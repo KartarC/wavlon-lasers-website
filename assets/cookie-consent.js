@@ -1,7 +1,7 @@
-/* Consent-gated GA4 measurement. Set only a verified Wavlon web-stream ID. */
+/* Consent-gated GA4 measurement through Wavlon's published GTM container. */
 (function () {
   'use strict';
-  var measurementId = 'G-1DD05NEHH7'; // Verified Wavlon Lasers Website stream.
+  var containerId = 'GTM-KXFXRNWZ';
   var enabled = false;
   var sent = Object.create(null);
   var forms = ['sqForm','sqULForm','pqForm','xqForm','dcqForm','tcqForm','tsqForm','cqForm','partsForm','finForm'];
@@ -12,21 +12,21 @@
     catch (e) { return ''; }
   }
   function event(name, params) {
-    if (!enabled || typeof window.gtag !== 'function') return;
-    try { window.gtag('event', name, Object.assign({page_location:pageUrl()},params)); } catch(e) {}
+    if (!enabled) return;
+    // Reset optional fields so a previous event cannot leak into the next one.
+    try { window.dataLayer.push(Object.assign({event:name,page_location:pageUrl(),page_referrer:safeReferrer(),form_id:undefined,lead_type:undefined,contact_method:undefined},params)); } catch(e) {}
   }
   window.WavlonAnalytics = {
     enable: function () {
-      if (enabled || !/^G-[A-Z0-9]+$/.test(measurementId) || measurementId === 'G-XXXXXXXXXX') return;
+      if (enabled || !/^GTM-[A-Z0-9]+$/.test(containerId)) return;
       enabled = true;
       window.dataLayer = window.dataLayer || [];
       window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
       window.gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
-      window.gtag('js',new Date());
-      window.gtag('config',measurementId,{send_page_view:false,allow_google_signals:false,allow_ad_personalization_signals:false,page_location:pageUrl(),page_referrer:safeReferrer()});
+      window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js',page_location:pageUrl(),page_referrer:safeReferrer()});
       event('page_view',{page_referrer:safeReferrer()});
       var script=document.createElement('script'); script.async=true;
-      script.src='https://www.googletagmanager.com/gtag/js?id='+measurementId;
+      script.src='https://www.googletagmanager.com/gtm.js?id='+containerId;
       document.head.appendChild(script);
     },
     quoteSuccess: function (formId, leadType) {
