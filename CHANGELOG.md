@@ -632,3 +632,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - No HARSLE/Harsel links found across 66 live sitemap pages or current public source. Removed four outgoing competitor links from the saved review outside the website repository at the user's request.
 - Validation: 69 sitemap routes, 96 HTML files, 100 JSON-LD blocks, 32 inline scripts, 74 shared layouts, 16 responsive page checks and no-JavaScript navigation pass. Screenshots and content reviewed.
 - Branch codex/ownership-education from current origin/main 7fda505. Commit, preview and publication pending. Existing checkout notes preserved.
+
+### 2026-10-14 — Codex — Repair lead capture and audit traffic
+
+- Reproduced main contact POST HTTP 500 (unsupported company field) and quote/contact insert rollback (notification type check). Applied Supabase migration fix_wavlon_notification_types; retained all existing type values and permissions. Rollback-only inserts pass after repair.
+- Added table-specific API payloads, contact quote routing, company preservation, contact/parts/financing lead measurement and funnel events. Improved contact errors and optional details; fixed service phone, mobile grids/tables and removed homepage artificial loader.
+- GA4 records only 3 sessions / 8 views through October 13 with consent-limited collection created October 5. Search Console unverified/403; owner tag requested. No recent records in four lead tables.
+- Branch codex/lead-conversion-audit based on origin/main 63b82e9. Tests and publication details in documentation/lead-audit-2026-10-14.md. Website commit/preview pending; production DB correction already applied and verified. Prior checkout notes preserved.

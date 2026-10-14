@@ -244,9 +244,11 @@ document.getElementById('finForm').addEventListener('submit', async function(e) 
       })
     });
     if (!res.ok) throw new Error('Server error');
+    if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('finForm');
     document.getElementById('finFormWrap').style.display = 'none';
     document.getElementById('finSuccess').style.display = 'block';
   } catch(err) {
+    if(window.WavlonAnalytics)window.WavlonAnalytics.formError('finForm');
     btn.textContent = 'Submit Financing Inquiry'; btn.disabled = false;
     alert('Error submitting. Please email sales@wavlonlasers.com directly.');
   }

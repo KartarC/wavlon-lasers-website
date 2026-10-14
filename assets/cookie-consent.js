@@ -4,7 +4,8 @@
   var measurementId = 'G-1DD05NEHH7'; // Verified Wavlon Lasers Website stream.
   var enabled = false;
   var sent = Object.create(null);
-  var forms = ['sqForm','sqULForm','pqForm','xqForm','dcqForm','tcqForm','tsqForm'];
+  var forms = ['sqForm','sqULForm','pqForm','xqForm','dcqForm','tcqForm','tsqForm','cqForm','partsForm','finForm'];
+  var started = Object.create(null);
   function pageUrl() { return location.origin + location.pathname; }
   function safeReferrer() {
     try { return document.referrer ? new URL(document.referrer).origin + '/' : ''; }
@@ -28,12 +29,24 @@
       script.src='https://www.googletagmanager.com/gtag/js?id='+measurementId;
       document.head.appendChild(script);
     },
-    quoteSuccess: function (formId) {
+    quoteSuccess: function (formId, leadType) {
       if (!enabled || forms.indexOf(formId) === -1 || sent[formId]) return;
       sent[formId] = true;
-      event('generate_lead',{form_id:formId,lead_type:'machine_quote'});
+      var type = formId === 'cqForm' && leadType === 'contact_enquiry' ? 'contact_enquiry' : (formId === 'partsForm' ? 'parts_enquiry' : (formId === 'finForm' ? 'financing_enquiry' : 'machine_quote'));
+      event('generate_lead',{form_id:formId,lead_type:type});
+    },
+    formError: function(formId) {
+      if(forms.indexOf(formId) !== -1)event('lead_form_error',{form_id:formId});
     }
   };
+  document.addEventListener('focusin',function(e){
+    var form=e.target.closest && e.target.closest('form');
+    if(!enabled || !form || forms.indexOf(form.id) === -1 || started[form.id])return;
+    started[form.id]=true; event('lead_form_start',{form_id:form.id});
+  });
+  document.addEventListener('submit',function(e){
+    if(forms.indexOf(e.target.id) !== -1)event('lead_form_submit',{form_id:e.target.id});
+  },true);
   document.addEventListener('click',function(e){
     var a=e.target.closest && e.target.closest('a[href]'); if(!a)return;
     var href=a.getAttribute('href') || '';
