@@ -646,3 +646,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Updated Precitec generator and documented quote-only markup policy. Extended SEO checks to prevent unsupported shopping markup returning. Updated lastmod only for changed public pages.
 - Validation: 69 sitemap URLs, 96 HTML files, 100 JSON-LD blocks and 31 inline scripts pass; schema-only page changes reviewed. Prior local audit notes remain in the previous worktree.
 - Branch codex/quote-schema-indexing from current origin/main abbf12e. Commit/preview/publication pending. Search Console API owner access works; browser sign-in requested for individual indexing requests.
+
+### 2026-10-14 — Codex — Configure GA4 conversions and consent-gated Tag Manager
+
+- Saved generate_lead key event (once per event, no value) and three event reporting dimensions through owner's GA4 UI; verified read API. Accepted GTM terms with explicit owner approval and created GTM-KXFXRNWZ; version 2 published with two tags, one allowlisted event trigger, five variables and analytics-consent checks.
+- Replaced direct GA4 initialization with consent-gated GTM and structured events. Preserved form success hooks/deduplication, stripped URL query/hash and reset optional event fields. Included container import source and setup/rollback documentation.
+- Validation: four analytics privacy/deduplication tests and five API submission tests pass; imported event settings verified in UI. No unrelated edits. Prior worktree release notes preserved.
+- Branch codex/gtm-lead-tracking based on origin/main 2d68579. Website commit, preview and production verification pending; GTM container configuration published independently but not loaded by the current live website yet.

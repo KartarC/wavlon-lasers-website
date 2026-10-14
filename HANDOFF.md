@@ -2,7 +2,7 @@
 
 October 14, 2026 — Codex
 
-- Previous PR #63 repairs live and tested. Search Console owner access restored; audit saved in parent outputs.
-- Current branch codex/quote-schema-indexing from abbf12e replaces unsupported quote-only shopping markup on 11 pages, updates generator/policy/checks and sitemap dates. Public design, specs and forms unchanged.
-- SEO checks pass. Next: commit, reviewed PR, preview, merge and verify live markup; resubmit updated sitemap. Individual URL requests require browser Google sign-in, requested from user.
-- Preserve prior worktree local post-release audit notes. GA4 key event and sales follow-up ownership still need completion/access.
+- GA4 generate_lead and three dimensions saved/verified. GTM-KXFXRNWZ version 2 published under owner account with explicit terms approval.
+- This branch switches the consent-gated website loader to GTM and structured events; tests pass. Next: reviewed PR, preview, merge and verify GA4 receipt. See documentation/gtm-setup.md.
+- Previous PR64 schema fixes live; sitemap fetched successfully. Individual indexing requests previously errored in Google; no success claimed.
+- Preserve prior worktree local notes. No website release claimed until deployment verified.
