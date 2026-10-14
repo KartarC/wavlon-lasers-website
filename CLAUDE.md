@@ -189,7 +189,7 @@ Three mega menus, all driven by `data-panel` on `.mega-cat-btn`, switched in `na
 
 Use slashless absolute page URLs in canonical tags, sitemap, social metadata and structured data, except for the homepage. This matches the existing Vercel policy. Generators use `tools/seo-urls.mjs`. Run `node tools/check-seo.mjs` after SEO changes.
 - `<link rel="canonical" href="https://wavlonlasers.com/machines/..."/>` on every page
-- JSON-LD `Product` schema on machine series pages
+- Quote-only machine/component pages use JSON-LD `WebPage`; catalogues use `ItemList` with page links. Do not emit `Product`, `Offer`, prices, stock claims or ratings without real visible commercial data meeting Google requirements. Preserve `BreadcrumbList`. This policy replaces the former Product requirement after the October 14 Search Console audit.
 - JSON-LD `BreadcrumbList` on all inner pages
 - `<nav class="breadcrumbs">` visible HTML breadcrumbs
 - Aim for concise, descriptive titles (normally under 65 characters); actual search-result display length varies.

@@ -62,7 +62,20 @@ function walk(dir) {
       }
       for (const m of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
         const a=attrs(m[1]);
-        if(a.type==='application/ld+json') { JSON.parse(m[2]); schemas++; }
+        if(a.type==='application/ld+json') {
+          const data = JSON.parse(m[2]);
+          if (!/noindex/i.test(meta.robots || '')) {
+            const inspect = node => {
+              if (!node || typeof node !== 'object') return;
+              const types = [].concat(node['@type'] || []);
+              assert.ok(!types.some(type => ['Product','Offer','AggregateOffer','OfferCatalog'].includes(type)), `Quote-only page emits shopping markup: ${file}`);
+              if (types.includes('WebPage')) assert.ok(node.name && node.url, `Incomplete WebPage: ${file}`);
+              Object.values(node).forEach(inspect);
+            };
+            inspect(data);
+          }
+          schemas++;
+        }
         else if (!a.src && !a.type) { new vm.Script(m[2], {filename:file}); scripts++; }
       }
     }
