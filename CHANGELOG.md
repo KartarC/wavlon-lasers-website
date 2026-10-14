@@ -686,3 +686,11 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Qualified contradictory service-page warranty, installation and response-time promises; preserved support contacts and section anchors. No forms/API/alerts/tracking changes.
 - SEO validates 73 routes/100 HTML/108 JSON-LD; 78 layout sync; 24 responsive checks, exact final IDs, quote navigation and no-JavaScript visibility pass. New guide and service screenshots reviewed.
 - Branch codex/buyer-answers-final from 08334e5. Publication pending. Google cost/U.S. retries return submission errors; remaining two retries underway. Details in documentation/buyer-answers-final-2026-10-14.md.
+
+### 2026-10-14 — Codex — Improve priority buyer pages for search and enquiries
+
+- Based on current main cbf56d6; prior release notes preserved in their existing worktree.
+- Improved financing enquiry scope and preparation, added an editable cost worksheet and cost methodology, strengthened Canada/USA purchase planning, and added TubeCut comparison with model-dependent limits. Qualified Canadian training/support wording.
+- Five pages plus two static assets; no backend, CRM, tracking or form-handler changes. Existing 40 buyer answers preserved. Sitemap dates already October 14 for touched pages.
+- Validation: 73-route SEO check, 78 shared-layout sync, 10 existing API/quote-selection tests, five pages at mobile/desktop widths, internal links/anchors, enquiry navigation and no-JavaScript content checks pass. Screenshots reviewed.
+- Final diff reviewed locally; commit, PR and production verification pending.

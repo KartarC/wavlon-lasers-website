@@ -2,8 +2,7 @@
 
 October 14, 2026 — Codex
 
-- Final buyer batch on codex/buyer-answers-final from 08334e5. All 40 answers implemented; two new guides for laser/plasma and buy/outsource comparisons. Validation passed; reviewed PR and publication pending.
-- Service page now directs buyers to written project-specific warranty, training and support terms instead of unsupported blanket guarantees. Existing support contacts and anchors preserved.
-- Cost/U.S. indexing retries failed again with Google submission errors. ProCut/UltraCut pending. Submit 73-page sitemap after deployment; do not claim individual indexing acceptance without confirmation.
-- Prior worktree release notes preserved. Existing CRM alerts unchanged; no new test leads.
-- See documentation/buyer-answers-final-2026-10-14.md.
+- Branch codex/seo-buyer-priorities based on main cbf56d6. Financing, cost, Canada, USA and tube category improvements ready.
+- Added /assets/fiber-laser-budget-worksheet.csv and scoped purchase-planning.css. Existing 40 buyer answers retained. No new finance rates, availability guarantees or performance promises.
+- SEO, responsive, navigation and 10 existing API/quote-selection tests pass. Final diff reviewed; commit, PR and deployment verification pending.
+- Prior worktree release notes preserved. Indexing-request errors remain a separate Google issue.
