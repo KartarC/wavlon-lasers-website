@@ -671,3 +671,11 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Based on main fca847b; prior worktree notes preserved. See documentation/us-buyers-and-alerts-2026-10-14.md.
 
 - Automatic schedule enquiry test also delivered to both recipients; timeout recovery observed with no duplicate sends. Public worker returns 401 without its token. New outbox/config and claim RPC deny public/user access. Final website publication pending.
+
+### 2026-10-14 — Codex — Extend buyer answers and check indexing
+
+- Observed prior U.S. page/CRM-alert branch merged as b7a1579 (PR67); prior release notes in separate worktree preserved.
+- Added 14 planned buyer answers across 11 pages, bringing the total to 26. Qualified unsupported financing and adjacent tube-hub promises, and fixed financing mobile overflow. Updated changed-page sitemap dates.
+- Validation: 71-route SEO, 76-layout sync, 22 responsive checks, exact answer IDs, quote navigation, no-JavaScript visibility, five existing lead API tests and diff check pass. Content and mobile screenshot reviewed.
+- Search Console owner access works but individual indexing submissions are returning Google's submission error. No successful request is claimed. See documentation/buyer-answers-wave-two-2026-10-14.md.
+- Branch codex/buyer-answers-wave-two from b7a1579. Commit, reviewed PR, production verification and updated sitemap submission pending.
