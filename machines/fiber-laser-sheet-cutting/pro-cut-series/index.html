@@ -256,6 +256,7 @@
 /* ── Power / Model Cards ─────────────────────────────────── */
 .power-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .power-card {
+  min-width:0; overflow-wrap:anywhere;
   border: 2px solid #e8ecf0; border-radius: 14px;
   padding: 28px 22px; text-align: left; position: relative;
   background: #fff; transition: border-color .2s, box-shadow .2s, transform .15s;
@@ -345,7 +346,7 @@
   .gallery-pitch { padding-top: 0; }
   .feat-photo-grid { grid-template-columns: 1fr; gap: 32px; }
   .feat-photo-grid.reverse { direction: ltr; }
-  .power-grid { grid-template-columns: 1fr 1fr; }
+  .power-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .procut-series-switcher-inner { padding: 0 24px; }
   .procut-series-tab { padding: 16px 24px 14px; }
   .machine-hero-inner { padding: 100px 32px 64px 48px; }
@@ -365,7 +366,7 @@
   /* mobile hero image */
   .mh-mobile-img { display: block; margin-top: 32px; }
   /* other */
-  .power-grid { grid-template-columns: 1fr 1fr; }
+  .power-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .brochure-form-wrap { flex-direction: column; }
   .brochure-inner { padding: 0 24px; }
 }
@@ -377,7 +378,7 @@
   .gallery-thumb { width: 64px; height: 46px; border-radius: 6px; }
   .gallery-thumbs { gap: 8px; }
   /* other */
-  .power-grid { grid-template-columns: 1fr 1fr; }
+  .power-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .pst-sub { display: none; }
   .procut-series-tab { padding: 14px 18px 12px; }
   .procut-series-switcher-inner { padding: 0 16px; }
@@ -393,6 +394,7 @@
  .quote-form-card{min-width:0;}
 }
 </style>
+<link rel="stylesheet" href="/assets/buyer-guidance.css">
 </head>
 <body>
 
@@ -530,6 +532,7 @@
     </div>
   </div>
 </section>
+<section class="buyer-guide" aria-labelledby="buyer-fit-title"><div class="buyer-guide__inner"><p class="buyer-guide__label">Before you request a quote</p><h2 id="buyer-fit-title">Is ProCut the right fit for your work?</h2><p><strong>Open gantry.</strong> Accessible loading for varied sheet work. Review loading method, guarding and extraction plan. Share your material grade, typical thickness, largest sheet size and production volume so the proposed configuration can be assessed against your work.</p><p>For a useful comparison, ask for cutting conditions and part-quality criteria alongside the machine specification. Include your delivery location and target purchase timing if known.</p><div class="buyer-guide__links"><a href="#quote">Request a ProCut quote →</a><a href="/machines/fiber-laser-sheet-cutting#compare">Compare ProCut, PowerCut and UltraCut</a><a href="/blog/fiber-laser-quote-checklist-canada">Prepare your quote details</a></div></div></section>
 
 <!-- ── Series Tabs (below hero) ──────────────────────────────── -->
 <div class="procut-series-switcher" role="tablist" aria-label="ProCut series selection">

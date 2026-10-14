@@ -218,9 +218,9 @@
     }
     .wlc-cta-btn:hover { background:#0055b3; }
 
-    @media(max-width:400px){
-      #wlc-panel  { width:calc(100vw - 24px); right:12px; bottom:84px; }
-      #wlc-bubble { bottom:16px; right:16px; }
+    @media(max-width:768px){
+      #wlc-panel  { width:min(368px,calc(100vw - 24px)); height:min(580px,calc(100dvh - 180px)); right:12px; bottom:148px; }
+      #wlc-bubble { bottom:calc(84px + env(safe-area-inset-bottom,0px)); right:16px; }
       #wlc-nudge  { right:12px; }
     }
   `;
@@ -377,13 +377,7 @@
   // ── Nudge ─────────────────────────────────────────────────────────
   function showNudge() { if (!isOpen){ nudge.style.display='block'; bubble.classList.add('pulse'); } }
   function hideNudge() { nudge.style.display='none'; bubble.classList.remove('pulse'); }
-  try {
-    if (!sessionStorage.getItem('wlc_nudged')) {
-      sessionStorage.setItem('wlc_nudged','1');
-      setTimeout(showNudge, 5000);
-      setTimeout(function(){ hideNudge(); if(!isOpen) openPanel(); }, 18000);
-    }
-  } catch(e) {}
+  // Keep chat opt-in: timed overlays can cover quote links and interrupt form entry.
   nudge.addEventListener('click', function(){ hideNudge(); if(!isOpen) openPanel(); });
   nudgeClose.addEventListener('click', function(e){ e.stopPropagation(); hideNudge(); });
 

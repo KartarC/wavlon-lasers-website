@@ -50,7 +50,7 @@ ${footer}
 }
 
 function actions(primaryHref = "/contact/#quote", secondaryHref = `${routeRoot}compare/`, secondaryLabel = "Compare sources") {
-  return `<div class="source-actions"><a class="source-btn source-btn--primary" href="${primaryHref}">Configure a machine →</a><a class="source-btn source-btn--ghost" href="${secondaryHref}">${secondaryLabel} →</a></div>`;
+  return `<div class="source-actions"><a class="source-btn source-btn--primary" href="${primaryHref}">Configure a machine →</a><a class="source-btn source-btn--ghost" href="${secondaryHref}">${secondaryLabel} →</a></div><p class="source-lede source-buyer-links">Choosing a complete machine? <a class="source-link" href="/machines/fiber-laser-sheet-cutting#compare">Compare sheet laser layouts</a> or <a class="source-link" href="/machines/fiber-laser-tube-cutting">explore tube laser machines</a>. Source power alone does not establish a machine’s cutting capacity; confirm the complete configuration for your material and production requirements.</p>`;
 }
 
 function modelCard(model, detail = false) {

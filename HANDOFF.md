@@ -2,7 +2,8 @@
 
 October 14, 2026 — Codex
 
-- GA4 generate_lead and three dimensions saved/verified. GTM-KXFXRNWZ version 2 published under owner account with explicit terms approval.
-- This branch switches the consent-gated website loader to GTM and structured events; tests pass. Next: reviewed PR, preview, merge and verify GA4 receipt. See documentation/gtm-setup.md.
-- Previous PR64 schema fixes live; sitemap fetched successfully. Individual indexing requests previously errored in Google; no success claimed.
-- Preserve prior worktree local notes. No website release claimed until deployment verified.
+- Prior PR65 is live (main 8067d5b): GA4/GTM lead tracking verified with two labelled test leads. Tests remain in CRM; exclude from sales results.
+- Current branch codex/buyer-conversion-paths adds buyer comparisons, preserved quote selection, component-to-machine links and mobile/chat fixes. Checks and local browser validation pass; next: commit, PR, deployment, live verification.
+- User named Kartar and Kulwant as CRM follow-up owners. Notification recipients and approved customer evidence are not yet provided. Do not invent proof or send alerts without authorization.
+- Earlier schema fixes live; sitemap submitted. Individual Google indexing requests previously failed; no success claimed.
+- See documentation/buyer-conversion-2026-10-14.md. Preserve local notes in other worktrees.
