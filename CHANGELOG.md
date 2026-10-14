@@ -653,3 +653,11 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Replaced direct GA4 initialization with consent-gated GTM and structured events. Preserved form success hooks/deduplication, stripped URL query/hash and reset optional event fields. Included container import source and setup/rollback documentation.
 - Validation: four analytics privacy/deduplication tests and five API submission tests pass; imported event settings verified in UI. No unrelated edits. Prior worktree release notes preserved.
 - Branch codex/gtm-lead-tracking based on origin/main 2d68579. Website commit, preview and production verification pending; GTM container configuration published independently but not loaded by the current live website yet.
+
+### 2026-10-14 — Codex — Improve buyer paths and remove mobile quote obstacles
+
+- Added sheet-series workflow comparison, model-preserving quote links, three product buyer-fit sections and early Canadian buyer CTAs. Added complete-machine routes on 18 source pages and the laser-head guide, with generator updates.
+- Corrected unrelated 30kW capacity claims and qualified unsupported blanket statements in affected guides. Fixed contact and ProCut mobile overflow; chat is opt-in and clears the mobile quote dock.
+- Validation: 69-route SEO check, 74 shared layouts, five quote-selection, five lead API and four analytics tests; desktop and 390px browser checks. Final diff reviewed. Details in documentation/buyer-conversion-2026-10-14.md.
+- User identifies Kartar and Kulwant for CRM follow-up; approved public customer evidence still needed. No outbound alert changes or production test leads in this batch.
+- Based on main 8067d5b. Commit, PR and deployment verification pending; prior worktree notes preserved.
