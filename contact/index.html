@@ -173,6 +173,9 @@
                       <option>General Question</option>
                     </select>
                   </div>
+                  <div class="form-group"><label for="cq_country">Installation country (optional)</label><select id="cq_country" name="installation_country" aria-describedby="cq_location_help"><option value="">Not decided / prefer to discuss</option><option value="ca">Canada</option><option value="us">United States</option><option value="other">Other country</option></select></div>
+                  <div class="form-group"><label for="cq_location">City and province/state (optional)</label><input type="text" id="cq_location" name="installation_location" maxlength="120" placeholder="e.g. Toronto, ON or Buffalo, NY" aria-describedby="cq_location_help"></div>
+                  <p id="cq_location_help" class="span-2" style="font-size:13px;line-height:1.5;color:#495057;margin:0 0 8px;">Use the machine installation location, which may differ from your office. Change the country if needed, or leave these fields blank.</p>
                   <div class="form-group span-2"><label for="cq_message">Application details (optional)</label><textarea id="cq_message" rows="5" placeholder="If known: material grade, thickness, sheet or tube size, production volume, delivery location and purchase timing. Or simply tell us what you want to make…" name="cq_message"></textarea></div>
                 </div>
                 <button type="submit" class="form-submit">Send Request</button><p id="cqError" role="alert" tabindex="-1" hidden style="margin-top:16px;color:#a32222;">Your request was not sent. Please try again, <a href="mailto:sales@wavlonlasers.com">email sales@wavlonlasers.com</a> or <a href="tel:+18882776144">call (888) 277-6144</a>.</p>
@@ -210,6 +213,7 @@
 
 <script src="/nav.js"></script>
 <script src="/assets/quote-selection.js"></script>
+<script src="/assets/quote-context.js"></script>
 <script>
 
 document.getElementById('cqForm').addEventListener('submit', async function(e) {
@@ -227,7 +231,7 @@ document.getElementById('cqForm').addEventListener('submit', async function(e) {
         phone:   document.getElementById('cq_phone').value,
         company: document.getElementById('cq_company').value,
         subject: document.getElementById('cq_subject').value,
-        message: document.getElementById('cq_message').value,
+        message: window.WavlonQuoteContext.message(document.getElementById('cq_message').value),
         source:  'contact-page'
       })
     });
