@@ -758,3 +758,6 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Added optional country to seven public machine quote forms, stored through the existing CRM message field. All seven now require API success:true before conversion; preview/staff test suppression added.
 - Direct GSC inspection confirms 12/15 blogs indexed. Sitemap submission accepted; manual site-preparation indexing rejected with daily quota exceeded. October CRM quote records are two explicit tests; GA4 key event configured. No new production enquiry/email sent.
 - Search, analytics, API and actual machine-handler tests pass; SEO 73 routes pass. Branch codex/search-discovery, hosted verification pending.
+
+- Commit c96e92b pushed; PR79 created/attached. Vercel preview succeeded. Desktop header search and relevant results verified; mobile search fits 375px content width without overflow and hamburger remains functional. PowerCut country field is editable/optional. Screenshot outputs/wavlon-search-pr79.png in main workspace.
+- Preview exposed stale Canada metadata implying a universal 600V requirement; replaced with configuration-specific utility planning wording. Search corpus regenerated. Thirty tests and 73-route SEO pass. No production merge or real-form/email submission.
