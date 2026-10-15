@@ -4,10 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>BOCI BLT Laser Head Selection Guide | Wavlon Lasers</title>
-<meta name="description" content="Compare BOCI BLT laser heads by power, focal length, material and cutting gas. Use the selection guide, then confirm your machine configuration with Wavlon."/>
+<meta name="description" content="Compare BOCI BLT and Precitec head options, compatibility and sample-cut requirements before requesting a fiber laser machine quote in Canada or the USA."/>
 <link rel="canonical" href="https://wavlonlasers.com/technologies/laser-heads/selection-guide"/>
 <meta property="og:title" content="BOCI BLT Laser Head Selection Guide | Wavlon Lasers"/>
 <meta property="og:type" content="article"/>
+<meta property="og:url" content="https://wavlonlasers.com/technologies/laser-heads/selection-guide"/>
 <meta property="og:image" content="https://wavlonlasers.com/assets/blt-laser-head.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -29,7 +30,7 @@
 /* ── Page shell ── */
 .sg-hero{background:#06090f;padding:120px 40px 72px;border-bottom:1px solid rgba(255,255,255,.06);}
 .sg-hero-inner{max-width:960px;margin:0 auto;}
-.sg-breadcrumb{display:flex;gap:6px;align-items:center;margin-bottom:28px;}
+.sg-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:28px;}
 .sg-breadcrumb a{font-size:12px;color:#526070;}
 .sg-breadcrumb span{font-size:12px;color:#2a3a4a;}
 .sg-breadcrumb .cur{color:#8899aa;}
@@ -135,6 +136,9 @@
 .sg-pdf-bar .pb-text p{font-size:13px;color:#8899aa;margin:0;}
 .sg-pdf-bar a{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#0066cc;color:#fff;border-radius:8px;font-size:13px;font-weight:700;white-space:nowrap;flex-shrink:0;}
 
+.sg-section h3{font-size:20px;line-height:1.35;margin:28px 0 12px;color:#1a1a2e;}
+.sg-body a:not(.btn-primary):not(.btn-ghost){text-decoration:underline;text-underline-offset:3px;}
+.sg-hero-meta span{flex-wrap:wrap;}
 /* ── Responsive ── */
 @media(max-width:768px){
   .sg-hero{padding:100px 20px 48px;}
@@ -149,7 +153,7 @@
   .sg-cta{padding:32px 24px;}
 }
 </style>
-<meta property="og:description" content="Compare BOCI BLT laser heads by power, focal length, material and cutting gas. Use the selection guide, then confirm your machine configuration with Wavlon."/>
+<meta property="og:description" content="Compare BOCI BLT and Precitec head options, compatibility and sample-cut requirements before requesting a fiber laser machine quote in Canada or the USA."/>
 </head>
 <body>
 <!-- HEADER — inline copy -->
@@ -254,7 +258,7 @@
     </nav>
     <div class="sg-badge">BOCI BLT &middot; Technical Reference</div>
     <h1>BLT Laser Head<br><em>Selection Guide</em></h1>
-    <p class="sg-hero-lead">Four variables determine which BLT head is right for your machine: laser power, fiber core diameter, material type, and target cutting thickness. This guide walks through each decision in order.</p>
+    <p class="sg-hero-lead">Start with laser power, fiber specifications, material and production requirements. Then confirm the exact head, controls and machine configuration together. A component rating alone does not establish cutting capacity or compatibility.</p>
     <div class="sg-hero-meta">
       <span><strong>Models covered:</strong> BLT-310 · BLT-421S · BLT-442 · BLT-462 · BLT-8H · BLT-9MA</span>
       <span><strong>Source:</strong> BOCI BLT Intelligent Laser Head Selection Guide</span>
@@ -264,6 +268,14 @@
 
 <!-- ── Body ── -->
 <div class="sg-body">
+
+  <section class="sg-section" id="machine-or-head" aria-labelledby="buyer-heading">
+    <div class="sg-eyebrow">For machine buyers</div>
+    <h2 class="sg-h2" id="buyer-heading">Buying a laser head or a complete cutting machine?</h2>
+    <p class="sg-lead">A laser head is one component of a cutting system. If you need a complete machine, compare the sheet or tube layout first, then specify the head as part of the written quotation. Wavlon ProCut is a machine series; Precitec ProCutter is a cutting-head family.</p>
+    <p class="sg-lead"><a href="/machines/fiber-laser-sheet-cutting#compare">Compare ProCut, PowerCut and UltraCut</a> &middot; <a href="/machines/fiber-laser-tube-cutting">Compare TubeCut machines</a> &middot; <a href="#buyer-questions">Head-selection buyer questions</a></p>
+    <div class="sg-note"><strong>Planning a purchase?</strong> Use the <a href="/fiber-laser-cutting-canada">Canada buying guide</a> or <a href="/fiber-laser-cutting-usa">U.S. buying guide</a> for delivery and installation planning. U.S. customers can request USD quotations. Great Neck, Long Island office visits are by appointment.</div>
+  </section>
 
   <!-- PDF download bar -->
   <div class="sg-pdf-bar">
@@ -292,8 +304,8 @@
   <div class="sg-section">
     <div class="sg-eyebrow">Step 1</div>
     <h2 class="sg-h2">Select by laser power</h2>
-    <p class="sg-lead">The laser source power is the first and most important filter. Each BLT model has a rated power window — running a head above its rating damages the optics; running it well below its rating wastes the collimation aperture.</p>
-    <div class="sg-note"><strong>Rule of thumb:</strong> Match the head to the laser source, not to the machine brand. The same machine can run different heads depending on the laser source installed.</div>
+    <p class="sg-lead">Use laser source power as an initial filter, then check the exact head variant against its manufacturer documentation. Confirm the fiber interface, optics, cooling, gas supply and control integration with the machine supplier.</p>
+    <div class="sg-note"><strong>Reference scope:</strong> The BLT tables below are component reference information from the linked selection guide, not a list of configurations available on every Wavlon machine. Confirm the current model revision and approved configuration before ordering.</div>
 
     <div class="sg-table-wrap">
       <table class="sg-table">
@@ -483,63 +495,43 @@
       <img src="/assets/blt-guide/blt-guide-p06-img65.jpg" alt="High-power fiber laser cutting with sparks" loading="lazy" style="width:100%;height:220px;object-fit:cover;object-position:center 30%;"/>
     </div>
     <div class="sg-eyebrow">Step 3</div>
-    <h2 class="sg-h2">Material and thickness quick-reference</h2>
-    <p class="sg-lead">Use this matrix to confirm your model selection based on what you cut most. If a single machine needs to cut across multiple rows, select the model that covers your thickest common material — then use a shorter focal length insert for thin-sheet work.</p>
-
-    <div class="sg-table-wrap">
-      <table class="sg-table">
-        <thead>
-          <tr>
-            <th>Material</th>
-            <th>Thickness</th>
-            <th>Power needed</th>
-            <th>Recommended head</th>
-            <th>Focal length</th>
-            <th>Cutting gas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td class="row-head" rowspan="4">Carbon Steel</td><td>&lt; 6 mm</td><td>1–6 kW</td><td class="model-cell">BLT-310 / BLT-421S</td><td>125–150 mm</td><td>O₂ or N₂</td></tr>
-          <tr><td>6 – 16 mm</td><td>6–12 kW</td><td class="model-cell">BLT-421S</td><td>150–200 mm</td><td>O₂</td></tr>
-          <tr><td>16 – 25 mm</td><td>12–20 kW</td><td class="model-cell">BLT-442</td><td>200–250 mm</td><td>O₂</td></tr>
-          <tr><td>25 – 40 mm</td><td>20 kW+</td><td class="model-cell">BLT-442 / BLT-462</td><td>250–300 mm</td><td>O₂</td></tr>
-          <tr><td>40 – 60 mm+</td><td>30–60 kW</td><td class="model-cell">BLT-9MA</td><td>400 mm</td><td>O₂</td></tr>
-          <tr><td class="row-head" rowspan="3">Stainless Steel</td><td>&lt; 4 mm</td><td>1–6 kW</td><td class="model-cell">BLT-310 / BLT-421S</td><td>125–150 mm</td><td>N₂</td></tr>
-          <tr><td>4 – 12 mm</td><td>6–12 kW</td><td class="model-cell">BLT-421S</td><td>150–200 mm</td><td>N₂</td></tr>
-          <tr><td>12 – 30 mm</td><td>12–20 kW</td><td class="model-cell">BLT-442</td><td>200–250 mm</td><td>N₂</td></tr>
-          <tr><td class="row-head" rowspan="3">Aluminium</td><td>&lt; 4 mm</td><td>3–6 kW</td><td class="model-cell">BLT-421S</td><td>150 mm</td><td>N₂</td></tr>
-          <tr><td>4 – 12 mm</td><td>6–12 kW</td><td class="model-cell">BLT-421S</td><td>150–200 mm</td><td>N₂</td></tr>
-          <tr><td>12 – 25 mm</td><td>12–20 kW</td><td class="model-cell">BLT-442</td><td>200–250 mm</td><td>N₂</td></tr>
-          <tr><td class="row-head" rowspan="2">Brass / Copper</td><td>&lt; 6 mm</td><td>3–6 kW</td><td class="model-cell">BLT-421S</td><td>150 mm</td><td>N₂</td></tr>
-          <tr><td>6 – 12 mm</td><td>6–12 kW</td><td class="model-cell">BLT-421S</td><td>150–200 mm</td><td>N₂</td></tr>
-          <tr><td class="row-head">Galvanised</td><td>Up to 12 mm</td><td>3–12 kW</td><td class="model-cell">BLT-421S</td><td>150 mm</td><td>N₂ / Air</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <h2 class="sg-h2">Specify the parts you need to cut</h2>
+    <p class="sg-lead">A thickness-to-power chart cannot confirm production performance on its own. Give the supplier representative parts and measurable acceptance criteria, then compare results on the proposed machine configuration.</p>
+    <div class="sg-table-wrap"><table class="sg-table">
+      <thead><tr><th scope="col">Requirement</th><th scope="col">What to include in the enquiry</th></tr></thead>
+      <tbody>
+        <tr><td>Material</td><td>Grade, surface condition and the thicknesses you cut most often, plus occasional maximum thickness.</td></tr>
+        <tr><td>Part geometry</td><td>Drawing revision, holes, slots, contours and any edge or bevel requirements.</td></tr>
+        <tr><td>Finished-part acceptance</td><td>Dimensions, tolerances, edge condition and downstream welding, painting or deburring needs.</td></tr>
+        <tr><td>Production workload</td><td>Batch size, part mix, shifts and handling time as well as cutting time.</td></tr>
+        <tr><td>Trial configuration</td><td>Machine, head variant, source power, gas and agreed trial conditions recorded with the result.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="sg-lead">Use the <a href="/assets/sample-cut-evaluation-worksheet.csv" download>sample-cut worksheet</a> to record comparable requirements. Confirm the trial scope and availability with Wavlon before sending material.</p>
   </div>
 
   <!-- Step 4: Cutting gas -->
   <div class="sg-section">
     <div class="sg-eyebrow">Step 4</div>
     <h2 class="sg-h2">Cutting gas selection</h2>
-    <p class="sg-lead">The cutting gas is part of the head's operating environment. Using the wrong gas is one of the most common causes of poor cut quality and premature nozzle or lens failure.</p>
+    <p class="sg-lead">Specify the gas supply and expected edge condition in the trial and quotation. Confirm pressure, purity, flow and treatment requirements for the selected process; compare total operating cost rather than gas price alone.</p>
     <div class="sg-gas-grid">
       <div class="sg-gas-card oxygen">
         <div class="gc-gas">Oxygen (O₂)</div>
         <div class="gc-use">
-          <strong>Carbon steel only.</strong> Creates an exothermic reaction that adds energy to the cut — enables thicker carbon steel cutting at lower laser power. Produces an oxide edge (dark/bluish) that requires post-processing if paint adhesion is needed. Not suitable for stainless, aluminium, or brass — causes severe oxidation.
+          <strong>Ask about edge condition.</strong> Confirm whether the proposed oxygen process meets your part requirements and what cleaning or finishing is needed before the next operation.
         </div>
       </div>
       <div class="sg-gas-card nitrogen">
         <div class="gc-gas">Nitrogen (N₂)</div>
         <div class="gc-use">
-          <strong>Stainless, aluminium, brass, copper, and thin carbon steel.</strong> Inert gas — blows molten material out of the kerf without reacting. Produces a bright, oxide-free edge. Requires higher pressure and higher laser power than oxygen for the same thickness. Preferred for parts that will be welded, painted, or powder-coated without further prep.
+          <strong>Ask about consumption and supply.</strong> Request the nitrogen specification and estimated use for your actual parts, then assess supply capacity and downstream finishing on trial samples.
         </div>
       </div>
       <div class="sg-gas-card air">
         <div class="gc-gas">Compressed Air</div>
         <div class="gc-use">
-          <strong>Thin carbon steel and non-ferrous thin sheet (&lt;3mm).</strong> Lowest cost option. Contains ~21% oxygen — provides some assist effect. Edge quality is between O₂ and N₂. Good for parts where edge aesthetics are not critical. Not recommended above 3mm — dross control becomes inconsistent.
+          <strong>Ask about the complete air system.</strong> Confirm compressor, drying, filtration and flow requirements. Have the supplier demonstrate the required edge quality instead of assuming air is suitable at a universal thickness limit.
         </div>
       </div>
     </div>
@@ -549,7 +541,7 @@
   <div class="sg-section" id="models">
     <div class="sg-eyebrow">Model Summary</div>
     <h2 class="sg-h2">BLT series at a glance</h2>
-    <p class="sg-lead">Full specification summary for each model. All models include capacitive auto-focus, anti-collision break-away mount, ceramic nozzle interface, IP65 sealing, and real-time lens monitoring.</p>
+    <p class="sg-lead">BLT model reference summaries. Features, optics and interfaces vary by model and revision; confirm the current datasheet and quotation rather than assuming every head includes the same protection or monitoring features.</p>
     <div class="sg-model-cards">
       <div class="sg-model-card">
         <div class="sg-model-card-img"><img src="/assets/blt-guide/blt-guide-p05-img44.png" alt="BOCI BLT-310 fiber laser cutting head" loading="lazy"/></div>
@@ -660,40 +652,39 @@
     </div>
   </div>
 
-  <!-- Precitec upgrade note -->
-  <div class="sg-section">
-    <div class="sg-eyebrow">Optional Upgrade</div>
-    <h2 class="sg-h2">Precitec ProCutter — premium alternative</h2>
-    <p class="sg-lead">All Wavlon sheet cutting machines can be factory-fitted with a <strong>Precitec ProCutter 1.0</strong> laser cutting head instead of the standard BLT head. The Precitec is a German-made alternative used across the global fiber laser industry.</p>
-    <div class="sg-note">
-      <strong>When to choose Precitec over BLT:</strong> If your production involves high-mix aerospace or medical parts where cut-edge surface finish is held to very tight tolerances, or if your service environment requires access to the Precitec global service network. For most Canadian job shop and fabrication applications, the BLT head delivers equivalent cut quality at lower consumable cost.
-    </div>
-    <div class="sg-table-wrap">
-      <table class="sg-table">
-        <thead>
-          <tr><th>Feature</th><th>BOCI BLT</th><th>Precitec ProCutter</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Origin</td><td>China (BOCI / FSCut)</td><td>Germany (Precitec)</td></tr>
-          <tr><td>Power range</td><td>1–60 kW</td><td>1–15 kW (standard)</td></tr>
-          <tr><td>Auto-focus</td><td>Capacitive</td><td>Capacitive</td></tr>
-          <tr><td>Collision protection</td><td>Break-away mount</td><td>Break-away mount</td></tr>
-          <tr><td>Lens monitoring</td><td>Yes</td><td>Yes</td></tr>
-          <tr><td>Lens cost (replacement)</td><td>Lower</td><td>Higher</td></tr>
-          <tr><td>Canadian parts availability</td><td>Stocked by Wavlon</td><td>Through Precitec distributors</td></tr>
-          <tr><td>Factory fit on Wavlon machines</td><td>Standard</td><td>Optional upgrade (POA)</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <section class="sg-section" id="buyer-questions" aria-labelledby="head-questions">
+    <div class="sg-eyebrow">Buyer questions</div>
+    <h2 class="sg-h2" id="head-questions">BOCI BLT or Precitec: what should buyers compare?</h2>
+    <p class="sg-lead">Compare the exact proposed variants and the complete machine package. Brand alone does not establish cut quality, compatibility, local stock or operating cost.</p>
+    <div class="sg-table-wrap"><table class="sg-table">
+      <thead><tr><th scope="col">Compare</th><th scope="col">Ask for written confirmation</th></tr></thead>
+      <tbody>
+        <tr><td>Head and source</td><td>Exact model/revision, approved source power, fiber interface and optics.</td></tr>
+        <tr><td>Machine integration</td><td>Mounting, focus and height control, controller interfaces, gas and cooling requirements.</td></tr>
+        <tr><td>Part performance</td><td>Measured trial results for the same drawings, materials and acceptance criteria.</td></tr>
+        <tr><td>Consumables</td><td>Part numbers, current prices, replacement assumptions and delivery times.</td></tr>
+        <tr><td>Support scope</td><td>Who handles diagnosis, replacement and warranty for your installation location.</td></tr>
+        <tr><td>Quoted configuration</td><td>Which items are included, optional or subject to engineering review.</td></tr>
+      </tbody>
+    </table></div>
+    <h3 id="head-capacity">Does a higher-power laser head mean the machine cuts thicker plate?</h3>
+    <p class="sg-lead">No. The head rating is a component limit, not a production result. Assess the source, optics, gas, controls and material together, then agree the required finished-part quality and cycle time in a cutting trial.</p>
+    <h3 id="head-compatibility">Can I choose any BOCI or Precitec head for a Wavlon machine?</h3>
+    <p class="sg-lead">Do not assume interchangeability. Ask Wavlon to confirm the exact head and integration in the machine quotation. For an existing machine, provide the machine and head model, serial information and source specification for a compatibility review before ordering a replacement.</p>
+    <h3 id="head-cost">Which head has the lowest running cost?</h3>
+    <p class="sg-lead">Compare current consumable prices, actual replacement intervals, gas use, maintenance and production results. A brand-wide claim of lower cost is not a substitute for a comparison based on your workload. Use the <a href="/blog/fiber-laser-machine-cost">machine cost guide</a> to include installation and operating expenses.</p>
+    <h3 id="head-quote">What should Canadian and U.S. buyers send for a machine quote?</h3>
+    <p class="sg-lead">Send material grades, usual and maximum thickness, sheet or tube sizes, representative drawings, production volume, installation city and purchase timing. State whether you are buying a complete machine or replacing a component. Start with the <a href="/blog/fiber-laser-quote-checklist-canada#rfq-worksheet">RFQ checklist</a> if some details are still undecided.</p>
+    <div class="sg-note"><strong>Manufacturer reference:</strong> Precitec documents model-dependent optics and power ratings on its <a href="https://www.precitec.com/laser-cutting/products/laser-cutting-head/pro-cutter/" target="_blank" rel="noopener">ProCutter 2.0 product page</a>. These component specifications do not establish Wavlon machine availability. See Wavlon's <a href="/technologies/laser-heads/precitec/procutter-2-0">ProCutter 2.0 reference</a> and confirm the quoted variant. Buyer guidance updated October 15, 2026.</div>
+  </section>
 
   <!-- CTA -->
   <p>Choosing a complete cutting machine? Start with <a href="/machines/fiber-laser-sheet-cutting#compare">ProCut, PowerCut and UltraCut sheet laser layouts</a> or <a href="/machines/fiber-laser-tube-cutting">TubeCut tube laser machines</a>, then confirm the head, source and controls for that configuration. A head’s rated power is not a guarantee of machine cutting capacity.</p>
 <div class="sg-cta" id="quote">
     <h3>Not sure which head is right for your application?</h3>
-    <p>Our technical team will review your material, thickness, and production requirements and recommend the correct BLT model and focal length configuration.</p>
+    <p>Tell us what you want to make and where the machine will be installed. Ask for a configuration review and a written machine quotation.</p>
     <div class="sg-cta-btns">
-      <a href="/contact/" class="btn-primary">Talk to a Laser Specialist &rarr;</a>
+      <a href="/contact#quote" class="btn-primary">Request a Machine Configuration Quote &rarr;</a>
       <a href="/technologies/laser-heads/" class="btn-ghost">Back to Laser Head Page</a>
     </div>
   </div>
