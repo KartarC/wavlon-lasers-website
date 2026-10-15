@@ -2,8 +2,8 @@
 
 October 15, 2026 — Codex
 
-- Production is PR74, merge 2d529ff. New work is isolated on codex/head-buyer-guidance.
-- Head-selection guide: four buyer answers, component/machine clarification, configuration and trial checklists, Canada/USA quote pathways. Unsupported fit/cost/performance claims removed; reference tables retained with scope clarification.
-- SEO and five quote-selection tests pass; hosted preview pending. See documentation/head-buyer-guidance-2026-10-15.md for measured baseline and limitations.
-- Next: commit/push, verify hosted mobile/desktop and quote link, prepare reviewed PR. No production authorization for this new change yet.
-- UltraCut indexing retry remains October 16 noon Toronto, separate from this work.
+- Production remains PR75 / f40070e. New changes on codex/sheet-market-buyers.
+- Sheet hub updated for Canada/USA intent, three buyer answers, quote preparation table and consistent configuration-based descriptions/schema. Existing machine-specific quote links retained.
+- SEO, quote-selection, fragments, IDs and shared-layout checks pass. Next: hosted mobile/desktop preview, quote navigation and reviewed PR.
+- Owner replied “Not yet” to installation/sample-cut publication evidence. Do not add unapproved cases.
+- UltraCut indexing retry remains October 16 noon Toronto.
