@@ -110,6 +110,7 @@ main div[style*="grid-template-columns"] > *{min-width:0;}
     <div class="header-actions"><a href="/contact/#quote" class="btn-inquiry">Get a Quote</a></div>
     <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer"><span></span><span></span><span></span></button>
   </div></div>
+  <form class="menu-search" role="search" action="/search" method="get"><label for="menu-search-query">Search Wavlon</label><input id="menu-search-query" name="q" type="search" maxlength="160" placeholder="Machines, guides, materials…"><button type="submit">Search</button></form>
   <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true"><ul class="mobile-nav-list">
     <li><button class="mobile-nav-btn" aria-expanded="false" aria-controls="mobileMachines">Machines <span aria-hidden="true">+</span></button><ul class="mobile-sub" id="mobileMachines">
       <li><a href="/machines/">All Machines</a></li>
@@ -242,7 +243,7 @@ main div[style*="grid-template-columns"] > *{min-width:0;}
     <div class="quote-form-card">
       <div id="tcqFormWrap">
         <div class="quote-form-head"><h3>TubeCut Triple Chuck Quote Request</h3><p>Response within 24 business hours.</p></div>
-        <form id="tcqForm">
+        <form id="tcqForm"><div class="form-group"><label for="tcqForm_country">Installation country (optional)</label><select id="tcqForm_country" name="installation_country"><option value="">Not decided / prefer to discuss</option><option value="ca">Canada</option><option value="us">United States</option><option value="other">Other country</option></select></div>
           <div class="quote-form-grid">
             <div class="form-group"><label for="tcq_name">Full Name *</label><input type="text" id="tcq_name" required placeholder="Jane Smith" name="name" autocomplete="name"></div>
             <div class="form-group"><label for="tcq_company">Company</label><input type="text" id="tcq_company" placeholder="Company Name" name="organization" autocomplete="organization"></div>
@@ -299,7 +300,7 @@ main div[style*="grid-template-columns"] > *{min-width:0;}
 <script src="/nav.js"></script>
 <script>
 // Supabase credentials handled server-side via /api/submit-form
-document.getElementById('tcqForm').addEventListener('submit',async function(e){e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;try{const response=await fetch('/api/submit-form',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('tcq_name').value,email:document.getElementById('tcq_email').value,phone:document.getElementById('tcq_phone').value,company:document.getElementById('tcq_company').value,machine_interest:'TubeCut Triple Chuck — '+document.getElementById('tcq_model').value,material:document.getElementById('tcq_material').value,message:document.getElementById('tcq_message').value,source:'tubecut-triple-chuck-page'})});if(!response.ok)throw new Error('Quote request failed');if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('tcqForm');
+document.getElementById('tcqForm').addEventListener('submit',async function(e){e.preventDefault();const btn=this.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;try{const response=await fetch('/api/submit-form',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('tcq_name').value,email:document.getElementById('tcq_email').value,phone:document.getElementById('tcq_phone').value,company:document.getElementById('tcq_company').value,machine_interest:'TubeCut Triple Chuck — '+document.getElementById('tcq_model').value,material:document.getElementById('tcq_material').value,message:document.getElementById('tcq_message').value,installation_country: document.getElementById('tcqForm_country').value, source: 'tubecut-triple-chuck-page'})});if(!response.ok || (await response.json()).success !== true)throw new Error('Quote request failed');if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('tcqForm');
     document.getElementById('tcqFormWrap').style.display='none';document.getElementById('tcqSuccess').style.display='block';}catch(err){btn.textContent='Send Quote Request';btn.disabled=false;alert('Error. Please email sales@wavlonlasers.com');}});
 </script>
 <script>

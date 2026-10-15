@@ -750,3 +750,14 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Added optional installation country and city/province/state fields to contact form. Country-guide main quote links preselect Canada or USA; buyers can change/clear. Context stays in existing CRM message with no schema or analytics change.
 - Four new context/form failure-retry tests and 14 existing API/model/analytics checks pass; 73-route SEO passes. Hosted preview pending. No real form submissions or email tests.
 - Branch codex/quote-location-context; reviewed PR publication pending.
+
+### 2026-10-15 — Codex — Sitewide search, discovery and country-aware quote records
+
+- Based on production PR78 (967a08e), preserving the earlier worktree's release notes.
+- Added menu search and noindex search page, generated from all 73 sitemap pages (15 blogs); added static discovery links and improved component search descriptions.
+- Added optional country to seven public machine quote forms, stored through the existing CRM message field. All seven now require API success:true before conversion; preview/staff test suppression added.
+- Direct GSC inspection confirms 12/15 blogs indexed. Sitemap submission accepted; manual site-preparation indexing rejected with daily quota exceeded. October CRM quote records are two explicit tests; GA4 key event configured. No new production enquiry/email sent.
+- Search, analytics, API and actual machine-handler tests pass; SEO 73 routes pass. Branch codex/search-discovery, hosted verification pending.
+
+- Commit c96e92b pushed; PR79 created/attached. Vercel preview succeeded. Desktop header search and relevant results verified; mobile search fits 375px content width without overflow and hamburger remains functional. PowerCut country field is editable/optional. Screenshot outputs/wavlon-search-pr79.png in main workspace.
+- Preview exposed stale Canada metadata implying a universal 600V requirement; replaced with configuration-specific utility planning wording. Search corpus regenerated. Thirty tests and 73-route SEO pass. No production merge or real-form/email submission.

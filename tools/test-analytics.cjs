@@ -4,9 +4,9 @@ const vm = require('node:vm');
 const fs = require('node:fs');
 const path = require('node:path');
 const source = fs.readFileSync(path.join(__dirname, '../assets/cookie-consent.js'), 'utf8');
-function boot(consent) {
+function boot(consent, origin="https://wavlonlasers.com", staffTest=false) {
   const scripts = [], listeners = {};
-  const context = {URL, Date, Object, window:{}, location:{origin:'https://wavlonlasers.com',pathname:'/contact',search:'?email=private@example.com',hash:'#private'}, localStorage:{getItem:()=>JSON.stringify({analytics:consent,marketing:false})},document:{referrer:'https://example.com/private?email=private@example.com',head:{appendChild:s=>scripts.push(s)},createElement:()=>({}),addEventListener:(n,f)=>listeners[n]=f}};
+  const context = {URL, Date, Object, window:{}, location:{origin,pathname:'/contact',search:'?email=private@example.com',hash:'#private'}, localStorage:{getItem:key=>key==='wavlon_measurement_test' ? String(staffTest) : JSON.stringify({analytics:consent,marketing:false})},document:{referrer:'https://example.com/private?email=private@example.com',head:{appendChild:s=>scripts.push(s)},createElement:()=>({}),addEventListener:(n,f)=>listeners[n]=f}};
   vm.runInNewContext(source, context);
   return {...context, scripts, listeners, events:()=>context.window.dataLayer.filter(x=>x.event && !x.event.startsWith('gtm.'))};
 }
@@ -39,4 +39,10 @@ test('errors and contact clicks do not count as leads or inherit lead details',(
   assert.equal(e.form_id,undefined); assert.equal(e.lead_type,undefined);
   assert.equal(x.events().filter(e=>e.event==='generate_lead').length,1);
   assert.ok(!JSON.stringify(x.events()).includes('private'));
+});
+
+test('preview and marked staff tests cannot load GTM or emit conversions',()=>{
+ for(const x of [boot(true,'https://preview.vercel.app'),boot(true,'http://localhost:8080'),boot(true,'https://wavlonlasers.com',true)]) {
+  x.window.WavlonAnalytics.quoteSuccess('sqForm');assert.equal(x.scripts.length,0);assert.equal(x.window.dataLayer,undefined);
+ }
 });
