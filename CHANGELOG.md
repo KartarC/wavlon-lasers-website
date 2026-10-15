@@ -736,3 +736,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Updated sheet hub metadata, market/service guidance, quote preparation table and three buyer answers. Aligned machine schema and visible cards with configuration-based descriptions; removed unsupported blanket claims. Existing model links, imagery, video and buyer answers preserved.
 - SEO, five quote-selection tests, internal fragments/IDs and unchanged shared layouts pass. Hosted preview pending. No backend or tracking changes.
 - Owner has not yet approved installation/sample-cut evidence; no case studies added. Branch codex/sheet-market-buyers from f40070e; reviewed PR publication pending.
+
+### 2026-10-15 — Codex — Organize Education Center around buyer decisions
+
+- Observed PR76 merged as 6a83396; prior worktree release notes preserved.
+- Added 12 buyer-question navigation links, integrated investment and U.S. resources, direct machine comparisons and Canada/USA metadata. Synchronized CollectionPage directory with 24 visible destinations; moved ownership support after buying topics.
+- SEO, five quote-selection tests, fragments/IDs, section balance, schema visibility and unchanged shared-layout checks pass. Hosted preview pending. No forms, backend or tracking changes.
+- Branch codex/education-buyer-paths; reviewed PR publication pending.
