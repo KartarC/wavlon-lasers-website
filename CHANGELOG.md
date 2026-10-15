@@ -729,3 +729,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Improved head-selection guide with four buyer answers, configuration comparison, trial requirements and Canada/USA machine-buying paths. Removed unsupported universal fit, brand cost/quality and prescriptive cutting claims. Added official manufacturer reference and updated metadata/sitemap.
 - SEO and five quote-selection tests pass. No backend, form or tracking changes. Analytics sample remains too small and may include tests; baseline recorded in documentation/head-buyer-guidance-2026-10-15.md.
 - Branch codex/head-buyer-guidance; hosted validation and reviewed PR publication pending.
+
+### 2026-10-15 — Codex — Improve Canada/USA sheet-machine buying path
+
+- Observed PR75 merged as f40070e; prior local release notes preserved in their worktree.
+- Updated sheet hub metadata, market/service guidance, quote preparation table and three buyer answers. Aligned machine schema and visible cards with configuration-based descriptions; removed unsupported blanket claims. Existing model links, imagery, video and buyer answers preserved.
+- SEO, five quote-selection tests, internal fragments/IDs and unchanged shared layouts pass. Hosted preview pending. No backend or tracking changes.
+- Owner has not yet approved installation/sample-cut evidence; no case studies added. Branch codex/sheet-market-buyers from f40070e; reviewed PR publication pending.
