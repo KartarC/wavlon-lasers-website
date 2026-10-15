@@ -722,3 +722,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Replaced obsolete showcase claims/placeholders with current imagery, existing UltraCut film and model-specific quote links. Added scoped buyer answers; aligned AI-readable company summary and sitemap date.
 - SEO, quote-selection, internal references/fragments, IDs and shared-header/footer checks pass. Hosted visual check pending.
 - Branch codex/showcase-accuracy from a687f1b; publication follows reviewed PR workflow.
+
+### 2026-10-15 — Codex — Improve component-search buyer guidance
+
+- Observed PR74 merged as 2d529ff; prior local release notes preserved in their worktree.
+- Improved head-selection guide with four buyer answers, configuration comparison, trial requirements and Canada/USA machine-buying paths. Removed unsupported universal fit, brand cost/quality and prescriptive cutting claims. Added official manufacturer reference and updated metadata/sitemap.
+- SEO and five quote-selection tests pass. No backend, form or tracking changes. Analytics sample remains too small and may include tests; baseline recorded in documentation/head-buyer-guidance-2026-10-15.md.
+- Branch codex/head-buyer-guidance; hosted validation and reviewed PR publication pending.
