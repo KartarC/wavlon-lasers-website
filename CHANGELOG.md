@@ -715,3 +715,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Added RFQ comparison CSV, four buyer answers, Education Center buyer toolkit and cost-guide link. Updated relevant sitemap dates.
 - SEO, five quote-selection tests, links/fragments, IDs and CSV structure pass. Local browser loopback preview unavailable; hosted preview pending.
 - Branch codex/quote-readiness from origin/main 0270665. Publication pending reviewed PR.
+
+### 2026-10-15 — Codex — Correct showcase claims and connect machine enquiries
+
+- Observed PR73 merged as a687f1b; existing release notes preserved in prior worktree.
+- Replaced obsolete showcase claims/placeholders with current imagery, existing UltraCut film and model-specific quote links. Added scoped buyer answers; aligned AI-readable company summary and sitemap date.
+- SEO, quote-selection, internal references/fragments, IDs and shared-header/footer checks pass. Hosted visual check pending.
+- Branch codex/showcase-accuracy from a687f1b; publication follows reviewed PR workflow.

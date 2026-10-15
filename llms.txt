@@ -1,45 +1,45 @@
 # Wavlon Lasers
 
-> Industrial fiber laser cutting machines — Canadian sales, installation, and lifetime support.
+> Industrial fiber laser cutting machines for buyers in Canada and the United States.
 
-Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines, based in Toronto, Ontario. We supply ProCut, PowerCut, UltraCut, TubeCut, and automation systems for sheet metal, tube, profile, and structural cutting applications. All machines come with Canadian-based sales, on-site installation, training, and lifetime technical support.
+Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines, based in Toronto, Ontario. We supply ProCut, PowerCut, UltraCut, TubeCut, and automation systems for sheet metal, tube, profile, and structural cutting applications. Installation, training, warranty and service terms are defined in each written quotation. U.S. offices are in Great Neck, Long Island, New York; visits are by appointment only. U.S. installation is available nationwide and U.S. customers can request USD quotations.
 
 ## Products
 
-- [ProCut Series — Fiber Laser Sheet Cutting 3–12kW](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/pro-cut-series/)
-- [PowerCut Series — Fully Enclosed Fiber Laser Sheet Cutting 3–12kW](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/power-cut-series/)
-- [UltraCut Series — High-Power Fiber Laser Sheet Cutting 3–20kW](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/ultra-cut-series/)
-- [TubeCut Double Chuck — Fiber Laser Tube Cutting 1.5–12kW](https://wavlonlasers.com/machines/fiber-laser-tube-cutting/double-chuck/)
-- [TubeCut Triple Chuck — Heavy Duty Fiber Laser Tube Cutting 6–30kW](https://wavlonlasers.com/machines/fiber-laser-tube-cutting/triple-chuck/)
+- [ProCut Series — Fiber Laser Sheet Cutting 3–12kW](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/pro-cut-series)
+- [PowerCut Series — Fully Enclosed Fiber Laser Sheet Cutting 3–12kW](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/power-cut-series)
+- [UltraCut Series — High-Power Fiber Laser Sheet Cutting 3–20kW](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/ultra-cut-series)
+- [TubeCut Double Chuck — Fiber Laser Tube Cutting 1.5–12kW](https://wavlonlasers.com/machines/fiber-laser-tube-cutting/double-chuck)
+- [TubeCut Triple Chuck — Heavy Duty Fiber Laser Tube Cutting 6–30kW](https://wavlonlasers.com/machines/fiber-laser-tube-cutting/triple-chuck)
 
 ## Guides
 
-- [Resources Center](https://wavlonlasers.com/resources/) — index of all Wavlon buyer's guides
-- [Buying a Fiber Laser Cutter in Canada](https://wavlonlasers.com/fiber-laser-cutting-canada/) — how to choose laser power, sheet vs tube cutting, Canadian 600V electrical requirements, CAD financing, and what local service should include
-- [Fiber Laser Tube Cutting Machines](https://wavlonlasers.com/machines/fiber-laser-tube-cutting/) — how tube cutting works, tube laser vs saw and drill, sizing by diameter/length/power, Double Chuck vs Triple Chuck
-- [Fiber Laser Sheet Cutting Machines](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting/) — how sheet cutting works, assist gas (oxygen/nitrogen/air), bed formats explained, choosing power and enclosure across ProCut/PowerCut/UltraCut
+- [Resources Center](https://wavlonlasers.com/resources) — index of all Wavlon buyer's guides
+- [Buying a Fiber Laser Cutter in Canada](https://wavlonlasers.com/fiber-laser-cutting-canada) — how to choose laser power, sheet vs tube cutting, machine-specific electrical requirements, CAD financing, and what local service should include
+- [Fiber Laser Tube Cutting Machines](https://wavlonlasers.com/machines/fiber-laser-tube-cutting) — how tube cutting works, tube laser vs saw and drill, sizing by diameter/length/power, Double Chuck vs Triple Chuck
+- [Fiber Laser Sheet Cutting Machines](https://wavlonlasers.com/machines/fiber-laser-sheet-cutting) — how sheet cutting works, assist gas (oxygen/nitrogen/air), bed formats explained, choosing power and enclosure across ProCut/PowerCut/UltraCut
 
 ## Technologies
 
-- [Laser Source Hub](https://wavlonlasers.com/technologies/laser-sources/) — MAX Photonics Elite Series and IPG Photonics industrial CW sources, model-level reference specifications and configuration guidance
-- [Compare Laser Sources](https://wavlonlasers.com/technologies/laser-sources/compare/) — manual side-by-side comparison for up to four MAX or IPG source variants
-- [MAX Photonics Elite Series](https://wavlonlasers.com/technologies/laser-sources/max-photonics/) — 15 reviewed products from 500 W to 85 kW with exact certification and warranty wording
-- [IPG Photonics CW Fiber Lasers](https://wavlonlasers.com/technologies/laser-sources/ipg-photonics/) — YLR, YLS, YLS-U-ECO and YLS-ECO representative variants
-- [Laser Heads and Controllers](https://wavlonlasers.com/technologies/laser-heads/) — BOCI BLT and Precitec ProCutter options with Bochu control systems
-- [Precitec Laser Heads](https://wavlonlasers.com/technologies/laser-heads/precitec/) — ProCutter Thunder and ProCutter 2.0 factory-fit options
-- [Precitec ProCutter Thunder](https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-thunder/) — 6.6–12 kW for 2D, tube/profile and 3D cutting
-- [Precitec ProCutter 2.0](https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-2-0/) — automated high-power flatbed, tube and bevel cutting up to 85 kW
-- [Tube Cutting Heads](https://wavlonlasers.com/technologies/laser-heads/tube-cutting-heads/)
-- [FSCUT Controllers](https://wavlonlasers.com/technologies/laser-heads/controllers/)
+- [Laser Source Hub](https://wavlonlasers.com/technologies/laser-sources) — MAX Photonics Elite Series and IPG Photonics industrial CW sources, model-level reference specifications and configuration guidance
+- [Compare Laser Sources](https://wavlonlasers.com/technologies/laser-sources/compare) — manual side-by-side comparison for up to four MAX or IPG source variants
+- [MAX Photonics Elite Series](https://wavlonlasers.com/technologies/laser-sources/max-photonics) — 15 reviewed products from 500 W to 85 kW with exact certification and warranty wording
+- [IPG Photonics CW Fiber Lasers](https://wavlonlasers.com/technologies/laser-sources/ipg-photonics) — YLR, YLS, YLS-U-ECO and YLS-ECO representative variants
+- [Laser Heads and Controllers](https://wavlonlasers.com/technologies/laser-heads) — BOCI BLT and Precitec ProCutter options with Bochu control systems
+- [Precitec Laser Heads](https://wavlonlasers.com/technologies/laser-heads/precitec) — ProCutter Thunder and ProCutter 2.0 factory-fit options
+- [Precitec ProCutter Thunder](https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-thunder) — 6.6–12 kW for 2D, tube/profile and 3D cutting
+- [Precitec ProCutter 2.0](https://wavlonlasers.com/technologies/laser-heads/precitec/procutter-2-0) — automated high-power flatbed, tube and bevel cutting up to 85 kW
+- [Tube Cutting Heads](https://wavlonlasers.com/technologies/laser-heads/tube-cutting-heads)
+- [FSCUT Controllers](https://wavlonlasers.com/technologies/laser-heads/controllers)
 
 ## Company
 
-- [About Wavlon Lasers](https://wavlonlasers.com/about/)
-- [Industries Served](https://wavlonlasers.com/industries/)
-- [Financing Options](https://wavlonlasers.com/financing/)
-- [Service and Support](https://wavlonlasers.com/service/)
-- [Parts and Consumables](https://wavlonlasers.com/parts/)
-- [Contact Us](https://wavlonlasers.com/contact/)
+- [About Wavlon Lasers](https://wavlonlasers.com/about)
+- [Industries Served](https://wavlonlasers.com/industries)
+- [Financing Options](https://wavlonlasers.com/financing)
+- [Service and Support](https://wavlonlasers.com/service)
+- [Parts and Consumables](https://wavlonlasers.com/parts)
+- [Contact Us](https://wavlonlasers.com/contact)
 
 ## Secondary Solutions
 
@@ -49,9 +49,9 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines,
 ## Key Facts
 
 - Canadian company headquartered in Toronto, Ontario
-- Machines available from 1.5kW tube systems to 30kW+ industrial platforms
+- Confirm power, working envelope and components on the selected machine page and quotation
 - On-site installation and training across Canada
-- Lifetime technical support included with every machine
+- Confirm warranty, support coverage, labor and travel in the written quotation
 - Applications: automotive, structural steel, HVAC, aerospace, agriculture, custom fabrication
 
 ## Blog and videos
@@ -87,3 +87,8 @@ Wavlon Lasers is a Canadian supplier of industrial fiber laser cutting machines,
 - [Fiber Laser vs Plasma: A Buyer’s Comparison](https://wavlonlasers.com/blog/fiber-laser-vs-plasma): Compare fiber laser and plasma using your materials, drawings, accepted-part quality and complete production costs. Plan a practical cutting trial.
 
 - [Buy a Fiber Laser or Outsource Cutting?](https://wavlonlasers.com/blog/fiber-laser-buy-vs-outsource): Compare in-house fiber laser cutting with outsourcing using real demand, operating costs and conservative utilization. Build a transparent payback estimate.
+
+## Machine evaluation and quote preparation
+- [Machine showcase](https://wavlonlasers.com/machine-showcase): Current product imagery and UltraCut film; product films are not measured customer acceptance tests.
+- [Buyer toolkit](https://wavlonlasers.com/resources#buyer-toolkit): RFQ comparison, ownership budget and sample-trial worksheets.
+- [RFQ worksheet guide](https://wavlonlasers.com/blog/fiber-laser-quote-checklist-canada#rfq-worksheet): Prepare comparable Canada/U.S. equipment quotations.
