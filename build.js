@@ -118,3 +118,5 @@ for (const file of files) {
 }
 
 console.log(`\nDone. Synced header/footer into ${synced} pages. Verified ${headersVerified} shared headers, ${mainLandmarksVerified} main landmarks, and ${footersVerified} shared footers.`);
+
+require('./tools/build-search.cjs').build();

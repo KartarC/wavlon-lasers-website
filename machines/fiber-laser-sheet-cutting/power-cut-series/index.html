@@ -207,6 +207,7 @@
     <div class="header-actions"><a href="/contact/#quote" class="btn-inquiry">Get a Quote</a></div>
     <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer"><span></span><span></span><span></span></button>
   </div></div>
+  <form class="menu-search" role="search" action="/search" method="get"><label for="menu-search-query">Search Wavlon</label><input id="menu-search-query" name="q" type="search" maxlength="160" placeholder="Machines, guides, materials…"><button type="submit">Search</button></form>
   <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true"><ul class="mobile-nav-list">
     <li><button class="mobile-nav-btn" aria-expanded="false" aria-controls="mobileMachines">Machines <span aria-hidden="true">+</span></button><ul class="mobile-sub" id="mobileMachines">
       <li><a href="/machines/">All Machines</a></li>
@@ -680,7 +681,7 @@
           <h3>PowerCut Series — Quote Request</h3>
           <p>Tell us your material, thickness, and application. We'll recommend the right model and respond within 24 business hours.</p>
         </div>
-        <form id="pqForm">
+        <form id="pqForm"><div class="form-group"><label for="pqForm_country">Installation country (optional)</label><select id="pqForm_country" name="installation_country"><option value="">Not decided / prefer to discuss</option><option value="ca">Canada</option><option value="us">United States</option><option value="other">Other country</option></select></div>
           <div class="quote-form-grid">
             <div class="form-group"><label for="pq_name">Full Name *</label><input type="text" id="pq_name" required placeholder="Jane Smith" name="name" autocomplete="name"></div>
             <div class="form-group"><label for="pq_company">Company</label><input type="text" id="pq_company" placeholder="Company Name" name="organization" autocomplete="organization"></div>
@@ -709,7 +710,7 @@
   </div>
 </section>
 
-</main>
+<section class="discovery-links"><div><h2>Before you commit to a machine</h2><p>Plan the business case, installation location and shop readiness alongside the machine specification.</p><ul><li><a href="/blog/fiber-laser-buying-guide-canadian-regions">Buying a fiber laser across Canada</a></li><li><a href="/blog/fiber-laser-site-preparation-checklist">Site preparation: layout, utilities and installation</a></li><li><a href="/blog/fiber-laser-buy-vs-outsource">Buying versus outsourcing: demand and ownership costs</a></li></ul><p><a href="/blog">Browse all 15 practical buyer and ownership guides</a></p></div></section></main>
 
 <!-- Sticky CTA bar -->
 <div class="sticky-cta-bar" id="stickyCta">
@@ -763,10 +764,10 @@ document.getElementById('pqForm').addEventListener('submit', async function(e) {
         machine_interest: 'PowerCut — ' + document.getElementById('pq_power').value,
         material:         document.getElementById('pq_material').value,
         message:          document.getElementById('pq_message').value,
-        source:           'power-cut-series-page'
+        installation_country: document.getElementById('pqForm_country').value, source: 'power-cut-series-page'
       })
     });
-    if (!res.ok) throw new Error('Server error');
+    if (!res.ok || (await res.json()).success !== true) throw new Error('Server error');
     if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('pqForm');
     document.getElementById('pqFormWrap').style.display = 'none';
     document.getElementById('pqSuccess').style.display = 'block';

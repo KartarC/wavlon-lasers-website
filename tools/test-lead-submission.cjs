@@ -31,3 +31,11 @@ test('invalid request never attempts database insert',async()=>{
  for(const body of [null,{}, {email:[]},{email:'not-an-email'}]){const {res,inserts}=await submit(body);assert.equal(res.code,400);assert.equal(inserts.length,0);}
 });
 test('database failure cannot return successful lead',async()=>{const {res}=await submit({email:'buyer@example.com',source:'contact-page'},true);assert.equal(res.code,500);assert.equal(res.body.success,undefined);});
+
+test('country is retained in CRM message using an allowlist, never an unsupported column',async()=>{
+ for(const [country,label] of [['ca','Canada'],['us','United States'],['other','Other country'],['__proto__',''],['<script>',''],['','']]) {
+  const {res,inserts}=await submit({email:'buyer@example.com',source:'power-cut-series-page',message:'Brackets',installation_country:country});
+  assert.equal(res.code,200);assert.equal(inserts[0].row.message,label ? `Installation country: ${label}\n\nBrackets` : 'Brackets');
+  assert.ok(!('installation_country' in inserts[0].row));
+ }
+});

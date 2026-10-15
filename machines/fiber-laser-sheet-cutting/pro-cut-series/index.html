@@ -447,6 +447,7 @@
     <div class="header-actions"><a href="/contact/#quote" class="btn-inquiry">Get a Quote</a></div>
     <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer"><span></span><span></span><span></span></button>
   </div></div>
+  <form class="menu-search" role="search" action="/search" method="get"><label for="menu-search-query">Search Wavlon</label><input id="menu-search-query" name="q" type="search" maxlength="160" placeholder="Machines, guides, materials…"><button type="submit">Search</button></form>
   <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation" aria-hidden="true"><ul class="mobile-nav-list">
     <li><button class="mobile-nav-btn" aria-expanded="false" aria-controls="mobileMachines">Machines <span aria-hidden="true">+</span></button><ul class="mobile-sub" id="mobileMachines">
       <li><a href="/machines/">All Machines</a></li>
@@ -987,7 +988,7 @@ function switchSeries(n) {
             <h3>ProCut Quote Request</h3>
             <p>Response within 24 business hours.</p>
           </div>
-          <form id="sqForm">
+          <form id="sqForm"><div class="form-group"><label for="sqForm_country">Installation country (optional)</label><select id="sqForm_country" name="installation_country"><option value="">Not decided / prefer to discuss</option><option value="ca">Canada</option><option value="us">United States</option><option value="other">Other country</option></select></div>
             <div class="quote-form-grid">
               <div class="form-group"><label for="sq_name">Full Name *</label><input type="text" id="sq_name" required placeholder="Jane Smith" name="name" autocomplete="name"></div>
               <div class="form-group"><label for="sq_company">Company</label><input type="text" id="sq_company" placeholder="ABC Fabrication" name="organization" autocomplete="organization"></div>
@@ -1233,7 +1234,7 @@ function switchSeries(n) {
             <div class="quote-form-card">
               <div id="sqULFormWrap">
                 <div class="quote-form-head"><h3>ProCut UL Quote Request</h3><p>Response within 24 business hours.</p></div>
-                <form id="sqULForm">
+                <form id="sqULForm"><div class="form-group"><label for="sqULForm_country">Installation country (optional)</label><select id="sqULForm_country" name="installation_country"><option value="">Not decided / prefer to discuss</option><option value="ca">Canada</option><option value="us">United States</option><option value="other">Other country</option></select></div>
                   <div class="quote-form-grid">
                     <div class="form-group"><label for="squl_name">Full Name *</label><input type="text" id="squl_name" required placeholder="Jane Smith" name="name" autocomplete="name"></div>
                     <div class="form-group"><label for="squl_company">Company</label><input type="text" id="squl_company" placeholder="ABC Fabrication" name="organization" autocomplete="organization"></div>
@@ -1320,7 +1321,7 @@ async function postToSupabase(table, data) {
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify(data)
   });
-  if (!res.ok && res.status !== 201) throw new Error('Failed');
+  if (!res.ok || (await res.json()).success !== true) throw new Error('Failed');
 }
 
 /* Quote form */
@@ -1337,7 +1338,7 @@ document.getElementById('sqForm').addEventListener('submit', async function(e) {
       machine_interest: 'ProCut — ' + document.getElementById('sq_power').value,
       material: document.getElementById('sq_material').value,
       message: document.getElementById('sq_message').value,
-      source: 'pro-cut-series-page'
+      installation_country: document.getElementById('sqForm_country').value, source: 'pro-cut-series-page'
     });
     if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('sqForm');
     document.getElementById('sqFormWrap').style.display = 'none';
@@ -1371,10 +1372,10 @@ document.getElementById('sqForm').addEventListener('submit', async function(e) {
           machine_interest: 'ProCut UL — ' + document.getElementById('squl_power').value,
           material:         document.getElementById('squl_material').value,
           message:          document.getElementById('squl_message').value,
-          source:           'pro-cut-series-ul-page'
+          installation_country: document.getElementById('sqULForm_country').value, source: 'pro-cut-series-ul-page'
         })
       });
-      if (!response.ok) throw new Error('Quote request failed');
+      if (!response.ok || (await response.json()).success !== true) throw new Error('Quote request failed');
       if(window.WavlonAnalytics)window.WavlonAnalytics.quoteSuccess('sqULForm');
     document.getElementById('sqULFormWrap').style.display = 'none';
       document.getElementById('sqULSuccess').style.display  = 'block';

@@ -18,6 +18,11 @@
   }
   window.WavlonAnalytics = {
     enable: function () {
+      // Preview traffic and explicitly marked staff tests never load GA4.
+      var production = location.origin === 'https://wavlonlasers.com' || location.origin === 'https://www.wavlonlasers.com';
+      var staffTest = false;
+      try { staffTest = localStorage.getItem('wavlon_measurement_test') === 'true'; } catch(e) {}
+      if (!production || staffTest) return;
       if (enabled || !/^GTM-[A-Z0-9]+$/.test(containerId)) return;
       enabled = true;
       window.dataLayer = window.dataLayer || [];

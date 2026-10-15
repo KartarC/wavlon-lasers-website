@@ -66,6 +66,10 @@ module.exports = async function handler(req, res) {
     payload.machine_interest = data.subject.replace(/^Quote Request\s*[—-]?\s*/, '').trim() || 'Help me choose';
   }
 
+  const countryLabels = {ca:'Canada', us:'United States', other:'Other country'};
+  const country = typeof data.installation_country === 'string' && Object.prototype.hasOwnProperty.call(countryLabels, data.installation_country) ? countryLabels[data.installation_country] : '';
+  if (country) payload.message = `Installation country: ${country}\n\n${payload.message || ''}`;
+
   // Helper — single Supabase insert
   async function insertRow(targetTable, row) {
     const r = await fetch(
