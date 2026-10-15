@@ -2,7 +2,7 @@
 
 October 15, 2026 — Codex
 
-- Industry buyer-intent package complete on codex/industry-buyer-intent from f300a3b; commit/PR pending. Three HTML pages and sitemap plus release documentation.
-- SEO, internal links, quote-selection and mobile checks pass. See documentation/industry-intent-2026-10-15.md for intent map and measurement timeline.
-- PR71 exception was explicitly limited to PR71. This package needs review or a new explicit exception before merge. No production change yet.
-- Next dependency: approved original installation or measured trial evidence. UltraCut indexing retry remains separately scheduled for October 16 noon Toronto.
+- Quote-readiness package prepared on codex/quote-readiness from 0270665 (merged PR72).
+- Three buyer pages, RFQ CSV, sitemap and release documentation; checks pass. Hosted preview pending.
+- Commit/push/PR next; publication follows repository review workflow. Previous approval was specific to PR72.
+- Approved original installation/trial evidence is the next content dependency. UltraCut indexing remains scheduled separately for October 16 noon Toronto.

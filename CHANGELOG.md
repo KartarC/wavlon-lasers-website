@@ -708,3 +708,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Updated industry hub metadata, nine application cards and five buyer answers; removed unsupported customer/capacity/compliance claims. Added quote-scope table and relevant internal links, plus discovery sections on Canada and USA pages.
 - SEO, internal-link/anchor/ID checks, five quote-selection tests and three mobile overflow checks pass; desktop screenshot reviewed. No backend or tracking changes.
 - Branch codex/industry-buyer-intent from f300a3b; commit and PR pending; publication requires review or a specific user-approved exception.
+
+### 2026-10-15 — Codex — Prepare qualified Canada and USA quote requests
+
+- Observed PR72 merged as 0270665; prior local release notes preserved in their worktree.
+- Added RFQ comparison CSV, four buyer answers, Education Center buyer toolkit and cost-guide link. Updated relevant sitemap dates.
+- SEO, five quote-selection tests, links/fragments, IDs and CSV structure pass. Local browser loopback preview unavailable; hosted preview pending.
+- Branch codex/quote-readiness from origin/main 0270665. Publication pending reviewed PR.
