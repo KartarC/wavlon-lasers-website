@@ -701,3 +701,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Qualified contradictory electrical/compliance, option and response-time wording on touched machine pages. No API, CRM, tracking or routing changes.
 - SEO, shared-layout sync, five quote-selection tests, generator syntax and mobile overflow checks pass; desktop section reviewed. Baseline and next measurements in documentation/qualified-buyers-2026-10-15.md.
 - Branch codex/qualified-buyer-guides from e3f1730. Local review completed; commit, PR and deployment pending.
+
+### 2026-10-15 — Codex — Connect Canada and USA buyers with industry guidance
+
+- Observed PR71 merged as f300a3b after explicit user approval; prior local release notes preserved in their worktree.
+- Updated industry hub metadata, nine application cards and five buyer answers; removed unsupported customer/capacity/compliance claims. Added quote-scope table and relevant internal links, plus discovery sections on Canada and USA pages.
+- SEO, internal-link/anchor/ID checks, five quote-selection tests and three mobile overflow checks pass; desktop screenshot reviewed. No backend or tracking changes.
+- Branch codex/industry-buyer-intent from f300a3b; commit and PR pending; publication requires review or a specific user-approved exception.
