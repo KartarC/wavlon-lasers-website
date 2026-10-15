@@ -2,8 +2,7 @@
 
 October 15, 2026 — Codex
 
-- Production remains PR75 / f40070e. New changes on codex/sheet-market-buyers.
-- Sheet hub updated for Canada/USA intent, three buyer answers, quote preparation table and consistent configuration-based descriptions/schema. Existing machine-specific quote links retained.
-- SEO, quote-selection, fragments, IDs and shared-layout checks pass. Next: hosted mobile/desktop preview, quote navigation and reviewed PR.
-- Owner replied “Not yet” to installation/sample-cut publication evidence. Do not add unapproved cases.
-- UltraCut indexing retry remains October 16 noon Toronto.
+- Production remains PR76 / 6a83396. New work on codex/education-buyer-paths.
+- Education Center now groups 12 question links by buyer intent, integrates investment/U.S. guides and machine comparisons, and aligns CollectionPage schema with 24 visible destinations.
+- SEO, quote-selection, fragments/IDs, shared layout and schema visibility checks pass. Next: hosted visual/quote navigation verification and reviewed PR.
+- Owner has not yet approved installation/sample-cut case studies. UltraCut indexing retry remains October 16 noon Toronto.
