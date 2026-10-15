@@ -2,7 +2,7 @@
 
 October 15, 2026 — Codex
 
-- Quote-readiness package prepared on codex/quote-readiness from 0270665 (merged PR72).
-- Three buyer pages, RFQ CSV, sitemap and release documentation; checks pass. Hosted preview pending.
-- Commit/push/PR next; publication follows repository review workflow. Previous approval was specific to PR72.
-- Approved original installation/trial evidence is the next content dependency. UltraCut indexing remains scheduled separately for October 16 noon Toronto.
+- Showcase accuracy package prepared on codex/showcase-accuracy from a687f1b (PR73). Commit and PR next; hosted visual check pending.
+- SEO, quote-selection, links/assets/fragments and shared-layout checks pass. Search baseline and rationale in documentation/showcase-accuracy-2026-10-15.md.
+- Prior review exception was specific to PR73. Production unchanged in this task.
+- Next evidence dependency: original approved installation or cutting-trial results. UltraCut indexing retry remains separately scheduled for October 16 noon Toronto.
