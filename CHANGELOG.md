@@ -743,3 +743,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Added 12 buyer-question navigation links, integrated investment and U.S. resources, direct machine comparisons and Canada/USA metadata. Synchronized CollectionPage directory with 24 visible destinations; moved ownership support after buying topics.
 - SEO, five quote-selection tests, fragments/IDs, section balance, schema visibility and unchanged shared-layout checks pass. Hosted preview pending. No forms, backend or tracking changes.
 - Branch codex/education-buyer-paths; reviewed PR publication pending.
+
+### 2026-10-15 — Codex — Carry installation context into quote requests
+
+- Observed PR77 merged as ec13e63; prior worktree release notes preserved.
+- Added optional installation country and city/province/state fields to contact form. Country-guide main quote links preselect Canada or USA; buyers can change/clear. Context stays in existing CRM message with no schema or analytics change.
+- Four new context/form failure-retry tests and 14 existing API/model/analytics checks pass; 73-route SEO passes. Hosted preview pending. No real form submissions or email tests.
+- Branch codex/quote-location-context; reviewed PR publication pending.
