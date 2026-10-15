@@ -1,0 +1,25 @@
+﻿Section,Field,Trial A,Trial B,Units / evidence / agreed requirement
+Identification,Job and drawing revision,,,Record measured values separately from estimates
+Identification,Machine and configuration,,,Record measured values separately from estimates
+Identification,Trial date and operator,,,Record measured values separately from estimates
+Identification,Material grade and batch,,,Record measured values separately from estimates
+Identification,Thickness or profile dimensions,,,Record measured values separately from estimates
+Identification,Raw stock size and weight,,,Record measured values separately from estimates
+Identification,Assist gas and process notes,,,Record measured values separately from estimates
+Acceptance,Critical dimensions and tolerances,,,Record measured values separately from estimates
+Acceptance,Edge and finish requirements,,,Record measured values separately from estimates
+Acceptance,Downstream fit / operation,,,Record measured values separately from estimates
+Acceptance,Inspection method and instrument,,,Record measured values separately from estimates
+Acceptance,Repeat sample count,,,Record measured values separately from estimates
+Measured results,Parts attempted,,,Record measured values separately from estimates
+Measured results,Acceptable parts after finishing,,,Record measured values separately from estimates
+Measured results,Cutting time,,,Record measured values separately from estimates
+Measured results,Loading and unloading time,,,Record measured values separately from estimates
+Measured results,Sorting and finishing time,,,Record measured values separately from estimates
+Measured results,Material used and remnant,,,Record measured values separately from estimates
+Measured results,Measured dimensions,,,Record measured values separately from estimates
+Measured results,Edge / fit observations,,,Record measured values separately from estimates
+Decision,Accepted / retest / not evaluated,,,Record measured values separately from estimates
+Decision,Untested conditions,,,Record measured values separately from estimates
+Decision,Open issues and owner,,,Record measured values separately from estimates
+Decision,Next review date,,,Record measured values separately from estimates
