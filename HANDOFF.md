@@ -1,8 +1,8 @@
 # Current Handoff
 
-October 14, 2026 — Codex
+October 15, 2026 — Codex
 
-- Branch codex/seo-buyer-priorities based on main cbf56d6. Financing, cost, Canada, USA and tube category improvements ready.
-- Added /assets/fiber-laser-budget-worksheet.csv and scoped purchase-planning.css. Existing 40 buyer answers retained. No new finance rates, availability guarantees or performance promises.
-- SEO, responsive, navigation and 10 existing API/quote-selection tests pass. Final diff reviewed; commit, PR and deployment verification pending.
-- Prior worktree release notes preserved. Indexing-request errors remain a separate Google issue.
+- Qualified-buyer content changes ready on codex/qualified-buyer-guides from e3f1730; reviewed and validated.
+- Four pages, one CSV, generator and sitemap changed. See documentation/qualified-buyers-2026-10-15.md. No backend, CRM or tracking changes.
+- Commit/PR/production verification pending. Prior worktree changes preserved.
+- UltraCut indexing retry remains scheduled separately for October 16 at noon Toronto. Do not duplicate it.

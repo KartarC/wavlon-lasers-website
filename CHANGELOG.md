@@ -694,3 +694,10 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Five pages plus two static assets; no backend, CRM, tracking or form-handler changes. Existing 40 buyer answers preserved. Sitemap dates already October 14 for touched pages.
 - Validation: 73-route SEO check, 78 shared-layout sync, 10 existing API/quote-selection tests, five pages at mobile/desktop widths, internal links/anchors, enquiry navigation and no-JavaScript content checks pass. Screenshots reviewed.
 - Final diff reviewed locally; commit, PR and production verification pending.
+
+### 2026-10-15 — Codex — Improve machine buyer guidance and trial-to-quote paths
+
+- Added PowerCut and Double Chuck buyer guidance, sample-cut CSV worksheet and targeted enquiry links, plus ProCutter head/machine clarification in page and generator. Updated four sitemap dates.
+- Qualified contradictory electrical/compliance, option and response-time wording on touched machine pages. No API, CRM, tracking or routing changes.
+- SEO, shared-layout sync, five quote-selection tests, generator syntax and mobile overflow checks pass; desktop section reviewed. Baseline and next measurements in documentation/qualified-buyers-2026-10-15.md.
+- Branch codex/qualified-buyer-guides from e3f1730. Local review completed; commit, PR and deployment pending.
