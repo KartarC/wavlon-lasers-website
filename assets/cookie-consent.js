@@ -28,6 +28,18 @@
       var script=document.createElement('script'); script.async=true;
       script.src='https://www.googletagmanager.com/gtm.js?id='+containerId;
       document.head.appendChild(script);
+      // Manual Ads base tag: retain the existing denied advertising consent.
+      // Do not also configure this destination in GTM.
+      if (location.origin === 'https://wavlonlasers.com' || location.origin === 'https://www.wavlonlasers.com') {
+        window.gtag('js', new Date());
+        window.gtag('config', 'AW-18520923229', {
+          page_location: pageUrl(), page_referrer: safeReferrer(),
+          allow_ad_personalization_signals: false
+        });
+        var adsScript = document.createElement('script'); adsScript.async = true;
+        adsScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18520923229';
+        document.head.appendChild(adsScript);
+      }
     },
     quoteSuccess: function (formId, leadType) {
       if (!enabled || forms.indexOf(formId) === -1 || sent[formId]) return;
@@ -131,7 +143,7 @@
   var bar = document.createElement('div');
   bar.id = 'wl-cookie-bar';
   bar.innerHTML = `
-    <p>We use essential cookies to operate this website. By clicking <strong>"Accept All"</strong>, you also allow Google Analytics to measure visits and enquiries. Advertising tracking is currently inactive. See our <a href="/cookies/">Cookie Policy</a> and <a href="/privacy/">Privacy Policy</a>.</p>
+    <p>We use essential cookies to operate this website. By clicking <strong>"Accept All"</strong>, you also allow Google Analytics to measure visits and enquiries and the Google Ads tag to load with advertising consent denied. It may send cookieless measurement signals; advertising cookies and personalization remain disabled. See our <a href="/cookies/">Cookie Policy</a> and <a href="/privacy/">Privacy Policy</a>.</p>
     <div class="wl-cookie-btns">
       <button class="wl-cookie-btn essential" id="wl-cookie-ess">Essential Only</button>
       <button class="wl-cookie-btn accept"    id="wl-cookie-all">Accept All</button>
