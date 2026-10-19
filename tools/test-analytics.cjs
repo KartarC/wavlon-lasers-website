@@ -17,7 +17,16 @@ test('consent refusal sends no data and loads no container',()=>{
 });
 test('one container and one sanitized page view after repeated enable',()=>{
   const x=boot(true); x.window.WavlonAnalytics.enable();
-  assert.equal(x.scripts.length,1); assert.match(x.scripts[0].src,/gtm.js\?id=GTM-KXFXRNWZ$/);
+  assert.equal(x.scripts.length,2); assert.match(x.scripts[0].src,/gtm.js\?id=GTM-KXFXRNWZ$/);
+  assert.equal(x.scripts[1].src,'https://www.googletagmanager.com/gtag/js?id=AW-18520923229');
+  const configs=x.window.dataLayer.filter(x=>x[0]==='config');
+  assert.equal(configs.length,1); assert.equal(configs[0][1],'AW-18520923229');
+  assert.equal(configs[0][2].page_location,'https://wavlonlasers.com/contact');
+  assert.equal(configs[0][2].page_referrer,'https://example.com/');
+  assert.equal(configs[0][2].allow_ad_personalization_signals,false);
+  assert.equal(x.window.dataLayer[0][2].ad_user_data,'denied');
+  assert.equal(x.window.dataLayer[0][2].ad_personalization,'denied');
+  assert.equal(x.window.dataLayer.filter(x=>x[0]==='consent').length,1);
   assert.equal(x.events().length,1); assert.equal(x.events()[0].event,'page_view');
   assert.equal(x.events()[0].page_location,'https://wavlonlasers.com/contact');
   assert.equal(x.events()[0].page_referrer,'https://example.com/');

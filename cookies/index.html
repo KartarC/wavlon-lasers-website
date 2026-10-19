@@ -162,10 +162,10 @@
         <tr><td>Google Analytics 4</td><td>_ga, _ga_*</td><td>Measures visits, successful machine quote requests, and phone or email link clicks to improve site content</td><td>Up to 2 years</td></tr>
       </tbody>
     </table>
-    <p><strong>Status:</strong> Google Analytics loads only after you accept analytics cookies. Choosing Essential Only prevents it from loading. Google Tag Manager and advertising tracking are not active.</p>
+    <p><strong>Status:</strong> Google Tag Manager loads Google Analytics after analytics consent. The Google Ads base tag also loads after that consent, with ad_storage, ad_user_data and ad_personalization kept denied. It may send cookieless measurement signals; advertising cookies and personalization remain disabled. Essential Only prevents these tags from loading. Facebook Pixel remains inactive.</p>
 
     <h3>Marketing &amp; Advertising Cookies <span class="cookie-badge badge-marketing">Consent Required</span></h3>
-    <p>These cookies enable us to show you relevant advertising on platforms like Facebook and Instagram. They are only activated after you click <strong>"Accept All"</strong>.</p>
+    <p>Advertising cookies and personalized advertising are disabled in the current implementation, including after Accept All.</p>
     <table class="cookie-table">
       <thead><tr><th>Provider</th><th>Cookie / Technology</th><th>Purpose</th><th>Duration</th></tr></thead>
       <tbody>
@@ -177,7 +177,7 @@
     <h2>3. How We Obtain Consent</h2>
     <p>When you first visit our site, a cookie banner is displayed at the bottom of the screen. You may:</p>
     <ul>
-      <li><strong>Accept All</strong> — enables essential and analytics cookies. Advertising tracking is currently inactive.</li>
+      <li><strong>Accept All</strong> — enables essential and analytics cookies. The Google Ads tag may send cookieless measurement signals with advertising consent denied. Advertising cookies and personalization remain disabled.</li>
       <li><strong>Essential Only</strong> — enables only cookies required for site operation.</li>
     </ul>
     <p>Your choice is saved in your browser's localStorage under the key <code>wavlon_cookie_consent</code>. The banner will not appear again unless you clear your browser data.</p>

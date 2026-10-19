@@ -1,7 +1,5 @@
 # Current Handoff
 
-October 15, 2026 — Codex
+October 19, 2026 — Codex
 
-- Production remains PR77 / ec13e63. New work on codex/quote-location-context adds optional installation country and city fields and country-guide prefill.
-- Context is preserved in existing CRM message; no API/schema/analytics changes. Four new tests plus 14 existing tests and SEO pass. Next: hosted mobile/prefill verification and reviewed PR.
-- No live form submissions or email tests. Owner has not approved case-study evidence. UltraCut indexing retry remains October 16 noon Toronto.
+Branch codex/manual-google-ads-tag starts at current origin/main (PR78). PR79 remains separate and unmerged. Manual Ads base tag AW-18520923229 is consent-gated in the shared loader, with advertising consent still denied and GA4 unchanged. Disclosures updated; four analytics tests and SEO pass. No Google Ads conversion event configured. Browser account/campaign verification remains blocked by approval-service capacity. Review PR before production merge. Test production detection after analytics consent; no-consent scanners may not detect it. Do not add the same Ads destination in GTM too.

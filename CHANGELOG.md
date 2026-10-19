@@ -750,3 +750,9 @@ Append one entry per completed unit of work. Newest entries go first. This file 
 - Added optional installation country and city/province/state fields to contact form. Country-guide main quote links preselect Canada or USA; buyers can change/clear. Context stays in existing CRM message with no schema or analytics change.
 - Four new context/form failure-retry tests and 14 existing API/model/analytics checks pass; 73-route SEO passes. Hosted preview pending. No real form submissions or email tests.
 - Branch codex/quote-location-context; reviewed PR publication pending.
+
+### 2026-10-19 — Codex — Manual Google Ads base tag
+
+- Added AW-18520923229 to shared consent-gated loader, retaining existing GA4/GTM configuration and denied advertising consent signals. No conversion label or Ads conversion event added.
+- Sanitized Ads page/referrer URLs, production-only Ads loading and once-only initialization. Updated disclosures for cookieless signals. No account/tag merge or campaign action.
+- Four analytics tests and 73-route SEO checks pass. Publication requires reviewed PR; not deployed.
